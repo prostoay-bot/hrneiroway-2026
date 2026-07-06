@@ -7,6 +7,11 @@ const approachDetail = document.querySelector(".approach-detail");
 const approachModal = document.querySelector(".approach-modal");
 const approachCloseControls = document.querySelectorAll("[data-approach-close]");
 const diagnosticBook = document.querySelector("[data-diagnostic]");
+const usefulMaterialButtons = document.querySelectorAll("[data-useful-material]");
+const usefulMailModal = document.querySelector(".useful-mail-modal");
+const usefulMailDialog = document.querySelector(".useful-mail-dialog");
+const usefulMailCloseControls = document.querySelectorAll("[data-useful-close]");
+const usefulMailSignature = document.querySelector(".useful-mail__signature");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeaderState = () => {
@@ -15,6 +20,28 @@ const updateHeaderState = () => {
 
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+if (usefulMailSignature) {
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    usefulMailSignature.classList.add("is-visible");
+  } else {
+    const usefulSignatureObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          usefulSignatureObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    usefulSignatureObserver.observe(usefulMailSignature);
+  }
+}
 
 if (clarityFrame) {
   if (reduceMotion) {
@@ -180,6 +207,104 @@ if (approachSection) {
     window.addEventListener("scroll", requestApproachUpdate, { passive: true });
     window.addEventListener("resize", requestApproachUpdate);
   }
+}
+
+const usefulMaterials = {
+  prompts: {
+    number: "Письмо 01",
+    title: "HR-промты",
+    text: "Готовые формулировки для рассылок, инструкций и внутренних коммуникаций.",
+    action: "Скачать материал",
+    href: "https://hrneiroway.ru/hr-prompts.pdf",
+  },
+  canva: {
+    number: "Письмо 02",
+    title: "Шаблоны гайда в Canva",
+    text: "Основа для чек-листов, мини-гайдов и аккуратных PDF-материалов.",
+    action: "Открыть шаблоны",
+    href: "https://canva.link/qrfjbz38egi6h25",
+  },
+  stickers: {
+    number: "Письмо 03",
+    title: "Офисные стикеры",
+    text: "Набор удобных стикеров для рабочих материалов и внутренних заметок.",
+    action: "Открыть в Telegram",
+    href: "https://t.me/addstickers/hr_ne_v_resurse",
+  },
+  support: {
+    number: "Письмо поддержки",
+    title: "У вас всё получится",
+    text: "Не обязательно решать всё сразу. Выберите один понятный следующий шаг — и система начнёт складываться.",
+  },
+  steps: {
+    number: "Небольшое напоминание",
+    title: "Маленькие шаги тоже считаются",
+    text: "Хороший результат начинается не с идеального документа, а с ясной мысли и первого аккуратного действия.",
+  },
+};
+
+if (usefulMailModal && usefulMailDialog) {
+  const usefulDialogNumber = usefulMailDialog.querySelector(
+    ".useful-mail-dialog__number"
+  );
+  const usefulDialogTitle = usefulMailDialog.querySelector("h3");
+  const usefulDialogText = usefulMailDialog.querySelector(
+    ".useful-mail-dialog__text"
+  );
+  const usefulDialogAction = usefulMailDialog.querySelector(
+    ".useful-mail-dialog__action"
+  );
+  let usefulMailTrigger = null;
+
+  const closeUsefulMail = () => {
+    usefulMailModal.classList.remove("is-open");
+    usefulMailModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("has-useful-modal");
+    usefulMailTrigger?.focus();
+  };
+
+  const openUsefulMail = (button) => {
+    const material = usefulMaterials[button.dataset.usefulMaterial];
+
+    if (!material) {
+      return;
+    }
+
+    usefulMailTrigger = button;
+    usefulDialogNumber.textContent = material.number;
+    usefulDialogTitle.textContent = material.title;
+    usefulDialogText.textContent = material.text;
+    if (material.href) {
+      usefulDialogAction.hidden = false;
+      usefulDialogAction.textContent = material.action;
+      usefulDialogAction.insertAdjacentHTML(
+        "beforeend",
+        ' <span aria-hidden="true">↗</span>'
+      );
+      usefulDialogAction.href = material.href;
+    } else {
+      usefulDialogAction.hidden = true;
+      usefulDialogAction.removeAttribute("href");
+    }
+    usefulMailModal.classList.add("is-open");
+    usefulMailModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("has-useful-modal");
+    window.requestAnimationFrame(() => usefulMailDialog.focus());
+  };
+
+  usefulMaterialButtons.forEach((button) => {
+    button.addEventListener("click", () => openUsefulMail(button));
+  });
+
+  usefulMailCloseControls.forEach((control) => {
+    control.addEventListener("click", closeUsefulMail);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && usefulMailModal.classList.contains("is-open")) {
+      closeUsefulMail();
+    }
+  });
 }
 
 if (approachNotes.length && approachDetail && approachModal) {

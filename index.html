@@ -442,7 +442,137 @@
           </div>
         </div>
       </section>
+
+      <section class="useful-mail" id="useful" aria-labelledby="useful-mail-title">
+        <div class="useful-mail__marker">
+          <span>[06]</span>
+          <p>Полезное</p>
+        </div>
+
+        <p class="useful-mail__eyebrow">[ Здесь кое-что полезное и приятное для вас ]</p>
+        <h2 id="useful-mail-title">
+          <span>Нажмите на любое <em>письмо</em></span>
+          <span>и получите <em>материал</em></span>
+        </h2>
+
+        <div class="useful-mail__letters" aria-label="Бесплатные материалы">
+          <button
+            class="useful-letter useful-letter--prompts"
+            type="button"
+            data-useful-material="prompts"
+            aria-haspopup="dialog"
+          >
+            <span class="useful-letter__icon" aria-hidden="true">
+              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
+              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
+            </span>
+            <span class="useful-letter__label">[ HR-промты ]</span>
+          </button>
+
+          <button
+            class="useful-letter useful-letter--canva"
+            type="button"
+            data-useful-material="canva"
+            aria-haspopup="dialog"
+          >
+            <span class="useful-letter__icon" aria-hidden="true">
+              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
+              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
+            </span>
+            <span class="useful-letter__label">[ Шаблоны гайда ]</span>
+          </button>
+
+          <button
+            class="useful-letter useful-letter--stickers"
+            type="button"
+            data-useful-material="stickers"
+            aria-haspopup="dialog"
+          >
+            <span class="useful-letter__icon" aria-hidden="true">
+              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
+              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
+            </span>
+            <span class="useful-letter__label">[ Офисные стикеры ]</span>
+          </button>
+
+          <button
+            class="useful-letter useful-letter--support"
+            type="button"
+            data-useful-material="support"
+            aria-haspopup="dialog"
+          >
+            <span class="useful-letter__icon" aria-hidden="true">
+              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
+              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
+            </span>
+            <span class="useful-letter__label">[ Сюрприз для тебя ]</span>
+          </button>
+
+          <button
+            class="useful-letter useful-letter--steps"
+            type="button"
+            data-useful-material="steps"
+            aria-haspopup="dialog"
+          >
+            <span class="useful-letter__icon" aria-hidden="true">
+              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
+              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
+            </span>
+            <span class="useful-letter__label">[ Тут ещё кое-что для тебя ]</span>
+          </button>
+        </div>
+
+        <div class="useful-mail__signature">
+          <img
+            src="./assets/images/marina-useful.png"
+            alt="Марина Голяева"
+            loading="lazy"
+          />
+          <p>Заберите то, что пригодится именно сейчас</p>
+        </div>
+
+        <img
+          class="useful-mail__heart"
+          src="./assets/images/heart-wine.svg"
+          alt=""
+          aria-hidden="true"
+        />
+
+        <div class="useful-mail-modal" aria-hidden="true">
+          <div class="useful-mail-modal__backdrop" data-useful-close></div>
+          <article
+            class="useful-mail-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="useful-dialog-title"
+            tabindex="-1"
+          >
+            <button
+              class="useful-mail-dialog__close"
+              type="button"
+              aria-label="Закрыть письмо"
+              data-useful-close
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+            <span class="useful-mail-dialog__number">Письмо 01</span>
+            <p class="useful-mail-dialog__caption">Внутри — готовый материал</p>
+            <h3 id="useful-dialog-title">HR-промты</h3>
+            <p class="useful-mail-dialog__text">
+              Готовые формулировки для рассылок, инструкций и внутренних коммуникаций.
+            </p>
+            <a
+              class="useful-mail-dialog__action"
+              href="https://hrneiroway.ru/hr-prompts.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Скачать материал <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </section>
     </main>
-    <script src="./script.js?v=20260706a"></script>
+    <script src="./script.js?v=20260706b"></script>
   </body>
 </html>

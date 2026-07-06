@@ -2133,6 +2133,377 @@ body.has-approach-modal {
   background: var(--accent-wine);
 }
 
+.useful-mail {
+  position: relative;
+  min-height: min(740px, 82svh);
+  margin-top: clamp(110px, 10vw, 180px);
+  padding: clamp(44px, 5vw, 76px) clamp(30px, 6vw, 96px);
+  overflow: hidden;
+  color: var(--bg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 24.95%,
+      rgba(255, 252, 239, 0.08) 25%,
+      transparent 25.05%,
+      transparent 49.95%,
+      rgba(255, 252, 239, 0.08) 50%,
+      transparent 50.05%,
+      transparent 74.95%,
+      rgba(255, 252, 239, 0.08) 75%,
+      transparent 75.05%
+    ),
+    #70866a;
+}
+
+.useful-mail__marker {
+  position: absolute;
+  top: clamp(34px, 4vw, 58px);
+  left: clamp(30px, 6vw, 96px);
+  display: flex;
+  gap: 16px;
+  color: rgba(255, 252, 239, 0.78);
+  font: 600 12px/1.2 "Manrope", sans-serif;
+  text-transform: uppercase;
+}
+
+.useful-mail__marker p {
+  margin: 0;
+}
+
+.useful-mail__eyebrow {
+  position: absolute;
+  top: clamp(36px, 5vw, 74px);
+  right: clamp(30px, 6vw, 96px);
+  margin: 0;
+  font: italic 400 clamp(18px, 1.8vw, 28px) / 1.2 "Cormorant Garamond",
+    serif;
+}
+
+.useful-mail h2 {
+  position: absolute;
+  left: clamp(30px, 6vw, 96px);
+  bottom: clamp(44px, 5vw, 72px);
+  z-index: 1;
+  max-width: 780px;
+  margin: 0;
+  color: var(--bg);
+  font: 400 clamp(44px, 4.2vw, 68px) / 0.92 "Canela", "Cormorant Garamond",
+    serif;
+  letter-spacing: 0;
+}
+
+.useful-mail h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.useful-mail h2 em {
+  color: var(--accent-wine);
+  font-style: normal;
+}
+
+.useful-mail__letters {
+  position: absolute;
+  inset: 92px clamp(28px, 5vw, 80px) 146px;
+}
+
+.useful-letter {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px;
+  border: 0;
+  color: var(--bg);
+  background: transparent;
+  font: italic 400 clamp(17px, 1.6vw, 25px) / 1.2 "Cormorant Garamond",
+    serif;
+  cursor: pointer;
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease;
+}
+
+.useful-letter--prompts {
+  top: 8%;
+  left: 9%;
+  transform: rotate(-5deg);
+}
+
+.useful-letter--canva {
+  top: 32%;
+  right: 3%;
+  transform: rotate(4deg);
+}
+
+.useful-letter--stickers {
+  right: 29%;
+  bottom: 8%;
+  transform: rotate(-3deg);
+}
+
+.useful-letter--support {
+  top: 43%;
+  left: 3%;
+  transform: rotate(4deg);
+}
+
+.useful-letter--steps {
+  top: 0;
+  right: 11%;
+  transform: rotate(-2deg);
+}
+
+.useful-letter__icon {
+  position: relative;
+  display: block;
+  width: clamp(88px, 9vw, 150px);
+  aspect-ratio: 1.25;
+}
+
+.useful-letter--prompts .useful-letter__icon {
+  transform: scaleX(1.18);
+}
+
+.useful-letter--canva .useful-letter__icon {
+  transform: scale(0.9, 1.08);
+}
+
+.useful-letter--stickers .useful-letter__icon {
+  transform: scaleX(1.34);
+}
+
+.useful-letter--support .useful-letter__icon {
+  transform: scale(0.86, 1.14);
+}
+
+.useful-letter--steps .useful-letter__icon {
+  transform: scaleX(1.22);
+}
+
+.useful-letter--support .useful-letter__label,
+.useful-letter--steps .useful-letter__label {
+  color: var(--accent-wine);
+  font-size: 0.84em;
+}
+
+.useful-letter__icon img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms ease;
+}
+
+.useful-letter__open {
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+}
+
+.useful-letter:hover,
+.useful-letter:focus-visible {
+  transform: rotate(0) translateY(-6px);
+}
+
+.useful-letter:hover .useful-letter__closed,
+.useful-letter:focus-visible .useful-letter__closed {
+  opacity: 0;
+  transform: translateY(-5px) scale(0.94);
+}
+
+.useful-letter:hover .useful-letter__open,
+.useful-letter:focus-visible .useful-letter__open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.useful-letter:focus-visible {
+  outline: 1px solid var(--bg);
+  outline-offset: 5px;
+}
+
+.useful-letter__label {
+  white-space: nowrap;
+}
+
+.useful-mail__signature {
+  position: absolute;
+  right: clamp(30px, 6vw, 96px);
+  bottom: clamp(34px, 4vw, 58px);
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 800ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.useful-mail__signature.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.useful-mail__signature img {
+  width: 150px;
+  height: 190px;
+  border: 1px solid rgba(255, 252, 239, 0.48);
+  object-fit: cover;
+  object-position: 50% 22%;
+  box-shadow: 0 14px 34px rgba(26, 43, 32, 0.16);
+  transform: rotate(1.5deg);
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 500ms ease;
+}
+
+.useful-mail__signature:hover img {
+  transform: translateY(-5px) rotate(-0.5deg);
+  box-shadow: 0 22px 44px rgba(26, 43, 32, 0.2);
+}
+
+.useful-mail__signature p {
+  order: -1;
+  margin: 0 0 2px;
+  color: rgba(255, 252, 239, 0.8);
+  font: 500 12px/1.4 "Manrope", sans-serif;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.useful-mail__heart {
+  position: absolute;
+  right: clamp(250px, 21vw, 380px);
+  bottom: clamp(42px, 5vw, 74px);
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  opacity: 0.8;
+  transform: rotate(-8deg);
+}
+
+.useful-mail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 320ms ease,
+    visibility 320ms ease;
+}
+
+.useful-mail-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.useful-mail-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 22, 19, 0.78);
+  backdrop-filter: blur(7px);
+}
+
+.useful-mail-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(690px, 100%);
+  min-height: 510px;
+  padding: clamp(46px, 6vw, 82px);
+  border: 1px solid rgba(10, 52, 40, 0.14);
+  color: var(--emerald);
+  background:
+    linear-gradient(rgba(10, 52, 40, 0.06) 1px, transparent 1px),
+    var(--bg);
+  background-size: 100% 46px, auto;
+  box-shadow: 0 30px 90px rgba(9, 18, 14, 0.28);
+  transform: translateY(22px) scale(0.98);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.useful-mail-modal.is-open .useful-mail-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.useful-mail-dialog__close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(10, 52, 40, 0.18);
+  border-radius: 50%;
+  color: var(--emerald);
+  background: rgba(255, 255, 255, 0.42);
+  font: 300 29px/1 "Manrope", sans-serif;
+  cursor: pointer;
+}
+
+.useful-mail-dialog__number,
+.useful-mail-dialog__caption {
+  display: block;
+  margin: 0;
+  color: var(--accent-wine);
+  font: 700 11px/1.3 "Manrope", sans-serif;
+  text-transform: uppercase;
+}
+
+.useful-mail-dialog__caption {
+  margin-top: 28px;
+  color: rgba(10, 52, 40, 0.58);
+}
+
+.useful-mail-dialog h3 {
+  max-width: 550px;
+  margin: 14px 0 0;
+  font: 400 clamp(50px, 6vw, 78px) / 0.95 "Canela", "Cormorant Garamond",
+    serif;
+  letter-spacing: 0;
+}
+
+.useful-mail-dialog__text {
+  max-width: 510px;
+  margin: 28px 0 0;
+  color: rgba(30, 43, 54, 0.78);
+  font: 400 17px/1.6 "Manrope", sans-serif;
+}
+
+.useful-mail-dialog__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-width: 240px;
+  min-height: 54px;
+  margin-top: 46px;
+  padding: 0 18px;
+  border: 1px solid var(--accent-wine);
+  border-radius: 14px;
+  color: var(--white);
+  background: var(--accent-wine);
+  font: 700 13px/1 "Manrope", sans-serif;
+  text-decoration: none;
+}
+
+.useful-mail-dialog__action[hidden] {
+  display: none;
+}
+
+body.has-useful-modal {
+  overflow: hidden;
+}
+
 @media (max-width: 1100px) {
   .hero {
     min-height: 100svh;
@@ -2391,6 +2762,116 @@ body.has-approach-modal {
 }
 
 @media (max-width: 760px) {
+  .useful-mail {
+    min-height: 860px;
+    margin-top: 92px;
+    padding: 106px 20px 42px;
+  }
+
+  .useful-mail__marker,
+  .useful-mail__eyebrow,
+  .useful-mail h2,
+  .useful-mail__letters,
+  .useful-mail__signature {
+    position: relative;
+    inset: auto;
+  }
+
+  .useful-mail__heart {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 36px;
+    height: 36px;
+    margin: 20px 0 0 auto;
+  }
+
+  .useful-mail__marker {
+    position: relative;
+    inset: auto;
+    gap: 12px;
+  }
+
+  .useful-mail__eyebrow {
+    margin-top: 62px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .useful-mail h2 {
+    margin-top: 28px;
+    font-size: clamp(31px, 8vw, 36px);
+    line-height: 0.94;
+  }
+
+  .useful-mail__letters {
+    display: grid;
+    gap: 16px;
+    margin-top: 54px;
+  }
+
+  .useful-letter,
+  .useful-letter--prompts,
+  .useful-letter--canva,
+  .useful-letter--stickers,
+  .useful-letter--support,
+  .useful-letter--steps {
+    position: relative;
+    inset: auto;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 96px;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255, 252, 239, 0.22);
+    transform: none;
+  }
+
+  .useful-letter__icon {
+    width: 74px;
+    flex: 0 0 74px;
+    transform: none;
+  }
+
+  .useful-letter__label {
+    font-size: 22px;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .useful-mail__signature {
+    justify-content: flex-end;
+    margin: 36px 0 0 auto;
+  }
+
+  .useful-mail__signature img {
+    width: 112px;
+    height: 142px;
+  }
+
+  .useful-mail__signature p {
+    max-width: 210px;
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .useful-mail-dialog {
+    min-height: 0;
+    padding: 64px 26px 34px;
+  }
+
+  .useful-mail-dialog h3 {
+    font-size: clamp(44px, 13vw, 58px);
+  }
+
+  .useful-mail-dialog__text {
+    font-size: 15px;
+  }
+
+  .useful-mail-dialog__action {
+    width: 100%;
+    margin-top: 36px;
+  }
+
   .familiar {
     margin-top: 48px;
     padding: 88px 22px 76px;
@@ -2899,6 +3380,15 @@ body.has-approach-modal {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .useful-letter,
+  .useful-letter__icon img,
+  .useful-mail__signature,
+  .useful-mail__signature img,
+  .useful-mail-modal,
+  .useful-mail-dialog {
+    transition: none;
+  }
+
   .clarity-frame h2,
   .clarity-frame p,
   .clarity-frame__bracket {
