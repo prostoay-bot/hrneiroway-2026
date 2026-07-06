@@ -284,7 +284,7 @@
               aria-controls="approach-detail"
             >
               <span class="approach-note__number">03</span>
-              <span class="approach-note__title">Сначала выстраиваю структуру</span>
+              <span class="approach-note__title">Сначала выстраиваю<br>структуру</span>
             </button>
 
             <button
@@ -323,7 +323,126 @@
           </article>
         </div>
       </section>
+
+      <section class="diagnostic" id="diagnostic" aria-labelledby="diagnostic-title">
+        <header class="diagnostic__header">
+          <div class="diagnostic__marker">
+            <span>[05]</span>
+            <p>Бесплатная HR-диагностика</p>
+          </div>
+
+          <div class="diagnostic__heading">
+            <h2 id="diagnostic-title">Найдите слабое место в адаптации сотрудников за 2 минуты</h2>
+            <p>
+              Ответьте на 8 вопросов и получите оценку системы адаптации: баллы, риски
+              и рекомендации по улучшению внутренних материалов.
+            </p>
+          </div>
+
+          <ul class="diagnostic__benefits">
+            <li>Покажет, где сотрудники теряют время</li>
+            <li>Выявит повторяющиеся вопросы и пробелы в инструкциях</li>
+            <li>Подскажет, что поможет: welcome book, база знаний или HR-гайды</li>
+          </ul>
+        </header>
+
+        <div class="diagnostic-book" data-diagnostic>
+          <div class="diagnostic-book__topline" aria-hidden="true">
+            <span class="diagnostic-book__bookmark"></span>
+          </div>
+
+          <div class="diagnostic-book__spread">
+            <div class="diagnostic-book__page diagnostic-book__page--left">
+              <div class="diagnostic-book__folio">
+                <span>HRNEIROWAY</span>
+                <span>Диагностика адаптации</span>
+              </div>
+
+              <div class="diagnostic-book__question" aria-live="polite">
+                <span class="diagnostic-book__step">Вопрос 01 / 08</span>
+                <h3>Есть ли у нового сотрудника понятный маршрут первых недель?</h3>
+                <p>
+                  Оцените не намерение, а реальный опыт: знает ли человек, что делать,
+                  где искать информацию и к кому обращаться.
+                </p>
+              </div>
+
+              <button class="diagnostic-book__back" type="button" disabled>
+                <span aria-hidden="true">←</span>
+                Назад
+              </button>
+            </div>
+
+            <div class="diagnostic-book__spine" aria-hidden="true"></div>
+
+            <div class="diagnostic-book__page diagnostic-book__page--right">
+              <div class="diagnostic-book__progress">
+                <span>Прогресс</span>
+                <strong>1 из 8</strong>
+              </div>
+
+              <div class="diagnostic-book__answers" role="group" aria-label="Варианты ответа">
+                <button type="button" data-diagnostic-score="2">
+                  <span class="diagnostic-answer__index">А</span>
+                  <span>
+                    <strong>Да, всё понятно</strong>
+                    <small>Маршрут зафиксирован и работает одинаково для всех</small>
+                  </span>
+                </button>
+                <button type="button" data-diagnostic-score="1">
+                  <span class="diagnostic-answer__index">Б</span>
+                  <span>
+                    <strong>Частично</strong>
+                    <small>Что-то есть, но многое зависит от руководителя или коллег</small>
+                  </span>
+                </button>
+                <button type="button" data-diagnostic-score="0">
+                  <span class="diagnostic-answer__index">В</span>
+                  <span>
+                    <strong>Нет</strong>
+                    <small>Новый сотрудник собирает информацию по частям</small>
+                  </span>
+                </button>
+              </div>
+
+              <p class="diagnostic-book__note">Выберите вариант — страница перелистнётся дальше</p>
+            </div>
+
+            <div class="diagnostic-result" aria-live="polite" hidden>
+              <div class="diagnostic-result__score">
+                <span>Оценка системы</span>
+                <strong><span data-diagnostic-result-score>0</span><small>/100</small></strong>
+              </div>
+
+              <div class="diagnostic-result__meter" aria-hidden="true">
+                <span></span>
+              </div>
+
+              <div class="diagnostic-result__copy">
+                <p class="diagnostic-result__label">Системе нужна опора</p>
+                <h3>Сотрудники тратят время на поиск ответов</h3>
+              </div>
+
+              <div class="diagnostic-result__columns">
+                <div>
+                  <h4>Что создаёт риск</h4>
+                  <ul data-diagnostic-risks></ul>
+                </div>
+                <div>
+                  <h4>Что поможет первым</h4>
+                  <p data-diagnostic-recommendation></p>
+                </div>
+              </div>
+
+              <div class="diagnostic-result__actions">
+                <button type="button" data-diagnostic-restart>Пройти ещё раз</button>
+                <a href="#" aria-label="Обсудить результат HR-диагностики">Обсудить результат</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <script src="./script.js?v=20260705g"></script>
+    <script src="./script.js?v=20260706a"></script>
   </body>
 </html>

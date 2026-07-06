@@ -6,6 +6,7 @@ const approachNotes = document.querySelectorAll(".approach-note");
 const approachDetail = document.querySelector(".approach-detail");
 const approachModal = document.querySelector(".approach-modal");
 const approachCloseControls = document.querySelectorAll("[data-approach-close]");
+const diagnosticBook = document.querySelector("[data-diagnostic]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeaderState = () => {
@@ -243,4 +244,300 @@ if (approachNotes.length && approachDetail && approachModal) {
       closeApproachDetail();
     }
   });
+}
+
+const diagnosticQuestions = [
+  {
+    category: "route",
+    question: "Есть ли у нового сотрудника понятный маршрут первых недель?",
+    context:
+      "Оцените не намерение, а реальный опыт: знает ли человек, что делать, где искать информацию и к кому обращаться.",
+    options: [
+      ["Да, всё понятно", "Маршрут зафиксирован и работает одинаково для всех"],
+      ["Частично", "Что-то есть, но многое зависит от руководителя или коллег"],
+      ["Нет", "Новый сотрудник собирает информацию по частям"],
+    ],
+    risk: "Нет единого маршрута первых недель",
+  },
+  {
+    category: "knowledge",
+    question: "Может ли новичок самостоятельно найти ответы на частые вопросы?",
+    context:
+      "Представьте первый рабочий день без подсказок коллег: насколько быстро человек найдёт нужную информацию сам.",
+    options: [
+      ["Да, за пару минут", "Есть понятное место с актуальными ответами"],
+      ["Не всегда", "Часть ответов есть, часть приходится уточнять"],
+      ["Нет, нужно спрашивать", "Информация разбросана по чатам и папкам"],
+    ],
+    risk: "Ответы приходится собирать в чатах и у коллег",
+  },
+  {
+    category: "route",
+    question: "Понятны ли задачи, роли и ожидаемый результат на испытательный срок?",
+    context:
+      "Хорошая адаптация снимает неопределённость: сотрудник понимает приоритеты и критерии успешной работы.",
+    options: [
+      ["Да, зафиксированы", "Есть цели, этапы и понятные критерии результата"],
+      ["Только в общих чертах", "Приоритеты уточняются уже в процессе"],
+      ["Нет единой картины", "Ожидания существуют только в голове руководителя"],
+    ],
+    risk: "Нет ясных ожиданий на испытательный срок",
+  },
+  {
+    category: "guides",
+    question: "Инструкции актуальны и ими действительно удобно пользоваться?",
+    context:
+      "Важно не наличие файла, а то, помогает ли он выполнить задачу без дополнительных расшифровок.",
+    options: [
+      ["Да, помогают в работе", "Шаги понятны, документы регулярно обновляются"],
+      ["Есть, но не все", "Часть инструкций устарела или перегружена"],
+      ["Скорее нет", "Документы существуют формально или их никто не открывает"],
+    ],
+    risk: "Инструкции устарели или не помогают выполнить задачу",
+  },
+  {
+    category: "guides",
+    question: "Все руководители используют одинаковые материалы для адаптации?",
+    context:
+      "Единая база снижает разницу между командами и не превращает качество адаптации в лотерею.",
+    options: [
+      ["Да, есть стандарт", "Материалы и логика едины для всех подразделений"],
+      ["Частично", "Есть основа, но каждый дополняет её по-своему"],
+      ["Нет", "Каждый руководитель начинает адаптацию с нуля"],
+    ],
+    risk: "Качество адаптации зависит от конкретного руководителя",
+  },
+  {
+    category: "knowledge",
+    question: "Есть ли одно место, где собраны правила, процессы и полезные материалы?",
+    context:
+      "Сотрудник не должен помнить названия десятков папок и каналов, чтобы найти рабочий документ.",
+    options: [
+      ["Да, единая база", "Структура понятна, поиск занимает минимум времени"],
+      ["Есть несколько мест", "Нужно знать, где именно искать каждый тип информации"],
+      ["Нет", "Документы распределены между чатами, дисками и личными папками"],
+    ],
+    risk: "Материалы разбросаны по разным каналам",
+  },
+  {
+    category: "feedback",
+    question: "Собираете ли вы обратную связь после адаптации?",
+    context:
+      "Без обратной связи система не замечает, где новичок теряет время и какие объяснения не работают.",
+    options: [
+      ["Да, регулярно", "Есть вопросы, сроки и ответственный за улучшения"],
+      ["Иногда", "Отзывы собираются не у всех и не всегда используются"],
+      ["Нет", "О качестве адаптации судят по общему впечатлению"],
+    ],
+    risk: "Нет регулярной обратной связи от новичков",
+  },
+  {
+    category: "feedback",
+    question: "Повторяющиеся вопросы превращаются в новые материалы и улучшения?",
+    context:
+      "Каждый повторный вопрос — сигнал, что системе не хватает понятного объяснения или удобного формата.",
+    options: [
+      ["Да, мы обновляем систему", "Вопросы фиксируются и становятся частью материалов"],
+      ["Иногда", "Изменения зависят от инициативы отдельных людей"],
+      ["Нет", "Команда продолжает отвечать на одно и то же вручную"],
+    ],
+    risk: "Повторяющиеся вопросы не превращаются в улучшения",
+  },
+];
+
+if (diagnosticBook) {
+  const questionStep = diagnosticBook.querySelector(".diagnostic-book__step");
+  const questionTitle = diagnosticBook.querySelector(".diagnostic-book__question h3");
+  const questionContext = diagnosticBook.querySelector(".diagnostic-book__question p");
+  const progressText = diagnosticBook.querySelector(".diagnostic-book__progress strong");
+  const answerButtons = [...diagnosticBook.querySelectorAll("[data-diagnostic-score]")];
+  const backButton = diagnosticBook.querySelector(".diagnostic-book__back");
+  const result = diagnosticBook.querySelector(".diagnostic-result");
+  const resultScore = diagnosticBook.querySelector("[data-diagnostic-result-score]");
+  const resultMeter = diagnosticBook.querySelector(".diagnostic-result__meter span");
+  const resultLabel = diagnosticBook.querySelector(".diagnostic-result__label");
+  const resultTitle = diagnosticBook.querySelector(".diagnostic-result__copy h3");
+  const resultRisks = diagnosticBook.querySelector("[data-diagnostic-risks]");
+  const resultRecommendation = diagnosticBook.querySelector(
+    "[data-diagnostic-recommendation]"
+  );
+  const restartButton = diagnosticBook.querySelector("[data-diagnostic-restart]");
+  const answers = Array(diagnosticQuestions.length).fill(null);
+  let currentQuestion = 0;
+  let pageIsTurning = false;
+
+  const renderDiagnosticQuestion = () => {
+    const item = diagnosticQuestions[currentQuestion];
+    const savedAnswer = answers[currentQuestion];
+
+    questionStep.textContent = `Вопрос ${String(currentQuestion + 1).padStart(
+      2,
+      "0"
+    )} / ${String(diagnosticQuestions.length).padStart(2, "0")}`;
+    questionTitle.textContent = item.question;
+    questionContext.textContent = item.context;
+    progressText.textContent = `${currentQuestion + 1} из ${diagnosticQuestions.length}`;
+    backButton.disabled = currentQuestion === 0;
+    diagnosticBook.style.setProperty(
+      "--diagnostic-progress",
+      String(currentQuestion / (diagnosticQuestions.length - 1))
+    );
+
+    answerButtons.forEach((button, index) => {
+      const label = button.querySelector("strong");
+      const description = button.querySelector("small");
+      const score = 2 - index;
+      const isSelected = savedAnswer === score;
+
+      label.textContent = item.options[index][0];
+      description.textContent = item.options[index][1];
+      button.classList.toggle("is-selected", isSelected);
+      button.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    diagnosticBook.classList.remove("is-turning");
+    pageIsTurning = false;
+  };
+
+  const turnDiagnosticPage = (callback) => {
+    if (reduceMotion) {
+      callback();
+      return;
+    }
+
+    pageIsTurning = true;
+    diagnosticBook.classList.add("is-turning");
+    window.setTimeout(callback, 260);
+  };
+
+  const diagnosticSummaries = {
+    low: {
+      label: "Системе нужна опора",
+      title: "Сотрудники тратят время на поиск ответов",
+    },
+    middle: {
+      label: "Основа уже есть",
+      title: "Материалы работают неравномерно и зависят от людей",
+    },
+    high: {
+      label: "Система помогает",
+      title: "Адаптация выстроена — осталось усилить отдельные точки",
+    },
+  };
+
+  const recommendationByCategory = {
+    route:
+      "Начните с welcome book и маршрута адаптации: зафиксируйте первые недели, роли, задачи и точки контакта.",
+    knowledge:
+      "Соберите единую базу знаний с понятной навигацией, поиском и владельцами разделов.",
+    guides:
+      "Пересоберите HR-гайды и инструкции: сократите текст, добавьте сценарии, шаги и удобный редактируемый формат.",
+    feedback:
+      "Добавьте короткий цикл обратной связи и журнал повторяющихся вопросов, чтобы материалы регулярно улучшались.",
+  };
+
+  const showDiagnosticResult = () => {
+    const total = answers.reduce((sum, value) => sum + (value ?? 0), 0);
+    const score = Math.round((total / (diagnosticQuestions.length * 2)) * 100);
+    const summary =
+      score >= 75
+        ? diagnosticSummaries.high
+        : score >= 45
+          ? diagnosticSummaries.middle
+          : diagnosticSummaries.low;
+    const categoryScores = diagnosticQuestions.reduce((scores, item, index) => {
+      scores[item.category] = (scores[item.category] || 0) + (answers[index] ?? 0);
+      return scores;
+    }, {});
+    const weakestCategory = Object.entries(categoryScores).sort(
+      (first, second) => first[1] - second[1]
+    )[0][0];
+    const risks = diagnosticQuestions
+      .filter((item, index) => (answers[index] ?? 0) < 2)
+      .sort(
+        (first, second) =>
+          answers[diagnosticQuestions.indexOf(first)] -
+          answers[diagnosticQuestions.indexOf(second)]
+      )
+      .slice(0, 3)
+      .map((item) => item.risk);
+
+    resultScore.textContent = String(score);
+    resultLabel.textContent = summary.label;
+    resultTitle.textContent = summary.title;
+    resultRisks.replaceChildren();
+
+    (risks.length ? risks : ["Критичных разрывов не обнаружено"]).forEach(
+      (risk) => {
+        const item = document.createElement("li");
+        item.textContent = risk;
+        resultRisks.append(item);
+      }
+    );
+
+    resultRecommendation.textContent = recommendationByCategory[weakestCategory];
+    result.hidden = false;
+    diagnosticBook.style.setProperty("--diagnostic-progress", "1");
+
+    window.requestAnimationFrame(() => {
+      diagnosticBook.classList.add("is-complete");
+      resultMeter.style.width = `${score}%`;
+      result.focus?.();
+    });
+  };
+
+  const chooseDiagnosticAnswer = (button) => {
+    if (pageIsTurning) {
+      return;
+    }
+
+    const score = Number(button.dataset.diagnosticScore);
+    answers[currentQuestion] = score;
+    answerButtons.forEach((item) => {
+      const isSelected = item === button;
+      item.classList.toggle("is-selected", isSelected);
+      item.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    turnDiagnosticPage(() => {
+      if (currentQuestion === diagnosticQuestions.length - 1) {
+        showDiagnosticResult();
+        diagnosticBook.classList.remove("is-turning");
+        pageIsTurning = false;
+        return;
+      }
+
+      currentQuestion += 1;
+      renderDiagnosticQuestion();
+    });
+  };
+
+  answerButtons.forEach((button) => {
+    button.addEventListener("click", () => chooseDiagnosticAnswer(button));
+  });
+
+  backButton.addEventListener("click", () => {
+    if (currentQuestion === 0 || pageIsTurning) {
+      return;
+    }
+
+    turnDiagnosticPage(() => {
+      currentQuestion -= 1;
+      renderDiagnosticQuestion();
+    });
+  });
+
+  restartButton.addEventListener("click", () => {
+    answers.fill(null);
+    currentQuestion = 0;
+    resultMeter.style.width = "0";
+    diagnosticBook.classList.remove("is-complete");
+    diagnosticBook.style.setProperty("--diagnostic-progress", "0");
+    window.setTimeout(() => {
+      result.hidden = true;
+      renderDiagnosticQuestion();
+    }, reduceMotion ? 0 : 320);
+  });
+
+  renderDiagnosticQuestion();
 }
