@@ -3430,3 +3430,236 @@ body.has-useful-modal {
     transition: none;
   }
 }
+
+/* ==========================================================================
+   Drawer scene — scroll-driven interactive composition (between approach
+   and diagnostic sections). Self-contained block, does not touch other
+   sections' styles.
+   ========================================================================== */
+
+.drawer-scene {
+  position: relative;
+  height: 600vh;
+}
+
+.drawer-scene__sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  padding: clamp(28px, 4vw, 56px) clamp(20px, 6vw, 100px);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.drawer-scene__intro {
+  width: min(760px, 100%);
+  margin: 0 auto clamp(20px, 3vw, 36px);
+  text-align: center;
+}
+
+.drawer-scene__eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-wine);
+  font-family: "Snell Roundhand", "Apple Chancery", var(--serif);
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1;
+}
+
+.drawer-scene__title {
+  margin: 0;
+  color: var(--emerald);
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 46px);
+  font-weight: 500;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.drawer-scene__stage {
+  position: relative;
+  width: min(920px, 100%);
+  aspect-ratio: 16 / 10;
+  max-height: 58svh;
+}
+
+.drawer-scene__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.drawer-scene__objects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.drawer-scene__object {
+  --obj-tx: 0px;
+  --obj-ty: 0px;
+  --obj-rot: 0deg;
+  --obj-scale: 1;
+  --obj-opacity: 0;
+  position: absolute;
+  opacity: var(--obj-opacity);
+  transform: translate3d(var(--obj-tx), var(--obj-ty), 0)
+    rotate(var(--obj-rot)) scale(var(--obj-scale));
+  will-change: transform, opacity;
+  filter: drop-shadow(0 10px 18px rgba(10, 52, 40, 0.16));
+}
+
+.drawer-scene__object--notebook {
+  left: 8%;
+  top: 54%;
+  width: 17%;
+  z-index: 3;
+}
+
+.drawer-scene__object--pen {
+  left: 25%;
+  top: 66%;
+  width: 9%;
+  z-index: 4;
+}
+
+.drawer-scene__object--book {
+  left: 36%;
+  top: 46%;
+  width: 16%;
+  z-index: 2;
+}
+
+.drawer-scene__object--headphones {
+  right: 10%;
+  top: 40%;
+  width: 18%;
+  z-index: 3;
+}
+
+.drawer-scene__object--coffee {
+  right: 27%;
+  top: 60%;
+  width: 11%;
+  z-index: 4;
+}
+
+.drawer-scene__object--dumbbell {
+  right: 6%;
+  top: 76%;
+  width: 9%;
+  z-index: 2;
+}
+
+.drawer-scene__object--macbook {
+  left: 30%;
+  top: 30%;
+  width: 30%;
+  z-index: 5;
+}
+
+.drawer-scene__object--project-brief {
+  left: 46%;
+  top: 62%;
+  width: 15%;
+  z-index: 6;
+}
+
+.drawer-scene__caption {
+  width: min(560px, 100%);
+  margin: clamp(16px, 2.6vw, 28px) auto 0;
+  color: rgba(30, 43, 54, 0.72);
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Reduced-motion / no-JS fallback: static final composition, no scroll-jacking */
+.drawer-scene.is-static {
+  height: auto;
+}
+
+.drawer-scene.is-static .drawer-scene__sticky {
+  position: relative;
+  height: auto;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 6vw, 100px);
+}
+
+.drawer-scene.is-static .drawer-scene__stage {
+  max-height: none;
+}
+
+.drawer-scene.is-static .drawer-scene__object {
+  --obj-tx: 0px;
+  --obj-ty: 0px;
+  --obj-rot: 0deg;
+  --obj-scale: 1;
+  --obj-opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .drawer-scene {
+    height: 520vh;
+  }
+
+  .drawer-scene__stage {
+    max-height: 50svh;
+  }
+
+  .drawer-scene__object--macbook {
+    width: 26%;
+  }
+}
+
+@media (max-width: 760px) {
+  .drawer-scene {
+    height: 460vh;
+  }
+
+  .drawer-scene__sticky {
+    padding: 20px 16px;
+  }
+
+  .drawer-scene__stage {
+    aspect-ratio: 4 / 5;
+    max-height: 52svh;
+  }
+
+  .drawer-scene__object--notebook { width: 22%; }
+  .drawer-scene__object--pen { width: 12%; }
+  .drawer-scene__object--book { width: 20%; }
+  .drawer-scene__object--headphones { width: 22%; }
+  .drawer-scene__object--coffee { width: 14%; }
+  .drawer-scene__object--dumbbell { width: 11%; }
+  .drawer-scene__object--macbook { width: 36%; }
+  .drawer-scene__object--project-brief { width: 19%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-scene {
+    height: auto;
+  }
+
+  .drawer-scene__sticky {
+    position: relative;
+    height: auto;
+  }
+
+  .drawer-scene__stage {
+    max-height: none;
+  }
+
+  .drawer-scene__object {
+    --obj-tx: 0px !important;
+    --obj-ty: 0px !important;
+    --obj-rot: 0deg !important;
+    --obj-scale: 1 !important;
+    --obj-opacity: 1 !important;
+    transition: none;
+  }
+}

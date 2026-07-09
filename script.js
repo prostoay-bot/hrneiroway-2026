@@ -666,3 +666,116 @@ if (diagnosticBook) {
 
   renderDiagnosticQuestion();
 }
+
+/* ==========================================================================
+   Drawer scene — single scroll-progress controller for drawer.mp4 opening
+   and the following object-assembly composition. One scroll listener,
+   one rAF-batched update function, no per-object ScrollTrigger instances.
+   ========================================================================== */
+
+const drawerScene = document.querySelector(".drawer-scene");
+
+if (drawerScene) {
+  if (reduceMotion) {
+    drawerScene.classList.add("is-static");
+  } else {
+    const drawerVideo = drawerScene.querySelector(".drawer-scene__video");
+
+    const drawerObjectConfigs = [
+      { selector: ".drawer-scene__object--notebook", start: 0.0, end: 0.24, from: { x: -70, y: -120, rot: -14, scale: 0.92 } },
+      { selector: ".drawer-scene__object--pen", start: 0.08, end: 0.32, from: { x: -140, y: 90, rot: 20, scale: 0.9 } },
+      { selector: ".drawer-scene__object--book", start: 0.16, end: 0.4, from: { x: 10, y: -140, rot: 6, scale: 0.92 } },
+      { selector: ".drawer-scene__object--headphones", start: 0.24, end: 0.48, from: { x: 130, y: -40, rot: -16, scale: 0.9 } },
+      { selector: ".drawer-scene__object--coffee", start: 0.32, end: 0.56, from: { x: 20, y: -130, rot: 4, scale: 0.7 } },
+      { selector: ".drawer-scene__object--dumbbell", start: 0.4, end: 0.62, from: { x: 90, y: 80, rot: 10, scale: 0.85 } },
+      { selector: ".drawer-scene__object--macbook", start: 0.52, end: 0.8, from: { x: 0, y: -160, rot: 3, scale: 0.9 } },
+      { selector: ".drawer-scene__object--project-brief", start: 0.66, end: 0.92, from: { x: 0, y: 100, rot: -5, scale: 0.9 } },
+    ]
+      .map((cfg) => ({ ...cfg, el: drawerScene.querySelector(cfg.selector) }))
+      .filter((cfg) => cfg.el);
+
+    const drawerClamp01 = (value) => Math.min(Math.max(value, 0), 1);
+    const drawerEaseOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const drawerAmplitudeScale = () => {
+      const width = window.innerWidth;
+      if (width <= 760) return 0.55;
+      if (width <= 1100) return 0.75;
+      return 1;
+    };
+
+    let drawerVideoDuration = 0;
+    const setDrawerVideoDuration = () => {
+      if (drawerVideo && drawerVideo.duration && !Number.isNaN(drawerVideo.duration)) {
+        drawerVideoDuration = drawerVideo.duration;
+      }
+    };
+
+    if (drawerVideo) {
+      setDrawerVideoDuration();
+      drawerVideo.addEventListener("loadedmetadata", () => {
+        setDrawerVideoDuration();
+        requestDrawerSceneUpdate();
+      });
+    }
+
+    let drawerScenePending = false;
+
+    const updateDrawerScene = () => {
+      const rect = drawerScene.getBoundingClientRect();
+      const scrollableHeight = rect.height - window.innerHeight;
+      const scrolled = drawerClamp01(
+        scrollableHeight > 0 ? -rect.top / scrollableHeight : 0
+      );
+
+      // 0–28%: drawer opening video plays forward/back with scroll.
+      if (drawerVideo && drawerVideoDuration) {
+        const videoProgress = drawerClamp01(scrolled / 0.28);
+        try {
+          drawerVideo.currentTime = videoProgress * drawerVideoDuration;
+        } catch (seekError) {
+          /* video not seekable yet on this frame, will retry on next scroll */
+        }
+      }
+
+      // 28–34%: pause on last frame (handled naturally, video stays clamped).
+      // 34–78%: objects assemble into the final composition.
+      const objectsStart = 0.34;
+      const objectsEnd = 0.78;
+      const objectsProgress = drawerClamp01(
+        (scrolled - objectsStart) / (objectsEnd - objectsStart)
+      );
+      const amplitude = drawerAmplitudeScale();
+
+      drawerObjectConfigs.forEach(({ el, start, end, from }) => {
+        const local = drawerClamp01((objectsProgress - start) / (end - start));
+        const eased = drawerEaseOutCubic(local);
+        const remaining = 1 - eased;
+
+        el.style.setProperty("--obj-tx", `${from.x * remaining * amplitude}px`);
+        el.style.setProperty("--obj-ty", `${from.y * remaining * amplitude}px`);
+        el.style.setProperty("--obj-rot", `${from.rot * remaining * amplitude}deg`);
+        el.style.setProperty(
+          "--obj-scale",
+          (from.scale + (1 - from.scale) * eased).toFixed(3)
+        );
+        el.style.setProperty("--obj-opacity", eased.toFixed(3));
+      });
+
+      drawerScenePending = false;
+    };
+
+    function requestDrawerSceneUpdate() {
+      if (drawerScenePending) {
+        return;
+      }
+
+      drawerScenePending = true;
+      window.requestAnimationFrame(updateDrawerScene);
+    }
+
+    updateDrawerScene();
+    window.addEventListener("scroll", requestDrawerSceneUpdate, { passive: true });
+    window.addEventListener("resize", requestDrawerSceneUpdate);
+  }
+}
