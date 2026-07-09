@@ -3456,8 +3456,8 @@ body.has-useful-modal {
 }
 
 .drawer-scene__intro {
-  width: min(760px, 100%);
-  margin: 0 auto clamp(20px, 3vw, 36px);
+  width: min(680px, 100%);
+  margin: 0 auto clamp(16px, 2.4vw, 28px);
   text-align: center;
 }
 
@@ -3465,25 +3465,42 @@ body.has-useful-modal {
   margin: 0 0 10px;
   color: var(--accent-wine);
   font-family: "Snell Roundhand", "Apple Chancery", var(--serif);
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(20px, 1.8vw, 28px);
   line-height: 1;
 }
 
 .drawer-scene__title {
-  margin: 0;
+  margin: 0 0 10px;
   color: var(--emerald);
   font-family: var(--serif);
-  font-size: clamp(28px, 3.4vw, 46px);
+  font-size: clamp(26px, 3vw, 42px);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.12;
   text-wrap: balance;
+}
+
+.drawer-scene__description {
+  margin: 0;
+  color: rgba(30, 43, 54, 0.72);
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.5;
+}
+
+.drawer-scene__layout {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 2.4vw, 40px);
+  width: 100%;
 }
 
 .drawer-scene__stage {
   position: relative;
-  width: min(920px, 100%);
+  width: min(760px, 100%);
   aspect-ratio: 16 / 10;
-  max-height: 58svh;
+  max-height: 54svh;
+  flex: 0 1 auto;
 }
 
 .drawer-scene__video {
@@ -3497,7 +3514,6 @@ body.has-useful-modal {
 .drawer-scene__objects {
   position: absolute;
   inset: 0;
-  pointer-events: none;
 }
 
 .drawer-scene__object {
@@ -3506,77 +3522,170 @@ body.has-useful-modal {
   --obj-rot: 0deg;
   --obj-scale: 1;
   --obj-opacity: 0;
+  display: block;
   position: absolute;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: default;
   opacity: var(--obj-opacity);
   transform: translate3d(var(--obj-tx), var(--obj-ty), 0)
     rotate(var(--obj-rot)) scale(var(--obj-scale));
   will-change: transform, opacity;
-  filter: drop-shadow(0 10px 18px rgba(10, 52, 40, 0.16));
+  pointer-events: none;
 }
 
-.drawer-scene__object--notebook {
-  left: 8%;
-  top: 54%;
-  width: 17%;
-  z-index: 3;
+.drawer-scene__object img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 14px rgba(10, 52, 40, 0.16));
+  transition: filter 0.2s ease;
 }
 
-.drawer-scene__object--pen {
-  left: 25%;
-  top: 66%;
-  width: 9%;
-  z-index: 4;
+.drawer-scene__object.is-active {
+  cursor: pointer;
+  pointer-events: auto;
 }
 
-.drawer-scene__object--book {
-  left: 36%;
-  top: 46%;
-  width: 16%;
-  z-index: 2;
+.drawer-scene__object.is-active:hover img,
+.drawer-scene__object.is-selected img {
+  filter: drop-shadow(0 10px 16px rgba(102, 8, 16, 0.28));
 }
 
-.drawer-scene__object--headphones {
-  right: 10%;
-  top: 40%;
-  width: 18%;
-  z-index: 3;
+.drawer-scene__object:focus-visible {
+  outline: 2px solid var(--accent-wine);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
-.drawer-scene__object--coffee {
-  right: 27%;
-  top: 60%;
-  width: 11%;
-  z-index: 4;
-}
-
-.drawer-scene__object--dumbbell {
-  right: 6%;
-  top: 76%;
-  width: 9%;
-  z-index: 2;
-}
-
+/* Final composition — MacBook is the anchor, everything else relates to it */
 .drawer-scene__object--macbook {
-  left: 30%;
-  top: 30%;
-  width: 30%;
+  left: 33%;
+  top: 34%;
+  width: 27%;
   z-index: 5;
 }
 
 .drawer-scene__object--project-brief {
-  left: 46%;
-  top: 62%;
+  left: 44%;
+  top: 56%;
   width: 15%;
   z-index: 6;
 }
 
-.drawer-scene__caption {
-  width: min(560px, 100%);
-  margin: clamp(16px, 2.6vw, 28px) auto 0;
-  color: rgba(30, 43, 54, 0.72);
-  font-size: clamp(13px, 1vw, 15px);
+.drawer-scene__object--book {
+  left: 15%;
+  top: 42%;
+  width: 16%;
+  z-index: 3;
+}
+
+.drawer-scene__object--notebook {
+  left: 16%;
+  top: 60%;
+  width: 15%;
+  z-index: 4;
+}
+
+.drawer-scene__object--headphones {
+  right: 14%;
+  top: 30%;
+  width: 15%;
+  z-index: 3;
+}
+
+.drawer-scene__object--coffee {
+  right: 10%;
+  top: 58%;
+  width: 10%;
+  z-index: 4;
+}
+
+.drawer-scene__object--pen {
+  left: 30%;
+  top: 66%;
+  width: 6%;
+  z-index: 6;
+}
+
+.drawer-scene__object--dumbbell {
+  right: 26%;
+  top: 68%;
+  width: 7%;
+  z-index: 3;
+}
+
+.drawer-scene__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 6px 14px;
+  color: rgba(30, 43, 54, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  background: rgba(255, 252, 239, 0.7);
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.drawer-scene__hint.is-visible {
+  opacity: 1;
+}
+
+/* Info card, shown on object click */
+.drawer-scene__card {
+  position: absolute;
+  right: clamp(-40px, -4vw, -20px);
+  top: 50%;
+  transform: translate(100%, -50%);
+  width: min(280px, 80vw);
+  padding: 20px 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent-wine);
+  border-radius: 10px;
+  box-shadow: 0 16px 32px rgba(10, 52, 40, 0.14);
+}
+
+.drawer-scene__card[hidden] {
+  display: none;
+}
+
+.drawer-scene__card-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 4px 8px;
+  border: 0;
+  background: none;
+  color: rgba(30, 43, 54, 0.5);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.drawer-scene__card-close:hover {
+  color: var(--accent-wine);
+}
+
+.drawer-scene__card-title {
+  margin: 0 0 8px;
+  color: var(--emerald);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.drawer-scene__card-text {
+  margin: 0;
+  color: rgba(30, 43, 54, 0.78);
+  font-size: 14px;
   line-height: 1.5;
-  text-align: center;
 }
 
 /* Reduced-motion / no-JS fallback: static final composition, no scroll-jacking */
@@ -3590,6 +3699,10 @@ body.has-useful-modal {
   padding: clamp(60px, 8vw, 100px) clamp(20px, 6vw, 100px);
 }
 
+.drawer-scene.is-static .drawer-scene__layout {
+  flex-direction: column;
+}
+
 .drawer-scene.is-static .drawer-scene__stage {
   max-height: none;
 }
@@ -3600,6 +3713,24 @@ body.has-useful-modal {
   --obj-rot: 0deg;
   --obj-scale: 1;
   --obj-opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.drawer-scene.is-static .drawer-scene__hint {
+  opacity: 1;
+  position: static;
+  display: block;
+  margin: 12px auto 0;
+  transform: none;
+  width: fit-content;
+}
+
+.drawer-scene.is-static .drawer-scene__card {
+  position: static;
+  transform: none;
+  width: min(420px, 100%);
+  margin: 16px auto 0;
 }
 
 @media (max-width: 1100px) {
@@ -3608,11 +3739,13 @@ body.has-useful-modal {
   }
 
   .drawer-scene__stage {
-    max-height: 50svh;
+    max-height: 48svh;
   }
 
-  .drawer-scene__object--macbook {
-    width: 26%;
+  .drawer-scene__card {
+    right: -10px;
+    width: min(240px, 34vw);
+    padding: 16px 18px;
   }
 }
 
@@ -3625,19 +3758,31 @@ body.has-useful-modal {
     padding: 20px 16px;
   }
 
-  .drawer-scene__stage {
-    aspect-ratio: 4 / 5;
-    max-height: 52svh;
+  .drawer-scene__layout {
+    flex-direction: column;
   }
 
-  .drawer-scene__object--notebook { width: 22%; }
-  .drawer-scene__object--pen { width: 12%; }
-  .drawer-scene__object--book { width: 20%; }
-  .drawer-scene__object--headphones { width: 22%; }
-  .drawer-scene__object--coffee { width: 14%; }
-  .drawer-scene__object--dumbbell { width: 11%; }
-  .drawer-scene__object--macbook { width: 36%; }
-  .drawer-scene__object--project-brief { width: 19%; }
+  .drawer-scene__stage {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 46svh;
+  }
+
+  .drawer-scene__object--macbook { width: 32%; }
+  .drawer-scene__object--project-brief { width: 18%; }
+  .drawer-scene__object--book { width: 19%; }
+  .drawer-scene__object--notebook { width: 18%; }
+  .drawer-scene__object--headphones { width: 18%; }
+  .drawer-scene__object--coffee { width: 13%; }
+  .drawer-scene__object--pen { width: 8%; }
+  .drawer-scene__object--dumbbell { width: 9%; }
+
+  .drawer-scene__card {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin: 14px 0 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3648,6 +3793,10 @@ body.has-useful-modal {
   .drawer-scene__sticky {
     position: relative;
     height: auto;
+  }
+
+  .drawer-scene__layout {
+    flex-direction: column;
   }
 
   .drawer-scene__stage {
@@ -3661,5 +3810,14 @@ body.has-useful-modal {
     --obj-scale: 1 !important;
     --obj-opacity: 1 !important;
     transition: none;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .drawer-scene__card {
+    position: static;
+    transform: none;
+    width: min(420px, 100%);
+    margin: 16px auto 0;
   }
 }

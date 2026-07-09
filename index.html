@@ -328,37 +328,59 @@
         <div class="drawer-scene__sticky">
           <div class="drawer-scene__intro">
             <p class="drawer-scene__eyebrow" aria-hidden="true">Из чего складывается работа</p>
-            <h2 id="drawer-scene-title" class="drawer-scene__title">
-              Открываю рабочий ящик — и вот что в нём есть на самом деле
-            </h2>
+            <h2 id="drawer-scene-title" class="drawer-scene__title">Что лежит в основе работы</h2>
+            <p class="drawer-scene__description">
+              Откройте ящик, чтобы увидеть инструменты и принципы, из которых собирается каждый проект.
+            </p>
           </div>
 
-          <div class="drawer-scene__stage">
-            <video
-              class="drawer-scene__video"
-              src="./assets/drawer.mp4"
-              muted
-              playsinline
-              preload="auto"
-              aria-hidden="true"
-            ></video>
+          <div class="drawer-scene__layout">
+            <div class="drawer-scene__stage">
+              <video
+                class="drawer-scene__video"
+                src="./assets/drawer.mp4"
+                muted
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+              ></video>
 
-            <div class="drawer-scene__objects" aria-hidden="true">
-              <img class="drawer-scene__object drawer-scene__object--notebook" src="./assets/notebook.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--pen" src="./assets/pen.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--book" src="./assets/book.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--headphones" src="./assets/headphones.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--coffee" src="./assets/coffee.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--dumbbell" src="./assets/dumbbell.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--macbook" src="./assets/macbook.png" alt="" />
-              <img class="drawer-scene__object drawer-scene__object--project-brief" src="./assets/project-brief.png" alt="" />
+              <div class="drawer-scene__objects">
+                <button type="button" class="drawer-scene__object drawer-scene__object--notebook" data-object="notebook" tabindex="-1" aria-label="Структура">
+                  <img src="./assets/notebook.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--pen" data-object="pen" tabindex="-1" aria-label="Смысл и формулировки">
+                  <img src="./assets/pen.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--book" data-object="book" tabindex="-1" aria-label="Погружение">
+                  <img src="./assets/book.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--headphones" data-object="headphones" tabindex="-1" aria-label="Фокус">
+                  <img src="./assets/headphones.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--coffee" data-object="coffee" tabindex="-1" aria-label="Рабочий ритуал">
+                  <img src="./assets/coffee.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--dumbbell" data-object="dumbbell" tabindex="-1" aria-label="Системность">
+                  <img src="./assets/dumbbell.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--macbook" data-object="macbook" tabindex="-1" aria-label="Сборка">
+                  <img src="./assets/macbook.png" alt="" />
+                </button>
+                <button type="button" class="drawer-scene__object drawer-scene__object--project-brief" data-object="project-brief" tabindex="-1" aria-label="Новый проект">
+                  <img src="./assets/project-brief.png" alt="" />
+                </button>
+              </div>
+
+              <p class="drawer-scene__hint" aria-hidden="true">Нажмите на предмет</p>
+            </div>
+
+            <div class="drawer-scene__card" hidden>
+              <button type="button" class="drawer-scene__card-close" aria-label="Закрыть">×</button>
+              <h3 class="drawer-scene__card-title"></h3>
+              <p class="drawer-scene__card-text"></p>
             </div>
           </div>
-
-          <p class="drawer-scene__caption">
-            Блокнот с идеями, наушники для фокуса, кофе, который остывает,
-            и ноутбук, за которым рождаются проекты
-          </p>
         </div>
       </section>
 

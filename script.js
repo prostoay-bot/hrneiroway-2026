@@ -668,28 +668,117 @@ if (diagnosticBook) {
 }
 
 /* ==========================================================================
-   Drawer scene — single scroll-progress controller for drawer.mp4 opening
-   and the following object-assembly composition. One scroll listener,
-   one rAF-batched update function, no per-object ScrollTrigger instances.
+   Drawer scene — single scroll-progress controller for drawer.mp4 opening,
+   the object-assembly composition and the click-to-reveal info cards.
+   One scroll listener, one rAF-batched update function, no per-object
+   ScrollTrigger instances.
    ========================================================================== */
 
 const drawerScene = document.querySelector(".drawer-scene");
 
 if (drawerScene) {
+  const drawerObjectButtons = Array.from(
+    drawerScene.querySelectorAll(".drawer-scene__object")
+  );
+  const drawerCard = drawerScene.querySelector(".drawer-scene__card");
+  const drawerCardTitle = drawerScene.querySelector(".drawer-scene__card-title");
+  const drawerCardText = drawerScene.querySelector(".drawer-scene__card-text");
+  const drawerCardClose = drawerScene.querySelector(".drawer-scene__card-close");
+
+  const drawerContent = {
+    notebook: {
+      title: "Структура",
+      text: "Сильный результат строится на продуманной логике и ясной последовательности.",
+    },
+    pen: {
+      title: "Смысл и формулировки",
+      text: "Важно не только что сказать, но и как сделать сложное понятным.",
+    },
+    book: {
+      title: "Погружение",
+      text: "Каждый проект начинается с изучения темы, задачи и контекста клиента.",
+    },
+    headphones: {
+      title: "Фокус",
+      text: "Помогают сосредоточиться и спокойно работать.",
+    },
+    coffee: {
+      title: "Рабочий ритуал",
+      text: "Кофе — часть моего рабочего ритуала.",
+    },
+    dumbbell: {
+      title: "Системность",
+      text: "Не только вдохновение, но и дисциплина, регулярность и рабочий ритм.",
+    },
+    macbook: {
+      title: "Сборка",
+      text: "Здесь структура, текст и визуальная подача превращаются в готовый результат.",
+    },
+    "project-brief": {
+      title: "Новый проект",
+      text: "Когда всё собрано правильно, отдельные детали превращаются в цельную систему.",
+    },
+  };
+
+  let drawerSelectedKey = null;
+
+  const closeDrawerCard = () => {
+    if (!drawerSelectedKey) {
+      return;
+    }
+    drawerSelectedKey = null;
+    drawerCard.hidden = true;
+    drawerObjectButtons.forEach((btn) => btn.classList.remove("is-selected"));
+  };
+
+  const openDrawerCard = (key, button) => {
+    const data = drawerContent[key];
+    if (!data) {
+      return;
+    }
+    drawerSelectedKey = key;
+    drawerCardTitle.textContent = data.title;
+    drawerCardText.textContent = data.text;
+    drawerCard.hidden = false;
+    drawerObjectButtons.forEach((btn) => btn.classList.toggle("is-selected", btn === button));
+  };
+
+  drawerObjectButtons.forEach((button) => {
+    const key = button.dataset.object;
+    button.addEventListener("click", () => {
+      if (drawerSelectedKey === key) {
+        closeDrawerCard();
+      } else {
+        openDrawerCard(key, button);
+      }
+    });
+  });
+
+  if (drawerCardClose) {
+    drawerCardClose.addEventListener("click", closeDrawerCard);
+  }
+
   if (reduceMotion) {
     drawerScene.classList.add("is-static");
+    drawerObjectButtons.forEach((button) => {
+      button.classList.add("is-active");
+      button.tabIndex = 0;
+    });
   } else {
     const drawerVideo = drawerScene.querySelector(".drawer-scene__video");
+    const drawerHint = drawerScene.querySelector(".drawer-scene__hint");
 
+    // Short, calm trajectories: objects arrive from points close to their
+    // final resting spot in the composition, not from off-screen.
     const drawerObjectConfigs = [
-      { selector: ".drawer-scene__object--notebook", start: 0.0, end: 0.24, from: { x: -70, y: -120, rot: -14, scale: 0.92 } },
-      { selector: ".drawer-scene__object--pen", start: 0.08, end: 0.32, from: { x: -140, y: 90, rot: 20, scale: 0.9 } },
-      { selector: ".drawer-scene__object--book", start: 0.16, end: 0.4, from: { x: 10, y: -140, rot: 6, scale: 0.92 } },
-      { selector: ".drawer-scene__object--headphones", start: 0.24, end: 0.48, from: { x: 130, y: -40, rot: -16, scale: 0.9 } },
-      { selector: ".drawer-scene__object--coffee", start: 0.32, end: 0.56, from: { x: 20, y: -130, rot: 4, scale: 0.7 } },
-      { selector: ".drawer-scene__object--dumbbell", start: 0.4, end: 0.62, from: { x: 90, y: 80, rot: 10, scale: 0.85 } },
-      { selector: ".drawer-scene__object--macbook", start: 0.52, end: 0.8, from: { x: 0, y: -160, rot: 3, scale: 0.9 } },
-      { selector: ".drawer-scene__object--project-brief", start: 0.66, end: 0.92, from: { x: 0, y: 100, rot: -5, scale: 0.9 } },
+      { selector: ".drawer-scene__object--notebook", start: 0.0, end: 0.24, from: { x: -30, y: 40, rot: -6, scale: 0.95 } },
+      { selector: ".drawer-scene__object--pen", start: 0.08, end: 0.3, from: { x: -18, y: 26, rot: 10, scale: 0.95 } },
+      { selector: ".drawer-scene__object--book", start: 0.16, end: 0.38, from: { x: -26, y: -28, rot: -5, scale: 0.95 } },
+      { selector: ".drawer-scene__object--headphones", start: 0.24, end: 0.46, from: { x: 34, y: -24, rot: 7, scale: 0.95 } },
+      { selector: ".drawer-scene__object--coffee", start: 0.32, end: 0.54, from: { x: 24, y: 28, rot: -4, scale: 0.95 } },
+      { selector: ".drawer-scene__object--dumbbell", start: 0.4, end: 0.6, from: { x: 18, y: 24, rot: 5, scale: 0.92 } },
+      { selector: ".drawer-scene__object--macbook", start: 0.5, end: 0.76, from: { x: 0, y: -42, rot: 2, scale: 0.94 } },
+      { selector: ".drawer-scene__object--project-brief", start: 0.62, end: 0.9, from: { x: 14, y: 32, rot: -4, scale: 0.94 } },
     ]
       .map((cfg) => ({ ...cfg, el: drawerScene.querySelector(cfg.selector) }))
       .filter((cfg) => cfg.el);
@@ -699,8 +788,8 @@ if (drawerScene) {
 
     const drawerAmplitudeScale = () => {
       const width = window.innerWidth;
-      if (width <= 760) return 0.55;
-      if (width <= 1100) return 0.75;
+      if (width <= 760) return 0.7;
+      if (width <= 1100) return 0.85;
       return 1;
     };
 
@@ -720,6 +809,29 @@ if (drawerScene) {
     }
 
     let drawerScenePending = false;
+    let drawerIsInteractive = false;
+    const objectsStart = 0.34;
+    const objectsEnd = 0.78;
+
+    const setDrawerInteractive = (isInteractive) => {
+      if (isInteractive === drawerIsInteractive) {
+        return;
+      }
+      drawerIsInteractive = isInteractive;
+
+      drawerObjectButtons.forEach((button) => {
+        button.classList.toggle("is-active", isInteractive);
+        button.tabIndex = isInteractive ? 0 : -1;
+      });
+
+      if (drawerHint) {
+        drawerHint.classList.toggle("is-visible", isInteractive);
+      }
+
+      if (!isInteractive) {
+        closeDrawerCard();
+      }
+    };
 
     const updateDrawerScene = () => {
       const rect = drawerScene.getBoundingClientRect();
@@ -740,8 +852,6 @@ if (drawerScene) {
 
       // 28–34%: pause on last frame (handled naturally, video stays clamped).
       // 34–78%: objects assemble into the final composition.
-      const objectsStart = 0.34;
-      const objectsEnd = 0.78;
       const objectsProgress = drawerClamp01(
         (scrolled - objectsStart) / (objectsEnd - objectsStart)
       );
@@ -761,6 +871,9 @@ if (drawerScene) {
         );
         el.style.setProperty("--obj-opacity", eased.toFixed(3));
       });
+
+      // 78–100%: composition is fully assembled — objects become clickable.
+      setDrawerInteractive(scrolled >= objectsEnd);
 
       drawerScenePending = false;
     };
