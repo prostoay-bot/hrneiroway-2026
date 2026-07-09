@@ -12,6 +12,9 @@ const usefulMailModal = document.querySelector(".useful-mail-modal");
 const usefulMailDialog = document.querySelector(".useful-mail-dialog");
 const usefulMailCloseControls = document.querySelectorAll("[data-useful-close]");
 const usefulMailSignature = document.querySelector(".useful-mail__signature");
+const processRoute = document.querySelector("[data-process-route]");
+const processKasper = document.querySelector(".process-route__kasper");
+const processSteps = document.querySelectorAll("[data-process-step]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeaderState = () => {
@@ -40,6 +43,97 @@ if (usefulMailSignature) {
     );
 
     usefulSignatureObserver.observe(usefulMailSignature);
+  }
+}
+
+if (processRoute && processKasper && processSteps.length) {
+  const setProcessState = (progress) => {
+    const clampedProgress = Math.min(Math.max(progress, 0), 1);
+    const isMobile = window.innerWidth <= 760;
+
+    processRoute.style.setProperty("--process-progress", clampedProgress);
+    processRoute.style.setProperty(
+      "--process-progress-percent",
+      `${clampedProgress * 100}%`
+    );
+
+    if (isMobile) {
+      const travel = Math.max(
+        processRoute.clientHeight - processKasper.offsetHeight - 8,
+        0
+      );
+      processRoute.style.setProperty(
+        "--process-y",
+        `${travel * clampedProgress}px`
+      );
+      processRoute.style.setProperty("--process-x", "0px");
+    } else {
+      const routePoints = [
+        { x: 0.076, y: 0.803 },
+        { x: 0.292, y: 0.887 },
+        { x: 0.512, y: 0.803 },
+        { x: 0.706, y: 0.887 },
+        { x: 0.904, y: 0.953 },
+      ];
+      const routePosition = clampedProgress * (routePoints.length - 1);
+      const segmentIndex = Math.min(
+        Math.floor(routePosition),
+        routePoints.length - 2
+      );
+      const segmentProgress = routePosition - segmentIndex;
+      const startPoint = routePoints[segmentIndex];
+      const endPoint = routePoints[segmentIndex + 1];
+      const pointX =
+        startPoint.x + (endPoint.x - startPoint.x) * segmentProgress;
+      const pointY =
+        startPoint.y + (endPoint.y - startPoint.y) * segmentProgress;
+      const x =
+        pointX * processRoute.clientWidth - processKasper.offsetWidth / 2;
+      const y =
+        pointY * processRoute.clientHeight - processKasper.offsetHeight / 2;
+
+      processRoute.style.setProperty("--process-x", `${x}px`);
+      processRoute.style.setProperty("--process-y", `${y}px`);
+    }
+
+    const activeIndex = Math.min(
+      processSteps.length - 1,
+      Math.round(clampedProgress * (processSteps.length - 1))
+    );
+
+    processSteps.forEach((step, index) => {
+      step.classList.toggle("is-active", index === activeIndex);
+      step.classList.toggle("is-complete", index < activeIndex);
+    });
+  };
+
+  if (reduceMotion) {
+    setProcessState(1);
+  } else {
+    let processFramePending = false;
+
+    const updateProcessRoute = () => {
+      const rect = processRoute.getBoundingClientRect();
+      const start = window.innerHeight * 0.84;
+      const travel = Math.max(rect.height - window.innerHeight * 0.22, 1);
+      const progress = (start - rect.top) / travel;
+
+      setProcessState(progress);
+      processFramePending = false;
+    };
+
+    const requestProcessUpdate = () => {
+      if (processFramePending) {
+        return;
+      }
+
+      processFramePending = true;
+      window.requestAnimationFrame(updateProcessRoute);
+    };
+
+    updateProcessRoute();
+    window.addEventListener("scroll", requestProcessUpdate, { passive: true });
+    window.addEventListener("resize", requestProcessUpdate);
   }
 }
 
