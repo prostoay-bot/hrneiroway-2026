@@ -2737,6 +2737,22 @@ body.has-useful-modal {
   overflow: hidden;
 }
 
+.about-story__section-marker {
+  position: absolute;
+  top: clamp(70px, 8vh, 76px);
+  left: clamp(22px, 3.5vw, 58px);
+  z-index: 10;
+  display: flex;
+  gap: 16px;
+  color: var(--accent-wine);
+  font: 700 12px/1.25 "Manrope", sans-serif;
+  text-transform: uppercase;
+}
+
+.about-story__section-marker p {
+  margin: 0;
+}
+
 .about-story__layout {
   display: grid;
   grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr);
@@ -2833,9 +2849,8 @@ body.has-useful-modal {
   align-self: center;
   justify-self: start;
   width: calc(100% - clamp(20px, 2vw, 32px));
-  height: auto;
-  aspect-ratio: 3 / 2;
-  margin: clamp(24px, 4vh, 40px) clamp(20px, 2vw, 32px) clamp(24px, 4vh, 40px) 0;
+  height: calc(100svh - clamp(144px, 18vh, 176px));
+  margin: clamp(72px, 9vh, 88px) clamp(20px, 2vw, 32px) clamp(72px, 9vh, 88px) 0;
   overflow: hidden;
   background: transparent;
   box-shadow: 0 24px 64px rgba(44, 41, 35, 0.14);
@@ -2846,7 +2861,7 @@ body.has-useful-modal {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 42%;
 }
 
 .about-story__photo.is-fallback img {
@@ -2880,6 +2895,10 @@ body.has-useful-modal {
   .about-story__card h2,
   .about-story__card h3 {
     font-size: clamp(32px, 3.25vw, 38px);
+  }
+
+  .about-story__photo {
+    height: 100svh;
   }
 
   .hero {
@@ -3278,16 +3297,14 @@ body.has-useful-modal {
 
   .about-story__photo {
     order: 1;
-    width: 100%;
     height: auto;
     min-height: 0;
-    aspect-ratio: 3 / 2;
-    margin: 0;
+    aspect-ratio: 4 / 5;
   }
 
   .about-story__photo img {
     object-fit: cover;
-    object-position: center;
+    object-position: center top;
   }
 
   .about-story__deck {
