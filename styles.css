@@ -2733,7 +2733,7 @@ body.has-useful-modal {
   position: sticky;
   top: 0;
   height: 100svh;
-  padding: clamp(66px, 7.5vh, 88px) clamp(22px, 3.5vw, 58px) clamp(18px, 2.5vh, 30px);
+  padding: 0 0 0 clamp(22px, 3.5vw, 58px);
   overflow: hidden;
 }
 
@@ -2820,15 +2820,19 @@ body.has-useful-modal {
   margin: auto 0 0;
 }
 
+.about-story__card--intro .about-story__text {
+  margin: clamp(54px, 8vh, 78px) 0 auto;
+}
+
 .about-story__text p {
   margin: 0;
   font: 400 clamp(15px, 1.05vw, 18px) / 1.48 "Manrope", sans-serif;
 }
 
 .about-story__photo {
-  align-self: center;
+  align-self: stretch;
   width: 100%;
-  height: min(89vh, 880px);
+  height: 100svh;
   margin: 0;
   overflow: hidden;
   background: #d8cdbc;
@@ -2839,8 +2843,8 @@ body.has-useful-modal {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 .about-story__photo.is-fallback img {
@@ -2864,7 +2868,7 @@ body.has-useful-modal {
   }
 
   .about-story__sticky {
-    padding: 82px 28px 32px;
+    padding: 0 0 0 28px;
   }
 
   .about-story__layout {
@@ -2877,7 +2881,7 @@ body.has-useful-modal {
   }
 
   .about-story__photo {
-    height: min(78vh, 720px);
+    height: 100svh;
   }
 
   .hero {
