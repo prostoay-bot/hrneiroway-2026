@@ -541,6 +541,12 @@ a {
   }
 }
 
+@media (min-width: 761px) and (prefers-reduced-motion: no-preference) {
+  .about-story .about-story__deck {
+    overflow: hidden;
+  }
+}
+
 .bookmark::after {
   content: "";
   position: absolute;
@@ -2716,6 +2722,132 @@ body.has-useful-modal {
   white-space: nowrap;
 }
 
+.about-story {
+  position: relative;
+  min-height: 486svh;
+  color: var(--emerald);
+  background: var(--bg);
+}
+
+.about-story__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  padding: clamp(66px, 7.5vh, 88px) clamp(22px, 3.5vw, 58px) clamp(18px, 2.5vh, 30px);
+  overflow: hidden;
+}
+
+.about-story__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.46fr) minmax(0, 0.54fr);
+  gap: clamp(18px, 2.2vw, 34px);
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.about-story__deck {
+  --stack-offset: clamp(26px, 3.5vh, 38px);
+  position: relative;
+  height: min(82vh, 790px);
+  align-self: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about-story__card {
+  --card-progress: 0;
+  --card-index: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - (var(--stack-offset) * 3));
+  padding: clamp(34px, 3vw, 48px) clamp(34px, 3.2vw, 52px) clamp(76px, 9vh, 92px);
+  overflow: hidden;
+  border: 1px solid rgba(77, 62, 43, 0.1);
+  border-radius: 3px;
+  transform: translate3d(
+    0,
+    calc((1 - var(--card-progress)) * (100% + var(--stack-offset)) + var(--card-progress) * var(--card-index) * var(--stack-offset)),
+    0
+  );
+  box-shadow: 0 -9px 28px rgba(55, 47, 37, 0.11);
+  will-change: transform;
+}
+
+.about-story__card--intro {
+  --card-progress: 1;
+  background: #e8ddce;
+}
+
+.about-story__card--practice { background: #e3d6c5; }
+.about-story__card--visual { background: #ddcfbd; }
+.about-story__card--result { background: #d8c9b6; }
+
+.about-story__marker {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font: 700 11px/1.2 "Manrope", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-story__card h2,
+.about-story__card h3 {
+  width: 100%;
+  max-width: none;
+  margin: clamp(38px, 5.5vh, 56px) 0 0;
+  font: 500 clamp(34px, 2.65vw, 40px) / 1.1 "Canela", "Cormorant Garamond", serif;
+  letter-spacing: -0.022em;
+}
+
+.about-story__card h2 span,
+.about-story__card h3 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.about-story__text {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: none;
+  margin: auto 0 0;
+}
+
+.about-story__text p {
+  margin: 0;
+  font: 400 clamp(15px, 1.05vw, 18px) / 1.48 "Manrope", sans-serif;
+}
+
+.about-story__photo {
+  align-self: center;
+  width: 100%;
+  height: min(89vh, 880px);
+  margin: 0;
+  overflow: hidden;
+  background: #d8cdbc;
+  box-shadow: 0 24px 64px rgba(44, 41, 35, 0.14);
+}
+
+.about-story__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.about-story__photo.is-fallback img {
+  object-fit: cover;
+  object-position: center 42%;
+}
+
 @media (max-width: 1100px) {
   .work-process__header {
     grid-template-columns: 150px minmax(0, 1fr);
@@ -2729,6 +2861,23 @@ body.has-useful-modal {
 
   .work-process__heading > p {
     white-space: normal;
+  }
+
+  .about-story__sticky {
+    padding: 82px 28px 32px;
+  }
+
+  .about-story__layout {
+    gap: 28px;
+  }
+
+  .about-story__card h2,
+  .about-story__card h3 {
+    font-size: clamp(32px, 3.25vw, 38px);
+  }
+
+  .about-story__photo {
+    height: min(78vh, 720px);
   }
 
   .hero {
@@ -3105,6 +3254,76 @@ body.has-useful-modal {
 
   .process-step p {
     font-size: 13px;
+  }
+
+  .about-story {
+    min-height: auto;
+  }
+
+  .about-story__sticky {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    padding: 88px 20px 72px;
+    overflow: visible;
+  }
+
+  .about-story__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-story__photo {
+    order: 1;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-story__photo img {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .about-story__deck {
+    order: 2;
+    display: grid;
+    gap: 14px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .about-story__card {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 390px;
+    padding: 28px 24px;
+    transform: none;
+    box-shadow: 0 12px 30px rgba(28, 29, 25, 0.1);
+  }
+
+  .about-story__card h2,
+  .about-story__card h3 {
+    margin-top: 42px;
+    font-size: clamp(30px, 8.7vw, 38px);
+    line-height: 1.06;
+  }
+
+  .about-story__card h2 span,
+  .about-story__card h3 span {
+    display: inline;
+    white-space: normal;
+  }
+
+  .about-story__card h2 span + span::before,
+  .about-story__card h3 span + span::before {
+    content: " ";
+  }
+
+  .about-story__text p {
+    font-size: 15px;
   }
 
   .useful-mail {
@@ -3779,5 +3998,28 @@ body.has-useful-modal {
   .diagnostic-result,
   .diagnostic-result__meter span {
     transition: none;
+  }
+
+  .about-story {
+    min-height: auto;
+  }
+
+  .about-story__sticky {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .about-story__deck {
+    display: grid;
+    height: auto;
+  }
+
+  .about-story__card {
+    position: relative;
+    inset: auto;
+    transform: none;
+    box-shadow: none;
   }
 }

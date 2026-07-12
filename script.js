@@ -15,6 +15,8 @@ const usefulMailSignature = document.querySelector(".useful-mail__signature");
 const processRoute = document.querySelector("[data-process-route]");
 const processKasper = document.querySelector(".process-route__kasper");
 const processSteps = document.querySelectorAll("[data-process-step]");
+const aboutStory = document.querySelector("[data-about-story]");
+const aboutCards = document.querySelectorAll("[data-about-card]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeaderState = () => {
@@ -135,6 +137,46 @@ if (processRoute && processKasper && processSteps.length) {
     window.addEventListener("scroll", requestProcessUpdate, { passive: true });
     window.addEventListener("resize", requestProcessUpdate);
   }
+}
+
+if (aboutStory && aboutCards.length && !reduceMotion) {
+  let aboutFramePending = false;
+
+  const updateAboutStory = () => {
+    const rect = aboutStory.getBoundingClientRect();
+    const viewportHeight = Math.max(window.innerHeight, 1);
+    const elapsedViewports = Math.max(-rect.top / viewportHeight, 0);
+    const holdBeforeMove = 0.35;
+    const moveDistance = 0.87;
+    const stepDistance = holdBeforeMove + moveDistance;
+
+    aboutCards.forEach((card, index) => {
+      const cardProgress = index === 0
+        ? 1
+        : Math.min(
+            Math.max(
+              (elapsedViewports - (index - 1) * stepDistance - holdBeforeMove) /
+                moveDistance,
+              0
+            ),
+            1
+          );
+      card.style.setProperty("--card-progress", cardProgress.toFixed(4));
+      card.style.setProperty("--card-index", String(index));
+    });
+
+    aboutFramePending = false;
+  };
+
+  const requestAboutStoryUpdate = () => {
+    if (aboutFramePending) return;
+    aboutFramePending = true;
+    window.requestAnimationFrame(updateAboutStory);
+  };
+
+  updateAboutStory();
+  window.addEventListener("scroll", requestAboutStoryUpdate, { passive: true });
+  window.addEventListener("resize", requestAboutStoryUpdate);
 }
 
 if (clarityFrame) {
