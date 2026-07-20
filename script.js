@@ -19,6 +19,9 @@ const aboutStory = document.querySelector("[data-about-story]");
 const aboutCards = document.querySelectorAll("[data-about-card]");
 const portfolioShowcase = document.querySelector("[data-portfolio-showcase]");
 const portfolioCards = document.querySelectorAll("[data-portfolio-card]");
+const kasperOffer = document.querySelector("[data-kasper-offer]");
+const kasperOfferClose = document.querySelector("[data-kasper-offer-close]");
+const kasperPromo = document.querySelector("[data-kasper-promo]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const updateHeaderState = () => {
@@ -27,6 +30,38 @@ const updateHeaderState = () => {
 
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+if (kasperOffer && kasperOfferClose) {
+  const offerWasClosed = window.sessionStorage.getItem("kasper-offer-closed") === "true";
+
+  if (!offerWasClosed) {
+    const showOffer = () => {
+      kasperOffer.hidden = false;
+      window.requestAnimationFrame(() => kasperOffer.classList.add("is-visible"));
+    };
+
+    window.setTimeout(showOffer, reduceMotion ? 300 : 2200);
+  }
+
+  kasperOfferClose.addEventListener("click", () => {
+    kasperOffer.classList.remove("is-visible");
+    window.sessionStorage.setItem("kasper-offer-closed", "true");
+    window.setTimeout(() => {
+      kasperOffer.hidden = true;
+    }, reduceMotion ? 0 : 450);
+  });
+
+  kasperPromo?.addEventListener("click", () => {
+    if (kasperPromo.classList.contains("is-revealed")) {
+      return;
+    }
+
+    kasperPromo.classList.add("is-revealed");
+    kasperPromo.setAttribute("aria-expanded", "true");
+    kasperPromo.innerHTML = "Промокод: <strong>КАСПЕР</strong>";
+  });
+
+}
 
 if (usefulMailSignature) {
   if (reduceMotion || !("IntersectionObserver" in window)) {
