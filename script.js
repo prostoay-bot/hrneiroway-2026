@@ -7,11 +7,9 @@ const approachDetail = document.querySelector(".approach-detail");
 const approachModal = document.querySelector(".approach-modal");
 const approachCloseControls = document.querySelectorAll("[data-approach-close]");
 const diagnosticBook = document.querySelector("[data-diagnostic]");
-const usefulMaterialButtons = document.querySelectorAll("[data-useful-material]");
-const usefulMailModal = document.querySelector(".useful-mail-modal");
-const usefulMailDialog = document.querySelector(".useful-mail-dialog");
-const usefulMailCloseControls = document.querySelectorAll("[data-useful-close]");
-const usefulMailSignature = document.querySelector(".useful-mail__signature");
+const usefulLibrary = document.querySelector("[data-useful-library]");
+const usefulTabs = document.querySelectorAll("[data-useful-tab]");
+const usefulArticles = document.querySelectorAll("[data-useful-article]");
 const processRoute = document.querySelector("[data-process-route]");
 const processKasper = document.querySelector(".process-route__kasper");
 const processSteps = document.querySelectorAll("[data-process-step]");
@@ -61,28 +59,6 @@ if (kasperOffer && kasperOfferClose) {
     kasperPromo.innerHTML = "Промокод: <strong>КАСПЕР</strong>";
   });
 
-}
-
-if (usefulMailSignature) {
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    usefulMailSignature.classList.add("is-visible");
-  } else {
-    const usefulSignatureObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          entry.target.classList.add("is-visible");
-          usefulSignatureObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.35 }
-    );
-
-    usefulSignatureObserver.observe(usefulMailSignature);
-  }
 }
 
 if (processRoute && processKasper && processSteps.length) {
@@ -214,6 +190,106 @@ if (aboutStory && aboutCards.length && !reduceMotion) {
   updateAboutStory();
   window.addEventListener("scroll", requestAboutStoryUpdate, { passive: true });
   window.addEventListener("resize", requestAboutStoryUpdate);
+}
+
+if (
+  usefulLibrary &&
+  usefulTabs.length &&
+  window.gsap &&
+  window.ScrollTrigger
+) {
+  window.gsap.registerPlugin(window.ScrollTrigger);
+  const usefulStory = usefulLibrary.querySelector(".useful-library__story");
+  const usefulStage = usefulLibrary.querySelector(".useful-library__stage");
+  const usefulHint = usefulLibrary.querySelector(".useful-library__hint");
+  const usefulMotion = window.gsap.matchMedia();
+
+  usefulMotion.add(
+    "(min-width: 761px) and (prefers-reduced-motion: no-preference)",
+    () => {
+      const spread = () => Math.min(Math.max(window.innerWidth * 0.245, 235), 355);
+      const lift = () => Math.min(Math.max(window.innerHeight * 0.23, 165), 210);
+
+      window.gsap.set(usefulTabs, {
+        x: 0,
+        y: 145,
+        rotation: 0,
+        scale: 0.94,
+        zIndex: 3,
+      });
+
+      const usefulTimeline = window.gsap.timeline({
+        scrollTrigger: {
+          trigger: usefulStory,
+          start: "top top",
+          end: () => `+=${Math.max(window.innerHeight * 3.25, 2350)}`,
+          pin: usefulStage,
+          scrub: 1.05,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      usefulTimeline
+        .to(usefulHint, { opacity: 0, y: 10, duration: 0.3 }, 0)
+        .to(
+          usefulTabs[0],
+          {
+            x: () => -spread(),
+            y: () => -lift() * 0.9,
+            rotation: -4,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          0.15
+        )
+        .set(usefulTabs[0], { zIndex: 6 }, 1.14)
+        .to(
+          usefulTabs[1],
+          {
+            x: 0,
+            y: () => -lift(),
+            rotation: 1.2,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          1.18
+        )
+        .set(usefulTabs[1], { zIndex: 6 }, 2.17)
+        .to(
+          usefulTabs[2],
+          {
+            x: () => spread(),
+            y: () => -lift() * 0.9,
+            rotation: 4,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+          },
+          2.22
+        )
+        .set(usefulTabs[2], { zIndex: 6 }, 3.21)
+        .to({}, { duration: 0.65 });
+
+      if (usefulArticles.length) {
+        window.gsap.from(usefulArticles, {
+          y: 54,
+          opacity: 0,
+          stagger: 0.12,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "[data-useful-reading]",
+            start: "top 76%",
+          },
+        });
+      }
+
+      return () => usefulTimeline.scrollTrigger?.kill();
+    }
+  );
 }
 
 if (
@@ -414,104 +490,6 @@ if (approachSection) {
     window.addEventListener("scroll", requestApproachUpdate, { passive: true });
     window.addEventListener("resize", requestApproachUpdate);
   }
-}
-
-const usefulMaterials = {
-  prompts: {
-    number: "Письмо 01",
-    title: "HR-промты",
-    text: "Готовые формулировки для рассылок, инструкций и внутренних коммуникаций.",
-    action: "Скачать материал",
-    href: "https://hrneiroway.ru/hr-prompts.pdf",
-  },
-  canva: {
-    number: "Письмо 02",
-    title: "Шаблоны гайда в Canva",
-    text: "Основа для чек-листов, мини-гайдов и аккуратных PDF-материалов.",
-    action: "Открыть шаблоны",
-    href: "https://canva.link/qrfjbz38egi6h25",
-  },
-  stickers: {
-    number: "Письмо 03",
-    title: "Офисные стикеры",
-    text: "Набор удобных стикеров для рабочих материалов и внутренних заметок.",
-    action: "Открыть в Telegram",
-    href: "https://t.me/addstickers/hr_ne_v_resurse",
-  },
-  support: {
-    number: "Письмо поддержки",
-    title: "У вас всё получится",
-    text: "Не обязательно решать всё сразу. Выберите один понятный следующий шаг — и система начнёт складываться.",
-  },
-  steps: {
-    number: "Небольшое напоминание",
-    title: "Маленькие шаги тоже считаются",
-    text: "Хороший результат начинается не с идеального документа, а с ясной мысли и первого аккуратного действия.",
-  },
-};
-
-if (usefulMailModal && usefulMailDialog) {
-  const usefulDialogNumber = usefulMailDialog.querySelector(
-    ".useful-mail-dialog__number"
-  );
-  const usefulDialogTitle = usefulMailDialog.querySelector("h3");
-  const usefulDialogText = usefulMailDialog.querySelector(
-    ".useful-mail-dialog__text"
-  );
-  const usefulDialogAction = usefulMailDialog.querySelector(
-    ".useful-mail-dialog__action"
-  );
-  let usefulMailTrigger = null;
-
-  const closeUsefulMail = () => {
-    usefulMailModal.classList.remove("is-open");
-    usefulMailModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("has-useful-modal");
-    usefulMailTrigger?.focus();
-  };
-
-  const openUsefulMail = (button) => {
-    const material = usefulMaterials[button.dataset.usefulMaterial];
-
-    if (!material) {
-      return;
-    }
-
-    usefulMailTrigger = button;
-    usefulDialogNumber.textContent = material.number;
-    usefulDialogTitle.textContent = material.title;
-    usefulDialogText.textContent = material.text;
-    if (material.href) {
-      usefulDialogAction.hidden = false;
-      usefulDialogAction.textContent = material.action;
-      usefulDialogAction.insertAdjacentHTML(
-        "beforeend",
-        ' <span aria-hidden="true">↗</span>'
-      );
-      usefulDialogAction.href = material.href;
-    } else {
-      usefulDialogAction.hidden = true;
-      usefulDialogAction.removeAttribute("href");
-    }
-    usefulMailModal.classList.add("is-open");
-    usefulMailModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("has-useful-modal");
-    window.requestAnimationFrame(() => usefulMailDialog.focus());
-  };
-
-  usefulMaterialButtons.forEach((button) => {
-    button.addEventListener("click", () => openUsefulMail(button));
-  });
-
-  usefulMailCloseControls.forEach((control) => {
-    control.addEventListener("click", closeUsefulMail);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && usefulMailModal.classList.contains("is-open")) {
-      closeUsefulMail();
-    }
-  });
 }
 
 if (approachNotes.length && approachDetail && approachModal) {

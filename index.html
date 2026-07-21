@@ -443,133 +443,82 @@
         </div>
       </section>
 
-      <section class="useful-mail" id="useful" aria-labelledby="useful-mail-title">
-        <div class="useful-mail__marker">
-          <span>[06]</span>
-          <p>Полезное</p>
+      <section class="useful-library" id="useful" aria-labelledby="useful-library-title" data-useful-library>
+        <div class="useful-library__story">
+          <div class="useful-library__stage">
+            <header class="useful-library__header">
+              <div class="useful-library__marker"><span>[06]</span><p>Полезное</p></div>
+              <div class="useful-library__intro">
+                <p class="useful-library__eyebrow">[ Заберите то, что пригодится в работе ]</p>
+                <h2 id="useful-library-title">Полезное, которое хочется сохранить</h2>
+                <p class="useful-library__lead">Бесплатные HR-материалы для работы: готовые промты, шаблоны Canva, офисные стикеры и статьи о welcome book, адаптации сотрудников и понятных инструкциях</p>
+              </div>
+            </header>
+
+            <div class="useful-library__desk" aria-label="Бесплатные HR-материалы, шаблоны и инструменты для работы">
+              <div class="useful-folder">
+                <div class="useful-folder__back" aria-hidden="true"></div>
+
+                <a class="useful-tab useful-tab--prompts" href="https://hrneiroway.ru/hr-prompts.pdf" target="_blank" rel="noreferrer" data-useful-tab>
+                  <span class="useful-tab__index">01 / PDF</span>
+                  <h3>HR-промты</h3>
+                  <p>Готовые формулировки для рассылок, инструкций и внутренних коммуникаций</p>
+                  <span class="useful-tab__action">Скачать PDF <span aria-hidden="true">↗</span></span>
+                </a>
+
+                <a class="useful-tab useful-tab--canva" href="https://canva.link/qrfjbz38egi6h25" target="_blank" rel="noreferrer" data-useful-tab>
+                  <span class="useful-tab__index">02 / CANVA</span>
+                  <h3>Шаблоны гайда в Canva</h3>
+                  <p>Основа для чек-листов, мини-гайдов и аккуратных материалов, которые легко адаптировать под свою задачу</p>
+                  <span class="useful-tab__action">Открыть шаблоны <span aria-hidden="true">↗</span></span>
+                </a>
+
+                <a class="useful-tab useful-tab--stickers" href="https://t.me/addstickers/hr_ne_v_resurse" target="_blank" rel="noreferrer" data-useful-tab>
+                  <span class="useful-tab__index">03 / TELEGRAM</span>
+                  <h3>Офисные стикеры</h3>
+                  <p>Набор стикеров для рабочих чатов, внутренних заметок и общения с коллегами</p>
+                  <span class="useful-tab__action">Забрать стикеры <span aria-hidden="true">↗</span></span>
+                </a>
+
+                <div class="useful-folder__front" aria-hidden="true">
+                  <span>HRNEIROWAY</span>
+                  <strong>Архив полезного</strong>
+                  <small>Открывайте · сохраняйте · используйте</small>
+                </div>
+              </div>
+              <p class="useful-library__hint">Листайте, чтобы открыть материалы</p>
+            </div>
+          </div>
         </div>
 
-        <p class="useful-mail__eyebrow">[ Здесь кое-что полезное и приятное для вас ]</p>
-        <h2 id="useful-mail-title">
-          <span>Нажмите на любое <em>письмо</em></span>
-          <span>и получите <em>материал</em></span>
-        </h2>
+        <div class="useful-reading" data-useful-reading aria-labelledby="useful-reading-title">
+          <header class="useful-reading__header">
+            <p>[ Почитать ]</p>
+            <h3 id="useful-reading-title">Если хочется разобраться глубже</h3>
+          </header>
 
-        <div class="useful-mail__letters" aria-label="Бесплатные материалы">
-          <button
-            class="useful-letter useful-letter--prompts"
-            type="button"
-            data-useful-material="prompts"
-            aria-haspopup="dialog"
-          >
-            <span class="useful-letter__icon" aria-hidden="true">
-              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
-              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
-            </span>
-            <span class="useful-letter__label">[ HR-промты ]</span>
-          </button>
-
-          <button
-            class="useful-letter useful-letter--canva"
-            type="button"
-            data-useful-material="canva"
-            aria-haspopup="dialog"
-          >
-            <span class="useful-letter__icon" aria-hidden="true">
-              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
-              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
-            </span>
-            <span class="useful-letter__label">[ Шаблоны гайда ]</span>
-          </button>
-
-          <button
-            class="useful-letter useful-letter--stickers"
-            type="button"
-            data-useful-material="stickers"
-            aria-haspopup="dialog"
-          >
-            <span class="useful-letter__icon" aria-hidden="true">
-              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
-              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
-            </span>
-            <span class="useful-letter__label">[ Офисные стикеры ]</span>
-          </button>
-
-          <button
-            class="useful-letter useful-letter--support"
-            type="button"
-            data-useful-material="support"
-            aria-haspopup="dialog"
-          >
-            <span class="useful-letter__icon" aria-hidden="true">
-              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
-              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
-            </span>
-            <span class="useful-letter__label">[ Сюрприз для тебя ]</span>
-          </button>
-
-          <button
-            class="useful-letter useful-letter--steps"
-            type="button"
-            data-useful-material="steps"
-            aria-haspopup="dialog"
-          >
-            <span class="useful-letter__icon" aria-hidden="true">
-              <img class="useful-letter__closed" src="./assets/images/envelope-closed.svg" alt="" />
-              <img class="useful-letter__open" src="./assets/images/envelope-open.svg" alt="" />
-            </span>
-            <span class="useful-letter__label">[ Тут ещё кое-что для тебя ]</span>
-          </button>
-        </div>
-
-        <div class="useful-mail__signature">
-          <img
-            src="./assets/images/marina-useful.png"
-            alt="Марина Голяева"
-            loading="lazy"
-          />
-          <p>Заберите то, что пригодится именно сейчас</p>
-        </div>
-
-        <img
-          class="useful-mail__heart"
-          src="./assets/images/heart-wine.svg"
-          alt=""
-          aria-hidden="true"
-        />
-
-        <div class="useful-mail-modal" aria-hidden="true">
-          <div class="useful-mail-modal__backdrop" data-useful-close></div>
-          <article
-            class="useful-mail-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="useful-dialog-title"
-            tabindex="-1"
-          >
-            <button
-              class="useful-mail-dialog__close"
-              type="button"
-              aria-label="Закрыть письмо"
-              data-useful-close
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-            <span class="useful-mail-dialog__number">Письмо 01</span>
-            <p class="useful-mail-dialog__caption">Внутри — готовый материал</p>
-            <h3 id="useful-dialog-title">HR-промты</h3>
-            <p class="useful-mail-dialog__text">
-              Готовые формулировки для рассылок, инструкций и внутренних коммуникаций.
-            </p>
-            <a
-              class="useful-mail-dialog__action"
-              href="https://hrneiroway.ru/hr-prompts.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Скачать материал <span aria-hidden="true">↗</span>
+          <div class="useful-reading__grid">
+            <a class="useful-article useful-article--one" href="https://hrneiroway.ru/articles/chto-takoe-welcome-book/" target="_blank" rel="noreferrer" data-useful-article>
+              <span>01 / WELCOME BOOK</span>
+              <h4>Что такое welcome book и зачем он нужен компании</h4>
+              <span class="useful-article__action">Читать статью ↗</span>
             </a>
-          </article>
+            <a class="useful-article useful-article--two" href="https://hrneiroway.ru/articles/chto-vklyuchit-v-welcome-book/" target="_blank" rel="noreferrer" data-useful-article>
+              <span>02 / СТРУКТУРА</span>
+              <h4>Что включить в welcome book для нового сотрудника</h4>
+              <span class="useful-article__action">Читать статью ↗</span>
+            </a>
+            <a class="useful-article useful-article--three" href="https://hrneiroway.ru/articles/kak-sdelat-instrukciyu-dlya-sotrudnikov/" target="_blank" rel="noreferrer" data-useful-article>
+              <span>03 / ИНСТРУКЦИИ</span>
+              <h4>Как сделать инструкцию, которую будут читать</h4>
+              <span class="useful-article__action">Читать статью ↗</span>
+            </a>
+            <a class="useful-article useful-article--all" href="https://hrneiroway.ru/articles/" target="_blank" rel="noreferrer" data-useful-article>
+              <span>04 / БИБЛИОТЕКА</span>
+              <h4>Все статьи и полезные материалы</h4>
+              <span class="useful-article__action">Открыть библиотеку ↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
