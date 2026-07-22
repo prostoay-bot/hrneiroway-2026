@@ -11,16 +11,58 @@ const usefulLibrary = document.querySelector("[data-useful-library]");
 const usefulTabs = document.querySelectorAll("[data-useful-tab]");
 const usefulArticles = document.querySelectorAll("[data-useful-article]");
 const processRoute = document.querySelector("[data-process-route]");
-const processKasper = document.querySelector(".process-route__kasper");
+const processKasper = document.querySelector(".process-route__guide");
 const processSteps = document.querySelectorAll("[data-process-step]");
 const aboutStory = document.querySelector("[data-about-story]");
 const aboutCards = document.querySelectorAll("[data-about-card]");
 const portfolioShowcase = document.querySelector("[data-portfolio-showcase]");
 const portfolioCards = document.querySelectorAll("[data-portfolio-card]");
+const faqItems = document.querySelectorAll(".faq-item");
 const kasperOffer = document.querySelector("[data-kasper-offer]");
 const kasperOfferClose = document.querySelector("[data-kasper-offer-close]");
 const kasperPromo = document.querySelector("[data-kasper-promo]");
+const cookieNotice = document.querySelector("[data-cookie-notice]");
+const cookieAccept = document.querySelector("[data-cookie-accept]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (cookieNotice && cookieAccept) {
+  let technicalNoticeAccepted = false;
+
+  try {
+    technicalNoticeAccepted = window.localStorage.getItem("hrneiroway-technical-notice") === "accepted";
+  } catch (error) {
+    technicalNoticeAccepted = false;
+  }
+
+  if (technicalNoticeAccepted) {
+    cookieNotice.hidden = true;
+    document.body.classList.add("cookies-accepted");
+  }
+
+  cookieAccept.addEventListener("click", () => {
+    try {
+      window.localStorage.setItem("hrneiroway-technical-notice", "accepted");
+    } catch (error) {
+      // Уведомление всё равно можно закрыть, если хранилище браузера недоступно
+    }
+
+    document.body.classList.add("cookies-accepted");
+    cookieNotice.classList.add("is-hiding");
+    window.setTimeout(() => {
+      cookieNotice.hidden = true;
+    }, reduceMotion ? 0 : 320);
+  });
+}
+
+faqItems.forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+
+    faqItems.forEach((otherItem) => {
+      if (otherItem !== item) otherItem.open = false;
+    });
+  });
+});
 
 const updateHeaderState = () => {
   siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -226,6 +268,7 @@ if (
           pin: usefulStage,
           scrub: 1.05,
           anticipatePin: 1,
+          refreshPriority: 1,
           invalidateOnRefresh: true,
         },
       });
@@ -320,10 +363,16 @@ if (
         pin: ".portfolio-showcase__stage",
         scrub: 1,
         anticipatePin: 1,
+        refreshPriority: 2,
         invalidateOnRefresh: true,
       },
     }
   );
+
+  // «Проекты» находятся выше «Полезного», поэтому после создания обоих
+  // закреплений пересчитываем координаты в порядке страницы
+  window.ScrollTrigger.sort();
+  window.ScrollTrigger.refresh();
 }
 
 if (clarityFrame) {
