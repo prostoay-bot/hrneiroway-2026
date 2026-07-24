@@ -3,6 +3,7 @@
   --paper-soft: #f6efdf;
   --sand: #e4cfb4;
   --sand-deep: #d4b591;
+  --olive: #70866a;
   --green: #0a3b2d;
   --wine: #700b14;
   --muted: #5f6f68;
@@ -422,6 +423,16 @@ button {
   padding: 25px 26px 28px;
   display: flex;
   flex-direction: column;
+}
+
+.mb-format-card--olive .mb-format-card__copy {
+  color: var(--green);
+  border-top: 8px solid var(--olive);
+  background: var(--paper);
+}
+
+.mb-format-card--olive .mb-format-card__copy > span {
+  color: var(--olive);
 }
 
 .mb-format-card h3,
