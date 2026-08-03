@@ -46,7 +46,7 @@ document.querySelectorAll(".tariff-dialog").forEach((dialog) => {
 });
 
 const revealItems = document.querySelectorAll(
-  ".tariff, .included, .process-list li, .project, .result-panel, .contact"
+  ".meaning-copy, .meaning-step, .tariff, .included, .process-list li, .project, .result-panel, .contact"
 );
 
 if (reducedMotion || !("IntersectionObserver" in window)) {
