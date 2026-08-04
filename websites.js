@@ -132,7 +132,7 @@ document.querySelectorAll(".tariff-dialog, .gallery-dialog").forEach((dialog) =>
 });
 
 const revealItems = document.querySelectorAll(
-  ".meaning-copy, .meaning-step, .format-switcher, .included, .process-list li, .project, .contact"
+  ".meaning-copy, .meaning-step, .format-switcher, .pricing-heading, .pricing-cards, .pricing-footnote, .included, .process-list li, .price-includes-heading, .price-includes-card, .price-includes-item, .price-extras, .project, .contact"
 );
 
 if (reducedMotion || !("IntersectionObserver" in window)) {
