@@ -5,6 +5,43 @@ const formatsSection = document.querySelector("#formats");
 
 if (projectsSection && formatsSection) formatsSection.before(projectsSection);
 
+const formatTabs = [...document.querySelectorAll(".format-tab")];
+const formatPanels = [...document.querySelectorAll(".format-panel")];
+
+const activateFormatTab = (activeTab, moveFocus = false) => {
+  const panelId = activeTab.getAttribute("aria-controls");
+
+  formatTabs.forEach((tab) => {
+    const isActive = tab === activeTab;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+    tab.tabIndex = isActive ? 0 : -1;
+  });
+
+  formatPanels.forEach((panel) => {
+    const isActive = panel.id === panelId;
+    panel.hidden = !isActive;
+    panel.classList.toggle("is-active", isActive);
+  });
+
+  if (moveFocus) activeTab.focus();
+};
+
+formatTabs.forEach((tab, tabIndex) => {
+  tab.addEventListener("click", () => activateFormatTab(tab));
+  tab.addEventListener("keydown", (event) => {
+    let nextIndex = tabIndex;
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") nextIndex = (tabIndex + 1) % formatTabs.length;
+    else if (event.key === "ArrowLeft" || event.key === "ArrowUp") nextIndex = (tabIndex - 1 + formatTabs.length) % formatTabs.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = formatTabs.length - 1;
+    else return;
+
+    event.preventDefault();
+    activateFormatTab(formatTabs[nextIndex], true);
+  });
+});
+
 const revealHero = () => {
   if (!heroSection) return;
   requestAnimationFrame(() => requestAnimationFrame(() => heroSection.classList.add("is-ready")));
@@ -95,7 +132,7 @@ document.querySelectorAll(".tariff-dialog, .gallery-dialog").forEach((dialog) =>
 });
 
 const revealItems = document.querySelectorAll(
-  ".meaning-copy, .meaning-step, .tariff, .included, .process-list li, .project, .contact"
+  ".meaning-copy, .meaning-step, .format-switcher, .included, .process-list li, .project, .contact"
 );
 
 if (reducedMotion || !("IntersectionObserver" in window)) {

@@ -90,56 +90,61 @@
       <header class="section-heading">
         <p class="section-marker">[03] ФОРМАТЫ</p>
         <div>
-          <p class="eyebrow">Без лишних функций и переплаты</p>
+          <p class="eyebrow">Три уровня визуальной свободы</p>
           <h2>Какой формат сайта подойдёт вам</h2>
         </div>
       </header>
 
-      <div class="tariff-grid">
-        <article class="tariff">
-          <p class="tariff-number">01</p>
-          <h3>Лендинг или сайт-визитка</h3>
-          <p class="tariff-price">от 30 000 ₽</p>
-          <p>Для эксперта, специалиста или небольшой компании, когда важно быстро и понятно представить услугу</p>
-          <ul>
-            <li>до 10 смысловых экранов</li>
-            <li>стандартные блоки Tilda</li>
-            <li>структура и мобильная версия</li>
-            <li>формы, базовая поисковая настройка и публикация</li>
-          </ul>
-          <button class="text-button" type="button" data-dialog-open="dialog-basic">Что входит <span>↗</span></button>
-        </article>
+      <div class="format-switcher">
+        <div class="format-tabs" role="tablist" aria-label="Форматы разработки сайта">
+          <button id="format-tab-basic" class="format-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="format-panel-basic" tabindex="0"><span>01</span> Базовое решение</button>
+          <button id="format-tab-brand" class="format-tab" type="button" role="tab" aria-selected="false" aria-controls="format-panel-brand" tabindex="-1"><span>02</span> Индивидуальный дизайн</button>
+          <button id="format-tab-zero" class="format-tab" type="button" role="tab" aria-selected="false" aria-controls="format-panel-zero" tabindex="-1"><span>03</span> Zero Block</button>
+        </div>
 
-        <article class="tariff tariff-featured">
-          <p class="tariff-number">02</p>
-          <h3>Лендинг с индивидуальным дизайном</h3>
-          <p class="tariff-price">от 45 000 ₽</p>
-          <p>Для проекта, которому нужен узнаваемый визуальный образ и более выразительная подача</p>
-          <ul>
-            <li>до 10 смысловых экранов</li>
-            <li>индивидуальная вёрстка в Zero Block</li>
-            <li>анимации и адаптация под устройства</li>
-            <li>формы, базовая поисковая настройка и публикация</li>
-          </ul>
-          <button class="text-button" type="button" data-dialog-open="dialog-custom">Что входит <span>↗</span></button>
-        </article>
+        <div class="format-panels">
+          <article id="format-panel-basic" class="format-panel is-active" role="tabpanel" aria-labelledby="format-tab-basic" data-stamp="БЫСТРЫЙ ЗАПУСК">
+            <div class="format-intro">
+              <p class="format-kicker">Стандартные блоки Tilda</p>
+              <h3>Быстрый, функциональный и&nbsp;доступный по&nbsp;стоимости вариант</h3>
+              <button class="format-more" type="button" data-dialog-open="dialog-basic">Подробнее о формате <span aria-hidden="true">→</span></button>
+            </div>
+            <ul class="format-benefits">
+              <li><span>01</span>Подходит для быстрого запуска</li>
+              <li><span>02</span>Удобно обновлять самостоятельно</li>
+              <li><span>03</span>Оптимально для проверки новой идеи или услуги</li>
+            </ul>
+            <img class="format-cat format-cat--basic" src="assets/images/formats/cat-basic.png" alt="" aria-hidden="true">
+          </article>
 
-        <article class="tariff">
-          <p class="tariff-number">03</p>
-          <h3>Многостраничный сайт или магазин</h3>
-          <div class="price-pair">
-            <p><span>Стандартные блоки</span><strong>от 50 000 ₽</strong></p>
-            <p><span>Zero Block</span><strong>от 70 000 ₽</strong></p>
-          </div>
-          <p>Для нескольких услуг, каталога или проекта, которому одной страницы уже недостаточно</p>
-          <ul>
-            <li>несколько связанных страниц</li>
-            <li>единая визуальная система</li>
-            <li>каталог, формы и техническая настройка</li>
-            <li>мобильная версия и публикация</li>
-          </ul>
-          <button class="text-button" type="button" data-dialog-open="dialog-multi">Что входит <span>↗</span></button>
-        </article>
+          <article id="format-panel-brand" class="format-panel" role="tabpanel" aria-labelledby="format-tab-brand" data-stamp="ФИРМЕННЫЙ СТИЛЬ" hidden>
+            <div class="format-intro">
+              <p class="format-kicker">Блоки Tilda в фирменном стиле</p>
+              <h3>Современное решение с&nbsp;индивидуальной подачей и&nbsp;удобной поддержкой</h3>
+              <button class="format-more" type="button" data-dialog-open="dialog-custom">Подробнее о формате <span aria-hidden="true">→</span></button>
+            </div>
+            <ul class="format-benefits">
+              <li><span>01</span>Фирменные цвета, шрифты и изображения</li>
+              <li><span>02</span>Продуманная композиция</li>
+              <li><span>03</span>Удобное самостоятельное обновление</li>
+            </ul>
+            <img class="format-cat format-cat--brand" src="assets/images/formats/cat-brand.png" alt="" aria-hidden="true" loading="lazy">
+          </article>
+
+          <article id="format-panel-zero" class="format-panel" role="tabpanel" aria-labelledby="format-tab-zero" data-stamp="УНИКАЛЬНАЯ ПОДАЧА" hidden>
+            <div class="format-intro">
+              <p class="format-kicker">Полностью индивидуальные блоки</p>
+              <h3>Нестандартная композиция, типографика и&nbsp;анимация</h3>
+              <button class="format-more" type="button" data-dialog-open="dialog-zero">Подробнее о формате <span aria-hidden="true">→</span></button>
+            </div>
+            <ul class="format-benefits">
+              <li><span>01</span>Полностью индивидуальная композиция</li>
+              <li><span>02</span>Сложная пошаговая анимация</li>
+              <li><span>03</span>Нестандартные визуальные решения</li>
+            </ul>
+            <img class="format-cat format-cat--zero" src="assets/images/formats/cat-zero.png" alt="" aria-hidden="true" loading="lazy">
+          </article>
+        </div>
       </div>
     </section>
 
@@ -302,26 +307,48 @@
 
   <dialog id="dialog-basic" class="tariff-dialog" aria-labelledby="dialog-basic-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">ЛЕНДИНГ ИЛИ САЙТ-ВИЗИТКА</p>
-    <h2 id="dialog-basic-title">Собран на стандартных блоках Tilda</h2>
-    <p>Подходит, когда важны понятная структура, аккуратный дизайн и быстрый запуск без сложной анимации</p>
-            <ul><li>до 10 экранов</li><li>индивидуальная структура</li><li>адаптация под телефон</li><li>формы и базовая поисковая настройка</li><li>подключение домена и публикация</li></ul>
+    <p class="section-marker">БАЗОВОЕ РЕШЕНИЕ</p>
+    <h2 id="dialog-basic-title">Сайт на стандартных шаблонах Tilda</h2>
+    <p class="dialog-lead">Быстрый, функциональный и доступный по стоимости вариант</p>
+    <ul>
+      <li>подходит для быстрого запуска</li>
+      <li>удобно обновлять самостоятельно</li>
+      <li>оптимально для проверки новой идеи или услуги</li>
+    </ul>
+    <p>В Tilda есть стандартные блоки. Для сайта с базовым дизайном используются именно такие типовые блоки без каких-либо существенных изменений. Их структура и функциональность сохраняются, но можно настроить содержание, цвет, шрифт и отступы</p>
+    <p>Примеры реализации базового дизайна можно посмотреть в официальной коллекции шаблонов Tilda</p>
+    <a class="dialog-link" href="https://tilda.cc/ru/tpls/" target="_blank" rel="noopener noreferrer">Посмотреть базовые шаблоны Tilda <span aria-hidden="true">↗</span></a>
+    <p class="dialog-note"><strong>Важно</strong> Визуальная уникальность ограничена возможностями стандартных блоков</p>
   </dialog>
 
   <dialog id="dialog-custom" class="tariff-dialog" aria-labelledby="dialog-custom-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
     <p class="section-marker">ИНДИВИДУАЛЬНЫЙ ДИЗАЙН</p>
-    <h2 id="dialog-custom-title">Выразительная подача в Zero Block</h2>
-    <p>Подходит, когда сайту нужен собственный визуальный язык, нестандартная композиция и аккуратные анимации</p>
-            <ul><li>до 10 экранов</li><li>индивидуальная композиция</li><li>анимации по задаче</li><li>адаптация под устройства</li><li>формы, базовая поисковая настройка и публикация</li></ul>
+    <h2 id="dialog-custom-title">Сайт на основе блоков Tilda, адаптированных под фирменный стиль</h2>
+    <p class="dialog-lead">Современное решение с индивидуальной подачей, которое остаётся удобным в поддержке</p>
+    <ul>
+      <li>фирменные цвета, шрифты и изображения</li>
+      <li>продуманная композиция</li>
+      <li>удобное самостоятельное обновление</li>
+    </ul>
+    <p>Все блоки и весь визуал — изображения, иконки, типографика и цвета — учитывают фирменный стиль заказчика или выбранную концепцию. При этом функциональность и логика работы стандартных блоков Tilda сохраняются</p>
+    <p>У блоков Tilda много внутренних настроек: можно редактировать отступы, количество отображаемых элементов, их ширину и высоту, объём информации и порядок подачи. Это позволяет точнее настроить композицию и визуальный ритм страницы под конкретный проект</p>
+    <p>Однако функциональность каждого блока заранее стандартизирована. В этом формате я адаптирую блоки под фирменный стиль и задачу сайта, но почти не меняю их стандартную механику. В результате сайт получает индивидуальную подачу и при этом остаётся удобным для самостоятельного обновления и дальнейшей поддержки</p>
   </dialog>
 
-  <dialog id="dialog-multi" class="tariff-dialog" aria-labelledby="dialog-multi-title">
+  <dialog id="dialog-zero" class="tariff-dialog" aria-labelledby="dialog-zero-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">МНОГОСТРАНИЧНЫЙ САЙТ</p>
-    <h2 id="dialog-multi-title">Несколько страниц в единой системе</h2>
-    <p>Подходит для компании с несколькими направлениями, каталогом, магазином или большим объёмом информации</p>
-    <ul><li>карта и структура страниц</li><li>единая дизайн-система</li><li>каталог или витрина услуг</li><li>адаптация под устройства</li><li>техническая настройка и публикация</li></ul>
+    <p class="section-marker">УНИКАЛЬНЫЙ ДИЗАЙН С ZERO BLOCK</p>
+    <h2 id="dialog-zero-title">Нестандартная композиция, типографика и анимация</h2>
+    <p class="dialog-lead">Для проектов, которым важно выделиться и создать более выразительный пользовательский сценарий</p>
+    <ul>
+      <li>полностью индивидуальные блоки</li>
+      <li>сложная пошаговая анимация</li>
+      <li>нестандартные визуальные решения</li>
+    </ul>
+    <p>Zero Block — встроенный редактор Tilda, в котором можно создать блок с нуля и свободно управлять расположением каждого элемента. С его помощью реализуются индивидуальная типографика, сложная композиция и сценарная анимация</p>
+    <p>Работа в Zero Block требует профессиональной вёрстки и отдельной адаптации композиции под разные устройства</p>
+    <p class="dialog-note"><strong>Важно</strong> Такой сайт требует больше времени на разработку, стоит дороже и может быть сложнее в самостоятельном редактировании</p>
   </dialog>
 
   <dialog id="gallery-faneraplit" class="gallery-dialog" aria-labelledby="gallery-faneraplit-title">
