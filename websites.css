@@ -295,12 +295,13 @@ h1 {
 .meaning h2 {
   max-width: 660px;
   margin: 0;
-  font-size: clamp(50px, 5.2vw, 76px);
+  font-size: clamp(50px, 5vw, 72px);
   line-height: .94;
   text-wrap: balance;
 }
 
 .meaning-title-mobile { display: none; }
+.meaning-title-nowrap { white-space: nowrap; }
 
 .meaning-text {
   max-width: 560px;
@@ -642,7 +643,7 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .paper-word--easy { right: auto; bottom: 9%; left: 50%; top: auto; transform: translateX(-50%) rotate(3deg); }
   .meaning.section-shell { margin-top: 82px; padding-top: 58px; padding-bottom: 88px; }
   .meaning-intro > .section-marker { margin-bottom: 30px; }
-  .meaning h2 { font-size: clamp(43px, 12vw, 50px); }
+  .meaning h2 { font-size: clamp(33px, 10.5vw, 42px); }
   .meaning-title-desktop { display: none; }
   .meaning-title-mobile { display: block; }
   .meaning-text { margin-top: 32px; }
