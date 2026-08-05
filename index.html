@@ -8,6 +8,18 @@
       name="description"
       content="HRNEIROWAY превращает сложную HR-информацию в понятные материалы: welcome book, инструкции, гайды, презентации и внутренние коммуникации."
     >
+    <link rel="canonical" href="https://hrneiroway.ru/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="HRNEIROWAY — HR-материалы, сайты и визуальные решения">
+    <meta property="og:description" content="Понятные HR-материалы, внутренние коммуникации, автоматизация и сайты для бизнеса и экспертов">
+    <meta property="og:url" content="https://hrneiroway.ru/">
+    <meta property="og:image" content="https://hrneiroway.ru/assets/images/contacts/marina-red.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HRNEIROWAY — HR-материалы, сайты и визуальные решения">
+    <meta name="twitter:description" content="Понятные HR-материалы, внутренние коммуникации, автоматизация и сайты">
+    <meta name="twitter:image" content="https://hrneiroway.ru/assets/images/contacts/marina-red.jpg">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,18 +27,28 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="./styles.css?v=20260722a">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type":"WebSite","name":"HRNEIROWAY","url":"https://hrneiroway.ru/","inLanguage":"ru-RU"},
+          {"@type":"Person","name":"Марина Голяева","url":"https://hrneiroway.ru/","jobTitle":"HR-эксперт и дизайнер","sameAs":["https://t.me/Marina_x6","https://vk.ru/hrneiroway","https://www.instagram.com/neiro.way","https://ru.pinterest.com/Neiro_way/"]},
+          {"@type":"ProfessionalService","name":"HRNEIROWAY","url":"https://hrneiroway.ru/","email":"hrneiroway@yandex.ru","founder":{"@type":"Person","name":"Марина Голяева"},"areaServed":"RU"}
+        ]
+      }
+    </script>
   </head>
   <body>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" id="top" aria-labelledby="hero-title">
         <header class="site-header" aria-label="Главная навигация">
-          <a class="site-logo" href="#" aria-label="Эйчар с душой дизайнера">Эйчар с душой дизайнера</a>
+          <a class="site-logo" href="./index.html" aria-label="HRNEIROWAY — на главную"><img class="brand-logo-img" src="./assets/images/brand/hrneiroway-logo.png" alt="HRNEIROWAY"></a>
           <nav class="site-nav" aria-label="Разделы сайта">
-            <a href="#">Главная</a>
-            <a href="#">Услуги</a>
-            <a href="#">Обо мне</a>
-            <a href="#">Проекты</a>
-            <a href="#">Полезное</a>
+            <a href="#top">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">Обо мне</a>
+            <a href="#portfolio">Проекты</a>
+            <a href="#useful">Полезное</a>
             <a href="#contacts">Контакты</a>
           </nav>
         </header>
@@ -68,7 +90,7 @@
           <span>Сайты</span>
         </div>
 
-        <a class="hero-cta" href="#" aria-label="Обсудить проект">
+        <a class="hero-cta" href="https://t.me/Marina_x6" target="_blank" rel="noopener noreferrer" aria-label="Обсудить проект в Telegram">
           <span>Обсудить проект</span>
         </a>
 
@@ -206,7 +228,7 @@
                 >
                 <span class="service-card__number">05</span>
                 <h4>Сайты<br>на Tilda</h4>
-                <a class="service-card__cta" href="#" aria-label="Посмотреть примеры сайтов на Tilda">
+                <a class="service-card__cta" href="./websites.html" aria-label="Посмотреть услугу создания сайтов на Tilda">
                   <span>Смотреть примеры</span>
                   <span aria-hidden="true">↗</span>
                 </a>
@@ -220,7 +242,7 @@
             >
             <span class="service-card__number">06</span>
             <h4>Визуал и<br>нейрофотосессия</h4>
-            <a class="service-card__cta" href="#" aria-label="Подробнее о формате нейрофотосессии">
+            <a class="service-card__cta" href="https://hrneiroway.ru/-/" target="_blank" rel="noopener noreferrer" aria-label="Посмотреть проект о нейрофотосессиях">
               <span>О формате</span>
               <span aria-hidden="true">↗</span>
             </a>
@@ -234,7 +256,7 @@
             <span>Не нашли подходящий вариант? Напишите мне —</span>
             <span>помогу разобраться, в каком формате лучше решить вашу задачу.</span>
           </p>
-          <a class="services__cta" href="#" aria-label="Обсудить нестандартную задачу">
+          <a class="services__cta" href="https://t.me/Marina_x6" target="_blank" rel="noopener noreferrer" aria-label="Обсудить нестандартную задачу в Telegram">
             <span>Обсудить задачу</span>
             <span aria-hidden="true">↗</span>
           </a>
@@ -253,22 +275,58 @@
 
           <div class="portfolio-showcase__table" aria-label="Направления портфолио">
             <article class="portfolio-card portfolio-card--one" data-portfolio-card data-rotation="-3.5">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--emerald" aria-hidden="true"></div><h3>Материалы для бизнеса</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="./materials-for-business.html" aria-label="Подробнее о материалах для бизнеса">
+                  <img src="./assets/images/portfolio/materials-business.jpg" alt="Памятка для сотрудников о подготовке к командировке" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Материалы для бизнеса</h3>
+              </div>
             </article>
             <article class="portfolio-card portfolio-card--two" data-portfolio-card data-rotation="2.5">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--sand" aria-hidden="true"></div><h3>Внутренние коммуникации</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="./internal-communications.html" aria-label="Подробнее о внутренних коммуникациях">
+                  <img src="./assets/images/portfolio/internal-communications.jpg" alt="Рабочий гид о маркетинге в компании" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Внутренние коммуникации</h3>
+              </div>
             </article>
             <article class="portfolio-card portfolio-card--three" data-portfolio-card data-rotation="-2">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--rose" aria-hidden="true"></div><h3>Адаптация и обучение</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="./hr-guides.html" aria-label="Подробнее о материалах для адаптации и обучения">
+                  <img src="./assets/images/portfolio/adaptation-training.jpg" alt="Памятка о деловом этикете в компании" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Адаптация и обучение</h3>
+              </div>
             </article>
             <article class="portfolio-card portfolio-card--four" data-portfolio-card data-rotation="3.5">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--mist" aria-hidden="true"></div><h3>Сайты</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="./websites.html" aria-label="Подробнее о разработке сайтов">
+                  <img src="./assets/images/portfolio/websites.jpg" alt="Сайт-портфолио на экране ноутбука" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Сайты</h3>
+              </div>
             </article>
             <article class="portfolio-card portfolio-card--five" data-portfolio-card data-rotation="-3">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--linen" aria-hidden="true"></div><h3>Автоматизация HR</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="./hr-automation.html" aria-label="Подробнее об автоматизации HR">
+                  <img src="./assets/images/portfolio/hr-automation.jpg" alt="Цифровой HR-помощник Каспер на экране телефона" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Автоматизация HR</h3>
+              </div>
             </article>
             <article class="portfolio-card portfolio-card--six" data-portfolio-card data-rotation="2">
-              <div class="portfolio-card__sheet"><div class="portfolio-card__mockup portfolio-card__mockup--wine" aria-hidden="true"></div><h3>Нейрофотосессии</h3></div>
+              <div class="portfolio-card__sheet">
+                <a class="portfolio-card__media" href="https://hrneiroway.ru/-/" target="_blank" rel="noopener noreferrer" aria-label="Посмотреть проект о нейрофотосессиях">
+                  <img src="./assets/images/portfolio/neurophoto.jpg" alt="Коллаж с примерами нейрофотосессий для личного бренда" loading="lazy" decoding="async">
+                  <span>Подробнее <span aria-hidden="true">↗</span></span>
+                </a>
+                <h3>Нейрофотосессии</h3>
+              </div>
             </article>
           </div>
         </div>
@@ -479,7 +537,7 @@
 
               <div class="diagnostic-result__actions">
                 <button type="button" data-diagnostic-restart>Пройти ещё раз</button>
-                <a href="#" aria-label="Обсудить результат HR-диагностики">Обсудить результат</a>
+                <a href="https://t.me/Marina_x6" target="_blank" rel="noopener noreferrer" aria-label="Обсудить результат HR-диагностики в Telegram">Обсудить результат</a>
               </div>
             </div>
           </div>
@@ -502,21 +560,21 @@
               <div class="useful-folder">
                 <div class="useful-folder__back" aria-hidden="true"></div>
 
-                <a class="useful-tab useful-tab--prompts" href="https://hrneiroway.ru/hr-prompts.pdf" target="_blank" rel="noreferrer" data-useful-tab>
+                <a class="useful-tab useful-tab--prompts" href="https://hrneiroway.ru/hr-prompts.pdf" target="_blank" rel="noopener noreferrer" data-useful-tab>
                   <span class="useful-tab__index">01 / PDF</span>
                   <h3>HR-промты</h3>
                   <p>Готовые формулировки для рассылок, инструкций и внутренних коммуникаций</p>
                   <span class="useful-tab__action">Скачать PDF <span aria-hidden="true">↗</span></span>
                 </a>
 
-                <a class="useful-tab useful-tab--canva" href="https://canva.link/qrfjbz38egi6h25" target="_blank" rel="noreferrer" data-useful-tab>
+                <a class="useful-tab useful-tab--canva" href="https://canva.link/qrfjbz38egi6h25" target="_blank" rel="noopener noreferrer" data-useful-tab>
                   <span class="useful-tab__index">02 / CANVA</span>
                   <h3>Шаблоны гайда в Canva</h3>
                   <p>Основа для чек-листов, мини-гайдов и аккуратных материалов, которые легко адаптировать под свою задачу</p>
                   <span class="useful-tab__action">Открыть шаблоны <span aria-hidden="true">↗</span></span>
                 </a>
 
-                <a class="useful-tab useful-tab--stickers" href="https://t.me/addstickers/hr_ne_v_resurse" target="_blank" rel="noreferrer" data-useful-tab>
+                <a class="useful-tab useful-tab--stickers" href="https://t.me/addstickers/hr_ne_v_resurse" target="_blank" rel="noopener noreferrer" data-useful-tab>
                   <span class="useful-tab__index">03 / TELEGRAM</span>
                   <h3>Офисные стикеры</h3>
                   <p>Набор стикеров для рабочих чатов, внутренних заметок и общения с коллегами</p>
@@ -541,22 +599,22 @@
           </header>
 
           <div class="useful-reading__grid">
-            <a class="useful-article useful-article--one" href="https://hrneiroway.ru/articles/chto-takoe-welcome-book/" target="_blank" rel="noreferrer" data-useful-article>
+            <a class="useful-article useful-article--one" href="https://hrneiroway.ru/articles/chto-takoe-welcome-book/" target="_blank" rel="noopener noreferrer" data-useful-article>
               <span>01 / WELCOME BOOK</span>
               <h4>Что такое welcome book и зачем он нужен компании</h4>
               <span class="useful-article__action">Читать статью ↗</span>
             </a>
-            <a class="useful-article useful-article--two" href="https://hrneiroway.ru/articles/chto-vklyuchit-v-welcome-book/" target="_blank" rel="noreferrer" data-useful-article>
+            <a class="useful-article useful-article--two" href="https://hrneiroway.ru/articles/chto-vklyuchit-v-welcome-book/" target="_blank" rel="noopener noreferrer" data-useful-article>
               <span>02 / СТРУКТУРА</span>
               <h4>Что включить в welcome book для нового сотрудника</h4>
               <span class="useful-article__action">Читать статью ↗</span>
             </a>
-            <a class="useful-article useful-article--three" href="https://hrneiroway.ru/articles/kak-sdelat-instrukciyu-dlya-sotrudnikov/" target="_blank" rel="noreferrer" data-useful-article>
+            <a class="useful-article useful-article--three" href="https://hrneiroway.ru/articles/kak-sdelat-instrukciyu-dlya-sotrudnikov/" target="_blank" rel="noopener noreferrer" data-useful-article>
               <span>03 / ИНСТРУКЦИИ</span>
               <h4>Как сделать инструкцию, которую будут читать</h4>
               <span class="useful-article__action">Читать статью ↗</span>
             </a>
-            <a class="useful-article useful-article--all" href="https://hrneiroway.ru/articles/" target="_blank" rel="noreferrer" data-useful-article>
+            <a class="useful-article useful-article--all" href="https://hrneiroway.ru/articles/" target="_blank" rel="noopener noreferrer" data-useful-article>
               <span>04 / БИБЛИОТЕКА</span>
               <h4>Все статьи и полезные материалы</h4>
               <span class="useful-article__action">Открыть библиотеку ↗</span>
@@ -788,60 +846,43 @@
         </div>
       </section>
 
-      <section class="contacts" id="contacts" aria-labelledby="contacts-title">
-        <header class="contacts__header">
-          <div class="contacts__marker"><span>[11]</span><p>Контакты</p></div>
-          <p class="contacts__eyebrow">[ Начнём с вашей задачи ]</p>
-          <h2 id="contacts-title">Расскажите, что нужно сделать</h2>
-          <p class="contacts__lead">Я посмотрю задачу и подскажу, какой формат подойдёт именно вам</p>
-        </header>
+      <footer class="main-footer-contact" id="contacts" aria-labelledby="contacts-title">
+        <div class="main-footer-contact__frame">
+          <div class="main-footer-contact__content">
+            <p class="main-footer-contact__marker">[11] Контакты</p>
+            <h2 id="contacts-title">
+              <span>Эйчар</span>
+              <em>с душой дизайнера</em>
+            </h2>
+            <p class="main-footer-contact__name">Марина Голяева</p>
+            <p class="main-footer-contact__lead">Сайт должен не просто выглядеть красиво, а помогать человеку принять решение</p>
 
-        <div class="contacts__panel">
-          <div class="contacts__grid" aria-label="Способы связи">
-          <a class="contact-card" href="https://t.me/Marina_x6" target="_blank" rel="noreferrer">
-            <span class="contact-card__number">01</span>
-            <span class="contact-card__label">Телеграм</span>
-            <span class="contact-card__value">@Marina_x6</span>
-            <span class="contact-card__arrow" aria-hidden="true">↗</span>
-          </a>
+            <nav class="main-footer-contact__socials" aria-label="Контакты и социальные сети">
+              <a href="https://t.me/Marina_x6" target="_blank" rel="noopener noreferrer"><span>Telegram</span><small>@Marina_x6</small></a>
+              <a href="mailto:hrneiroway@yandex.ru"><span>Почта</span><small>hrneiroway@yandex.ru</small></a>
+              <a href="https://wa.me/qr/52DPQI5O4JVFA1" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span><small>Написать</small></a>
+              <a href="https://vk.ru/hrneiroway" target="_blank" rel="noopener noreferrer"><span>ВКонтакте</span><small>hrneiroway</small></a>
+              <a href="https://www.instagram.com/neiro.way" target="_blank" rel="noopener noreferrer"><span>Instagram*</span><small>@neiro.way</small></a>
+              <a href="https://ru.pinterest.com/Neiro_way/" target="_blank" rel="noopener noreferrer"><span>Pinterest</span><small>Neiro_way</small></a>
+              <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" target="_blank" rel="noopener noreferrer"><span>Макс</span><small>Написать</small></a>
+            </nav>
 
-          <a class="contact-card" href="mailto:hrneiroway@yandex.ru">
-            <span class="contact-card__number">02</span>
-            <span class="contact-card__label">Электронная почта</span>
-            <span class="contact-card__value">hrneiroway@yandex.ru</span>
-            <span class="contact-card__arrow" aria-hidden="true">↗</span>
-          </a>
-
-          <a class="contact-card" href="https://www.instagram.com/neiro.way" target="_blank" rel="noreferrer">
-            <span class="contact-card__number">03</span>
-            <span class="contact-card__label">Социальная сеть</span>
-            <span class="contact-card__value">@neiro.way</span>
-            <span class="contact-card__arrow" aria-hidden="true">↗</span>
-          </a>
-
-          <a class="contact-card" href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" target="_blank" rel="noreferrer">
-            <span class="contact-card__number">04</span>
-            <span class="contact-card__label">Макс</span>
-            <span class="contact-card__value">Написать Марине</span>
-            <span class="contact-card__arrow" aria-hidden="true">↗</span>
-          </a>
-
+            <div class="main-footer-contact__bottom">
+              <nav aria-label="Документы">
+                <a href="./privacy.html">Политика конфиденциальности</a>
+                <a href="./privacy.html#cookies">Использование cookie</a>
+              </nav>
+              <p>Информация на сайте не является публичной офертой</p>
+              <p>© 2026 HRNEIROWAY</p>
+            </div>
           </div>
 
-          <p class="contacts__brand" aria-hidden="true">HRNEIROWAY</p>
-
-          <footer class="contacts__footer">
-            <p class="contacts__availability">Открыта к сотрудничеству и интересным предложениям</p>
-            <div class="contacts__legal">
-              <span>Марина Голяева · самозанятая</span>
-              <a href="./privacy.html">Политика конфиденциальности</a>
-              <a href="./privacy.html#cookies">Использование cookie</a>
-              <span>© 2026</span>
-            </div>
-            <p class="contacts__disclaimer">Информация на сайте не является публичной офертой. Состав, сроки и стоимость работ согласуются индивидуально</p>
-          </footer>
+          <figure class="main-footer-contact__portrait">
+            <img src="./assets/images/contacts/marina-red.jpg" alt="Марина Голяева, автор HRNEIROWAY" loading="lazy" decoding="async">
+          </figure>
         </div>
-      </section>
+        <p class="main-footer-contact__meta-note">* Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена на территории России</p>
+      </footer>
     </main>
 
     <aside class="kasper-offer" aria-label="Предложение от Каспера" aria-live="polite" data-kasper-offer hidden>

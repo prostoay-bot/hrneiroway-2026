@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /prototype-loading-screen/
+
+Sitemap: https://hrneiroway.ru/sitemap.xml

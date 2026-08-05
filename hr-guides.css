@@ -1150,3 +1150,6 @@ body.hg-modal-open {
     transition-duration: 0.01ms !important;
   }
 }
+
+.brand-logo-img { display: block; width: auto; max-width: 180px; height: clamp(18px, 1.5vw, 24px); object-fit: contain; }
+.brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }

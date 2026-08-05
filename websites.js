@@ -131,8 +131,38 @@ document.querySelectorAll(".tariff-dialog, .gallery-dialog").forEach((dialog) =>
   });
 });
 
+const telegramNotice = document.getElementById("telegram-notice");
+
+if (telegramNotice) {
+  document.querySelectorAll('a[href^="https://t.me/"]:not([data-telegram-direct])').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      lastDialogTrigger = link;
+      telegramNotice.showModal();
+      document.body.classList.add("dialog-open");
+      telegramNotice.querySelector(".dialog-close")?.focus();
+    });
+  });
+
+  const closeTelegramNotice = () => telegramNotice.close();
+  telegramNotice.querySelector(".dialog-close")?.addEventListener("click", closeTelegramNotice);
+  telegramNotice.addEventListener("click", (event) => {
+    const bounds = telegramNotice.getBoundingClientRect();
+    const isBackdrop =
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom;
+    if (isBackdrop) closeTelegramNotice();
+  });
+  telegramNotice.addEventListener("close", () => {
+    document.body.classList.remove("dialog-open");
+    lastDialogTrigger?.focus();
+  });
+}
+
 const revealItems = document.querySelectorAll(
-  ".meaning-copy, .meaning-step, .format-switcher, .pricing-heading, .pricing-cards, .pricing-footnote, .included, .process-list li, .price-includes-heading, .price-includes-card, .price-includes-item, .price-extras, .project, .contact"
+  ".meaning-copy, .meaning-step, .format-switcher, .pricing-heading, .pricing-cards, .pricing-footnote, .included, .process-list li, .price-includes-heading, .price-includes-card, .price-includes-item, .price-extras, .prototype-heading, .prototype-copy, .prototype-visual, .faq-heading, .faq-item, .project, .contact"
 );
 
 if (reducedMotion || !("IntersectionObserver" in window)) {

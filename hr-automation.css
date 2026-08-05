@@ -470,3 +470,6 @@ h2 { font-size: clamp(54px, 5vw, 92px); line-height: .98; letter-spacing: -.025e
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+.brand-logo-img { display: block; width: auto; max-width: 180px; height: clamp(18px, 1.5vw, 24px); object-fit: contain; }
+.brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }
