@@ -47,10 +47,10 @@ const revealHero = () => {
   requestAnimationFrame(() => requestAnimationFrame(() => heroSection.classList.add("is-ready")));
 };
 
-if (reducedMotion || document.readyState === "complete") {
-  revealHero();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", revealHero, { once: true });
 } else {
-  window.addEventListener("load", revealHero, { once: true });
+  revealHero();
 }
 
 const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
