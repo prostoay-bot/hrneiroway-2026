@@ -25,6 +25,33 @@ const cookieNotice = document.querySelector("[data-cookie-notice]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const siteMenuToggle = document.querySelector(".site-menu-toggle");
+const siteNavigation = document.getElementById("site-nav");
+
+if (siteMenuToggle && siteNavigation) {
+  const closeSiteMenu = () => {
+    siteNavigation.classList.remove("is-open");
+    siteMenuToggle.setAttribute("aria-expanded", "false");
+    siteMenuToggle.setAttribute("aria-label", "Открыть меню");
+  };
+
+  siteMenuToggle.addEventListener("click", () => {
+    const willOpen = !siteNavigation.classList.contains("is-open");
+    siteNavigation.classList.toggle("is-open", willOpen);
+    siteMenuToggle.setAttribute("aria-expanded", String(willOpen));
+    siteMenuToggle.setAttribute("aria-label", willOpen ? "Закрыть меню" : "Открыть меню");
+  });
+  siteNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeSiteMenu();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeSiteMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) closeSiteMenu();
+  });
+}
+
 if (cookieNotice && cookieAccept) {
   let technicalNoticeAccepted = false;
 

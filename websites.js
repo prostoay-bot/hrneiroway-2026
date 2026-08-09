@@ -3,6 +3,33 @@ const heroSection = document.querySelector(".hero");
 const projectsSection = document.querySelector("#projects");
 const formatsSection = document.querySelector("#formats");
 
+const siteMenuToggle = document.querySelector(".site-menu-toggle");
+const siteNavigation = document.getElementById("site-nav");
+
+if (siteMenuToggle && siteNavigation) {
+  const closeSiteMenu = () => {
+    siteNavigation.classList.remove("is-open");
+    siteMenuToggle.setAttribute("aria-expanded", "false");
+    siteMenuToggle.setAttribute("aria-label", "Открыть меню");
+  };
+
+  siteMenuToggle.addEventListener("click", () => {
+    const willOpen = !siteNavigation.classList.contains("is-open");
+    siteNavigation.classList.toggle("is-open", willOpen);
+    siteMenuToggle.setAttribute("aria-expanded", String(willOpen));
+    siteMenuToggle.setAttribute("aria-label", willOpen ? "Закрыть меню" : "Открыть меню");
+  });
+  siteNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeSiteMenu();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeSiteMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) closeSiteMenu();
+  });
+}
+
 if (projectsSection && formatsSection) formatsSection.before(projectsSection);
 
 const formatTabs = [...document.querySelectorAll(".format-tab")];
@@ -55,6 +82,20 @@ if (document.readyState === "loading") {
 
 const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
 let lastDialogTrigger = null;
+let lockedScrollY = 0;
+
+const lockPageScroll = () => {
+  if (document.body.classList.contains("dialog-open")) return;
+  lockedScrollY = window.scrollY;
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.classList.add("dialog-open");
+};
+
+const unlockPageScroll = () => {
+  document.body.classList.remove("dialog-open");
+  document.body.style.top = "";
+  window.scrollTo(0, lockedScrollY);
+};
 
 const setGallerySlide = (dialog, nextIndex) => {
   const slides = [...dialog.querySelectorAll("[data-gallery-slide]")];
@@ -107,7 +148,7 @@ dialogTriggers.forEach((trigger) => {
     lastDialogTrigger = trigger;
     if (dialog.classList.contains("gallery-dialog")) setGallerySlide(dialog, 0);
     dialog.showModal();
-    document.body.classList.add("dialog-open");
+    lockPageScroll();
     dialog.querySelector(".dialog-close")?.focus();
   });
 });
@@ -126,7 +167,7 @@ document.querySelectorAll(".tariff-dialog, .gallery-dialog").forEach((dialog) =>
     if (isBackdrop) closeDialog();
   });
   dialog.addEventListener("close", () => {
-    document.body.classList.remove("dialog-open");
+    unlockPageScroll();
     lastDialogTrigger?.focus();
   });
 });
@@ -139,7 +180,7 @@ if (telegramNotice) {
       event.preventDefault();
       lastDialogTrigger = link;
       telegramNotice.showModal();
-      document.body.classList.add("dialog-open");
+      lockPageScroll();
       telegramNotice.querySelector(".dialog-close")?.focus();
     });
   });
@@ -156,7 +197,7 @@ if (telegramNotice) {
     if (isBackdrop) closeTelegramNotice();
   });
   telegramNotice.addEventListener("close", () => {
-    document.body.classList.remove("dialog-open");
+    unlockPageScroll();
     lastDialogTrigger?.focus();
   });
 }

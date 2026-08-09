@@ -29,7 +29,13 @@ body {
   font-family: var(--sans);
 }
 
-body.dialog-open { overflow: hidden; }
+body.dialog-open {
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
 
 main { display: flex; flex-direction: column; }
 .hero { order: 1; }
@@ -100,6 +106,11 @@ nav a {
   transition: color .24s ease;
 }
 nav a:hover, nav a:focus-visible { color: var(--burgundy); }
+
+.site-menu-toggle { display: none; }
+
+html { scroll-padding-top: 96px; }
+main section[id], footer[id] { scroll-margin-top: 96px; }
 
 .hero {
   position: relative;
@@ -2183,12 +2194,55 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
 }
 
 @media (max-width: 720px) {
+  html { scroll-padding-top: 82px; }
+  main section[id], footer[id] { scroll-margin-top: 82px; }
   body { background-size: 90px 90px; }
-  .site-header { top: 12px; width: calc(100% - 32px); min-height: 54px; padding: 7px 14px; border-radius: 16px; }
-  .site-header nav a:not(:last-child) { display: none; }
+  .site-header { top: 12px; width: calc(100% - 24px); min-height: 54px; padding: 7px 12px; border-radius: 16px; overflow: visible; }
   .brand { font-size: clamp(17px, 5vw, 21px); }
-  nav { gap: 14px; }
-  nav a { font-size: 11px; }
+  .site-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    min-height: 38px;
+    padding: 8px 12px;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid rgba(7, 63, 49, .28);
+    border-radius: 999px;
+    font: 700 11px/1 var(--sans);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .site-header nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 0;
+    max-height: calc(100svh - 92px);
+    padding: 8px;
+    overflow-y: auto;
+    background: rgba(255, 252, 239, .98);
+    border: 1px solid rgba(7, 63, 49, .14);
+    border-radius: 16px;
+    box-shadow: 0 18px 44px rgba(48, 38, 28, .16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+  }
+  .site-header nav.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+  .site-header nav a {
+    display: block;
+    width: 100%;
+    padding: 13px 14px;
+    border-bottom: 1px solid rgba(7, 63, 49, .1);
+    font-size: 12px;
+  }
+  .site-header nav a:last-child { border-bottom: 0; }
   .hero { min-height: 0; padding: 92px 12px 32px; }
   .hero-paper { min-height: max(610px, calc(100svh - 124px)); background-size: 20px 20px, 20px 20px, auto; }
   .hero-paper-content { min-height: inherit; padding: 86px 24px 82px; }
@@ -2217,7 +2271,7 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .section-shell { padding-block: 72px; }
   .section-heading { grid-template-columns: 1fr; gap: 18px; margin-bottom: 38px; }
   .section-heading h2, .contact h2 { font-size: clamp(43px, 13vw, 58px); }
-  .workflow { width: calc(100% - 24px); padding-block: 88px 104px; }
+  .workflow { width: calc(100% - 32px); padding-block: 88px 104px; }
   .workflow-layout { gap: 60px; }
   .workflow-intro { min-height: 560px; }
   .workflow-intro .section-marker { margin-bottom: 44px; }
@@ -2225,12 +2279,12 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .workflow-script { max-width: 230px; margin: 26px 0 0; font-size: 25px; line-height: 1.08; }
   .workflow-photo-wrap { right: 0; bottom: -8px; width: 145px; }
   .workflow-photo-wrap figcaption { width: 125%; margin-left: -26%; font-size: 9px; }
-  .process-list li { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; padding: 24px 0; }
+  .process-list li { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 24px 0; }
   .process-list li:hover { padding-left: 0; }
   .process-list li > span { font-size: 12px; }
   .process-list h3 { font-size: 27px; }
   .process-list p { font-size: 14px; line-height: 1.48; }
-  .prototype-story { width: calc(100% - 24px); padding-block: 88px 104px; }
+  .prototype-story { width: calc(100% - 32px); padding-block: 88px 104px; }
   .prototype-heading { margin-bottom: 54px; }
   .prototype-heading h2 { font-size: clamp(52px, 16vw, 76px); }
   .prototype-layout { gap: 48px; }
@@ -2240,7 +2294,7 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .prototype-conclusion > span { top: 22px; left: 19px; font-size: 15px; }
   .prototype-visual { width: min(92%, 360px); padding: 9px; }
   .prototype-visual figcaption { right: 16px; bottom: 16px; max-width: 225px; font-size: 8px; }
-  .faq { width: calc(100% - 24px); padding-block: 88px 104px; }
+  .faq { width: calc(100% - 32px); padding-block: 88px 104px; }
   .faq-heading { margin-bottom: 50px; }
   .faq-heading h2 { font-size: clamp(50px, 15vw, 72px); }
   .faq-item summary { grid-template-columns: 46px minmax(0, 1fr) 34px; gap: 12px; min-height: 88px; padding-block: 20px; font-size: 24px; }
@@ -2271,7 +2325,7 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .format-panels { min-height: 0; }
   .format-intro h3 { margin-bottom: 28px; font-size: clamp(39px, 12vw, 52px); }
   .format-more { width: 100%; justify-content: space-between; }
-  .pricing { width: calc(100% - 24px); padding-block: 86px 104px; }
+  .pricing { width: calc(100% - 32px); padding-block: 86px 104px; }
   .pricing::before { top: 7%; left: 72%; width: 82vw; }
   .pricing-heading { margin-bottom: 54px; }
   .pricing-heading h2 { font-size: clamp(64px, 20vw, 88px); }
@@ -2298,10 +2352,34 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .pricing-actions button,
   .pricing-actions a { min-height: 40px; padding-inline: 14px; font-size: 9px; }
   .pricing-footnote { margin-top: 52px; padding-inline: 18px; }
-  .tariff-dialog.price-dialog { width: calc(100% - 10px); max-height: calc(100svh - 10px); padding: 0; background: transparent; border: 0; box-shadow: none; overflow: visible; }
-  .price-dialog-circle { width: min(calc(100vw - 12px), calc(100svh - 12px)); }
-  .price-dialog .dialog-close { top: 18px; right: 18px; width: 34px; height: 34px; }
-  .price-dialog-content { width: 76%; max-height: 72%; padding: 18px 16px 20px; border-radius: 20px; }
+  .tariff-dialog.price-dialog {
+    width: calc(100% - 24px);
+    max-width: 520px;
+    max-height: calc(100svh - 24px);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 22px;
+    box-shadow: 0 28px 72px rgba(7, 31, 25, .34);
+    overflow: hidden;
+  }
+  .price-dialog-circle {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100svh - 24px);
+    aspect-ratio: auto;
+    padding: 58px 14px 16px;
+    border-width: 1px;
+    border-radius: 22px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .price-dialog-circle::before,
+  .price-dialog-circle::after,
+  .price-dialog-orbit { display: none; }
+  .price-dialog .dialog-close { position: fixed; top: max(24px, env(safe-area-inset-top)); right: 24px; width: 38px; height: 38px; }
+  .price-dialog-content { width: 100%; max-height: none; padding: 24px 18px 20px; border-radius: 16px; overflow: visible; }
   .price-dialog .price-dialog-content h2 { margin-block: 0 8px; font-size: clamp(26px, 7.5vw, 34px); }
   .price-dialog .price-dialog-content .dialog-lead { font-size: 13px; line-height: 1.35; }
   .price-dialog .price-dialog-content ul { margin-block: 12px; }
@@ -2313,11 +2391,11 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .included { padding: 28px 22px; }
   .included-list { grid-template-columns: 1fr; }
   .terms { grid-template-columns: 1fr; }
-  .price-includes { width: calc(100% - 24px); padding-block: 88px 104px; }
+  .price-includes { width: calc(100% - 32px); padding-block: 88px 104px; }
   .price-includes-heading { margin-bottom: 52px; }
   .price-includes-heading h2 { font-size: clamp(58px, 19vw, 82px); }
   .price-includes-script { margin-top: 20px; margin-right: 8px; font-size: 25px; }
-  .price-includes-brush { right: -28px; bottom: -23px; width: 330px; height: 82px; }
+  .price-includes-brush { right: 0; bottom: -23px; width: min(300px, calc(100vw - 48px)); height: 82px; }
   .price-includes-card { gap: 40px; padding: 34px 18px 58px; border-radius: 22px; }
   .price-includes-kicker { margin-left: 4px; }
   .price-includes-grid { grid-template-columns: 1fr; }
