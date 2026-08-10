@@ -1684,9 +1684,9 @@ body.has-approach-modal {
   max-width: 760px;
   margin: 0;
   font-family: var(--sans);
-  font-size: clamp(42px, 5.4vw, 78px);
+  font-size: clamp(30px, 7.8vw, 56px);
   font-weight: 500;
-  line-height: 0.94;
+  line-height: 1;
   letter-spacing: 0;
 }
 
