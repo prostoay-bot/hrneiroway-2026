@@ -2926,12 +2926,12 @@ body.has-useful-modal {
   text-transform: uppercase;
 }
 
-.about-story__card h2,
+..about-story__card h2,
 .about-story__card h3 {
   width: 100%;
   max-width: none;
-  margin: clamp(38px, 5.5vh, 56px) 0 0;
-  font: 500 clamp(34px, 2.65vw, 40px) / 1.1 var(--serif);
+  margin: clamp(34px, 5vh, 52px) 0 24px;
+  font: 500 clamp(34px, 2.65vw, 40px) / 1.08 var(--serif);
   letter-spacing: -0.022em;
 }
 
