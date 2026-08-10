@@ -6789,3 +6789,37 @@ body:not(.cookies-accepted) .kasper-offer {
     grid-template-columns: 1fr;
   }
 }
+/* Mobile burger menu icon */
+.site-menu-toggle {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.burger-icon {
+  position: relative;
+  width: 24px;
+  height: 18px;
+  display: inline-block;
+  border-top: 2px solid currentColor;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  border-top: 2px solid currentColor;
+}
+
+.burger-icon::before {
+  top: 7px;
+}
+
+.burger-icon::after {
+  top: 15px;
+}
