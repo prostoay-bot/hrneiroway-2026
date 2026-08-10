@@ -1309,7 +1309,7 @@ body.has-approach-modal {
   letter-spacing: 0;
   text-align: right;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .familiar__statement::after {
@@ -3682,7 +3682,8 @@ body.has-useful-modal {
   }
 
   .services__header h2 {
-    font-size: clamp(52px, 16vw, 74px);
+    font-size: clamp(44px, 12vw, 58px);
+    line-height: 0.96;
     white-space: normal;
   }
 
