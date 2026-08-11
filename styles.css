@@ -6914,161 +6914,60 @@ body:not(.cookies-accepted) .kasper-offer {
     z-index: 3 !important;
   }
 }
-/* Useful section: final stable art-directed scene
-   Один финальный слой. Без старых конфликтующих костылей.
-*/
+/* Useful section: repair layer after deleted broken block */
 
+/* DESKTOP / BASE */
 #useful.useful-library {
-  position: relative;
   overflow: hidden;
-  color: var(--emerald);
-  background:
-    linear-gradient(rgba(10, 52, 40, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 52, 40, 0.025) 1px, transparent 1px),
-    #f8f2e7;
-  background-size: 12.5vw 12.5vw;
 }
 
 #useful .useful-library__stage {
-  position: relative;
-  height: auto;
   min-height: 900px;
-  padding: clamp(96px, 9vh, 118px) clamp(24px, 5vw, 80px) 80px;
   overflow: hidden;
 }
 
-#useful .useful-library__header {
-  position: relative;
-  z-index: 20;
-  display: grid;
-  grid-template-columns: minmax(170px, 0.28fr) minmax(0, 0.72fr);
-  gap: clamp(36px, 5vw, 88px);
-  max-width: 1480px;
-  margin: 0 auto;
-}
-
-#useful .useful-library__marker {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  color: var(--accent-wine);
-  font: 800 11px/1.25 var(--sans);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-#useful .useful-library__marker p,
-#useful .useful-library__intro p,
-#useful .useful-library__intro h2 {
-  margin: 0;
-}
-
-#useful .useful-library__eyebrow {
-  color: var(--accent-wine);
-  font: 800 11px/1.3 var(--sans);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-#useful .useful-library__intro h2 {
-  width: max-content;
-  max-width: 100%;
-  margin-top: 13px;
-  color: var(--emerald);
-  font: 500 clamp(42px, 4.2vw, 64px) / 0.94 var(--serif);
-  letter-spacing: -0.035em;
-  white-space: nowrap;
-}
-
-#useful .useful-library__lead {
-  max-width: 800px;
-  margin-top: 18px !important;
-  color: rgba(10, 52, 40, 0.74);
-  font: 400 clamp(14px, 1.08vw, 17px) / 1.55 var(--sans);
-}
-
-/* FREE справа, отдельно от карточек */
-#useful .useful-library__free {
-  position: absolute;
-  top: clamp(170px, 15vw, 235px);
-  right: clamp(78px, 11vw, 190px);
-  width: 126px;
-  height: 148px;
-  pointer-events: none;
-  z-index: 30;
-}
-
-#useful .useful-library__free-label {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 74px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(55, 44, 32, 0.16));
-}
-
-#useful .useful-library__free-arrow {
-  position: absolute;
-  top: 56px;
-  right: 24px;
-  width: 76px;
-  height: auto;
-  object-fit: contain;
-  transform: rotate(-8deg);
-  filter: drop-shadow(0 8px 14px rgba(55, 44, 32, 0.12));
-}
-
-/* Сцена */
 #useful .useful-library__desk {
-  position: relative;
-  height: 610px;
-  max-width: 1120px;
-  margin: 92px auto 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: min(61vh, 570px);
 }
 
 #useful .useful-folder {
   position: absolute;
-  top: 50%;
+  top: 62%;
   left: 50%;
-  width: min(100%, 980px);
-  height: 560px;
+  width: min(55vw, 760px);
+  height: 430px;
   transform: translate(-50%, -50%);
 }
 
-/* Старая CSS-папка скрыта, потому что теперь работаем с PNG */
 #useful .useful-folder__back {
   display: none !important;
 }
 
-/* Пакет виден сразу, не появляется в конце */
 #useful .useful-folder__bag {
   position: absolute;
   left: 50%;
   bottom: 0;
   z-index: 4;
   display: block;
-  width: 310px;
-  height: auto;
+  width: 315px;
   max-width: none;
+  height: auto;
   transform: translateX(-50%);
   pointer-events: none;
   filter: drop-shadow(0 30px 46px rgba(55, 44, 32, 0.2));
 }
 
-/* Надпись на пакете */
 #useful .useful-folder__front {
   position: absolute;
   left: 50%;
-  bottom: 96px;
+  bottom: 94px;
   z-index: 5;
-  display: flex;
   width: 210px;
-  height: auto;
   padding: 0;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -7091,50 +6990,30 @@ body:not(.cookies-accepted) .kasper-offer {
 }
 
 #useful .useful-folder__front strong {
-  max-width: 200px;
-  margin-top: 7px;
+  display: block;
+  margin-top: 6px;
   color: #fffaf0;
   font: 500 25px/0.92 var(--serif);
-  letter-spacing: 0.01em;
-  text-transform: none;
 }
 
 #useful .useful-folder__front small {
-  max-width: 180px;
+  display: block;
   margin-top: 8px;
   color: rgba(255, 250, 240, 0.9);
   font: 700 7px/1.25 var(--sans);
-  letter-spacing: 0.04em;
-  text-transform: none;
 }
 
-/* Карточки: фиксируем сцену, чтобы GSAP больше не ломал композицию */
+/* карточки: внешний вид, transform на desktop НЕ трогаем */
 #useful .useful-tab {
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  display: block;
-  padding: 0;
   overflow: visible;
+  padding: 0;
   border: 0;
-  border-radius: 0;
   background: transparent !important;
   box-shadow: none;
-  color: var(--emerald);
-  text-decoration: none;
-  transform-origin: 50% 80%;
-  opacity: 1 !important;
-  will-change: auto;
 }
 
 #useful .useful-tab::before {
   display: none;
-}
-
-#useful .useful-tab:hover,
-#useful .useful-tab:focus-visible {
-  outline: none;
-  filter: brightness(1.02);
 }
 
 #useful .useful-tab__image {
@@ -7159,12 +7038,22 @@ body:not(.cookies-accepted) .kasper-offer {
   margin: 0;
 }
 
-/* 01 / PDF */
 #useful .useful-tab--prompts {
   z-index: 9 !important;
   width: 255px;
   height: 368px;
-  transform: translate(-390px, -142px) rotate(-4deg) !important;
+}
+
+#useful .useful-tab--canva {
+  z-index: 10 !important;
+  width: 265px;
+  height: 344px;
+}
+
+#useful .useful-tab--stickers {
+  z-index: 11 !important;
+  width: 240px;
+  height: 350px;
 }
 
 #useful .useful-tab--prompts .useful-tab__index {
@@ -7200,14 +7089,6 @@ body:not(.cookies-accepted) .kasper-offer {
   text-transform: uppercase;
 }
 
-/* 02 / CANVA */
-#useful .useful-tab--canva {
-  z-index: 10 !important;
-  width: 265px;
-  height: 344px;
-  transform: translate(-54px, -204px) rotate(1.2deg) !important;
-}
-
 #useful .useful-tab--canva .useful-tab__index {
   top: 20%;
   left: 24%;
@@ -7239,14 +7120,6 @@ body:not(.cookies-accepted) .kasper-offer {
   font: 800 7px/1.2 var(--sans);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-/* 03 / TELEGRAM */
-#useful .useful-tab--stickers {
-  z-index: 11 !important;
-  width: 240px;
-  height: 350px;
-  transform: translate(285px, -158px) rotate(4deg) !important;
 }
 
 #useful .useful-tab--stickers .useful-tab__index {
@@ -7291,187 +7164,33 @@ body:not(.cookies-accepted) .kasper-offer {
   text-transform: uppercase;
 }
 
-/* Подсказку убираем: она не нужна в такой композиции */
 #useful .useful-library__hint {
   display: none;
 }
 
-/* Блок статей ниже */
-#useful .useful-reading {
-  position: relative;
-  z-index: 8;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: clamp(100px, 12vw, 180px) clamp(24px, 5vw, 80px) clamp(110px, 12vw, 180px);
-  background:
-    linear-gradient(rgba(10, 52, 40, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 52, 40, 0.025) 1px, transparent 1px),
-    #f8f2e7;
-  background-size: 12.5vw 12.5vw;
-}
-
-#useful .useful-reading__header {
-  display: grid;
-  grid-template-columns: minmax(190px, 0.28fr) minmax(0, 0.72fr);
-  gap: clamp(42px, 6vw, 96px);
-  align-items: end;
-  margin-bottom: clamp(52px, 6vw, 88px);
-}
-
-#useful .useful-reading__header p,
-#useful .useful-reading__header h3 {
-  margin: 0;
-}
-
-#useful .useful-reading__header p {
-  color: var(--accent-wine);
-  font: 800 11px/1.2 var(--sans);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-#useful .useful-reading__header h3 {
-  width: max-content;
-  max-width: 100%;
-  color: var(--emerald);
-  font: 500 clamp(28px, 3.45vw, 54px) / 0.96 var(--serif);
-  letter-spacing: -0.03em;
-  white-space: nowrap;
-}
-
-#useful .useful-reading__grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: clamp(18px, 2vw, 32px);
-  align-items: start;
-}
-
-/* Планшет */
-@media (max-width: 1024px) {
-  #useful .useful-library__stage {
-    min-height: 840px;
-    padding-inline: 32px;
-  }
-
-  #useful .useful-library__header,
-  #useful .useful-reading__header {
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 30px;
-  }
-
-  #useful .useful-library__intro h2 {
-    font-size: clamp(36px, 5vw, 52px);
-    white-space: normal;
-  }
-
-  #useful .useful-library__desk {
-    height: 570px;
-    margin-top: 82px;
-  }
-
-  #useful .useful-folder {
-    width: min(100%, 760px);
-    height: 520px;
-  }
-
-  #useful .useful-library__free {
-    top: 220px;
-    right: 36px;
-    width: 108px;
-  }
-
-  #useful .useful-library__free-label {
-    width: 64px;
-  }
-
-  #useful .useful-library__free-arrow {
-    top: 48px;
-    right: 22px;
-    width: 62px;
-  }
-
-  #useful .useful-folder__bag {
-    width: 270px;
-  }
-
-  #useful .useful-folder__front {
-    bottom: 88px;
-    width: 180px;
-  }
-
-  #useful .useful-folder__front strong {
-    font-size: 21px;
-  }
-
-  #useful .useful-tab--prompts {
-    width: 218px;
-    height: 314px;
-    transform: translate(-285px, -120px) rotate(-4deg) !important;
-  }
-
-  #useful .useful-tab--canva {
-    width: 225px;
-    height: 292px;
-    transform: translate(-28px, -172px) rotate(1.2deg) !important;
-  }
-
-  #useful .useful-tab--stickers {
-    width: 205px;
-    height: 300px;
-    transform: translate(220px, -124px) rotate(4deg) !important;
-  }
-
-  #useful .useful-tab--prompts h3,
-  #useful .useful-tab--canva h3,
-  #useful .useful-tab--stickers h3 {
-    font-size: 18px;
-  }
-
-  #useful .useful-tab--prompts p,
-  #useful .useful-tab--canva p,
-  #useful .useful-tab--stickers p {
-    font-size: 6.5px;
-  }
-
-  #useful .useful-reading__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  #useful .useful-article,
-  #useful .useful-article--one,
-  #useful .useful-article--two,
-  #useful .useful-article--three,
-  #useful .useful-article--all {
-    grid-column: auto;
-    min-height: 300px;
-  }
-}
-
-/* Телефон: без хаотичного веера. Все три материала видны и кликабельны */
+/* MOBILE: компактная сцена, не колонка */
 @media (max-width: 760px) {
-  #useful.useful-library {
-    overflow: hidden;
-    background-size: 50vw 50vw;
-  }
-
   #useful .useful-library__stage {
-    min-height: 0;
-    padding: 92px 20px 72px;
+    height: auto;
+    min-height: 760px;
+    padding: 92px 18px 62px;
+    overflow: hidden;
   }
 
-  #useful .useful-library__header,
-  #useful .useful-reading__header {
+  #useful .useful-library__header {
     display: block;
+    position: relative;
+    z-index: 20;
   }
 
   #useful .useful-library__marker {
-    margin-bottom: 34px;
+    margin-bottom: 28px;
   }
 
   #useful .useful-library__intro h2 {
     width: auto;
     max-width: 100%;
-    font-size: clamp(34px, 10.5vw, 46px);
+    font-size: clamp(34px, 10.5vw, 44px);
     line-height: 0.98;
     white-space: normal;
   }
@@ -7481,49 +7200,24 @@ body:not(.cookies-accepted) .kasper-offer {
     font-size: 14px;
   }
 
-  #useful .useful-library__free {
-    top: 250px;
-    right: 18px;
-    width: 86px;
-    height: 96px;
-  }
-
-  #useful .useful-library__free-label {
-    width: 54px;
-  }
-
-  #useful .useful-library__free-arrow {
-    top: 40px;
-    right: 16px;
-    width: 48px;
-  }
-
   #useful .useful-library__desk {
-    height: auto;
-    margin-top: 46px;
+    position: relative !important;
+    height: 430px !important;
+    margin-top: 42px;
   }
 
   #useful .useful-folder {
-    position: relative;
-    top: auto;
-    left: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    width: 100%;
-    height: auto;
-    transform: none;
+    position: absolute !important;
+    top: 52% !important;
+    left: 50% !important;
+    width: 340px !important;
+    max-width: 100%;
+    height: 390px !important;
+    transform: translate(-50%, -50%) !important;
   }
 
   #useful .useful-folder__bag {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    justify-self: center;
-    width: min(240px, 72vw);
-    margin: 0 auto 8px;
-    transform: none;
-    order: 0;
+    width: 190px;
   }
 
   #useful .useful-folder__front {
@@ -7534,100 +7228,66 @@ body:not(.cookies-accepted) .kasper-offer {
   #useful .useful-tab--prompts,
   #useful .useful-tab--canva,
   #useful .useful-tab--stickers {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    justify-self: center;
-    width: min(260px, 78vw);
-    height: 360px;
-    margin: 0;
-    transform: none !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
     opacity: 1 !important;
+    margin: 0 !important;
   }
 
   #useful .useful-tab--prompts {
-    order: 1;
+    width: 138px;
+    height: 200px;
+    transform: translate(-170px, -70px) rotate(-5deg) !important;
   }
 
   #useful .useful-tab--canva {
-    order: 2;
+    width: 150px;
+    height: 196px;
+    transform: translate(-72px, -128px) rotate(1.5deg) !important;
   }
 
   #useful .useful-tab--stickers {
-    order: 3;
-  }
-
-  #useful .useful-tab h3 {
-    font-size: 23px;
+    width: 132px;
+    height: 196px;
+    transform: translate(54px, -70px) rotate(5deg) !important;
   }
 
   #useful .useful-tab p {
-    font-size: 8px;
+    display: none;
+  }
+
+  #useful .useful-tab h3 {
+    font-size: 13px;
+  }
+
+  #useful .useful-tab__index {
+    font-size: 5px !important;
   }
 
   #useful .useful-tab__action {
-    font-size: 7px;
+    font-size: 5px !important;
   }
 
   #useful .useful-tab__telegram {
-    width: 32px;
-  }
-
-  #useful .useful-reading {
-    padding: 78px 20px 100px;
-  }
-
-  #useful .useful-reading__header {
-    margin-bottom: 42px;
-  }
-
-  #useful .useful-reading__header h3 {
-    width: auto;
-    max-width: 100%;
-    margin-top: 14px;
-    font-size: clamp(30px, 9vw, 42px);
-    line-height: 1;
-    white-space: normal;
-  }
-
-  #useful .useful-reading__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  #useful .useful-article,
-  #useful .useful-article--one,
-  #useful .useful-article--two,
-  #useful .useful-article--three,
-  #useful .useful-article--all {
-    grid-column: auto;
-    min-height: 250px;
-    transform: none !important;
+    width: 20px;
   }
 }
 
 @media (max-width: 420px) {
-  #useful .useful-library__free {
-    top: 276px;
-    right: 8px;
-    transform: scale(0.9);
-    transform-origin: top right;
+  #useful .useful-folder {
+    width: 310px !important;
   }
 
-  #useful .useful-tab,
-  #useful .useful-tab--prompts,
-  #useful .useful-tab--canva,
+  #useful .useful-tab--prompts {
+    transform: translate(-154px, -62px) rotate(-5deg) !important;
+  }
+
+  #useful .useful-tab--canva {
+    transform: translate(-72px, -124px) rotate(1.5deg) !important;
+  }
+
   #useful .useful-tab--stickers {
-    width: min(235px, 78vw);
-    height: 330px;
-  }
-
-  #useful .useful-tab h3 {
-    font-size: 20px;
-  }
-
-  #useful .useful-tab p {
-    font-size: 7.2px;
+    transform: translate(42px, -62px) rotate(5deg) !important;
   }
 }
