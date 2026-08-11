@@ -314,7 +314,7 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
           },
           0.15
         )
-        .set(usefulTabs[0], { zIndex: 6 }, 1.14)
+        .set(usefulTabs[0], { zIndex: 9 }, 1.14)
         .to(
           usefulTabs[1],
           {
@@ -327,7 +327,7 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
           },
           1.18
         )
-        .set(usefulTabs[1], { zIndex: 6 }, 2.17)
+        .set(usefulTabs[1], { zIndex: 10 }, 2.17)
         .to(
           usefulTabs[2],
           {
@@ -340,7 +340,7 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
           },
           2.22
         )
-        .set(usefulTabs[2], { zIndex: 6 }, 3.21)
+        .set(usefulTabs[2], { zIndex: 11 }, 3.21)
         .to({}, { duration: 0.65 });
 
       if (usefulArticles.length) {
