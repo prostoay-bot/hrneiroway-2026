@@ -7056,7 +7056,7 @@ body:not(.cookies-accepted) .kasper-offer {
   box-shadow: none;
   color: var(--emerald);
   isolation: isolate;
-  z-index: 6;
+  z-index: 9;
 }
 
 .useful-tab::before {
@@ -7259,6 +7259,17 @@ body:not(.cookies-accepted) .kasper-offer {
   .useful-tab--stickers {
     width: 205px;
     height: 285px;
+  }
+  .useful-tab--prompts {
+    transform: translate(-150px, -150px) rotate(-4deg);
+  }
+
+  .useful-tab--canva {
+    transform: translate(0, -180px) rotate(1.2deg);
+  }
+
+  .useful-tab--stickers {
+    transform: translate(150px, -145px) rotate(4deg);
   }
 }
 
