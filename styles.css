@@ -6914,63 +6914,38 @@ body:not(.cookies-accepted) .kasper-offer {
     z-index: 3 !important;
   }
 }
-/* Useful section: PNG bag and material cards */
-.useful-library__intro {
-  position: relative;
-}
-
-.useful-library__lead {
-  max-width: 760px;
-}
-
+/* Useful section: corrected PNG composition */
 .useful-library__free {
-  position: absolute;
-  top: -18px;
-  right: 0;
-  width: clamp(110px, 9vw, 150px);
-  height: clamp(120px, 10vw, 165px);
-  pointer-events: none;
-  z-index: 14;
+  top: -10px;
+  right: 24px;
+  width: 118px;
+  height: 130px;
 }
 
 .useful-library__free-label {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: clamp(82px, 7vw, 112px);
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 14px 24px rgba(55, 44, 32, 0.14));
+  width: 82px;
 }
 
 .useful-library__free-arrow {
-  position: absolute;
-  right: 54px;
-  top: 64px;
-  width: clamp(58px, 5.5vw, 86px);
-  height: auto;
-  object-fit: contain;
-  transform: rotate(-8deg);
+  right: 34px;
+  top: 58px;
+  width: 70px;
+  transform: rotate(-7deg);
 }
 
 .useful-folder {
-  top: 61%;
+  top: 62%;
   left: 50%;
-  width: clamp(360px, 38vw, 540px);
-  height: clamp(390px, 42vw, 580px);
+  width: clamp(420px, 34vw, 500px);
+  height: clamp(430px, 36vw, 520px);
   transform: translate(-50%, -50%);
 }
 
 .useful-folder__bag {
-  position: absolute;
-  left: 50%;
-  bottom: -18px;
-  width: clamp(330px, 36vw, 520px);
-  height: auto;
-  transform: translateX(-50%);
-  z-index: 7;
-  pointer-events: none;
-  filter: drop-shadow(0 34px 54px rgba(55, 44, 32, 0.20));
+  width: clamp(360px, 30vw, 440px);
+  bottom: 0;
+  z-index: 2;
+  filter: drop-shadow(0 28px 42px rgba(55, 44, 32, 0.18));
 }
 
 .useful-folder__back {
@@ -6978,23 +6953,13 @@ body:not(.cookies-accepted) .kasper-offer {
 }
 
 .useful-folder__front {
-  inset: auto 0 82px 0;
-  z-index: 9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: min(330px, 72%);
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
-  overflow: visible;
+  bottom: 76px;
+  z-index: 5;
+  width: 250px;
   background: transparent;
   border: 0;
   box-shadow: none;
-  transform: none;
   color: #fffaf0;
-  text-align: center;
   pointer-events: none;
 }
 
@@ -7004,39 +6969,29 @@ body:not(.cookies-accepted) .kasper-offer {
 }
 
 .useful-folder__front span {
+  font-size: 8px;
   color: #fffaf0;
-  font: 800 10px/1.2 var(--sans);
-  letter-spacing: 0.14em;
 }
 
 .useful-folder__front strong {
-  max-width: 310px;
-  margin-top: 8px;
+  font-size: clamp(23px, 2vw, 31px);
   color: #fffaf0;
-  font: 500 clamp(25px, 2.5vw, 39px) / 0.95 var(--serif);
-  text-transform: none;
-  letter-spacing: 0.01em;
 }
 
 .useful-folder__front small {
-  margin-top: 12px;
+  font-size: 8px;
   color: rgba(255, 250, 240, 0.9);
-  font: 700 10px/1.25 var(--sans);
-  letter-spacing: 0.06em;
-  text-transform: none;
 }
 
 .useful-tab {
-  width: clamp(190px, 18vw, 265px);
-  height: clamp(260px, 29vw, 360px);
-  padding: clamp(48px, 4.5vw, 70px) clamp(28px, 2.5vw, 38px) clamp(40px, 4vw, 58px);
-  overflow: visible;
+  width: 300px;
+  height: 370px;
+  padding: 70px 38px 44px;
   background: transparent !important;
   border: 0;
-  border-radius: 0;
   box-shadow: none;
-  color: var(--emerald);
-  isolation: isolate;
+  overflow: visible;
+  z-index: 6;
 }
 
 .useful-tab::before {
@@ -7051,194 +7006,149 @@ body:not(.cookies-accepted) .kasper-offer {
   height: 100%;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 22px 35px rgba(55, 44, 32, 0.18));
-}
-
-.useful-tab__telegram {
-  position: absolute;
-  top: 42px;
-  right: 32px;
-  z-index: 2;
-  width: clamp(34px, 3vw, 48px);
-  height: auto;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.useful-tab__index,
-.useful-tab h3,
-.useful-tab p,
-.useful-tab__action {
-  position: relative;
-  z-index: 2;
+  filter: drop-shadow(0 22px 34px rgba(55, 44, 32, 0.18));
 }
 
 .useful-tab__index {
+  font-size: 9px;
   color: var(--accent-wine);
 }
 
 .useful-tab h3 {
-  max-width: 200px;
-  font-size: clamp(24px, 2vw, 32px);
+  max-width: 210px;
+  font-size: 28px;
+  line-height: 1;
 }
 
 .useful-tab p {
-  max-width: 210px;
-  color: rgba(30, 43, 54, 0.72);
-  font-size: 12px;
+  max-width: 205px;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 .useful-tab__action {
-  color: var(--emerald);
+  margin-top: 12px;
+  font-size: 9px;
 }
 
+/* индивидуальная подгонка карточек */
 .useful-tab--prompts {
-  transform: translate(-265px, -205px) rotate(-5deg);
+  width: 300px;
+  height: 385px;
+  padding: 76px 42px 46px;
 }
 
 .useful-tab--canva {
-  transform: translate(0, -250px) rotate(1.5deg);
+  width: 315px;
+  height: 390px;
+  padding: 82px 44px 46px;
 }
 
 .useful-tab--stickers {
-  transform: translate(265px, -195px) rotate(4deg);
+  width: 300px;
+  height: 360px;
+  padding: 68px 42px 42px;
 }
 
 .useful-tab--stickers h3,
 .useful-tab--stickers p,
 .useful-tab--stickers .useful-tab__action,
 .useful-tab--stickers .useful-tab__index {
-  margin-left: 8px;
+  margin-left: 0;
+}
+
+.useful-tab__telegram {
+  top: 44px;
+  right: 38px;
+  width: 40px;
+  z-index: 3;
+}
+
+/* чтобы объекты не прятались за пакетом */
+.useful-tab,
+.useful-tab:hover,
+.useful-tab:focus-visible {
+  z-index: 8;
 }
 
 @media (max-width: 900px) {
-  .useful-library__free {
-    top: -8px;
-    right: 8px;
-    width: 100px;
-    height: 120px;
-  }
-
-  .useful-library__free-label {
-    width: 78px;
-  }
-
-  .useful-library__free-arrow {
-    right: 42px;
-    top: 56px;
-    width: 56px;
-  }
-
   .useful-folder {
-    width: min(92vw, 430px);
+    top: 58%;
+    width: min(92vw, 420px);
     height: 520px;
   }
 
   .useful-folder__bag {
-    width: min(82vw, 390px);
-    bottom: 10px;
-  }
-
-  .useful-folder__front {
-    bottom: 92px;
-    width: min(280px, 68vw);
-  }
-
-  .useful-folder__front strong {
-    font-size: clamp(24px, 8vw, 34px);
+    width: min(78vw, 360px);
+    bottom: 18px;
   }
 
   .useful-tab {
-    width: clamp(170px, 50vw, 230px);
-    height: clamp(230px, 68vw, 320px);
-    padding: 46px 28px 42px;
+    width: 230px;
+    height: 310px;
+    padding: 58px 30px 36px;
   }
 
   .useful-tab h3 {
-    font-size: clamp(22px, 7vw, 30px);
+    font-size: 23px;
   }
 
   .useful-tab p {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .useful-tab__action {
+    font-size: 8px;
   }
 
   .useful-tab--prompts {
-    transform: translate(-120px, -210px) rotate(-5deg);
+    width: 230px;
+    height: 318px;
   }
 
   .useful-tab--canva {
-    transform: translate(0, -260px) rotate(1.5deg);
+    width: 240px;
+    height: 320px;
   }
 
   .useful-tab--stickers {
-    transform: translate(120px, -205px) rotate(4deg);
+    width: 230px;
+    height: 300px;
   }
 }
 
 @media (max-width: 560px) {
-  .useful-library__free {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 112px;
-    height: 112px;
-    margin: 18px 0 0 auto;
-  }
-
-  .useful-library__free-label {
-    width: 78px;
-  }
-
-  .useful-library__free-arrow {
-    width: 58px;
-    right: 40px;
-    top: 48px;
-  }
-
   .useful-library__desk {
-    height: 640px;
+    height: 620px;
   }
 
   .useful-folder {
     top: 55%;
-    width: 100%;
     height: 560px;
   }
 
   .useful-folder__bag {
-    width: min(88vw, 360px);
-    bottom: 32px;
-  }
-
-  .useful-folder__front {
-    bottom: 118px;
+    width: min(84vw, 340px);
+    bottom: 34px;
   }
 
   .useful-tab {
     width: 190px;
     height: 270px;
-    padding: 44px 26px 38px;
+    padding: 50px 24px 32px;
   }
 
-  .useful-tab--prompts {
-    transform: translate(-82px, -230px) rotate(-5deg);
+  .useful-tab h3 {
+    font-size: 20px;
   }
 
-  .useful-tab--canva {
-    transform: translate(0, -285px) rotate(1.5deg);
-  }
-
-  .useful-tab--stickers {
-    transform: translate(82px, -224px) rotate(4deg);
+  .useful-tab p {
+    font-size: 9px;
   }
 
   .useful-tab__telegram {
+    width: 32px;
     top: 38px;
-    right: 30px;
-    width: 34px;
-  }
-
-  .useful-library__hint {
-    bottom: 16px;
+    right: 28px;
   }
 }
