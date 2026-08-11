@@ -7291,16 +7291,16 @@ body:not(.cookies-accepted) .kasper-offer {
     transform: translate(42px, -62px) rotate(5deg) !important;
   }
 }
-/* Emergency fix: useful FREE label size */
+/* Useful section: FREE label near heading */
 #useful .useful-library__free {
   position: absolute !important;
-  top: 250px !important;
-  right: 210px !important;
+  top: 155px !important;
+  right: 260px !important;
   left: auto !important;
-  width: 96px !important;
-  height: 116px !important;
-  transform: none !important;
+  width: 130px !important;
+  height: 150px !important;
   z-index: 30 !important;
+  transform: none !important;
   pointer-events: none !important;
 }
 
@@ -7309,40 +7309,61 @@ body:not(.cookies-accepted) .kasper-offer {
   top: 0 !important;
   right: 0 !important;
   left: auto !important;
-  width: 58px !important;
-  max-width: 58px !important;
+  width: 72px !important;
+  max-width: 72px !important;
   height: auto !important;
   transform: none !important;
 }
 
 #useful .useful-library__free-arrow {
   position: absolute !important;
-  top: 42px !important;
-  right: 14px !important;
+  top: 56px !important;
+  right: 22px !important;
   left: auto !important;
-  width: 58px !important;
-  max-width: 58px !important;
+  width: 72px !important;
+  max-width: 72px !important;
   height: auto !important;
   transform: rotate(-8deg) !important;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
   #useful .useful-library__free {
-    top: 300px !important;
-    right: 16px !important;
-    width: 68px !important;
-    height: 82px !important;
+    top: 190px !important;
+    right: 44px !important;
+    width: 100px !important;
+    height: 118px !important;
   }
 
   #useful .useful-library__free-label {
-    width: 42px !important;
-    max-width: 42px !important;
+    width: 58px !important;
+    max-width: 58px !important;
   }
 
   #useful .useful-library__free-arrow {
-    top: 32px !important;
+    top: 46px !important;
+    right: 16px !important;
+    width: 56px !important;
+    max-width: 56px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  #useful .useful-library__free {
+    top: 255px !important;
+    right: 18px !important;
+    width: 78px !important;
+    height: 92px !important;
+  }
+
+  #useful .useful-library__free-label {
+    width: 44px !important;
+    max-width: 44px !important;
+  }
+
+  #useful .useful-library__free-arrow {
+    top: 34px !important;
     right: 10px !important;
-    width: 40px !important;
-    max-width: 40px !important;
+    width: 42px !important;
+    max-width: 42px !important;
   }
 }
