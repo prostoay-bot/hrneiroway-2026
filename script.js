@@ -280,12 +280,13 @@ if (
 const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
 
       window.gsap.set(usefulTabs, {
-        x: 0,
-        y: 145,
-        rotation: 0,
-        scale: 0.94,
-        zIndex: 3,
-      });
+  x: 0,
+  y: 235,
+  rotation: 0,
+  scale: 0.88,
+  opacity: 0,
+  zIndex: 2,
+});
 
       const usefulTimeline = window.gsap.timeline({
         scrollTrigger: {
@@ -303,16 +304,17 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
       usefulTimeline
         .to(usefulHint, { opacity: 0, y: 10, duration: 0.3 }, 0)
         .to(
-          usefulTabs[0],
-          {
-            x: () => -spread(),
-            y: () => -lift() * 0.9,
-            rotation: -4,
-            scale: 1,
-            duration: 1,
-            ease: "power2.out",
-          },
-          0.15
+  usefulTabs[0],
+  {
+    x: () => -spread(),
+    y: () => -lift() * 0.9,
+    rotation: -4,
+    scale: 1,
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out",
+  },
+  0.15
         )
         .set(usefulTabs[0], { zIndex: 9 }, 1.14)
         .to(
@@ -322,6 +324,7 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
             y: () => -lift(),
             rotation: 1.2,
             scale: 1,
+            opacity: 1,
             duration: 1,
             ease: "power2.out",
           },
@@ -335,6 +338,7 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
             y: () => -lift() * 0.9,
             rotation: 4,
             scale: 1,
+            opacity: 1,
             duration: 1,
             ease: "power2.out",
           },
