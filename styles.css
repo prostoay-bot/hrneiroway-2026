@@ -7367,3 +7367,61 @@ body:not(.cookies-accepted) .kasper-offer {
     max-width: 42px !important;
   }
 }
+/* FINAL FIX: useful FREE placement */
+#useful .useful-library__free {
+  position: absolute !important;
+  top: 210px !important;
+  right: 250px !important;
+  left: auto !important;
+  width: 90px !important;
+  height: 110px !important;
+  z-index: 30 !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+
+#useful .useful-library__free-label {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  display: block !important;
+  width: 52px !important;
+  max-width: 52px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  transform: none !important;
+}
+
+#useful .useful-library__free-arrow {
+  position: absolute !important;
+  top: 38px !important;
+  right: 10px !important;
+  left: auto !important;
+  display: block !important;
+  width: 52px !important;
+  max-width: 52px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  transform: rotate(-8deg) !important;
+}
+
+/* На телефоне декоративный FREE убираем, чтобы не ломал блок */
+@media (max-width: 760px) {
+  #useful .useful-library__free,
+  #useful .useful-library__free-label,
+  #useful .useful-library__free-arrow {
+    display: none !important;
+  }
+}
+
+/* Убираем красную рамку вокруг Canva/карточек */
+#useful .useful-tab,
+#useful .useful-tab:hover,
+#useful .useful-tab:focus,
+#useful .useful-tab:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
