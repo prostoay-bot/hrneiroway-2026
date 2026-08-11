@@ -7646,3 +7646,270 @@ body:not(.cookies-accepted) .kasper-offer {
     height: auto !important;
   }
 }
+/* DESKTOP USEFUL: витрина как на мобильном, но шире + FREE */
+@media (min-width: 761px) {
+  #useful .useful-folder__bag,
+  #useful .useful-folder__back,
+  #useful .useful-folder__front,
+  #useful .useful-library__hint {
+    display: none !important;
+  }
+
+  #useful .useful-library__stage {
+    height: auto !important;
+    min-height: 0 !important;
+    padding-bottom: 110px !important;
+    overflow: hidden !important;
+  }
+
+  #useful .useful-library__desk {
+    position: relative !important;
+    height: auto !important;
+    max-width: 1180px !important;
+    margin: 76px auto 0 !important;
+    overflow: visible !important;
+  }
+
+  #useful .useful-folder {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: clamp(28px, 3.2vw, 52px) !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 8px 32px 38px !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  #useful .useful-tab,
+  #useful .useful-tab--prompts,
+  #useful .useful-tab--canva,
+  #useful .useful-tab--stickers {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    outline: none !important;
+  }
+
+  #useful .useful-tab::before {
+    display: none !important;
+  }
+
+  #useful .useful-tab--prompts {
+    width: 260px !important;
+    height: 374px !important;
+    z-index: 3 !important;
+    transform: rotate(-3.5deg) translateY(20px) !important;
+  }
+
+  #useful .useful-tab--canva {
+    width: 278px !important;
+    height: 362px !important;
+    z-index: 4 !important;
+    transform: rotate(1.2deg) translateY(-10px) !important;
+  }
+
+  #useful .useful-tab--stickers {
+    width: 252px !important;
+    height: 366px !important;
+    z-index: 3 !important;
+    transform: rotate(3.5deg) translateY(24px) !important;
+  }
+
+  #useful .useful-tab__image {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 22px 34px rgba(55, 44, 32, 0.15)) !important;
+    transition: transform 0.45s ease, filter 0.45s ease !important;
+  }
+
+  #useful .useful-tab:hover .useful-tab__image,
+  #useful .useful-tab:focus-visible .useful-tab__image {
+    transform: translateY(-8px) scale(1.015) !important;
+    filter: drop-shadow(0 30px 42px rgba(55, 44, 32, 0.2)) !important;
+  }
+
+  #useful .useful-tab__index,
+  #useful .useful-tab h3,
+  #useful .useful-tab p,
+  #useful .useful-tab__action,
+  #useful .useful-tab__telegram {
+    position: absolute !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+  }
+
+  #useful .useful-tab--prompts .useful-tab__index {
+    top: 22% !important;
+    left: 19% !important;
+  }
+
+  #useful .useful-tab--prompts h3 {
+    top: 55% !important;
+    left: 21% !important;
+    max-width: 58% !important;
+  }
+
+  #useful .useful-tab--prompts p {
+    top: 69% !important;
+    left: 21% !important;
+    max-width: 57% !important;
+  }
+
+  #useful .useful-tab--prompts .useful-tab__action {
+    top: 84.5% !important;
+    left: 21% !important;
+  }
+
+  #useful .useful-tab--canva .useful-tab__index {
+    top: 20% !important;
+    left: 24% !important;
+  }
+
+  #useful .useful-tab--canva h3 {
+    top: 45% !important;
+    left: 24% !important;
+    max-width: 55% !important;
+  }
+
+  #useful .useful-tab--canva p {
+    top: 62% !important;
+    left: 24% !important;
+    max-width: 51% !important;
+  }
+
+  #useful .useful-tab--canva .useful-tab__action {
+    top: 80.5% !important;
+    left: 24% !important;
+  }
+
+  #useful .useful-tab--stickers .useful-tab__index {
+    top: 20% !important;
+    left: 18% !important;
+  }
+
+  #useful .useful-tab--stickers h3 {
+    top: 43% !important;
+    left: 18% !important;
+    max-width: 58% !important;
+  }
+
+  #useful .useful-tab--stickers p {
+    top: 60% !important;
+    left: 18.5% !important;
+    max-width: 54% !important;
+  }
+
+  #useful .useful-tab--stickers .useful-tab__action {
+    top: 79% !important;
+    left: 18.5% !important;
+  }
+
+  #useful .useful-tab__index {
+    color: var(--accent-wine) !important;
+    font: 800 8px/1.2 var(--sans) !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #useful .useful-tab h3 {
+    color: var(--emerald) !important;
+    font: 500 23px/0.98 var(--serif) !important;
+  }
+
+  #useful .useful-tab p {
+    color: rgba(30, 43, 54, 0.72) !important;
+    font: 600 7.5px/1.28 var(--sans) !important;
+  }
+
+  #useful .useful-tab__action {
+    color: var(--emerald) !important;
+    font: 800 7px/1.2 var(--sans) !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+  }
+
+  #useful .useful-tab__telegram {
+    top: 14% !important;
+    right: 13% !important;
+    width: 32px !important;
+    height: auto !important;
+  }
+
+  #useful .useful-library__free {
+    position: absolute !important;
+    top: clamp(138px, 10vw, 180px) !important;
+    right: clamp(82px, 12vw, 210px) !important;
+    left: auto !important;
+    display: block !important;
+    width: 118px !important;
+    height: 132px !important;
+    z-index: 30 !important;
+    pointer-events: none !important;
+    transform: none !important;
+  }
+
+  #useful .useful-library__free-label {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    display: block !important;
+    width: 64px !important;
+    max-width: 64px !important;
+    height: auto !important;
+  }
+
+  #useful .useful-library__free-arrow {
+    position: absolute !important;
+    top: 48px !important;
+    right: 18px !important;
+    display: block !important;
+    width: 64px !important;
+    max-width: 64px !important;
+    height: auto !important;
+    transform: rotate(-8deg) !important;
+  }
+
+  #useful .useful-tab__image {
+    animation: usefulDesktopSoftIn 0.75s ease both;
+  }
+
+  #useful .useful-tab--prompts .useful-tab__image {
+    animation-delay: 0.05s;
+  }
+
+  #useful .useful-tab--canva .useful-tab__image {
+    animation-delay: 0.14s;
+  }
+
+  #useful .useful-tab--stickers .useful-tab__image {
+    animation-delay: 0.23s;
+  }
+}
+
+@keyframes usefulDesktopSoftIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
