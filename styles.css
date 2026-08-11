@@ -7425,3 +7425,224 @@ body:not(.cookies-accepted) .kasper-offer {
   outline: none !important;
   box-shadow: none !important;
 }
+/* MOBILE USEFUL: стильная свайп-витрина вместо пакета */
+@media (max-width: 760px) {
+  #useful .useful-library__free,
+  #useful .useful-library__free-label,
+  #useful .useful-library__free-arrow,
+  #useful .useful-folder__bag,
+  #useful .useful-folder__back,
+  #useful .useful-folder__front,
+  #useful .useful-library__hint {
+    display: none !important;
+  }
+
+  #useful .useful-library__stage {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 92px 0 72px !important;
+    overflow: hidden !important;
+  }
+
+  #useful .useful-library__header {
+    display: block !important;
+    padding: 0 20px !important;
+  }
+
+  #useful .useful-library__marker {
+    margin-bottom: 28px !important;
+  }
+
+  #useful .useful-library__intro h2 {
+    width: auto !important;
+    max-width: 100% !important;
+    font-size: clamp(34px, 10.5vw, 44px) !important;
+    line-height: 0.98 !important;
+    white-space: normal !important;
+  }
+
+  #useful .useful-library__lead {
+    max-width: 100% !important;
+    margin-top: 18px !important;
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  #useful .useful-library__desk {
+    position: relative !important;
+    height: auto !important;
+    margin-top: 42px !important;
+    overflow: visible !important;
+  }
+
+  #useful .useful-library__desk::before {
+    content: "Листайте материалы →";
+    display: block;
+    margin: 0 20px 18px;
+    color: var(--accent-wine);
+    font: 800 10px/1.2 var(--sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #useful .useful-folder {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    gap: 18px !important;
+    padding: 0 20px 20px !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    transform: none !important;
+    scrollbar-width: none !important;
+  }
+
+  #useful .useful-folder::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #useful .useful-tab,
+  #useful .useful-tab--prompts,
+  #useful .useful-tab--canva,
+  #useful .useful-tab--stickers {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    flex: 0 0 265px !important;
+    width: 265px !important;
+    height: 370px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    scroll-snap-align: center !important;
+    outline: none !important;
+  }
+
+  #useful .useful-tab::before {
+    display: none !important;
+  }
+
+  #useful .useful-tab__image {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 18px 28px rgba(55, 44, 32, 0.14)) !important;
+  }
+
+  #useful .useful-tab__index,
+  #useful .useful-tab h3,
+  #useful .useful-tab p,
+  #useful .useful-tab__action,
+  #useful .useful-tab__telegram {
+    position: absolute !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+  }
+
+  #useful .useful-tab--prompts .useful-tab__index {
+    top: 22% !important;
+    left: 19% !important;
+  }
+
+  #useful .useful-tab--prompts h3 {
+    top: 55% !important;
+    left: 21% !important;
+    max-width: 58% !important;
+  }
+
+  #useful .useful-tab--prompts p {
+    top: 69% !important;
+    left: 21% !important;
+    max-width: 57% !important;
+  }
+
+  #useful .useful-tab--prompts .useful-tab__action {
+    top: 84.5% !important;
+    left: 21% !important;
+  }
+
+  #useful .useful-tab--canva .useful-tab__index {
+    top: 20% !important;
+    left: 24% !important;
+  }
+
+  #useful .useful-tab--canva h3 {
+    top: 45% !important;
+    left: 24% !important;
+    max-width: 55% !important;
+  }
+
+  #useful .useful-tab--canva p {
+    top: 62% !important;
+    left: 24% !important;
+    max-width: 51% !important;
+  }
+
+  #useful .useful-tab--canva .useful-tab__action {
+    top: 80.5% !important;
+    left: 24% !important;
+  }
+
+  #useful .useful-tab--stickers .useful-tab__index {
+    top: 20% !important;
+    left: 18% !important;
+  }
+
+  #useful .useful-tab--stickers h3 {
+    top: 43% !important;
+    left: 18% !important;
+    max-width: 58% !important;
+  }
+
+  #useful .useful-tab--stickers p {
+    top: 60% !important;
+    left: 18.5% !important;
+    max-width: 54% !important;
+  }
+
+  #useful .useful-tab--stickers .useful-tab__action {
+    top: 79% !important;
+    left: 18.5% !important;
+  }
+
+  #useful .useful-tab__index {
+    color: var(--accent-wine) !important;
+    font: 800 8px/1.2 var(--sans) !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  #useful .useful-tab h3 {
+    color: var(--emerald) !important;
+    font: 500 23px/0.98 var(--serif) !important;
+  }
+
+  #useful .useful-tab p {
+    color: rgba(30, 43, 54, 0.72) !important;
+    font: 600 7.5px/1.28 var(--sans) !important;
+  }
+
+  #useful .useful-tab__action {
+    color: var(--emerald) !important;
+    font: 800 7px/1.2 var(--sans) !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+  }
+
+  #useful .useful-tab__telegram {
+    top: 14% !important;
+    right: 13% !important;
+    width: 32px !important;
+    height: auto !important;
+  }
+}
