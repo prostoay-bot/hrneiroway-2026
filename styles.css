@@ -7291,3 +7291,58 @@ body:not(.cookies-accepted) .kasper-offer {
     transform: translate(42px, -62px) rotate(5deg) !important;
   }
 }
+/* Emergency fix: useful FREE label size */
+#useful .useful-library__free {
+  position: absolute !important;
+  top: 250px !important;
+  right: 210px !important;
+  left: auto !important;
+  width: 96px !important;
+  height: 116px !important;
+  transform: none !important;
+  z-index: 30 !important;
+  pointer-events: none !important;
+}
+
+#useful .useful-library__free-label {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  width: 58px !important;
+  max-width: 58px !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+#useful .useful-library__free-arrow {
+  position: absolute !important;
+  top: 42px !important;
+  right: 14px !important;
+  left: auto !important;
+  width: 58px !important;
+  max-width: 58px !important;
+  height: auto !important;
+  transform: rotate(-8deg) !important;
+}
+
+@media (max-width: 760px) {
+  #useful .useful-library__free {
+    top: 300px !important;
+    right: 16px !important;
+    width: 68px !important;
+    height: 82px !important;
+  }
+
+  #useful .useful-library__free-label {
+    width: 42px !important;
+    max-width: 42px !important;
+  }
+
+  #useful .useful-library__free-arrow {
+    top: 32px !important;
+    right: 10px !important;
+    width: 40px !important;
+    max-width: 40px !important;
+  }
+}
