@@ -276,8 +276,8 @@ if (
   usefulMotion.add(
     "(min-width: 761px) and (prefers-reduced-motion: no-preference)",
     () => {
-      const spread = () => Math.min(Math.max(window.innerWidth * 0.245, 235), 355);
-      const lift = () => Math.min(Math.max(window.innerHeight * 0.23, 165), 210);
+      const spread = () => Math.min(Math.max(window.innerWidth * 0.17, 185), 265);
+const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
 
       window.gsap.set(usefulTabs, {
         x: 0,
