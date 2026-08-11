@@ -7314,3 +7314,136 @@ body:not(.cookies-accepted) .kasper-offer {
     height: 235px;
   }
 }
+
+/* Codex useful section corrections */
+.useful-tab {
+  z-index: 9;
+}
+
+/* PROMPTS */
+.useful-tab--prompts .useful-tab__index {
+  top: 21.5%;
+  left: 19.2%;
+}
+
+.useful-tab--prompts h3 {
+  top: 51.3%;
+  left: 20.8%;
+  max-width: 60%;
+}
+
+.useful-tab--prompts p {
+  top: 65.7%;
+  left: 21.2%;
+  max-width: 56.8%;
+}
+
+.useful-tab--prompts .useful-tab__action {
+  top: 83%;
+  left: 21.2%;
+}
+
+/* CANVA */
+.useful-tab--canva .useful-tab__index {
+  top: 19.4%;
+  left: 23.5%;
+}
+
+.useful-tab--canva h3 {
+  top: 41.8%;
+  left: 23.9%;
+  max-width: 56.9%;
+}
+
+.useful-tab--canva p {
+  top: 58.2%;
+  left: 24.3%;
+  max-width: 53.3%;
+}
+
+.useful-tab--canva .useful-tab__action {
+  top: 79.4%;
+  left: 24.3%;
+}
+
+/* STICKERS */
+.useful-tab--stickers .useful-tab__index {
+  top: 20.6%;
+  left: 18.4%;
+}
+
+.useful-tab__telegram {
+  top: 14.5%;
+  right: 15.2%;
+}
+
+.useful-tab--stickers h3 {
+  top: 43.2%;
+  left: 18.8%;
+  max-width: 58%;
+}
+
+.useful-tab--stickers p {
+  top: 60%;
+  left: 19.2%;
+  max-width: 52.8%;
+}
+
+.useful-tab--stickers .useful-tab__action {
+  top: 81.9%;
+  left: 19.2%;
+}
+
+/* tablet fallback */
+@media (max-width: 900px) {
+  .useful-tab--prompts {
+    transform: translate(-150px, -150px) rotate(-4deg);
+  }
+
+  .useful-tab--canva {
+    transform: translate(0, -180px) rotate(1.2deg);
+  }
+
+  .useful-tab--stickers {
+    transform: translate(150px, -145px) rotate(4deg);
+  }
+
+  .useful-tab--prompts h3,
+  .useful-tab--canva h3,
+  .useful-tab--stickers h3 {
+    font-size: 20px;
+  }
+
+  .useful-tab--prompts p,
+  .useful-tab--canva p,
+  .useful-tab--stickers p {
+    font-size: 7.5px;
+  }
+}
+
+/* mobile fallback */
+@media (max-width: 560px) {
+  .useful-tab--prompts {
+    transform: translate(-92px, -118px) rotate(-4deg);
+  }
+
+  .useful-tab--canva {
+    transform: translate(0, -140px) rotate(1.2deg);
+  }
+
+  .useful-tab--stickers {
+    transform: translate(92px, -112px) rotate(4deg);
+  }
+
+  .useful-tab--prompts h3,
+  .useful-tab--canva h3,
+  .useful-tab--stickers h3 {
+    font-size: 16px;
+  }
+
+  .useful-tab--prompts p,
+  .useful-tab--canva p,
+  .useful-tab--stickers p {
+    font-size: 6.8px;
+  }
+}
