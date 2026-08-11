@@ -7294,14 +7294,13 @@ body:not(.cookies-accepted) .kasper-offer {
 /* Useful section: FREE label near heading */
 #useful .useful-library__free {
   position: absolute !important;
-  top: 155px !important;
-  right: 260px !important;
-  left: auto !important;
-  width: 130px !important;
-  height: 150px !important;
+  top: 24px !important;
+right: 120px !important;
+width: 120px !important;
+height: 100px !important;
   z-index: 30 !important;
-  transform: none !important;
-  pointer-events: none !important;
+transform: none !important;
+pointer-events: none !important;
 }
 
 #useful .useful-library__free-label {
