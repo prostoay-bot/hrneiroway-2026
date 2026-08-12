@@ -1,19 +1,19 @@
-:root {
-  --bg: #e8eee9;
-  --bg2: #eef2ec;
+::root {
+  --bg: #fffdf9;
+  --bg2: #f7efe2;
   --white: #ffffff;
-  --milk: #fbfaf5;
-  --cream: #f6efe2;
-  --butter: #ebe2a8;
-  --rose: #e2a2b4;
-  --emerald: #16302a;
-  --muted: #4c5f57;
-  --accent: #9b6b49;
-  --line: rgba(22, 48, 42, .13);
-  --shadow: 0 28px 80px rgba(20, 59, 52, .12);
-  --soft: 0 14px 36px rgba(20, 59, 52, .08);
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Inter", Arial, sans-serif;
+  --milk: #fbf5eb;
+  --cream: #fffdf9;
+  --butter: #f7efe2;
+  --rose: #660810;
+  --emerald: #0a3428;
+  --muted: #66726b;
+  --accent: #660810;
+  --line: rgba(102, 8, 16, .16);
+  --shadow: 0 28px 80px rgba(10, 52, 40, .10);
+  --soft: 0 14px 36px rgba(10, 52, 40, .08);
+  --serif: "Forum", "Cormorant Garamond", Georgia, serif;
+  --sans: "Onest", Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
