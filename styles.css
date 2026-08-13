@@ -7912,3 +7912,52 @@ pointer-events: none !important;
     transform: translateY(0) scale(1);
   }
 }
+/* Mobile: portfolio as a simple vertical list */
+@media (max-width: 768px) {
+  #portfolio,
+  #portfolio * {
+    scroll-snap-type: none !important;
+    scroll-snap-align: unset !important;
+  }
+
+  #portfolio {
+    overflow: visible !important;
+  }
+
+  #portfolio .portfolio-showcase__stage,
+  #portfolio .portfolio-showcase__viewport,
+  #portfolio .portfolio-showcase__track {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  #portfolio .portfolio-showcase__track {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  #portfolio .portfolio-showcase__card,
+  #portfolio .portfolio-card,
+  #portfolio .project-card,
+  #portfolio article {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #portfolio .portfolio-showcase__controls,
+  #portfolio .portfolio-showcase__progress,
+  #portfolio .portfolio-showcase__nav {
+    display: none !important;
+  }
+}
