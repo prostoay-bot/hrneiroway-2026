@@ -1,0 +1,25 @@
+# HRNEIROWAY
+
+HRNEIROWAY — проект Марины Голяевой о понятных HR-материалах и визуальных решениях для бизнеса. Услуги оказываются онлайн по России. География: Долгопрудный, Московская область, Россия
+
+## Услуги
+
+- Материалы для бизнеса
+- Внутренние коммуникации
+- Материалы для адаптации сотрудников
+- Автоматизация HR
+- Сайты и лендинги
+- Нейрофотосессии и AI-образы
+
+## Основные страницы
+
+- Главная: https://hrneiroway.ru/
+- Материалы для бизнеса: https://hrneiroway.ru/materials-for-business.html
+- Внутренние коммуникации: https://hrneiroway.ru/internal-communications.html
+- Адаптация и HR-гайды: https://hrneiroway.ru/hr-guides.html
+- Автоматизация HR: https://hrneiroway.ru/hr-automation.html
+- Сайты и лендинги: https://hrneiroway.ru/websites.html
+
+## Контакт
+
+- Email: prostoay@gmail.com
