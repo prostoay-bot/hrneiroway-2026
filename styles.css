@@ -7979,7 +7979,7 @@ pointer-events: none !important;
   }
 }
 /* Mobile: portfolio as a simple vertical list */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   #portfolio,
   #portfolio * {
     scroll-snap-type: none !important;
