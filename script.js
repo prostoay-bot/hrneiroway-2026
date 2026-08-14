@@ -402,6 +402,51 @@ if (
   });
 }
 
+if (portfolioShowcase && portfolioCards.length) {
+  const mobilePortfolioQuery = window.matchMedia("(max-width: 760px)");
+  const mobilePortfolioCards = [...portfolioCards].filter(
+    (card) => !card.classList.contains("portfolio-card--five")
+  );
+  const portfolioPrev = portfolioShowcase.querySelector("[data-portfolio-prev]");
+  const portfolioNext = portfolioShowcase.querySelector("[data-portfolio-next]");
+  const portfolioCounter = portfolioShowcase.querySelector("[data-portfolio-counter]");
+  let mobilePortfolioIndex = 0;
+  let portfolioTouchStart = 0;
+
+  const renderMobilePortfolio = () => {
+    mobilePortfolioCards.forEach((card, index) => {
+      const isActive = index === mobilePortfolioIndex;
+      card.classList.toggle("is-mobile-active", isActive);
+      card.setAttribute("aria-hidden", mobilePortfolioQuery.matches && !isActive ? "true" : "false");
+    });
+
+    if (portfolioCounter) {
+      portfolioCounter.textContent = `${String(mobilePortfolioIndex + 1).padStart(2, "0")} / ${String(mobilePortfolioCards.length).padStart(2, "0")}`;
+    }
+  };
+
+  const showMobilePortfolio = (direction) => {
+    mobilePortfolioIndex = (mobilePortfolioIndex + direction + mobilePortfolioCards.length) % mobilePortfolioCards.length;
+    renderMobilePortfolio();
+  };
+
+  portfolioPrev?.addEventListener("click", () => showMobilePortfolio(-1));
+  portfolioNext?.addEventListener("click", () => showMobilePortfolio(1));
+
+  portfolioShowcase.addEventListener("touchstart", (event) => {
+    portfolioTouchStart = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  portfolioShowcase.addEventListener("touchend", (event) => {
+    if (!mobilePortfolioQuery.matches) return;
+    const distance = event.changedTouches[0].clientX - portfolioTouchStart;
+    if (Math.abs(distance) > 48) showMobilePortfolio(distance < 0 ? 1 : -1);
+  }, { passive: true });
+
+  mobilePortfolioQuery.addEventListener("change", renderMobilePortfolio);
+  renderMobilePortfolio();
+}
+
 if (clarityFrame) {
   if (reduceMotion) {
     clarityFrame.classList.add("is-visible");
