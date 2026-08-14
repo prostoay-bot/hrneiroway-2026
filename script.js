@@ -371,35 +371,35 @@ if (
 ) {
   window.gsap.registerPlugin(window.ScrollTrigger);
   const portfolioTable = portfolioShowcase.querySelector(".portfolio-showcase__table");
+  const portfolioMedia = window.gsap.matchMedia();
 
-  window.gsap.fromTo(
-    portfolioTable,
-    {
-      x: () => window.innerWidth * 0.62,
-    },
-    {
-      x: () => {
-        const endInset = window.innerWidth <= 760 ? 28 : 72;
-        return -(portfolioTable.scrollWidth - window.innerWidth + endInset);
+  portfolioMedia.add("(min-width: 761px)", () => {
+    window.gsap.fromTo(
+      portfolioTable,
+      {
+        x: () => window.innerWidth * 0.62,
       },
-      ease: "none",
-      scrollTrigger: {
-        trigger: portfolioShowcase,
-        start: "top top",
-        end: () => `+=${Math.max(portfolioTable.scrollWidth * 1.15, 2400)}`,
-        pin: ".portfolio-showcase__stage",
-        scrub: 1,
-        anticipatePin: 1,
-        refreshPriority: 2,
-        invalidateOnRefresh: true,
-      },
-    }
-  );
+      {
+        x: () => -(portfolioTable.scrollWidth - window.innerWidth + 72),
+        ease: "none",
+        scrollTrigger: {
+          trigger: portfolioShowcase,
+          start: "top top",
+          end: () => `+=${Math.max(portfolioTable.scrollWidth * 1.15, 2400)}`,
+          pin: ".portfolio-showcase__stage",
+          scrub: 1,
+          anticipatePin: 1,
+          refreshPriority: 2,
+          invalidateOnRefresh: true,
+        },
+      }
+    );
 
-  // «Проекты» находятся выше «Полезного», поэтому после создания обоих
-  // закреплений пересчитываем координаты в порядке страницы
-  window.ScrollTrigger.sort();
-  window.ScrollTrigger.refresh();
+    // «Проекты» находятся выше «Полезного», поэтому после создания обоих
+    // закреплений пересчитываем координаты в порядке страницы
+    window.ScrollTrigger.sort();
+    window.ScrollTrigger.refresh();
+  });
 }
 
 if (clarityFrame) {

@@ -5274,9 +5274,22 @@ body.has-useful-modal {
   font: 500 clamp(20px, 1.7vw, 27px) / 1.02 var(--serif);
 }
 
+.portfolio-copy--mobile {
+  display: none;
+}
+
 @media (max-width: 760px) {
+  main .portfolio-showcase[id] {
+    min-height: 0;
+    overflow: clip;
+    scroll-margin-top: 0;
+  }
+
   .portfolio-showcase__stage {
-    padding: 88px 20px 24px;
+    height: auto;
+    min-height: 0;
+    padding: 88px 20px 76px;
+    overflow: clip;
   }
 
   .portfolio-showcase__header {
@@ -5302,33 +5315,87 @@ body.has-useful-modal {
   }
 
   .portfolio-showcase__table {
-    top: 235px;
-    bottom: 16px;
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    width: 100%;
+    height: auto;
+    margin-top: 44px;
+    padding: 8px 6px;
+    transform: none !important;
+    will-change: auto;
   }
 
   .portfolio-card,
   .portfolio-card--two,
   .portfolio-card--four,
   .portfolio-card--five {
-    width: min(62vw, 242px);
-    height: min(43vh, 360px);
+    position: relative;
+    inset: auto;
+    justify-self: center;
+    width: min(calc(100% - 12px), 430px);
+    height: auto;
+    transform-origin: center;
+    will-change: auto;
   }
 
-  .portfolio-card--one { top: 13%; left: -28%; }
-  .portfolio-card--two { top: 4%; left: 8%; }
-  .portfolio-card--three { top: 16%; left: 42%; }
-  .portfolio-card--four { top: 5%; left: 75%; }
-  .portfolio-card--five { top: 18%; left: 108%; }
-  .portfolio-card--six { top: 7%; left: 141%; }
+  .portfolio-card--one { transform: rotate(-1.15deg); }
+  .portfolio-card--two { transform: rotate(0.9deg); }
+  .portfolio-card--three { transform: rotate(-0.7deg); }
+  .portfolio-card--four { transform: rotate(1.1deg); }
+  .portfolio-card--five { display: none; }
+  .portfolio-card--six { transform: rotate(-0.85deg); }
 
   .portfolio-card__sheet {
-    padding: 9px;
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 10px;
+    box-shadow: 0 18px 38px rgba(53, 44, 34, 0.15);
+  }
+
+  .portfolio-card__media {
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: 8px;
+  }
+
+  .portfolio-card__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  .portfolio-card__media > span {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    justify-self: start;
+    margin: 10px 4px 2px;
+    padding: 10px 14px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: #fbf8f0;
+    font-size: 10px;
+    text-shadow: none;
   }
 
   .portfolio-card h3 {
-    min-height: 48px;
-    padding: 12px 3px 3px;
-    font-size: clamp(18px, 5.4vw, 22px);
+    min-height: 0;
+    padding: 16px 6px 7px;
+    font-size: clamp(24px, 7vw, 31px);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .portfolio-copy--desktop {
+    display: none;
+  }
+
+  .portfolio-copy--mobile {
+    display: inline;
   }
 }
 
@@ -5380,26 +5447,25 @@ body.has-useful-modal {
 
 @media (max-width: 760px) {
   .portfolio-showcase__table {
-    top: 260px;
-    gap: 30px;
-    height: min(54vh, 450px);
-    padding: 0 24px;
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    width: 100%;
+    height: auto;
+    margin-top: 44px;
+    padding: 8px 6px;
+    transform: none !important;
+    will-change: auto;
   }
 
-  .portfolio-card,
-  .portfolio-card--two,
-  .portfolio-card--four,
-  .portfolio-card--five {
-    width: min(68vw, 265px);
-    height: min(45vh, 380px);
-  }
-
-  .portfolio-card--one { transform: translateY(18px) rotate(-3.5deg); }
-  .portfolio-card--two { transform: translateY(-18px) rotate(2.5deg); }
-  .portfolio-card--three { transform: translateY(24px) rotate(-2deg); }
-  .portfolio-card--four { transform: translateY(-14px) rotate(3.5deg); }
-  .portfolio-card--five { transform: translateY(20px) rotate(-3deg); }
-  .portfolio-card--six { transform: translateY(-16px) rotate(2deg); }
+  .portfolio-card--one { transform: rotate(-1.15deg); }
+  .portfolio-card--two { transform: rotate(0.9deg); }
+  .portfolio-card--three { transform: rotate(-0.7deg); }
+  .portfolio-card--four { transform: rotate(1.1deg); }
+  .portfolio-card--five { display: none; }
+  .portfolio-card--six { transform: rotate(-0.85deg); }
 }
 
 /* Единая печатная типографика маркеров разделов */
