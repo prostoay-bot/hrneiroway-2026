@@ -2910,12 +2910,12 @@ body.has-useful-modal {
 
 .about-story__card--intro {
   --card-progress: 1;
-  background: #70866A;
+  background: #e8ddce;
 }
 
-.about-story__card--practice { background: #e3d6c5; }
-.about-story__card--visual { background: #ddcfbd; }
-.about-story__card--result { background: #d8c9b6; }
+.about-story__card--practice { background: #e8ddce; }
+.about-story__card--visual { background: #e8ddce; }
+.about-story__card--result { background: #e8ddce; }
 
 .about-story__marker {
   display: flex;
