@@ -2926,7 +2926,7 @@ body.has-useful-modal {
   text-transform: uppercase;
 }
 
-..about-story__card h2,
+.about-story__card h2,
 .about-story__card h3 {
   width: 100%;
   max-width: none;
