@@ -121,6 +121,7 @@ h2 { font-size: clamp(54px, 5vw, 92px); line-height: .98; letter-spacing: -.025e
   align-items: center;
   justify-content: center;
   border: 1px solid var(--green);
+  border-radius: 15px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: .035em;

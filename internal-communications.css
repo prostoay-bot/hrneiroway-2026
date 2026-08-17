@@ -234,6 +234,7 @@ summary {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--ic-green);
+  border-radius: 15px;
   text-decoration: none;
   font-size: 13px;
   font-weight: 700;
@@ -1303,6 +1304,7 @@ summary {
   min-height: 42px;
   padding: 10px 16px;
   border: 0;
+  border-radius: 15px;
   color: var(--ic-paper);
   background: var(--ic-green);
   cursor: pointer;

@@ -1536,7 +1536,7 @@ body.has-approach-modal {
   min-width: 224px;
   min-height: 54px;
   padding: 0 20px 0 24px;
-  border-radius: 14px;
+  border-radius: 15px;
   background: var(--accent-wine);
   color: var(--bg);
   font-size: 14px;
@@ -1699,7 +1699,7 @@ body.has-approach-modal {
   min-height: 52px;
   padding: 0 18px 0 22px;
   border: 1px solid currentColor;
-  border-radius: 12px;
+  border-radius: 15px;
   color: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -2230,7 +2230,7 @@ body.has-approach-modal {
   min-height: 52px;
   padding: 0 22px;
   border: 1px solid rgba(102, 8, 16, 0.35);
-  border-radius: 14px;
+  border-radius: 15px;
   font: inherit;
   font-size: 13px;
   font-weight: 700;
@@ -2603,7 +2603,7 @@ body.has-approach-modal {
   margin-top: 46px;
   padding: 0 18px;
   border: 1px solid var(--accent-wine);
-  border-radius: 14px;
+  border-radius: 15px;
   color: var(--white);
   background: var(--accent-wine);
   font: 700 13px/1 var(--sans);
@@ -4696,7 +4696,7 @@ body.has-useful-modal {
   margin-top: 14px;
   padding: 8px 14px;
   border: 1px solid rgba(10, 52, 40, 0.35);
-  border-radius: 999px;
+  border-radius: 15px;
   color: var(--emerald);
   background: rgba(255, 255, 255, 0.35);
   font: 700 10px/1 var(--sans);
@@ -6460,7 +6460,7 @@ body.has-useful-modal {
   min-height: 40px;
   padding: 0 22px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 15px;
   color: var(--bg);
   background: var(--emerald);
   font: 700 11px/1 var(--sans);

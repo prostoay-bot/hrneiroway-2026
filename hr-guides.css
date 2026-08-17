@@ -160,6 +160,7 @@ a {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--wine);
+  border-radius: 15px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -793,6 +794,7 @@ body.hg-modal-open {
 .hg-cookie__actions button {
   padding: 9px 12px;
   border: 0;
+  border-radius: 15px;
   color: var(--cream);
   background: var(--wine);
   cursor: pointer;
