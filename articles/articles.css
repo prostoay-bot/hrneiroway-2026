@@ -1126,3 +1126,264 @@ h3 {
     animation: none;
   }
 }
+
+/* ===== Welcome book contents: highlighted checklist ===== */
+
+.article-page--contents {
+  --marker: #e7ef63;
+  --marker-soft: rgba(231, 239, 99, .28);
+}
+
+.article-page--contents .hero-card {
+  isolation: isolate;
+  min-height: 420px;
+  padding-right: clamp(34px, 34vw, 400px);
+  border-color: rgba(10, 52, 40, .13);
+  background:
+    linear-gradient(100deg, rgba(255, 253, 249, .96) 0 66%, rgba(231, 239, 99, .12) 66%),
+    rgba(251, 250, 244, .86);
+}
+
+.article-page--contents .hero-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -28px;
+  bottom: 72px;
+  width: clamp(250px, 34vw, 410px);
+  height: 74px;
+  border-radius: 18px 0 0 18px;
+  background: var(--marker);
+  opacity: .72;
+  transform: rotate(-6deg);
+}
+
+.article-page--contents .hero-card::after {
+  content: "CHECK / 01—05";
+  right: clamp(26px, 5vw, 66px);
+  bottom: 44px;
+  color: rgba(10, 52, 40, .62);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  transform: rotate(-6deg);
+}
+
+.article-page--contents .contents-object {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.article-page--contents .contents-object--highlighter {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: clamp(14px, 3vw, 42px);
+  width: clamp(260px, 33vw, 390px);
+  height: auto;
+  filter: drop-shadow(0 24px 24px rgba(10, 52, 40, .18));
+  transform: translateY(-50%) rotate(-9deg);
+  animation: contents-marker-in .75s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+@keyframes contents-marker-in {
+  from {
+    opacity: 0;
+    transform: translate(28px, -44%) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%) rotate(-9deg);
+  }
+}
+
+.article-page--contents .article-shell {
+  border-radius: 24px;
+  border-color: rgba(10, 52, 40, .12);
+  background:
+    linear-gradient(rgba(10, 52, 40, .045) 1px, transparent 1px) 0 24px / 100% 32px,
+    rgba(255, 253, 249, .9);
+}
+
+.article-page--contents .article-body {
+  counter-reset: contents-section;
+}
+
+.article-page--contents .article-body > section {
+  position: relative;
+  padding: 28px 28px 30px 78px;
+  border: 1px solid rgba(10, 52, 40, .08);
+  border-radius: 18px;
+  background: rgba(255, 253, 249, .88);
+  box-shadow: 6px 7px 0 rgba(10, 52, 40, .045);
+}
+
+.article-page--contents .article-body section + section {
+  margin-top: 24px;
+}
+
+.article-page--contents .article-body > section::before {
+  counter-increment: contents-section;
+  content: "0" counter(contents-section);
+  position: absolute;
+  top: 30px;
+  left: 24px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(10, 52, 40, .16);
+  border-radius: 10px;
+  background: var(--marker-soft);
+  color: var(--emerald);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  transform: rotate(-3deg);
+}
+
+.article-page--contents .article-body h2 {
+  display: inline;
+  background: linear-gradient(transparent 68%, var(--marker-soft) 68% 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.article-page--contents .article-body h2 + p {
+  margin-top: 18px;
+}
+
+.article-page--contents .article-body ul {
+  display: grid;
+  gap: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.article-page--contents .article-body li {
+  position: relative;
+  min-height: 30px;
+  padding-left: 40px;
+}
+
+.article-page--contents .article-body li::before {
+  content: "✓";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(10, 52, 40, .17);
+  border-radius: 8px;
+  background: var(--marker-soft);
+  color: var(--emerald);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.article-page--contents .note-box {
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  border-color: rgba(10, 52, 40, .12);
+  background: #fffef1;
+  box-shadow: 7px 9px 0 rgba(10, 52, 40, .055);
+  transform: rotate(.45deg);
+}
+
+.article-page--contents .note-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 76px;
+  height: 20px;
+  background: rgba(231, 239, 99, .64);
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.article-page--contents .contents-object--paperclips {
+  position: absolute;
+  z-index: 0;
+  right: -54px;
+  bottom: -76px;
+  width: 170px;
+  height: auto;
+  opacity: .2;
+  transform: rotate(10deg);
+}
+
+.article-page--contents .toc {
+  border-radius: 16px;
+  border-color: rgba(10, 52, 40, .13);
+  background: rgba(255, 253, 249, .88);
+  box-shadow: 7px 8px 0 var(--marker-soft);
+}
+
+.article-page--contents .toc h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 6px;
+  margin-top: 8px;
+  background: var(--marker);
+  transform: rotate(-3deg);
+}
+
+.article-page--contents .cta-box {
+  border-color: rgba(10, 52, 40, .12);
+  background:
+    linear-gradient(176deg, transparent 0 60%, var(--marker-soft) 60% 70%, transparent 70%),
+    rgba(251, 250, 244, .84);
+}
+
+@media (max-width: 760px) {
+  .article-page--contents .hero-card {
+    min-height: 500px;
+    padding-right: 30px;
+    padding-bottom: 200px;
+    background: rgba(251, 250, 244, .86);
+  }
+
+  .article-page--contents .hero-card::before {
+    right: -36px;
+    bottom: 68px;
+    width: 280px;
+    height: 58px;
+  }
+
+  .article-page--contents .contents-object--highlighter {
+    top: auto;
+    right: 50%;
+    bottom: 4px;
+    width: 270px;
+    transform: translateX(50%) rotate(-9deg);
+    animation: none;
+  }
+
+  .article-page--contents .article-body > section {
+    padding: 72px 22px 26px;
+  }
+
+  .article-page--contents .article-body > section::before {
+    top: 22px;
+    left: 22px;
+  }
+
+  .article-page--contents .contents-object--paperclips {
+    right: -70px;
+    bottom: -52px;
+    width: 150px;
+    opacity: .12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-page--contents .contents-object--highlighter {
+    animation: none;
+  }
+}
