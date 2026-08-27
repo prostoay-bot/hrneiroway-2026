@@ -57,7 +57,29 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 34px;
+    }
+
+    .page-nav .btn {
+      min-width: 156px;
+      text-decoration: none;
+    }
+
+    .page-nav .btn:first-child {
+      background: rgba(248,251,255,.76);
+      backdrop-filter: blur(8px);
+    }
+
+    .page-nav .btn:focus-visible {
+      outline: 3px solid rgba(198,154,91,.55);
+      outline-offset: 3px;
     }
 
     .brand {
@@ -614,6 +636,8 @@
 
     @media (max-width: 620px) {
       .page { width: min(100% - 28px, 1180px); padding-top: 20px; }
+      .page-nav { display: grid; grid-template-columns: 1fr 1fr; }
+      .page-nav .btn { width: 100%; min-width: 0; padding-inline: 12px; }
       .hero-card, .side-card, .panel, .cta, .bottom-seo { border-radius: 22px; }
       .hero-card { padding: 28px 22px; }
       .side-card, .panel { padding: 22px; }
@@ -628,7 +652,7 @@
 
     @media print {
       body { background: #fff; }
-      .top-bar, .hero, .documents, .form-panel, .preview-actions, .bottom-seo, .cta, .toast { display: none !important; }
+      .top-bar, .page-nav, .hero, .documents, .form-panel, .preview-actions, .bottom-seo, .cta, .toast { display: none !important; }
       .page { width: 100%; padding: 0; }
       .workspace { display: block !important; margin: 0; }
       .preview-panel { display: block !important; border: 0; box-shadow: none; padding: 0; }
@@ -646,6 +670,11 @@
       </div>
       <div class="privacy-pill">🔒 Данные не сохраняются и не отправляются</div>
     </header>
+
+    <nav class="page-nav" aria-label="Навигация по сайту">
+      <a class="btn btn-secondary" href="/">← На главную</a>
+      <a class="btn btn-primary" href="/#portfolio">К проектам →</a>
+    </nav>
 
     <section class="hero" aria-labelledby="main-title">
       <div class="hero-card">
