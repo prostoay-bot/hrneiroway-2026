@@ -57,3 +57,18 @@ No actionable P0, P1, or P2 visual differences remain. The references contain fa
 - No actionable P0, P1, or P2 findings remain
 
 final result: passed
+
+## Scoped QA update — site format article
+
+- Implementation: `http://127.0.0.1:4173/articles/sajt-vizitka-lending-ili-mnogostranichnyj-sajt/`
+- Viewports: desktop 1440 × 1000 CSS px, mobile 390 × 844 CSS px
+- The editorial layout follows the supplied long-form magazine reference while retaining the site's milk, beige, sage, green, and burgundy palette
+- The supplied Anastasia landing screenshot is used as a real case study and is placed inside the laptop frame without clipping
+- The long multipage-site heading wraps inside its column without covering body text
+- The comparison table, notepaper checklist, and final calls to action render without clipping
+- The mobile layout has no horizontal overflow
+- The article-list card spans a full editorial row on desktop and stacks in one column on mobile
+- The article-list card link and the external Anastasia project link were both verified
+- No actionable P0, P1, or P2 findings remain
+
+final result: passed
