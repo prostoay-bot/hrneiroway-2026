@@ -5236,6 +5236,7 @@ body.has-useful-modal {
 .portfolio-card--four { top: 3%; left: 54%; z-index: 4; }
 .portfolio-card--five { top: 17%; left: 73%; z-index: 5; }
 .portfolio-card--six { top: 7%; left: 91%; z-index: 6; }
+.portfolio-card--presentations { top: 8%; left: 5%; z-index: 2; }
 
 .portfolio-card--two,
 .portfolio-card--five {
@@ -5538,6 +5539,7 @@ body.has-useful-modal {
 .portfolio-card--four { transform: translateY(-18px) rotate(3.5deg); }
 .portfolio-card--five { transform: translateY(26px) rotate(-3deg); }
 .portfolio-card--six { transform: translateY(-24px) rotate(2deg); }
+.portfolio-card--presentations { transform: translateY(-16px) rotate(1.5deg); }
 
 @media (max-width: 760px) {
   .portfolio-showcase__table {
@@ -5560,6 +5562,7 @@ body.has-useful-modal {
   .portfolio-card--four { transform: rotate(1.1deg); }
   .portfolio-card--five { display: none; }
   .portfolio-card--six { transform: rotate(-0.85deg); }
+  .portfolio-card--presentations { transform: rotate(0.65deg); }
 }
 
 /* Единая печатная типографика маркеров разделов */
