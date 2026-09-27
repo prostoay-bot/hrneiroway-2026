@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Forum&family=Onest:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="./materials-for-business.css?v=20260723f">
+    <link rel="stylesheet" href="./materials-for-business.css?v=20260927a">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -129,7 +129,7 @@
         </header>
 
         <div class="mb-format-collage">
-          <article class="mb-format-card mb-format-card--presentation" id="presentations" data-reveal>
+          <article class="mb-format-card mb-format-card--presentation" data-reveal>
             <span class="mb-card-number">01 / 05</span>
             <figure>
               <img src="./assets/images/kollazh-onboarding-seversoft.webp" alt="Коллаж презентации комплекта онбординга для новой команды">
@@ -138,6 +138,7 @@
               <h3>Презентации</h3>
               <p>Когда нужно ясно представить услугу, проект, отчёт или учебный материал</p>
               <span>Выступление · встреча · обучение · отчёт</span>
+              <a class="mb-format-card__link" href="#presentations">Смотреть работы →</a>
             </div>
           </article>
 
@@ -194,6 +195,76 @@
         <p class="mb-format-note" data-reveal>
           Не нужно угадывать формат заранее — достаточно рассказать, кому и зачем нужен материал
         </p>
+      </section>
+
+      <section class="mb-presentation-showcase" id="presentations" aria-labelledby="mb-presentations-title">
+        <header class="mb-section-head" data-reveal>
+          <p class="mb-section-marker"><span>[02.1]</span> Презентации</p>
+          <div>
+            <p class="mb-kicker">От одного смыслового слайда до серии материалов</p>
+            <h2 id="mb-presentations-title">Работы для разных задач и аудиторий</h2>
+            <p class="mb-section-lead">
+              Каждый проект собран как отдельная история. Откройте карточку, чтобы посмотреть все слайды
+            </p>
+          </div>
+        </header>
+
+        <div class="mb-presentation-grid">
+          <article class="mb-presentation-card mb-presentation-card--wide" data-reveal>
+            <button type="button" data-gallery-open="facial-cleaning" aria-label="Посмотреть презентацию о чистке лица">
+              <span class="mb-presentation-card__image">
+                <img src="./assets/images/presentations/facial-cleaning-01.jpg" alt="Обложка презентации о профессиональной чистке лица" loading="lazy" decoding="async">
+              </span>
+              <span class="mb-presentation-card__meta">Косметология · 3 слайда</span>
+              <strong>Чистка лица: какую выбрать</strong>
+              <span class="mb-presentation-card__action">Смотреть проект →</span>
+            </button>
+          </article>
+
+          <article class="mb-presentation-card" data-reveal>
+            <button type="button" data-gallery-open="teachers-day" aria-label="Посмотреть праздничные материалы ко Дню учителя">
+              <span class="mb-presentation-card__image">
+                <img src="./assets/images/presentations/teachers-day-01.jpg" alt="Персональный праздничный плакат ко Дню учителя" loading="lazy" decoding="async">
+              </span>
+              <span class="mb-presentation-card__meta">Праздничное оформление · 2 работы</span>
+              <strong>Материалы ко Дню учителя</strong>
+              <span class="mb-presentation-card__action">Смотреть проект →</span>
+            </button>
+          </article>
+
+          <article class="mb-presentation-card" data-reveal>
+            <button type="button" data-gallery-open="nutritionist" aria-label="Посмотреть серию материалов для нутрициолога">
+              <span class="mb-presentation-card__image">
+                <img src="./assets/images/presentations/nutritionist-02.jpg" alt="Обложка серии о причинах, мешающих снижать вес" loading="lazy" decoding="async">
+              </span>
+              <span class="mb-presentation-card__meta">Нутрициология · 3 карточки</span>
+              <strong>Полезное питание без перегруза</strong>
+              <span class="mb-presentation-card__action">Смотреть проект →</span>
+            </button>
+          </article>
+
+          <article class="mb-presentation-card mb-presentation-card--landscape" data-reveal>
+            <button type="button" data-gallery-open="shoe-plan" aria-label="Посмотреть план перехода на новую коллекцию обуви">
+              <span class="mb-presentation-card__image">
+                <img src="./assets/images/presentations/shoe-collection-plan.jpg" alt="План перехода на новую коллекцию обуви с 2026 по 2030 год" loading="lazy" decoding="async">
+              </span>
+              <span class="mb-presentation-card__meta">Бизнес-план · 1 слайд</span>
+              <strong>Переход на новую коллекцию обуви</strong>
+              <span class="mb-presentation-card__action">Смотреть проект →</span>
+            </button>
+          </article>
+
+          <article class="mb-presentation-card mb-presentation-card--wide" data-reveal>
+            <button type="button" data-gallery-open="school" aria-label="Посмотреть серию учебной инфографики для школы">
+              <span class="mb-presentation-card__image">
+                <img src="./assets/images/presentations/school-airplane.jpg" alt="Учебная инфографика об устройстве пассажирского самолёта" loading="lazy" decoding="async">
+              </span>
+              <span class="mb-presentation-card__meta">Учебные материалы · 7 работ</span>
+              <strong>Инфографика для школы</strong>
+              <span class="mb-presentation-card__action">Смотреть проект →</span>
+            </button>
+          </article>
+        </div>
       </section>
 
       <section class="mb-entry" aria-labelledby="mb-entry-title">
@@ -410,6 +481,28 @@
       </section>
     </main>
 
+    <div class="mb-gallery" data-gallery hidden>
+      <div class="mb-gallery__backdrop" data-gallery-close></div>
+      <section class="mb-gallery__dialog" role="dialog" aria-modal="true" aria-labelledby="mb-gallery-title" aria-describedby="mb-gallery-description">
+        <button class="mb-gallery__close" type="button" data-gallery-close aria-label="Закрыть галерею">×</button>
+        <div class="mb-gallery__stage" data-gallery-stage>
+          <img data-gallery-image src="" alt="">
+        </div>
+        <div class="mb-gallery__content">
+          <div>
+            <p class="mb-gallery__eyebrow" data-gallery-eyebrow></p>
+            <h2 id="mb-gallery-title" data-gallery-title></h2>
+            <p id="mb-gallery-description" data-gallery-description></p>
+          </div>
+          <div class="mb-gallery__controls">
+            <button type="button" data-gallery-prev aria-label="Предыдущий слайд">←</button>
+            <span data-gallery-count aria-live="polite"></span>
+            <button type="button" data-gallery-next aria-label="Следующий слайд">→</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <aside class="mb-cookie" aria-label="Уведомление о технических данных" data-cookie-notice>
       <div>
         <p class="mb-cookie__title">Немного о технических данных</p>
@@ -423,6 +516,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="./materials-for-business.js?v=20260723a"></script>
+    <script src="./materials-for-business.js?v=20260927a"></script>
   </body>
 </html>
