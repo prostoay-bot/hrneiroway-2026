@@ -511,6 +511,7 @@ button {
 .mb-presentation-card {
   grid-column: span 5;
   min-width: 0;
+  align-self: start;
   border: 1px solid var(--line);
   background: rgba(255, 252, 239, 0.96);
   box-shadow: 0 14px 36px rgba(53, 38, 23, 0.07);
@@ -537,7 +538,8 @@ button {
   height: 100%;
   padding: 0;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto;
+  align-content: start;
   text-align: left;
   color: inherit;
   border: 0;
@@ -551,8 +553,9 @@ button {
 }
 
 .mb-presentation-card__image {
-  height: 330px;
-  padding: 18px;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  padding: clamp(12px, 1.4vw, 20px);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -563,6 +566,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
   transition: transform 500ms var(--ease);
 }
 
@@ -573,12 +577,15 @@ button {
 
 .mb-presentation-card:last-child button {
   grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
+  align-content: center;
 }
 
 .mb-presentation-card:last-child .mb-presentation-card__image {
   grid-row: 1 / -1;
-  height: 430px;
+  height: auto;
+  min-height: 390px;
+  aspect-ratio: auto;
 }
 
 .mb-presentation-card__meta,
@@ -600,7 +607,8 @@ button {
 .mb-presentation-card strong {
   margin-top: 12px;
   font-family: "Forum", Georgia, serif;
-  font-size: clamp(31px, 3vw, 46px);
+  max-width: 15ch;
+  font-size: clamp(29px, 2.45vw, 40px);
   font-weight: 400;
   line-height: 1.03;
 }
@@ -609,7 +617,7 @@ button {
   width: fit-content;
   margin-top: 26px;
   margin-bottom: 27px;
-  align-self: end;
+  align-self: start;
   color: var(--wine);
   font-size: 12px;
   font-weight: 700;
@@ -682,6 +690,7 @@ button {
   width: 100%;
   height: min(70svh, 700px);
   object-fit: contain;
+  object-position: center;
 }
 
 .mb-gallery__content {
@@ -1620,16 +1629,20 @@ body.mb-gallery-open {
 
   .mb-presentation-card:last-child .mb-presentation-card__image {
     grid-row: auto;
+    min-height: 0;
   }
 
   .mb-presentation-card__image,
   .mb-presentation-card:last-child .mb-presentation-card__image {
-    height: 270px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
     padding: 12px;
   }
 
   .mb-presentation-card strong {
-    font-size: 34px;
+    max-width: 18ch;
+    font-size: 31px;
   }
 
   .mb-gallery {
