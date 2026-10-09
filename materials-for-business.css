@@ -467,6 +467,35 @@ button {
   letter-spacing: 0.04em;
 }
 
+.mb-gallery-trigger {
+  width: max-content;
+  margin-top: 19px;
+  padding: 0 0 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  color: var(--green);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  transition: color 220ms ease, gap 220ms var(--ease);
+}
+
+.mb-gallery-trigger:hover,
+.mb-gallery-trigger:focus-visible {
+  gap: 25px;
+  color: var(--wine);
+}
+
+.mb-format-card--olive .mb-gallery-trigger {
+  color: var(--wine);
+}
+
 .mb-format-note {
   width: min(760px, 100%);
   margin: 42px 0 0 auto;
@@ -1019,6 +1048,154 @@ button {
   background: var(--green);
 }
 
+.mb-gallery {
+  width: min(1180px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--olive);
+  border-radius: 15px;
+  color: var(--green);
+  background: var(--paper);
+  box-shadow: 0 28px 90px rgba(10, 31, 25, 0.3);
+}
+
+.mb-gallery::backdrop {
+  background: rgba(10, 52, 40, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.mb-gallery__panel {
+  max-height: calc(100dvh - 42px);
+  padding: clamp(18px, 2.5vw, 30px);
+  overflow: auto;
+}
+
+.mb-gallery__header,
+.mb-gallery__caption,
+.mb-gallery__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mb-gallery__header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mb-gallery__category,
+.mb-gallery__counter {
+  margin: 0;
+  color: var(--wine);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+}
+
+.mb-gallery__close {
+  padding: 7px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  color: var(--green);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+}
+
+.mb-gallery__close span {
+  color: var(--wine);
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 0.7;
+}
+
+.mb-gallery__stage {
+  height: clamp(300px, 48dvh, 560px);
+  margin-top: 18px;
+  padding: clamp(10px, 1.5vw, 18px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--paper-soft);
+  touch-action: pan-y;
+}
+
+.mb-gallery__stage img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.mb-gallery__caption {
+  align-items: flex-start;
+  padding: 20px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mb-gallery__caption h2 {
+  margin: 0;
+  font-family: "Forum", Georgia, serif;
+  font-size: clamp(31px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1.02;
+}
+
+.mb-gallery__caption p:not(.mb-gallery__counter) {
+  max-width: 760px;
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.mb-gallery__counter {
+  flex: 0 0 auto;
+  padding-top: 7px;
+}
+
+.mb-gallery__controls {
+  padding-top: 16px;
+}
+
+.mb-gallery__controls button {
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid var(--olive);
+  border-radius: 15px;
+  color: var(--green);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  transition: color 220ms ease, background 220ms ease;
+}
+
+.mb-gallery__controls button:hover,
+.mb-gallery__controls button:focus-visible {
+  color: var(--paper);
+  background: var(--green);
+}
+
+.mb-gallery__controls button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
 :focus-visible {
   outline: 2px solid var(--wine);
   outline-offset: 4px;
@@ -1291,6 +1468,46 @@ button {
 
   .mb-format-card h3 {
     font-size: 34px;
+  }
+
+  .mb-gallery-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mb-gallery {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+
+  .mb-gallery__panel {
+    max-height: calc(100dvh - 22px);
+    padding: 16px;
+  }
+
+  .mb-gallery__stage {
+    height: clamp(240px, 43dvh, 440px);
+    padding: 8px;
+  }
+
+  .mb-gallery__caption {
+    gap: 14px;
+  }
+
+  .mb-gallery__caption h2 {
+    font-size: 31px;
+  }
+
+  .mb-gallery__controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .mb-gallery__controls button {
+    min-width: 0;
+    padding-inline: 9px;
+    font-size: 10px;
   }
 
   .mb-format-note {
