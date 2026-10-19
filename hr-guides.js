@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pdfOpen = document.querySelector("[data-pdf-open]");
   const pdfClose = document.querySelector("[data-pdf-close]");
   const pdfFrame = document.querySelector("[data-pdf-frame]");
-  const pdfSource = "./assets/documents/onboarding.pdf#view=FitH&toolbar=1";
+  const pdfSource = "./assets/documents/onboarding.pdf?v=20261019#view=FitH&toolbar=1";
 
   const closePdf = () => {
     if (!pdfModal?.open) return;
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   pdfOpen?.addEventListener("click", () => {
     if (!pdfModal) return;
     if (typeof pdfModal.showModal !== "function") {
-      window.open("./assets/documents/onboarding.pdf", "_blank", "noopener");
+      window.open("./assets/documents/onboarding.pdf?v=20261019", "_blank", "noopener");
       return;
     }
     if (pdfFrame && !pdfFrame.getAttribute("src")) {
