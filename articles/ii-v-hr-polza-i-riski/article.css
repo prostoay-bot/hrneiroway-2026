@@ -1,0 +1,19 @@
+.ai-hr-page { --bg:#fffdf9; --bg2:#faf8f4; --white:#fff; --emerald:#0a3428; --muted:#66726b; --line:rgba(102,8,16,.16); --soft:0 14px 36px rgba(10,52,40,.06); --serif:"Forum",Georgia,serif; --sans:"Onest",Arial,sans-serif; background:#fffdf9; }
+.ai-hr-page .ai-hr-hero { padding:clamp(28px,5vw,64px); border:1px solid rgba(112,134,106,.5); border-radius:4px; box-shadow:none; background:#faf8f4; }
+.ai-hr-page h1 { max-width:980px; color:#660810; font-size:clamp(38px,4.6vw,64px); line-height:1.06; letter-spacing:-.025em; }
+.ai-hr-page .lead { max-width:840px; }
+.ai-hr-page .article-meta-row { flex-wrap:wrap; gap:12px 22px; line-height:1.6; }
+.ai-hr-page .article-kicker { color:#660810; }
+.ai-hr-page .ai-hr-content { padding-top:24px; }
+.ai-hr-page .article-shell { min-width:0; border-radius:4px; box-shadow:none; background:#fffdf9; }
+.ai-hr-page .article-body { font-size:17px; }
+.ai-hr-page .article-body h2 { color:#660810; letter-spacing:-.02em; }
+.ai-hr-page .article-body a { text-decoration:underline; text-underline-offset:3px; }
+.ai-hr-page .article-body section, .ai-hr-page .sources li { scroll-margin-top:28px; }
+.ai-hr-page .note-box { border-radius:4px; border-left:3px solid #70866a; box-shadow:none; background:#faf8f4; }
+.ai-hr-page .note-box p { margin:0; }
+.ai-hr-page .toc, .ai-hr-page .recent-card, .ai-hr-page .cta-box { border-radius:4px; box-shadow:none; }
+.ai-hr-page .sources { padding-left:22px; overflow-wrap:anywhere; }
+.ai-hr-page a:focus-visible { outline:2px solid #660810; outline-offset:4px; }
+@media(max-width:640px) { .ai-hr-page .container { width:calc(100% - 32px); } .ai-hr-page .article-shell { padding:24px 18px; } .ai-hr-page .article-body { font-size:16px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
