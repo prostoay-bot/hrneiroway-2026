@@ -47,12 +47,16 @@
   <!-- /Yandex.Metrika counter -->
 <style>
 .articles-hub .articles-spread > .article-frame--ai-hr { grid-column:1 / -1; border-left:0; border-bottom:1px solid rgba(112,134,106,.62); }
-.articles-hub .article-frame--ai-hr .article-card { min-height:0; padding:clamp(26px,4vw,48px); background:#faf8f4; }
-.articles-hub .article-frame--ai-hr .article-card h3 { max-width:920px; font-size:clamp(32px,3.5vw,48px); }
-.articles-hub .article-frame--ai-hr .article-card p { max-width:740px; font-size:16px; }
-.articles-hub .article-frame--ai-hr .article-card__action { margin-top:22px; }
+.articles-hub .article-frame--ai-hr .article-card { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(26px,4vw,54px); align-items:center; min-height:0; padding:0; background:#faf8f4; }
+.articles-hub .article-frame--ai-hr .article-card::after { display:none; }
+.article-ai-preview { display:block; width:100%; height:100%; min-height:380px; object-fit:cover; }
+.article-ai-copy { padding:34px 36px 34px 0; }
+.articles-hub .article-frame--ai-hr .article-card h3 { font-size:clamp(30px,3.1vw,43px); line-height:1.05; }
+.articles-hub .article-frame--ai-hr .article-card p { font-size:15px; line-height:1.65; }
+.articles-hub .article-frame--ai-hr .article-card__action { margin-top:24px; }
 .articles-hub .articles-spread > .article-frame:nth-child(2) { border-left:0; }
 @media(min-width:641px) and (max-width:900px) { .articles-hub .articles-spread > .article-frame:nth-child(3) { border-left:1px solid rgba(112,134,106,.62); } .articles-hub .articles-spread > .article-frame:nth-child(4) { border-left:0; } }
+@media(max-width:760px) { .articles-hub .article-frame--ai-hr .article-card { grid-template-columns:1fr; gap:0; } .article-ai-preview { min-height:0; height:auto; aspect-ratio:3 / 2; } .article-ai-copy { padding:28px 24px; } }
 </style>
 </head>
 <body class="articles-hub">
@@ -89,13 +93,13 @@
 
         <div class="articles-grid articles-spread">
           <div class="article-frame article-frame--ai-hr">
-            <a class="article-card" href="/articles/ii-v-hr-polza-i-riski/">
-              <div class="article-card__meta"><span>ИИ для HR · 22.10.2026</span></div>
-              <h3>ИИ в HR: помощник мечты или ещё один сотрудник, за которым нужен глаз да глаз?</h3>
-              <p>Где нейросети помогают с документами, адаптацией и коммуникациями, а где требуют профессиональной проверки.</p>
-              <span class="article-card__action">Читать материал <span aria-hidden="true">→</span></span>
-            </a>
-          </div>
+<a class="article-card" href="/articles/ii-v-hr-polza-i-riski/">
+<img class="article-ai-preview" src="/articles/ii-v-hr-polza-i-riski/assets/hr-ai-workspace-800.webp" alt="Документы и ноутбук на рабочем столе HR" width="800" height="533" loading="lazy" decoding="async" />
+<div class="article-ai-copy"><div class="article-card__meta"><span>ИИ для HR · 22.10.2026</span></div>
+<h3>ИИ в HR: помощник мечты или ещё один сотрудник, за которым нужен глаз да глаз?</h3>
+<p>Нейросети готовы забрать рутину. Но кто проверит самого помощника? Разбираюсь на примерах из HR-практики.</p>
+<span class="article-card__action">Читать статью <span aria-hidden="true">↗</span></span></div>
+</a></div>
 
           <div class="article-frame article-frame--feature">
             <a class="article-card" href="/articles/ai-pomoshchniki-dlya-sotrudnikov/">
