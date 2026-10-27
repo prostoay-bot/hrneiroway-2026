@@ -1,4 +1,4 @@
-::root {
+:root {
   --bg: #fffdf9;
   --bg2: #f7efe2;
   --white: #ffffff;
@@ -12,7 +12,7 @@
   --line: rgba(102, 8, 16, .16);
   --shadow: 0 28px 80px rgba(10, 52, 40, .10);
   --soft: 0 14px 36px rgba(10, 52, 40, .08);
-  --serif: "Forum", "Cormorant Garamond", Georgia, serif;
+  --serif: "Forum", Georgia, serif;
   --sans: "Onest", Arial, sans-serif;
 }
 
