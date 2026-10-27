@@ -55,6 +55,33 @@
   }
 
   const galleryData = {
+    "hr-onepagers": {
+      eyebrow: "Памятки для сотрудников",
+      title: "Корпоративные правила на одном листе",
+      description: "Примеры оформления внутренних материалов для сотрудников",
+      fullSize: true,
+      slides: [
+        {
+                "src": "./assets/images/hr-onepagers/access-rules.webp",
+                "alt": "Пропускной режим: памятка для сотрудников",
+                "title": "Пропускной режим",
+                "description": "Наглядный порядок доступа в офис: пропуск, посетители и действия в типовых ситуациях."
+        },
+        {
+                "src": "./assets/images/hr-onepagers/company-rules.webp",
+                "alt": "Работаем по правилам: памятка для сотрудников",
+                "title": "Работаем по правилам",
+                "description": "Основные темы внутренних правил: рабочее время, отдых, обязанности и порядок взаимодействия."
+        },
+        {
+                "src": "./assets/images/hr-onepagers/income-guide.webp",
+                "alt": "Из чего складывается доход: памятка для сотрудников",
+                "title": "Из чего складывается доход",
+                "description": "Структура вознаграждения, социальный пакет и возможности роста, собранные в одном макете."
+        }
+]
+    },
+
     "facial-cleaning": {
       eyebrow: "Косметология",
       title: "Чистка лица: какую выбрать",
@@ -117,6 +144,7 @@
     const description = gallery.querySelector("[data-gallery-description]");
     const eyebrow = gallery.querySelector("[data-gallery-eyebrow]");
     const count = gallery.querySelector("[data-gallery-count]");
+    const originalLink = gallery.querySelector("[data-gallery-original]");
     const previousButton = gallery.querySelector("[data-gallery-prev]");
     const nextButton = gallery.querySelector("[data-gallery-next]");
     const closeButton = gallery.querySelector(".mb-gallery__close");
@@ -132,9 +160,10 @@
       const slide = item.slides[activeIndex];
       image.src = slide.src;
       image.alt = slide.alt;
+      if (originalLink) { originalLink.hidden = !item.fullSize; originalLink.href = item.fullSize ? slide.src : ""; }
       eyebrow.textContent = item.eyebrow;
-      title.textContent = item.title;
-      description.textContent = item.description;
+      title.textContent = slide.title || item.title;
+      description.textContent = slide.description || item.description;
       count.textContent = `${activeIndex + 1} / ${item.slides.length}`;
       previousButton.hidden = item.slides.length < 2;
       nextButton.hidden = item.slides.length < 2;
@@ -150,7 +179,8 @@
     const openGallery = (key, trigger) => {
       if (!galleryData[key]) return;
       activeGallery = key;
-      activeIndex = 0;
+      const requestedIndex = Number(trigger.dataset.galleryIndex || 0);
+      activeIndex = Number.isInteger(requestedIndex) ? Math.max(0, Math.min(requestedIndex, galleryData[key].slides.length - 1)) : 0;
       lastTrigger = trigger;
       renderGallery();
       gallery.hidden = false;
@@ -196,7 +226,7 @@
       if (event.key === "ArrowRight") moveGallery(1);
 
       if (event.key === "Tab" && dialog) {
-        const focusable = Array.from(dialog.querySelectorAll("button:not([hidden])"));
+        const focusable = Array.from(dialog.querySelectorAll("button:not([hidden]), a[href]:not([hidden])"));
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
         if (event.shiftKey && document.activeElement === first) {

@@ -1815,3 +1815,22 @@ body.mb-gallery-open {
 
 .brand-logo-img { display: block; width: auto; max-width: 180px; height: clamp(18px, 1.5vw, 24px); object-fit: contain; }
 .brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }
+
+/* Портфолио памяток: сохраняем макет целиком */
+.mb-hr-showcase { width:var(--container); margin-inline:auto; padding:80px 0 90px; scroll-margin-top:100px; }
+.mb-hr-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; align-items:stretch; }
+.mb-hr-card { min-width:0; border-top:1px solid var(--line); }
+.mb-hr-card__open { display:flex; flex-direction:column; width:100%; height:100%; padding:20px 0 0; border:0; border-radius:0; background:transparent; text-align:left; color:#0a3428; font:inherit; cursor:pointer; }
+.mb-hr-card__image { position:relative; display:block; width:100%; aspect-ratio:4 / 5; padding:0; margin-bottom:24px; background:#f0eee7; border:1px solid rgba(112,134,106,.25); overflow:hidden; }
+.mb-hr-card__image img { position:absolute; inset:12px; display:block; width:calc(100% - 24px); height:calc(100% - 24px); object-fit:contain; transition:transform .25s ease; }
+.mb-hr-card__open:hover .mb-hr-card__image img { transform:scale(1.018); }
+.mb-hr-card__open:focus-visible { outline:2px solid #660810; outline-offset:7px; }
+.mb-hr-card__tag { margin-bottom:10px; color:#70866a; font-size:11px; }
+.mb-hr-card__title { margin:0 0 14px; color:#660810; font-family:'Forum',Georgia,serif; font-weight:400; font-size:clamp(31px,3vw,42px); line-height:1.08; }
+.mb-hr-card__description { margin-bottom:24px; font-size:14px; line-height:1.75; }
+.mb-hr-card__action { display:flex; align-items:center; justify-content:space-between; width:100%; margin-top:auto; padding:14px 0; border-top:1px solid var(--line); color:#660810; font-size:12px; font-weight:600; }
+.mb-hr-card__action>span { font-size:20px; }
+.mb-gallery__original { display:inline-flex; margin-top:22px; color:#660810; font-size:13px; text-decoration:underline; text-underline-offset:4px; }
+.mb-gallery__original[hidden] { display:none; }
+@media(max-width:900px) { .mb-hr-grid { gap:20px; }  .mb-hr-card__title { font-size:31px; } }
+@media(max-width:640px) { .mb-hr-showcase { padding:50px 0; } .mb-hr-grid { grid-template-columns:1fr; gap:35px; } .mb-hr-card__image { max-width:440px; align-self:center; } .mb-hr-card__title { font-size:36px; } }
