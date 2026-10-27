@@ -108,7 +108,23 @@ if (kasperHelper && kasperHelperToggle) {
       if (returnFocus) kasperHelperToggle.focus();
     };
 
-    kasperHelper.hidden = false;
+    let helperDismissed = false;
+    try {
+      helperDismissed = window.sessionStorage.getItem("hrneiroway-kasper-dismissed") === "true";
+    } catch (error) {
+      // Помощника можно скрыть и при недоступном хранилище
+    }
+    kasperHelper.hidden = helperDismissed;
+    kasperHelper.querySelector("[data-kasper-helper-dismiss]")?.addEventListener("click", () => {
+      closeHelper();
+      kasperHelper.hidden = true;
+      try {
+        window.sessionStorage.setItem("hrneiroway-kasper-dismissed", "true");
+      } catch (error) {
+        // На текущей странице помощник всё равно останется скрытым
+      }
+      document.querySelector(".site-logo")?.focus({ preventScroll: true });
+    });
     kasperHelperToggle.addEventListener("click", () => {
       const willOpen = panel.hidden;
       panel.hidden = !willOpen;
