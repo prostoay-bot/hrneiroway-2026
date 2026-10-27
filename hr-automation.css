@@ -550,3 +550,15 @@ h2 { font-size: clamp(54px, 5vw, 92px); line-height: .98; letter-spacing: -.025e
 
 .brand-logo-img { display: block; width: auto; max-width: 180px; height: clamp(18px, 1.5vw, 24px); object-fit: contain; }
 .brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }
+
+/* Рабочие инструменты: передача дел и памятки */
+.tool-lab { padding-top:70px; padding-bottom:90px; }
+.tool-lab-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px; }
+.tool-lab-card { display:flex; flex-direction:column; align-items:flex-start; padding:clamp(26px,3vw,44px); border:1px solid #c9d1c3; background:#faf8f4; color:#0a3428; }
+.tool-lab-card--memo { background:#f0f2eb; }
+.tool-lab-kind { color:#660810; font-size:11px; margin-bottom:22px; }
+.tool-lab-card h3 { font-family:'Forum',Georgia,serif; font-weight:400; font-size:clamp(34px,3vw,44px); line-height:1.1; margin:0 0 18px; }
+.tool-lab-card p { font-size:15px; line-height:1.8; margin:0 0 20px; }
+.tool-lab-card ul { padding-left:19px; margin:0 0 30px; font-size:13px; line-height:1.9; }
+.tool-lab-card .button { margin-top:auto; }
+@media(max-width:760px) { .tool-lab-grid { grid-template-columns:1fr; gap:22px; } .tool-lab { padding-top:45px; padding-bottom:55px; } }
