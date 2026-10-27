@@ -18,9 +18,8 @@ const aboutCards = document.querySelectorAll("[data-about-card]");
 const portfolioShowcase = document.querySelector("[data-portfolio-showcase]");
 const portfolioCards = document.querySelectorAll("[data-portfolio-card]");
 const faqItems = document.querySelectorAll(".faq-item");
-const kasperOffer = document.querySelector("[data-kasper-offer]");
-const kasperOfferClose = document.querySelector("[data-kasper-offer-close]");
-const kasperPromo = document.querySelector("[data-kasper-promo]");
+const kasperHelper = document.querySelector("[data-kasper-helper]");
+const kasperHelperToggle = document.querySelector("[data-kasper-helper-toggle]");
 const cookieNotice = document.querySelector("[data-cookie-notice]");
 const cookieAccept = document.querySelector("[data-cookie-accept]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -98,36 +97,38 @@ const updateHeaderState = () => {
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 
-if (kasperOffer && kasperOfferClose) {
-  const offerWasClosed = window.sessionStorage.getItem("kasper-offer-closed") === "true";
+if (kasperHelper && kasperHelperToggle) {
+  const panel = document.getElementById("kasper-helper-panel");
+  const closeButton = kasperHelper.querySelector("[data-kasper-helper-close]");
 
-  if (!offerWasClosed) {
-    const showOffer = () => {
-      kasperOffer.hidden = false;
-      window.requestAnimationFrame(() => kasperOffer.classList.add("is-visible"));
+  if (panel && closeButton) {
+    const closeHelper = (returnFocus = false) => {
+      panel.hidden = true;
+      kasperHelperToggle.setAttribute("aria-expanded", "false");
+      if (returnFocus) kasperHelperToggle.focus();
     };
 
-    window.setTimeout(showOffer, reduceMotion ? 300 : 2200);
+    kasperHelper.hidden = false;
+    kasperHelperToggle.addEventListener("click", () => {
+      const willOpen = panel.hidden;
+      panel.hidden = !willOpen;
+      kasperHelperToggle.setAttribute("aria-expanded", String(willOpen));
+      if (willOpen) panel.querySelector("a")?.focus();
+    });
+    closeButton.addEventListener("click", () => closeHelper(true));
+    panel.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeHelper();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !panel.hidden) closeHelper(true);
+    });
+    document.addEventListener("click", (event) => {
+      if (!kasperHelper.contains(event.target)) closeHelper();
+    });
+    kasperHelper.addEventListener("focusout", (event) => {
+      if (!kasperHelper.contains(event.relatedTarget)) closeHelper();
+    });
   }
-
-  kasperOfferClose.addEventListener("click", () => {
-    kasperOffer.classList.remove("is-visible");
-    window.sessionStorage.setItem("kasper-offer-closed", "true");
-    window.setTimeout(() => {
-      kasperOffer.hidden = true;
-    }, reduceMotion ? 0 : 450);
-  });
-
-  kasperPromo?.addEventListener("click", () => {
-    if (kasperPromo.classList.contains("is-revealed")) {
-      return;
-    }
-
-    kasperPromo.classList.add("is-revealed");
-    kasperPromo.setAttribute("aria-expanded", "true");
-    kasperPromo.innerHTML = "Промокод: <strong>КАСПЕР</strong>";
-  });
-
 }
 
 if (processRoute && processKasper && processSteps.length) {

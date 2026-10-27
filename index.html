@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Forum&family=Onest:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="./styles.css?v=20260925a">
+    <link rel="stylesheet" href="./styles.css?v=20261027-kasper-helper">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -939,17 +939,23 @@
       </footer>
     </main>
 
-    <aside class="kasper-offer" aria-label="Предложение от Каспера" aria-live="polite" data-kasper-offer hidden>
-      <button class="kasper-offer__close" type="button" aria-label="Закрыть предложение" data-kasper-offer-close>
-        <span aria-hidden="true">×</span>
-      </button>
-      <div class="kasper-offer__bubble">
-        <p class="kasper-offer__eyebrow">Каспер шепнул</p>
-        <p class="kasper-offer__title">Я тут скидки раздаю</p>
-        <p class="kasper-offer__note">Успей забрать −10% на первый проект</p>
-        <button class="kasper-offer__promo" type="button" aria-expanded="false" data-kasper-promo>Узнать промокод</button>
+    <aside class="kasper-helper" aria-label="Каспер — помощник по сайту" data-kasper-helper hidden>
+      <div class="kasper-helper__panel" id="kasper-helper-panel" hidden>
+        <div class="kasper-helper__heading">
+          <p id="kasper-helper-title">Куда вас проводить?</p>
+          <button class="kasper-helper__close" type="button" aria-label="Закрыть меню Каспера" data-kasper-helper-close>×</button>
+        </div>
+        <nav aria-labelledby="kasper-helper-title">
+          <a href="#portfolio">Посмотреть работы <span aria-hidden="true">↗</span></a>
+          <a href="#services">Выбрать услугу <span aria-hidden="true">↗</span></a>
+          <a href="#useful">Найти полезные материалы <span aria-hidden="true">↗</span></a>
+          <a href="#contacts">Обсудить задачу с Мариной <span aria-hidden="true">↗</span></a>
+        </nav>
       </div>
-      <img class="kasper-offer__image" src="./assets/images/kasper-process.webp" alt="Каспер предлагает скидку">
+      <button class="kasper-helper__toggle" type="button" aria-expanded="false" aria-controls="kasper-helper-panel" data-kasper-helper-toggle>
+        <img src="./assets/images/kasper-process.webp" alt="" width="44" height="54">
+        <span>Каспер поможет</span>
+      </button>
     </aside>
 
     <aside class="cookie-notice" aria-label="Уведомление о технических данных" data-cookie-notice>
@@ -963,6 +969,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="./script.js?v=20260722a"></script>
+    <script src="./script.js?v=20261027-kasper-helper"></script>
   </body>
 </html>
