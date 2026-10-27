@@ -7,3 +7,20 @@
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 .form-error { color:#660810; font-size:12px; margin:0 0 16px; } .form-error:empty { display:none; }
+
+/* Phosphor duotone icons: shared weight, semantic use, brand colours */
+.ui-icon { display:inline-block; flex:none; width:20px; height:20px; vertical-align:middle; fill:currentColor; color:inherit; }
+button .ui-icon { width:18px; height:18px; margin-right:7px; }
+.small .ui-icon { width:15px; height:15px; margin-right:4px; }
+.intro-heading { display:flex; gap:22px; align-items:center; margin-bottom:15px; }
+.intro-heading h1 { margin:0; }
+.intro-symbol { display:flex; align-items:center; justify-content:center; flex:none; width:76px; height:76px; border:1px solid #d9ded5; border-radius:14px; background:#edf0e7; color:#660810; }
+.intro-symbol .ui-icon { width:46px; height:46px; }
+.panel-heading h2, .preview-toolbar h2, .form-section h3, .doc-section>h3, .doc-contact h3 { display:flex; gap:10px; align-items:center; }
+.panel-heading h2>.ui-icon, .preview-toolbar h2>.ui-icon { width:23px; height:23px; color:#70866a; }
+.form-section h3>.ui-icon { width:21px; height:21px; }
+.doc-section>h3>.ui-icon, .doc-contact h3>.ui-icon { width:23px; height:23px; }
+.doc-step .ui-icon { width:27px; height:27px; color:var(--doc-accent); }
+@media(max-width:1099px) { .repeat-top { flex-wrap:wrap; } .repeat-top>div { flex-wrap:wrap; } }
+@media(max-width:760px) { .intro-heading { gap:14px; align-items:flex-start; } .intro-symbol { width:54px; height:54px; border-radius:11px; } .intro-symbol .ui-icon { width:34px; height:34px; } .intro-heading h1 { font-size:38px; } .panel-heading h2, .preview-toolbar h2 { gap:8px; } .output-actions button .ui-icon { width:15px; height:15px; margin-right:5px; } }
+@media print { .doc-step .ui-icon { width:22px; height:22px; } .doc-section>h3>.ui-icon, .doc-contact h3>.ui-icon { width:20px; height:20px; } }

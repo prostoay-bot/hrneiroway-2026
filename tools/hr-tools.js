@@ -3,6 +3,8 @@
   const kind = document.body.dataset.tool;
   const $ = id => document.getElementById(id);
   const clone = value => JSON.parse(JSON.stringify(value));
+  const icon = name => `<svg class="ui-icon" aria-hidden="true" focusable="false" width="20" height="20"><use href="/tools/icons.svg?v=20261027#${name}"></use></svg>`;
+  function memoIcon(heading) { if (/контакт|ссылк/i.test(heading)) return 'address-book'; if (/уточн|вопрос/i.test(heading)) return 'chat-circle-text'; if (/поезд|командиров/i.test(heading)) return 'suitcase'; if (/день|возвращ/i.test(heading)) return 'sun'; if (/до выхода|уход|выход/i.test(heading)) return 'door-open'; if (/соглас|оформл/i.test(heading)) return 'calendar-check'; return 'note'; }
   const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const lines = value => escape(value).replace(/\n/g, '<br>');
   const date = value => /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(new Date(value + 'T00:00:00').valueOf()) ? new Intl.DateTimeFormat('ru-RU').format(new Date(value + 'T00:00:00')) : escape(value);
@@ -45,25 +47,25 @@
     return `<div class="field"><label for="${id}">${label}</label>${multiline?`<textarea ${attrs} rows="3" maxlength="6000">${value}</textarea>`:`<input ${attrs} type="${key==='due'?'date':'text'}" maxlength="600" value="${value}">`}</div>`;
   }
   function repeatEditor(list, title, makeFields) {
-    return `<section class="form-section"><div class="form-section-heading"><h3>${title}</h3><button type="button" class="small" data-add="${list}">Добавить</button></div><div class="repeat-list">${state[list].map((row,i)=>`<div class="repeat-item"><div class="repeat-top"><span>${list==='blocks'?'Блок':list==='tasks'?'Задача':'Материал'} ${i+1}</span><div>${list==='blocks'?`<button type="button" class="quiet small" data-move="${i}" data-dir="-1" ${i===0?'disabled':''} aria-label="Переместить блок ${i+1} выше">Выше</button><button type="button" class="quiet small" data-move="${i}" data-dir="1" ${i===state[list].length-1?'disabled':''} aria-label="Переместить блок ${i+1} ниже">Ниже</button>`:''}<button type="button" class="quiet small" data-remove="${list}" data-index="${i}" aria-label="Удалить ${list==='tasks'?'задачу':list==='blocks'?'блок':'материал'} ${i+1}">Удалить</button></div></div>${makeFields(i)}</div>`).join('') || '<p class="empty">Пока ничего нет. Добавьте первый пункт.</p>'}</div></section>`;
+    return `<section class="form-section"><div class="form-section-heading"><h3>${icon(list==='tasks'?'list-checks':list==='materials'?'files':'note-pencil')}${title}</h3><button type="button" class="small" data-add="${list}">${icon('plus')}Добавить</button></div><div class="repeat-list">${state[list].map((row,i)=>`<div class="repeat-item"><div class="repeat-top"><span>${list==='blocks'?'Блок':list==='tasks'?'Задача':'Материал'} ${i+1}</span><div>${list==='blocks'?`<button type="button" class="quiet small" data-move="${i}" data-dir="-1" ${i===0?'disabled':''} aria-label="Переместить блок ${i+1} выше">${icon('arrow-up')}Выше</button><button type="button" class="quiet small" data-move="${i}" data-dir="1" ${i===state[list].length-1?'disabled':''} aria-label="Переместить блок ${i+1} ниже">${icon('arrow-down')}Ниже</button>`:''}<button type="button" class="quiet small" data-remove="${list}" data-index="${i}" aria-label="Удалить ${list==='tasks'?'задачу':list==='blocks'?'блок':'материал'} ${i+1}">${icon('trash')}Удалить</button></div></div>${makeFields(i)}</div>`).join('') || '<p class="empty">Пока ничего нет. Добавьте первый пункт.</p>'}</div></section>`;
   }
   function renderEditor() {
-    let html = `<section class="form-section"><h3>Основное</h3>${field('title','Название документа')}${field('company','Компания','text','Название вашей компании')}`;
+    let html = `<section class="form-section"><h3>${icon('buildings')}Основное</h3>${field('title','Название документа')}${field('company','Компания','text','Название вашей компании')}`;
     if (kind === 'handover') {
       html += field('role','Должность / направление')+field('outgoing','Кто передаёт')+field('incoming','Кто принимает')+`<div class="two-fields">${field('from','С даты','date')}${field('until','По дату','date')}</div><p id="period-error" class="form-error" role="alert"></p></section>`;
       html += repeatEditor('tasks','Текущие задачи',i=>repeatField('tasks',i,'task','Задача')+`<div class="two-fields">${repeatField('tasks',i,'owner','Ответственный')}${repeatField('tasks',i,'due','Срок')}</div>`+repeatField('tasks',i,'status','Статус')+repeatField('tasks',i,'next','Следующий шаг',true)+repeatField('tasks',i,'link','Ссылка на задачу или папку'));
       html += repeatEditor('materials','Материалы',i=>repeatField('materials',i,'name','Название')+repeatField('materials',i,'link','Ссылка')+repeatField('materials',i,'note','Что важно знать',true));
-      html += `<section class="form-section"><h3>Договорённости и доступы</h3>${field('contacts','К кому обратиться','textarea','Имя, роль, рабочий контакт')}${field('systems','Рабочие системы и порядок доступа','textarea','Название системы и к кому обратиться за доступом. Без паролей.')}${field('risks','Риски и открытые вопросы','textarea')}${field('notes','Итоги передачи и договорённости','textarea')}</section>`;
+      html += `<section class="form-section"><h3>${icon('handshake')}Договорённости и доступы</h3>${field('contacts','К кому обратиться','textarea','Имя, роль, рабочий контакт')}${field('systems','Рабочие системы и порядок доступа','textarea','Название системы и к кому обратиться за доступом. Без паролей.')}${field('risks','Риски и открытые вопросы','textarea')}${field('notes','Итоги передачи и договорённости','textarea')}</section>`;
     } else {
       html += field('audience','Для кого памятка')+field('contact','Контакт для вопросов')+field('updated','Дата обновления','date')+'</section>';
       html += repeatEditor('blocks','Блоки памятки',i=>repeatField('blocks',i,'enabled','')+repeatField('blocks',i,'heading','Заголовок')+repeatField('blocks',i,'text','Содержание',true));
-      html += `<section class="form-section"><h3>В конце документа</h3>${field('footer','Примечание или полезная ссылка','textarea')}</section>`;
+      html += `<section class="form-section"><h3>${icon('note')}В конце документа</h3>${field('footer','Примечание или полезная ссылка','textarea')}</section>`;
     }
-    html += `<section class="form-section"><h3>Оформление</h3><label for="tone">Цвет акцента</label><select id="tone" data-key="tone"><option value="wine" ${state.tone==='wine'?'selected':''}>Винный</option><option value="green" ${state.tone==='green'?'selected':''}>Зелёный</option></select></section>`;
+    html += `<section class="form-section"><h3>${icon('palette')}Оформление</h3><label for="tone">Цвет акцента</label><select id="tone" data-key="tone"><option value="wine" ${state.tone==='wine'?'selected':''}>Винный</option><option value="green" ${state.tone==='green'?'selected':''}>Зелёный</option></select></section>`;
     $('tool-form').innerHTML = html;
     renderPreview();
   }
-  function textSection(heading,value) {return value.trim()?`<section class="doc-section"><h3>${heading}</h3><p>${lines(value)}</p></section>`:'';}
+  function textSection(heading,value) {return value.trim()?`<section class="doc-section"><h3>${icon(heading==='Рабочие контакты'?'address-book':heading==='Системы и доступы'?'key':heading==='Риски и открытые вопросы'?'warning-circle':'handshake')}${heading}</h3><p>${lines(value)}</p></section>`:'';}
   function safeLink(value) {
     const trimmed=value.trim();
     if (!trimmed) return '';
@@ -76,9 +78,9 @@
     if (kind==='handover') {
       html += `<div class="doc-meta">${state.role?`<p>${escape(state.role)}</p>`:''}${state.outgoing?`<p><b>Передаёт:</b> ${escape(state.outgoing)}</p>`:''}${state.incoming?`<p><b>Принимает:</b> ${escape(state.incoming)}</p>`:''}${state.from||state.until?`<p><b>Период:</b> ${state.from?date(state.from):'не указан'}${state.until?' / '+date(state.until):''}</p>`:''}</div>`;
       const active=state.tasks.filter(x=>Object.entries(x).some(([k,v])=>k!=='status'&&v.trim()));
-      html += active.length?`<section class="doc-section"><h3>Текущие задачи</h3>${active.map((x,i)=>`<div class="doc-task"><div class="doc-task-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escape(x.task||'Задача без названия')}</h4></div><p class="doc-task-meta">${escape(x.owner||'Ответственный не указан')} · ${x.due?date(x.due):'Срок не указан'} · ${escape(x.status)}</p>${x.next?`<p><b>Следующий шаг:</b> ${lines(x.next)}</p>`:''}${x.link?`<p>${safeLink(x.link)}</p>`:''}</div>`).join('')}</section>`:'<p class="preview-empty">Добавьте задачи слева: здесь появятся сроки, ответственные и следующие шаги.</p>';
+      html += active.length?`<section class="doc-section"><h3>${icon('list-checks')}Текущие задачи</h3>${active.map((x,i)=>`<div class="doc-task"><div class="doc-task-heading"><span>${String(i+1).padStart(2,'0')}</span><h4>${escape(x.task||'Задача без названия')}</h4></div><p class="doc-task-meta">${escape(x.owner||'Ответственный не указан')} · ${x.due?date(x.due):'Срок не указан'} · ${escape(x.status)}</p>${x.next?`<p><b>Следующий шаг:</b> ${lines(x.next)}</p>`:''}${x.link?`<p>${safeLink(x.link)}</p>`:''}</div>`).join('')}</section>`:'<p class="preview-empty">Добавьте задачи слева: здесь появятся сроки, ответственные и следующие шаги.</p>';
       const materials=state.materials.filter(x=>x.name.trim()||x.link.trim()||x.note.trim());
-      if(materials.length) html+=`<section class="doc-section"><h3>Материалы</h3>${materials.map(x=>`<div class="doc-material"><h4>${escape(x.name||'Материал')}</h4>${x.note?`<p>${lines(x.note)}</p>`:''}${x.link?`<p>${safeLink(x.link)}</p>`:''}</div>`).join('')}</section>`;
+      if(materials.length) html+=`<section class="doc-section"><h3>${icon('files')}Материалы</h3>${materials.map(x=>`<div class="doc-material"><h4>${escape(x.name||'Материал')}</h4>${x.note?`<p>${lines(x.note)}</p>`:''}${x.link?`<p>${safeLink(x.link)}</p>`:''}</div>`).join('')}</section>`;
       html+=textSection('Рабочие контакты',state.contacts)+textSection('Системы и доступы',state.systems)+textSection('Риски и открытые вопросы',state.risks)+textSection('Договорённости',state.notes);
       $('editor-count').textContent=countLabel(active.length,['задача','задачи','задач']);
       const wrongPeriod=Boolean(state.from&&state.until&&state.from>state.until);
@@ -88,8 +90,8 @@
     } else {
       html+=`<div class="doc-meta">${state.audience?`<p>${escape(state.audience)}</p>`:''}${state.updated?`<p>Обновлено: ${date(state.updated)}</p>`:''}</div>`;
       const blocks=state.blocks.filter(x=>x.enabled&&(x.heading.trim()||x.text.trim()));
-      html+=blocks.length?blocks.map((x,i)=>`<section class="doc-section memo-block"><span class="doc-step">${String(i+1).padStart(2,'0')}</span><div>${x.heading?`<h3>${escape(x.heading)}</h3>`:''}${x.text?`<p>${lines(x.text)}</p>`:''}</div></section>`).join(''):'<p class="preview-empty">Добавьте блоки или выберите готовую основу. Здесь появится памятка.</p>';
-      if(state.contact)html+=`<section class="doc-contact"><h3>Есть вопросы?</h3><p>${lines(state.contact)}</p></section>`;
+      html+=blocks.length?blocks.map((x,i)=>`<section class="doc-section memo-block"><span class="doc-step">${icon(memoIcon(x.heading))}</span><div>${x.heading?`<h3>${escape(x.heading)}</h3>`:''}${x.text?`<p>${lines(x.text)}</p>`:''}</div></section>`).join(''):'<p class="preview-empty">Добавьте блоки или выберите готовую основу. Здесь появится памятка.</p>';
+      if(state.contact)html+=`<section class="doc-contact"><h3>${icon('chat-circle-text')}Есть вопросы?</h3><p>${lines(state.contact)}</p></section>`;
       if(state.footer)html+=`<p class="doc-footnote">${lines(state.footer)}</p>`;
       $('editor-count').textContent=countLabel(blocks.length,['блок','блока','блоков']);
       $('document-note').textContent='Готовые блоки служат основой. Перед распространением уточните правила, контакты и сроки вашей компании. Памятка не заменяет официальные документы.';

@@ -562,3 +562,7 @@ h2 { font-size: clamp(54px, 5vw, 92px); line-height: .98; letter-spacing: -.025e
 .tool-lab-card ul { padding-left:19px; margin:0 0 30px; font-size:13px; line-height:1.9; }
 .tool-lab-card .button { margin-top:auto; }
 @media(max-width:760px) { .tool-lab-grid { grid-template-columns:1fr; gap:22px; } .tool-lab { padding-top:45px; padding-bottom:55px; } }
+
+.tool-lab-symbol { display:inline-flex; align-items:center; justify-content:center; width:68px; height:68px; margin-bottom:25px; border:1px solid #c9d1c3; border-radius:12px; color:#660810; background:#edf0e7; }
+.tool-lab-symbol .ui-icon { width:40px; height:40px; fill:currentColor; }
+.tool-lab-card--memo .tool-lab-symbol { background:#fffdf9; color:#0a3428; }
