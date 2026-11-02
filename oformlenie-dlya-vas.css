@@ -34,3 +34,6 @@
 .of-side{container-type:inline-size}
 #directions-title{font-size:clamp(24px,10.5cqw,72px);line-height:1.12}
 #directions-title>span{display:block;white-space:nowrap}
+
+.of-service figure.of-service-artwork{background:var(--beige)}
+.of-service .of-service-artwork img{object-fit:contain}
