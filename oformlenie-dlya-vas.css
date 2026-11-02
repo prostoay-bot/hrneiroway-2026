@@ -25,3 +25,7 @@
 .is-enhanced.is-olive .of-stage{background:var(--muted);color:#03150f}
 .is-enhanced.is-olive .of-side h2 em,.is-enhanced.is-olive .of-number{color:#03150f}
 .is-enhanced.is-olive .of-direction-nav button,.is-enhanced.is-olive .of-counter,.is-enhanced.is-olive .of-service-label,.is-enhanced.is-olive .of-service-tags{opacity:1}
+
+/* Keep the requested wine emphasis readable throughout the color cycle */
+.of-side h2 em,.is-enhanced.is-olive .of-side h2 em{color:var(--wine)}
+.is-enhanced.is-wine .of-side h2 em{color:var(--wine);background:var(--paper);padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
