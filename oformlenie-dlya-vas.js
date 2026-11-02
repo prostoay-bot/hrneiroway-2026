@@ -17,7 +17,7 @@
   const jumps=[...document.querySelectorAll('[data-service-jump]')];
   const counter=document.querySelector('[data-current]');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
-  const wide=matchMedia('(min-width: 960px) and (min-height: 760px)');
+  const wide=matchMedia('(min-width: 960px) and (min-height: 760px) and (max-aspect-ratio: 2/1)');
   let enhanced=false,active=-1,queued=false;
   const activate=index=>{
     if(index===active)return;

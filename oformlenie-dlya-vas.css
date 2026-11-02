@@ -37,3 +37,8 @@
 
 .of-service figure.of-service-artwork{background:var(--beige)}
 .of-service .of-service-artwork img{object-fit:contain}
+
+/* Let service images define their own height: no letterbox panels */
+.of-service figure,.is-enhanced .of-service figure{aspect-ratio:auto;height:auto;flex:0 0 auto;background:transparent}
+.of-service figure.of-service-artwork{background:transparent}
+.of-service figure img{width:100%;height:auto;object-fit:contain}
