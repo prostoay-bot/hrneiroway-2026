@@ -21,7 +21,7 @@
   let enhanced=false,active=-1,queued=false;
   const activate=index=>{
     if(index===active)return;
-    active=index;section.classList.toggle('is-wine',index===2||index===5);
+    active=index;section.classList.toggle('is-wine',index%3===2);section.classList.toggle('is-olive',index%3===1);
     cards.forEach((card,i)=>{
       const visible=i===index;
       card.classList.toggle('is-active',visible);
@@ -46,7 +46,7 @@
     section.classList.toggle('is-enhanced',enhanced);
     active=-1;
     if(enhanced)update();
-    else{section.classList.remove('is-wine');cards.forEach(card=>{card.removeAttribute('aria-hidden');card.inert=false;card.classList.remove('is-active');});}
+    else{section.classList.remove('is-wine','is-olive');cards.forEach(card=>{card.removeAttribute('aria-hidden');card.inert=false;card.classList.remove('is-active');});}
     if(innerWidth>=960)closeMenu();
   };
   wide.addEventListener('change',configure);reduce.addEventListener('change',configure);
