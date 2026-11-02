@@ -29,3 +29,8 @@
 /* Keep the requested wine emphasis readable throughout the color cycle */
 .of-side h2 em,.is-enhanced.is-olive .of-side h2 em{color:var(--wine)}
 .is-enhanced.is-wine .of-side h2 em{color:var(--wine);background:var(--paper);padding:0 .08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* Two fixed lines, sized against the actual text column */
+.of-side{container-type:inline-size}
+#directions-title{font-size:clamp(24px,10.5cqw,72px);line-height:1.12}
+#directions-title>span{display:block;white-space:nowrap}
