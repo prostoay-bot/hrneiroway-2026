@@ -56,84 +56,32 @@
 
   const galleryData = {
     "hr-onepagers": {
-      eyebrow: "Памятки для сотрудников",
-      title: "Корпоративные правила на одном листе",
-      description: "Примеры оформления внутренних материалов для сотрудников",
-      fullSize: true,
-      slides: [
-        {
+        "eyebrow": "Памятки для сотрудников",
+        "title": "Корпоративные правила на одном листе",
+        "description": "Примеры оформления внутренних материалов для сотрудников",
+        "fullSize": true,
+        "slides": [
+            {
                 "src": "./assets/images/hr-onepagers/access-rules.webp",
                 "alt": "Пропускной режим: памятка для сотрудников",
                 "title": "Пропускной режим",
                 "description": "Наглядный порядок доступа в офис: пропуск, посетители и действия в типовых ситуациях."
-        },
-        {
+            },
+            {
                 "src": "./assets/images/hr-onepagers/company-rules.webp",
                 "alt": "Работаем по правилам: памятка для сотрудников",
                 "title": "Работаем по правилам",
                 "description": "Основные темы внутренних правил: рабочее время, отдых, обязанности и порядок взаимодействия."
-        },
-        {
+            },
+            {
                 "src": "./assets/images/hr-onepagers/income-guide.webp",
                 "alt": "Из чего складывается доход: памятка для сотрудников",
                 "title": "Из чего складывается доход",
                 "description": "Структура вознаграждения, социальный пакет и возможности роста, собранные в одном макете."
-        }
-]
-    },
-
-    "facial-cleaning": {
-      eyebrow: "Косметология",
-      title: "Чистка лица: какую выбрать",
-      description: "Короткий клиентский гид: виды профессиональной чистки, сравнение подходов и памятка по уходу после процедуры",
-      slides: [
-        { src: "./assets/images/presentations/facial-cleaning-01.jpg", alt: "Обложка гида о выборе профессиональной чистки лица" },
-        { src: "./assets/images/presentations/facial-cleaning-02.jpg", alt: "Сравнение механической, ультразвуковой и комбинированной чистки лица" },
-        { src: "./assets/images/presentations/facial-cleaning-03.jpg", alt: "Памятка по уходу за кожей после процедуры" }
-      ]
-    },
-    "teachers-day": {
-      eyebrow: "Праздничное оформление",
-      title: "Материалы ко Дню учителя",
-      description: "Два персональных макета: поздравительный плакат и календарь на учебный год",
-      slides: [
-        { src: "./assets/images/presentations/teachers-day-01.jpg", alt: "Персональный поздравительный плакат ко Дню учителя" },
-        { src: "./assets/images/presentations/teachers-day-02.jpg", alt: "Персональный календарь на учебный год ко Дню учителя" }
-      ]
-    },
-    nutritionist: {
-      eyebrow: "Нутрициология",
-      title: "Полезное питание без перегруза",
-      description: "Серия наглядных карточек о насыщении, незаметных калориях и причинах, которые могут мешать снижению веса",
-      slides: [
-        { src: "./assets/images/presentations/nutritionist-01.jpg", alt: "Карточка о рационе, который плохо насыщает" },
-        { src: "./assets/images/presentations/nutritionist-02.jpg", alt: "Обложка серии о причинах, мешающих снижать вес" },
-        { src: "./assets/images/presentations/nutritionist-03.jpg", alt: "Карточка о незаметных калориях в повседневных продуктах" }
-      ]
-    },
-    "shoe-plan": {
-      eyebrow: "Бизнес-план",
-      title: "Переход на новую коллекцию обуви",
-      description: "Один информационно насыщенный слайд с поэтапным планом обновления ассортиментной матрицы на 2026–2030 годы",
-      slides: [
-        { src: "./assets/images/presentations/shoe-collection-plan.jpg", alt: "План перехода на новую коллекцию обуви с 2026 по 2030 год" }
-      ]
-    },
-    school: {
-      eyebrow: "Учебные материалы",
-      title: "Инфографика для школы",
-      description: "Разные визуальные языки под возраст и тему: устройство самолёта, история, безопасность и экология",
-      slides: [
-        { src: "./assets/images/presentations/school-airplane.jpg", alt: "Учебная инфографика об устройстве пассажирского самолёта" },
-        { src: "./assets/images/presentations/school-history.jpg", alt: "Учебная инфографика о крупнейших ядерных взрывах в истории" },
-        { src: "./assets/images/presentations/school-fire-safety.jpg", alt: "Памятка для школьников о действиях при пожаре" },
-        { src: "./assets/images/presentations/school-stranger-safety.jpg", alt: "Памятка для школьников о безопасном поведении с незнакомцами" },
-        { src: "./assets/images/presentations/school-home-safety.jpg", alt: "Памятка о личной безопасности ребёнка дома" },
-        { src: "./assets/images/presentations/school-internet-safety.jpg", alt: "Памятка для школьников о безопасности в интернете" },
-        { src: "./assets/images/presentations/school-recycling.jpg", alt: "Учебная инфографика о сортировке и переработке мусора" }
-      ]
+            }
+        ]
     }
-  };
+};
 
   const gallery = document.querySelector("[data-gallery]");
 
