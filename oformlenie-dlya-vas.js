@@ -171,21 +171,4 @@
   addEventListener('resize',requestTitleUpdate,{passive:true});
   reduce.addEventListener('change',requestTitleUpdate);
   updatePortfolioTitle();
-  const workStrip=document.querySelector('#of-work-strip');
-  const stripControls=document.querySelector('.of-work-strip-controls');
-  const stripPrev=stripControls.querySelector('[data-work-prev]');
-  const stripNext=stripControls.querySelector('[data-work-next]');
-  stripControls.hidden=false;
-  const updateWorkStrip=()=>{
-    stripPrev.disabled=workStrip.scrollLeft<2;
-    stripNext.disabled=workStrip.scrollLeft+workStrip.clientWidth>=workStrip.scrollWidth-3;
-  };
-  const moveWorkStrip=direction=>workStrip.scrollBy({left:direction*workStrip.clientWidth*.75,behavior:reduce.matches?'instant':'smooth'});
-  stripPrev.addEventListener('click',()=>moveWorkStrip(-1));
-  stripNext.addEventListener('click',()=>moveWorkStrip(1));
-  workStrip.addEventListener('scroll',updateWorkStrip,{passive:true});
-  workStrip.addEventListener('keydown',event=>{if(event.target!==workStrip)return;if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();moveWorkStrip(event.key==='ArrowRight'?1:-1);}});
-  workFilters.forEach(button=>button.addEventListener('click',()=>{workStrip.scrollTo({left:0,behavior:'instant'});requestAnimationFrame(updateWorkStrip);}));
-  window.addEventListener('resize',updateWorkStrip,{passive:true});
-  updateWorkStrip();
 })();
