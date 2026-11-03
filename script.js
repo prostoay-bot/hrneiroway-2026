@@ -15,8 +15,6 @@ const processKasper = document.querySelector(".process-route__guide");
 const processSteps = document.querySelectorAll("[data-process-step]");
 const aboutStory = document.querySelector("[data-about-story]");
 const aboutCards = document.querySelectorAll("[data-about-card]");
-const portfolioShowcase = document.querySelector("[data-portfolio-showcase]");
-const portfolioCards = document.querySelectorAll("[data-portfolio-card]");
 const faqItems = document.querySelectorAll(".faq-item");
 const kasperHelper = document.querySelector("[data-kasper-helper]");
 const kasperHelperToggle = document.querySelector("[data-kasper-helper-toggle]");
@@ -353,45 +351,6 @@ const lift = () => Math.min(Math.max(window.innerHeight * 0.19, 145), 175);
   );
 }
 
-if (
-  portfolioShowcase &&
-  portfolioCards.length &&
-  !reduceMotion &&
-  window.gsap &&
-  window.ScrollTrigger
-) {
-  window.gsap.registerPlugin(window.ScrollTrigger);
-  const portfolioTable = portfolioShowcase.querySelector(".portfolio-showcase__table");
-  const portfolioMedia = window.gsap.matchMedia();
-
-  portfolioMedia.add("(min-width: 761px)", () => {
-    window.gsap.fromTo(
-      portfolioTable,
-      {
-        x: () => window.innerWidth * 0.62,
-      },
-      {
-        x: () => -(portfolioTable.scrollWidth - window.innerWidth + 72),
-        ease: "none",
-        scrollTrigger: {
-          trigger: portfolioShowcase,
-          start: "top top",
-          end: () => `+=${Math.max(portfolioTable.scrollWidth * 1.15, 2400)}`,
-          pin: ".portfolio-showcase__stage",
-          scrub: 1,
-          anticipatePin: 1,
-          refreshPriority: 2,
-          invalidateOnRefresh: true,
-        },
-      }
-    );
-
-    // «Проекты» находятся выше «Полезного», поэтому после создания обоих
-    // закреплений пересчитываем координаты в порядке страницы
-    window.ScrollTrigger.sort();
-    window.ScrollTrigger.refresh();
-  });
-}
 
 if (clarityFrame) {
   if (reduceMotion) {
