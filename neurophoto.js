@@ -1,9 +1,10 @@
 
+document.querySelectorAll('.polaroid').forEach((card,index)=>{card.classList.add('photo-reveal');card.style.setProperty('--photo-delay',`${index%4*75}ms`);});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)');
 if('IntersectionObserver' in window&&!reduce.matches){
  document.body.classList.add('has-motion');
  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.06});
- document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+ document.querySelectorAll('.reveal,.photo-reveal').forEach(el=>io.observe(el));
 }
 
 const phrases=["Вау! 🌟","Ты — произведение искусства!","Давай сделаем шедевр?","Ты невероятна ✨","Твоё фото уже ждёт тебя!","Каждый кадр — история","Магия близко 💫","Ты рождена для обложки!","Я уже скучаю по тебе","Красота без границ ✦"];
