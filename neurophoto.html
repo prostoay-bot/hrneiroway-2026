@@ -15,252 +15,19 @@
 <meta property="og:image" content="https://hrneiroway.ru/assets/images/neurophoto/7132c343f7999918.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital@1&family=Special+Elite&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:          #1f3a2e;
-  --surface:     #1a3228;
-  --surface2:    #162a22;
-  --cream:       #fbe7b5;
-  --cream-dim:   rgba(251,231,181,0.72);
-  --cream-muted: rgba(251,231,181,0.42);
-  --gold:        #e8c060;
-  --gold2:       #f0a040;
-  --muted:       rgba(251,231,181,0.38);
-  --border:      rgba(251,231,181,0.12);
-  --border-gold: rgba(232,192,96,0.28);
-}
-html{cursor:crosshair;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--cream);font-family:'Montserrat',sans-serif;font-weight:300;font-size:15px;line-height:1.8;overflow-x:hidden}
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--gold)}
-
-/* ── HEADER ── */
-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:0.85rem 3rem;background:rgba(31,58,46,0.94);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border)}
-.logo-wrap{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.logo-text{font-family:'Special Elite',cursive;font-size:1.05rem;letter-spacing:0.12em;color:var(--cream)}
-.logo-text span{color:var(--gold)}
-.cam-icon{flex-shrink:0}
-.cam-body{transform-origin:50% 50%}
-.cam-flash{transform-origin:50% 50%;animation:camflash 3s ease-in-out infinite}
-.cam-lens{transform-origin:50% 50%;animation:lensrotate 4s linear infinite}
-.cam-shutter{transform-origin:50% 50%;animation:shutter 3s ease-in-out infinite}
-@keyframes camflash{0%,80%,100%{opacity:0;transform:scale(0.7)}82%{opacity:1;transform:scale(1.3)}86%{opacity:0}}
-@keyframes lensrotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes shutter{0%,90%,100%{transform:scaleY(1)}92%{transform:scaleY(0.15)}95%{transform:scaleY(1)}}
-.tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:0.72rem;color:var(--muted);letter-spacing:0.06em}
-nav{display:flex;align-items:center}
-nav a{color:var(--cream);text-decoration:none;font-size:0.67rem;letter-spacing:0.14em;text-transform:uppercase;opacity:0.5;margin-left:2rem;transition:all 0.3s}
-nav a:hover{opacity:1;color:var(--gold)}
-.nav-cta{border:0.5px solid var(--border-gold);padding:0.42rem 1.1rem;color:var(--gold)!important;opacity:1!important}
-.nav-cta:hover{background:var(--gold);color:var(--bg)!important}
-
-/* ── HERO ── */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 4rem 4rem;position:relative;overflow:hidden;gap:4rem}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(232,192,96,0.06) 0%,transparent 55%);pointer-events:none}
-.hero-ring{position:absolute;border-radius:50%;border:0.5px solid var(--border);animation:spin 20s linear infinite;pointer-events:none}
-.hero-ring:nth-child(1){width:440px;height:440px}
-.hero-ring:nth-child(2){width:340px;height:340px;border-color:rgba(251,231,181,0.05);animation-direction:reverse;animation-duration:14s}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-portrait-wrap{position:relative;z-index:2;display:flex;justify-content:center}
-.hero-portrait{width:320px;height:410px;object-fit:cover;clip-path:polygon(10% 0%,100% 0%,90% 100%,0% 100%);filter:contrast(1.06) saturate(0.95)}
-.hero-portrait-glow{position:absolute;inset:-1px;clip-path:polygon(10% 0%,100% 0%,90% 100%,0% 100%);background:linear-gradient(135deg,var(--gold),transparent 40%,var(--gold));opacity:0.3;z-index:1}
-.hero-label{font-size:0.62rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;font-weight:500;display:flex;align-items:center;gap:0.75rem}
-.hero-label::before{content:'';display:block;width:32px;height:0.5px;background:var(--gold)}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,5.8rem);font-weight:300;line-height:0.95;letter-spacing:-0.02em;color:var(--cream);margin-bottom:1.5rem}
-.hero h1 em{font-style:italic;color:var(--gold);display:block}
-.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:rgba(251,231,181,0.75);margin-bottom:2rem;line-height:1.6}
-.hero-body{font-size:0.88rem;line-height:2.0;color:var(--cream-dim);max-width:48ch;margin-bottom:2.5rem}
-.hero-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
-.cta-btn{display:inline-block;padding:0.85rem 2.2rem;border:0.5px solid var(--gold);color:var(--gold);text-decoration:none;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:500;transition:all 0.4s;position:relative;overflow:hidden;z-index:0}
-.cta-btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);z-index:-1}
-.cta-btn:hover{color:var(--bg)}
-.cta-btn:hover::before{transform:translateX(0)}
-.cta-secondary{font-size:0.68rem;letter-spacing:0.12em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color 0.3s}
-.cta-secondary:hover{color:var(--gold)}
-.hero-counter{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--border)}
-.counter-num{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--cream);line-height:1}
-.counter-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
-
-/* ── MARQUEE ── */
-.marquee-wrap{overflow:hidden;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:0.9rem 0;background:var(--surface)}
-.marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite}
-.marquee-item{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(232,192,96,0.45);padding:0 2.5rem;letter-spacing:0.05em;flex-shrink:0}
-.marquee-dot{color:var(--gold);opacity:0.7}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ── SECTIONS ── */
-.section-label{font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;display:flex;align-items:center;gap:0.75rem}
-.section-label::before{content:'';display:block;width:24px;height:0.5px;background:var(--gold)}
-.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;letter-spacing:0.03em;color:var(--cream);margin-bottom:3rem;line-height:1.1}
-.section-heading em{font-style:italic;color:var(--gold)}
-
-/* ── GALLERY ── */
-.gallery-section{padding:6rem 4rem;overflow:hidden}
-.polaroid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(162px,1fr));gap:2rem;padding:1.5rem 0}
-.polaroid{background:#f0e8d8;padding:10px 10px 34px;position:relative;transition:all 0.45s cubic-bezier(0.4,0,0.2,1);cursor:crosshair}
-.polaroid:nth-child(1){transform:rotate(-3.2deg)}
-.polaroid:nth-child(2){transform:rotate(2.5deg) translateY(10px)}
-.polaroid:nth-child(3){transform:rotate(-1.5deg) translateY(5px)}
-.polaroid:nth-child(4){transform:rotate(3.8deg) translateY(-6px)}
-.polaroid:nth-child(5){transform:rotate(-2.8deg) translateY(12px)}
-.polaroid:nth-child(6){transform:rotate(1.8deg) translateY(3px)}
-.polaroid:nth-child(7){transform:rotate(-4.2deg) translateY(-4px)}
-.polaroid:nth-child(8){transform:rotate(3.2deg) translateY(8px)}
-.polaroid:nth-child(9){transform:rotate(-1.2deg)}
-.polaroid:nth-child(10){transform:rotate(2.8deg) translateY(6px)}
-.polaroid:nth-child(11){transform:rotate(-3.8deg) translateY(-8px)}
-.polaroid:nth-child(12){transform:rotate(1.5deg) translateY(4px)}
-.polaroid:nth-child(13){transform:rotate(-2.2deg) translateY(9px)}
-.polaroid:nth-child(14){transform:rotate(3.5deg) translateY(-5px)}
-.polaroid:hover{transform:rotate(0deg) translateY(-8px) scale(1.07);z-index:10;box-shadow:0 20px 50px rgba(0,0,0,0.5),0 0 0 0.5px rgba(232,192,96,0.35)}
-.tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:48px;height:18px;background:rgba(232,192,96,0.3);z-index:2}
-.polaroid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
-.polaroid-label{text-align:center;font-family:'Special Elite',cursive;font-size:0.6rem;color:#3d3020;margin-top:7px;letter-spacing:0.06em}
-
-/* ── PRICING ── */
-.pricing-section{padding:6rem 4rem;background:var(--surface)}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:3rem;background:var(--border)}
-.price-card{background:var(--surface);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
-.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
-.price-card:hover{background:var(--surface2)}
-.price-card:hover::before{opacity:1}
-.price-tier{font-size:0.63rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:2rem}
-.price-amount{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--cream);line-height:1;margin-bottom:0.2rem}
-.price-rub{font-size:1.2rem;color:var(--gold);vertical-align:super}
-.price-desc{font-size:0.78rem;color:var(--cream-muted);margin:0.75rem 0 1.75rem;font-style:italic;font-family:'Playfair Display',serif;line-height:1.5}
-.price-features{list-style:none;margin-bottom:2rem;border-top:0.5px solid var(--border);padding-top:1.5rem}
-.price-features li{font-size:0.8rem;color:var(--cream-dim);padding:0.5rem 0;display:flex;align-items:center;gap:0.75rem;border-bottom:0.5px solid var(--border)}
-.price-features li::before{content:'';display:inline-block;width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.price-expanded{max-height:100px}
-.price-btn{display:block;width:100%;padding:0.9rem;border:1px solid var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--bg);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;cursor:crosshair;transition:all 0.3s;text-align:center;text-decoration:none;box-shadow:0 4px 14px rgba(232,192,96,0.35)}
-.price-btn:hover{background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 6px 20px rgba(232,192,96,0.55);transform:translateY(-2px)}
-.price-card.featured{background:var(--surface2)}
-.price-card.featured::before{opacity:0.7}
-.featured-badge{display:inline-block;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:3px 10px;margin-bottom:1.5rem;font-weight:600}
-
-/* ── PROCESS ── */
-.process-section{padding:6rem 4rem}
-.process-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:6rem;align-items:start;margin-top:3rem}
-.process-step{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:0.5px solid var(--border);transition:all 0.3s}
-.process-step:last-child{border-bottom:none}
-.process-step:hover .step-text{color:var(--cream)}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(232,192,96,0.18);line-height:1;min-width:2.5rem}
-.step-content{padding-top:0.35rem}
-.step-title{font-size:0.85rem;font-weight:500;color:var(--cream);letter-spacing:0.05em;margin-bottom:0.3rem}
-.step-text{font-size:0.8rem;color:var(--cream-dim);line-height:1.7;transition:color 0.3s}
-.lifehack-block{position:relative;padding:2rem;background:rgba(232,192,96,0.05)}
-.lhb-t,.lhb-b{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold))}
-.lhb-t{top:0}.lhb-b{bottom:0}
-.lhb-l,.lhb-r{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),var(--gold2),var(--gold))}
-.lhb-l{left:0}.lhb-r{right:0}
-.lifehack-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:5px 16px;margin-bottom:1.25rem;font-family:'Montserrat',sans-serif;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200%;animation:shimmer 2.5s ease infinite;color:var(--bg)}
-@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
-.lifehack-badge::before{content:'💡';font-size:0.85rem}
-.lifehack-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--cream-dim);line-height:1.75}
-.lifehack-text strong{color:var(--gold);font-style:normal;font-weight:400}
-
-/* ── GAME ── */
-.game-section{padding:5rem 4rem;background:var(--surface);position:relative;overflow:hidden}
-.game-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;border:0.5px solid rgba(232,192,96,0.04);pointer-events:none}
-.game-inner{position:relative;z-index:2}
-.score-bar{display:flex;justify-content:space-around;align-items:center;padding:1rem 1.5rem;background:rgba(232,192,96,0.05);border:0.5px solid var(--border)}
-.score-group{display:flex;flex-direction:column;align-items:center}
-.score-lbl{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.15rem}
-.score-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);line-height:1}
-.game-arena{width:100%;height:380px;position:relative;cursor:crosshair;border:0.5px solid var(--border);border-top:none;overflow:hidden;background:radial-gradient(ellipse at 50% 90%,rgba(232,192,96,0.04) 0%,transparent 60%)}
-.kasper-game-img{position:absolute;width:110px;height:auto;object-fit:contain;user-select:none;pointer-events:none;filter:drop-shadow(0 6px 20px rgba(0,0,0,0.4));transform-origin:bottom center}
-.bone{position:absolute;font-size:1.9rem;user-select:none;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));animation:bwobble 2.2s ease-in-out infinite}
-@keyframes bwobble{0%,100%{transform:translateY(0) rotate(0deg)}30%{transform:translateY(-7px) rotate(10deg)}70%{transform:translateY(3px) rotate(-8deg)}}
-.combo-flash{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.2rem;color:var(--gold);pointer-events:none;opacity:0;z-index:20;white-space:nowrap;text-shadow:0 0 20px rgba(232,192,96,0.4)}
-.game-hint{font-size:0.67rem;letter-spacing:0.12em;color:var(--muted);text-align:center;margin-top:1rem;text-transform:uppercase}
-
-/* ── PS ── */
-.ps-section{padding:7rem 4rem;text-align:center;position:relative;overflow:hidden}
-.ps-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(232,192,96,0.05) 0%,transparent 70%);pointer-events:none}
-.ps-ornament{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:rgba(232,192,96,0.22);margin-bottom:1.5rem;letter-spacing:0.6em;display:block}
-.ps-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.1rem,2.4vw,1.6rem);font-weight:300;line-height:1.8;color:var(--cream-dim);max-width:60ch;margin:0 auto 1rem}
-.ps-author{font-size:0.64rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-bottom:3rem}
-
-/* ── FIXED KASPER ── */
-.kasper-widget{position:fixed;bottom:1.75rem;right:1.75rem;z-index:200;display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem}
-.kasper-bubble{background:var(--cream);color:#1a2e1e;padding:0.6rem 0.95rem;font-size:0.75rem;font-family:'Special Elite',cursive;letter-spacing:0.04em;border-radius:12px 12px 0 12px;max-width:175px;text-align:center;opacity:0;transform:translateY(8px) scale(0.94);transition:all 0.35s cubic-bezier(0.4,0,0.2,1);pointer-events:none}
-.kasper-bubble.visible{opacity:1;transform:translateY(0) scale(1)}
-.kasper-avatar{width:70px;height:70px;border-radius:50%;border:1.5px solid var(--border-gold);cursor:pointer;transition:all 0.3s;overflow:hidden;background:var(--bg)}
-.kasper-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.kasper-avatar:hover{border-color:var(--gold);transform:scale(1.1);box-shadow:0 0 20px rgba(232,192,96,0.2)}
-
-/* ── FOOTER ── */
-footer{padding:2rem 4rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:var(--surface)}
-.footer-logo-img{height:40px;width:auto;object-fit:contain;display:block}
-.footer-copy{font-size:0.65rem;color:var(--muted);letter-spacing:0.08em}
-.max-link{display:inline-flex;align-items:center;gap:0.5rem;color:var(--gold);text-decoration:none;font-size:0.7rem;letter-spacing:0.1em;border:0.5px solid var(--border-gold);padding:0.5rem 1.2rem;transition:all 0.3s}
-.max-link:hover{background:var(--gold);color:var(--bg)}
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.75s ease,transform 0.75s ease}
-.reveal.in{opacity:1;transform:translateY(0)}
-
-/* ── MOBILE ── */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;gap:2rem}
-  .hero-right{display:none}
-  .pricing-grid{grid-template-columns:1fr;gap:1px}
-  .process-layout{grid-template-columns:1fr;gap:3rem}
-  .gallery-section,.pricing-section,.process-section,.game-section,.ps-section{padding:4rem 2rem}
-  header{padding:1rem 1.5rem}
-  .tagline{display:none}
-  nav a:not(.nav-cta){display:none}
-  footer{padding:1.5rem 2rem;flex-direction:column;text-align:center}
-}
-@media(max-width:600px){
-  .polaroid-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem}
-  .hero-counter{gap:1.5rem}
-}
-
-.logo-text{font-family:'Special Elite',cursive;font-size:1.05rem;letter-spacing:0.12em;color:var(--cream)}
-.cam-flash{transform-origin:50% 50%;animation:camflash 3s ease-in-out infinite}
-.cam-lens{transform-origin:18px 21.5px;animation:lensrotate 4s linear infinite}
-.cam-shutter{transform-origin:18px 21.5px;animation:shutter 3s ease-in-out infinite}
-@keyframes camflash{0%,80%,100%{opacity:0;transform:scale(0.7)}82%{opacity:1;transform:scale(1.3)}86%{opacity:0}}
-@keyframes lensrotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes shutter{0%,88%,100%{transform:scaleY(1)}91%{transform:scaleY(0.1)}94%{transform:scaleY(1)}}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Forum&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./neurophoto.css?v=20261103-brand"><script src="./neurophoto.js?v=20261103-brand" defer></script>
 </head>
 <body>
 
 <!-- HEADER — logo with correct JPEG mime -->
-<header>
-  <a href="/" class="logo-wrap" aria-label="HRNEIROWAY — на главную">
-    <svg width="44" height="36" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="cam-flash"><line x1="36" y1="4" x2="39" y2="1" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/><line x1="38" y1="7" x2="42" y2="6" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/><line x1="37" y1="10" x2="41" y2="11" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/></g>
-      <rect x="3" y="10" width="38" height="23" rx="3" fill="none" stroke="#fbe7b5" stroke-width="1.5"/>
-      <path d="M14 10 L14 6 Q14 4 16 4 L28 4 Q30 4 30 6 L30 10" fill="none" stroke="#fbe7b5" stroke-width="1.5"/>
-      <circle cx="33" cy="7" r="2.5" fill="#e8c060"/>
-      <circle cx="18" cy="21.5" r="9" fill="none" stroke="#fbe7b5" stroke-width="1.2"/>
-      <g class="cam-lens"><circle cx="18" cy="21.5" r="5.5" fill="none" stroke="#e8c060" stroke-width="1" stroke-dasharray="3 2"/></g>
-      <circle cx="18" cy="21.5" r="2.8" fill="none" stroke="#fbe7b5" stroke-width="1.2"/>
-      <g class="cam-shutter"><rect x="9" y="20" width="18" height="3" rx="1" fill="#1f3a2e"/></g>
-      <rect x="30" y="14" width="7" height="4" rx="1" fill="none" stroke="#e8c060" stroke-width="1"/>
-    </svg>
-    <span class="logo-text">Neiro<span style="color:var(--gold)">_</span>way</span>
-  </a>
-  <p class="tagline">HR с душой дизайнера</p>
-  <nav>
-    <a href="#gallery">Галерея</a>
-    <a href="#pricing">Тарифы</a>
-    <a href="#process">Процесс</a>
-    <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" class="nav-cta">Написать →</a>
-  </nav>
-</header>
+<a class="skip-link" href="#main-content">Перейти к содержанию</a><header class="np-header"><a class="np-logo" href="/" aria-label="HRNEIROWAY — на главную"><img src="/assets/images/brand/hrneiroway-logo.png" width="1385" height="264" alt="HRNEIROWAY"></a><nav id="np-menu" aria-label="Главная навигация"><a href="/">Главная</a><a href="/#services">Услуги</a><a href="#gallery">Примеры</a><a href="#pricing">Тарифы</a><a href="#process">Как это работает</a><a href="#contact">Контакты</a></nav><button type="button" class="np-menu-button" aria-controls="np-menu" aria-expanded="false">Меню</button></header><main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left reveal">
     <p class="hero-label">Нейрофото нового поколения</p>
-    <h1>NEIROWAY —<br><em>магия</em><br>в каждом кадре</h1>
+    <h1>Нейрофотосессия<br><em>в твоём стиле</em></h1>
     <p class="hero-sub">Твоё лицо. Твой характер.<br>Просто — в другом свете.</p>
     <p class="hero-body">Привет! Я делаю нейрофото — это когда ты остаёшься собой, но выглядишь так, будто снималась на настоящей фотосессии. Никаких сложных правок. Просто красиво.</p>
     <div class="hero-actions">
@@ -278,52 +45,30 @@ footer{padding:2rem 4rem;border-top:0.5px solid var(--border);display:flex;justi
     <div class="hero-ring"></div>
     <div class="hero-portrait-wrap">
       <div class="hero-portrait-glow"></div>
-      <img src="/assets/images/neurophoto/7132c343f7999918.jpg" alt="Нейрообраз" class="hero-portrait">
+      <img src="/assets/images/neurophoto/7132c343f7999918.jpg" alt="Пример нейрофотосессии: спортивный образ с боксёрскими перчатками" width="848" height="1264" fetchpriority="high" class="hero-portrait">
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Нейрофото <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Old Money <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Fashion Editorial <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Renaissance <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Vogue Style <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Cyberpunk <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Goddess Vibes <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">AI Magic <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Нейрофото <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Old Money <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Fashion Editorial <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Renaissance <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Vogue Style <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Cyberpunk <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">Goddess Vibes <span class="marquee-dot">✦</span></span>
-    <span class="marquee-item">AI Magic <span class="marquee-dot">✦</span></span>
-  </div>
-</div>
-
-<!-- GALLERY -->
+<div class="np-style-line" aria-label="Варианты образов"><span>Деловой портрет</span><span>Журнальная съёмка</span><span>Творческий образ</span><span>Для соцсетей</span></div><!-- GALLERY -->
 <section class="gallery-section reveal" id="gallery">
   <p class="section-label">Портфолио</p>
   <h2 class="section-heading">Работы, <em>которые говорят</em> сами за себя</h2>
   <div class="polaroid-grid">
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/8c769d21b4fa6a54.jpg" alt="Original"><p class="polaroid-label">Original</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/7862b5be9c9e41b3.jpg" alt="Fashion"><p class="polaroid-label">Fashion</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/5a7fa692baedbf5d.jpg" alt="Night"><p class="polaroid-label">Night</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/990bbb0ca4a6e1ed.jpg" alt="Cyber"><p class="polaroid-label">Cyber</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/75593d23b576c61e.jpg" alt="Portrait 1"><p class="polaroid-label">Portrait</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/afe334695bf099b0.jpg" alt="Portrait 2"><p class="polaroid-label">Vogue</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/5766db1ca0a7fa03.jpg" alt="Portrait 3"><p class="polaroid-label">Old Money</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/fab5898da0e7889a.jpg" alt="Portrait 4"><p class="polaroid-label">Editorial</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/359305a3e8de02e7.jpg" alt="Portrait 5"><p class="polaroid-label">Barbie</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/a5b8771607ecb50a.jpg" alt="Portrait 7"><p class="polaroid-label">Power</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/63cb2a0e3e6e9e11.jpg" alt="Portrait 9"><p class="polaroid-label">Galaxy</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/7132c343f7999918.jpg" alt="Portrait 6"><p class="polaroid-label">Studio</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/5ed87ca87d3b32b0.jpg" alt="Portrait 10"><p class="polaroid-label">Dream</p></div>
-    <div class="polaroid"><div class="tape"></div><img src="/assets/images/neurophoto/4a21f1c4389ab7d3.jpg" alt="Joy"><p class="polaroid-label">Joy</p></div>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/8c769d21b4fa6a54.jpg" data-caption="Исходное фото" aria-label="Рассмотреть: Исходное фото"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/8c769d21b4fa6a54.webp" width="540" height="720" alt="Нейрофотосессия — исходное фото" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Исходное фото</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/7862b5be9c9e41b3.jpg" data-caption="Модный образ" aria-label="Рассмотреть: Модный образ"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/7862b5be9c9e41b3.webp" width="405" height="720" alt="Нейрофотосессия — модный образ" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Модный образ</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/5a7fa692baedbf5d.jpg" data-caption="Ночной образ" aria-label="Рассмотреть: Ночной образ"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/5a7fa692baedbf5d.webp" width="405" height="720" alt="Нейрофотосессия — ночной образ" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Ночной образ</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/990bbb0ca4a6e1ed.jpg" data-caption="Киберпанк" aria-label="Рассмотреть: Киберпанк"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/990bbb0ca4a6e1ed.webp" width="540" height="308" alt="Нейрофотосессия — киберпанк" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Киберпанк</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/75593d23b576c61e.jpg" data-caption="Портрет" aria-label="Рассмотреть: Портрет"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/75593d23b576c61e.webp" width="483" height="720" alt="Нейрофотосессия — портрет" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Портрет</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/afe334695bf099b0.jpg" data-caption="Обложка журнала" aria-label="Рассмотреть: Обложка журнала"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/afe334695bf099b0.webp" width="402" height="720" alt="Нейрофотосессия — обложка журнала" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Обложка журнала</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/5766db1ca0a7fa03.jpg" data-caption="Сдержанная роскошь" aria-label="Рассмотреть: Сдержанная роскошь"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/5766db1ca0a7fa03.webp" width="480" height="720" alt="Нейрофотосессия — сдержанная роскошь" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Сдержанная роскошь</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/fab5898da0e7889a.jpg" data-caption="Журнальная съёмка" aria-label="Рассмотреть: Журнальная съёмка"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/fab5898da0e7889a.webp" width="483" height="720" alt="Нейрофотосессия — журнальная съёмка" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Журнальная съёмка</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/359305a3e8de02e7.jpg" data-caption="Барби" aria-label="Рассмотреть: Барби"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/359305a3e8de02e7.webp" width="540" height="540" alt="Нейрофотосессия — барби" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Барби</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/a5b8771607ecb50a.jpg" data-caption="Характер" aria-label="Рассмотреть: Характер"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/a5b8771607ecb50a.webp" width="411" height="720" alt="Нейрофотосессия — характер" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Характер</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/63cb2a0e3e6e9e11.jpg" data-caption="Космический образ" aria-label="Рассмотреть: Космический образ"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/63cb2a0e3e6e9e11.webp" width="483" height="720" alt="Нейрофотосессия — космический образ" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Космический образ</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/7132c343f7999918.jpg" data-caption="Студийный портрет" aria-label="Рассмотреть: Студийный портрет"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/7132c343f7999918.webp" width="483" height="720" alt="Нейрофотосессия — студийный портрет" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Студийный портрет</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/5ed87ca87d3b32b0.jpg" data-caption="Мечта" aria-label="Рассмотреть: Мечта"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/5ed87ca87d3b32b0.webp" width="483" height="720" alt="Нейрофотосессия — мечта" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Мечта</span></button>
+    <button type="button" class="polaroid" data-photo="/assets/images/neurophoto/4a21f1c4389ab7d3.jpg" data-caption="Радость" aria-label="Рассмотреть: Радость"><span class="np-photo"><img src="/assets/images/neurophoto/thumbs/4a21f1c4389ab7d3.webp" width="540" height="308" alt="Нейрофотосессия — радость" loading="lazy" decoding="async"><span class="np-photo-open" aria-hidden="true">↗</span></span><span class="polaroid-label">Радость</span></button>
   </div>
 </section>
 
@@ -435,145 +180,24 @@ footer{padding:2rem 4rem;border-top:0.5px solid var(--border);display:flex;justi
 </section>
 
 <!-- PS -->
-<section class="ps-section reveal">
-  <span class="ps-ornament">✦ ✦ ✦</span>
+<section class="ps-section reveal" id="contact">
+
   <p class="ps-author">Личное — от меня</p>
   <p class="ps-text">Иногда, чтобы почувствовать себя иначе, нужен всего один шаг. А потом смотришь на эти фото и думаешь: «Почему я не сделала это раньше?» Это не про идеальность. Это про то, чтобы увидеть себя и влюбиться в это ощущение.</p>
   <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" class="cta-btn">Написать мне →</a>
 </section>
 
-<!-- FOOTER — logo with correct JPEG mime, no text fallback -->
-<footer>
-  <a href="/" class="max-link">← На главный сайт HRNEIROWAY</a>
-  <svg width="44" height="36" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g class="cam-flash"><line x1="36" y1="4" x2="39" y2="1" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/><line x1="38" y1="7" x2="42" y2="6" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/><line x1="37" y1="10" x2="41" y2="11" stroke="#e8c060" stroke-width="1.5" stroke-linecap="round"/></g>
-      <rect x="3" y="10" width="38" height="23" rx="3" fill="none" stroke="#fbe7b5" stroke-width="1.5"/>
-      <path d="M14 10 L14 6 Q14 4 16 4 L28 4 Q30 4 30 6 L30 10" fill="none" stroke="#fbe7b5" stroke-width="1.5"/>
-      <circle cx="33" cy="7" r="2.5" fill="#e8c060"/>
-      <circle cx="18" cy="21.5" r="9" fill="none" stroke="#fbe7b5" stroke-width="1.2"/>
-      <g class="cam-lens"><circle cx="18" cy="21.5" r="5.5" fill="none" stroke="#e8c060" stroke-width="1" stroke-dasharray="3 2"/></g>
-      <circle cx="18" cy="21.5" r="2.8" fill="none" stroke="#fbe7b5" stroke-width="1.2"/>
-      <g class="cam-shutter"><rect x="9" y="20" width="18" height="3" rx="1" fill="#1f3a2e"/></g>
-      <rect x="30" y="14" width="7" height="4" rx="1" fill="none" stroke="#e8c060" stroke-width="1"/>
-    </svg>
-  <p class="footer-copy">© 2026 NEIRO_WAY</p>
-  <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" class="max-link">Написать мне →</a>
-</footer>
+<div class="np-contact-links"><a href="https://t.me/Marina_x6" target="_blank" rel="noopener noreferrer">Telegram <span aria-hidden="true">↗</span></a><a href="mailto:hrneiroway@yandex.ru">hrneiroway@yandex.ru <span aria-hidden="true">↗</span></a></div><!-- FOOTER — logo with correct JPEG mime, no text fallback -->
+</main><footer class="np-footer"><a href="/" class="np-footer-wordmark">HRNEIROWAY</a><a href="#main-content" class="np-up">Наверх ↑</a><div class="np-footer-bottom"><p>© 2026 · Марина Голяева · самозанятая</p><nav aria-label="Документы"><a href="/privacy.html">Политика конфиденциальности</a><a href="/privacy.html#cookies">Использование cookie</a></nav></div></footer>
 
 <!-- FIXED KASPER WIDGET -->
 <div class="kasper-widget">
   <div class="kasper-bubble" id="kasper-bubble">Вау!</div>
-  <div class="kasper-avatar" id="kasper-btn" title="Это Каспер ✨">
-    <img src="/assets/images/neurophoto/0171a61558273788.jpg" alt="Каспер">
-  </div>
+  <button type="button" class="kasper-avatar" id="kasper-btn" aria-label="Каспер — сказать привет">
+    <img src="/assets/images/neurophoto/0171a61558273788.jpg" alt="Каспер" loading="lazy">
+  </button><button type="button" class="np-kasper-close" aria-label="Скрыть Каспера">×</button>
 </div>
 
-<script>
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-const phrases=["Вау! 🌟","Ты — произведение искусства!","Давай сделаем шедевр?","Ты невероятна ✨","Твоё фото уже ждёт тебя!","Каждый кадр — история","Магия близко 💫","Ты рождена для обложки!","Я уже скучаю по тебе","Красота без границ ✦"];
-const kBtn=document.getElementById('kasper-btn');
-const kBubble=document.getElementById('kasper-bubble');
-let kTo;
-kBtn.addEventListener('click',()=>{
-  kBubble.textContent=phrases[Math.floor(Math.random()*phrases.length)];
-  kBubble.classList.add('visible');
-  clearTimeout(kTo);
-  kTo=setTimeout(()=>kBubble.classList.remove('visible'),2800);
-});
-
-(function(){
-  const arena=document.getElementById('arena');
-  const kasper=document.getElementById('kasper-game');
-  const scoreEl=document.getElementById('score');
-  const recordEl=document.getElementById('record');
-  const comboEl=document.getElementById('combo');
-  const flash=document.getElementById('combo-flash');
-  let score=0,record=0,streak=0,bones=[],kx=50,ky=70,targetBone=null,flashTo;
-  const specials=['⭐','💫','✨','🎁'];
-  function getS(){return{w:arena.clientWidth,h:arena.clientHeight}}
-  function setPos(x,y,instant){
-    const s=getS();
-    const px=x/100*s.w-55,py=y/100*s.h-kasper.clientHeight;
-    kasper.style.left=Math.max(0,Math.min(s.w-110,px))+'px';
-    kasper.style.top=Math.max(0,Math.min(s.h-kasper.clientHeight,py))+'px';
-    kasper.style.transition=instant?'left 0.1s,top 0.1s':'left 0.25s,top 0.25s';
-  }
-  function spawnBone(fx,fy){
-    if(!fx&&bones.length>=6)return;
-    const isSpec=Math.random()<0.18;
-    const em=isSpec?specials[Math.floor(Math.random()*specials.length)]:'🦴';
-    const px=fx!==undefined?fx:8+Math.random()*82;
-    const py=fy!==undefined?fy:10+Math.random()*72;
-    const el=document.createElement('div');
-    el.className='bone';el.textContent=em;
-    el.style.left=px+'%';el.style.top=py+'%';
-    el.dataset.x=px;el.dataset.y=py;el.dataset.spec=isSpec?'1':'0';
-    el.style.animationDelay=(Math.random()*1.5)+'s';
-    el.addEventListener('click',ev=>{ev.stopPropagation();catchBone(el)});
-    arena.appendChild(el);bones.push(el);
-    el._t=setTimeout(()=>removeBone(el),5500);
-  }
-  function removeBone(el){
-    clearTimeout(el._t);
-    if(el.parentNode)el.parentNode.removeChild(el);
-    bones=bones.filter(b=>b!==el);
-    if(targetBone===el)targetBone=null;
-  }
-  function catchBone(el){
-    streak++;
-    const pts=(el.dataset.spec==='1'?3:1)*Math.min(streak,5);
-    score+=pts;if(score>record)record=score;
-    scoreEl.textContent=score;recordEl.textContent=record;
-    comboEl.textContent='x'+Math.min(streak,5);
-    kx=parseFloat(el.dataset.x);ky=parseFloat(el.dataset.y);
-    setPos(kx,ky,true);
-    if(el.dataset.spec==='1')showFlash('✨ Джекпот! +'+pts);
-    else if(streak%5===0)showFlash('🔥 Серия x'+streak+'!');
-    removeBone(el);
-  }
-  function showFlash(msg){
-    flash.textContent=msg;
-    flash.style.transition='none';flash.style.opacity='1';
-    flash.style.transform='translate(-50%,-50%) scale(1.1)';
-    clearTimeout(flashTo);
-    requestAnimationFrame(()=>{
-      flash.style.transition='opacity 1s,transform 1s';
-      flashTo=setTimeout(()=>{flash.style.opacity='0';flash.style.transform='translate(-50%,-65%) scale(1)';},900);
-    });
-  }
-  let lastT=0;
-  function loop(ts){
-    const dt=Math.min((ts-lastT)/1000,0.05);lastT=ts;
-    if(bones.length>0){
-      let best=null,bestD=Infinity;
-      bones.forEach(b=>{const bx=parseFloat(b.dataset.x),by=parseFloat(b.dataset.y),d=Math.hypot(bx-kx,by-ky);if(d<bestD){bestD=d;best=b;}});
-      targetBone=best;
-      if(targetBone){
-        const tx=parseFloat(targetBone.dataset.x),ty=parseFloat(targetBone.dataset.y);
-        const dx=tx-kx,dy=ty-ky,dist=Math.hypot(dx,dy);
-        if(dist>2.5){kx+=(dx/dist)*58*dt;ky+=(dy/dist)*58*dt;setPos(kx,ky,false);kasper.style.transform=dx<0?'scaleX(-1)':'scaleX(1)';}
-        else{catchBone(targetBone);}
-      }
-    }else{
-      const t=ts/1000;
-      const wx=50+Math.sin(t*0.38)*30,wy=55+Math.cos(t*0.27)*22;
-      kx+=(wx-kx)*dt*1.2;ky+=(wy-ky)*dt*1.2;
-      setPos(kx,ky,false);kasper.style.transform='scaleX(1)';
-    }
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(loop);
-  spawnBone();spawnBone();
-  setInterval(()=>spawnBone(),2000);
-  arena.addEventListener('click',e=>{
-    if(e.target===kasper||e.target.classList.contains('bone')||e.target===flash)return;
-    const r=arena.getBoundingClientRect();
-    streak=0;comboEl.textContent='x1';
-    spawnBone((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100);
-  });
-})();
-</script>
-</body>
+<dialog class="np-lightbox" aria-labelledby="np-photo-caption"><button type="button" class="np-lightbox-close" aria-label="Закрыть фотографию">Закрыть ×</button><p id="np-photo-caption"></p><img id="np-large-photo" alt=""><div class="np-lightbox-controls"><button type="button" data-photo-prev aria-label="Предыдущее фото">←</button><span id="np-photo-count" role="status" aria-live="polite"></span><button type="button" data-photo-next aria-label="Следующее фото">→</button></div></dialog></body>
 </html>
