@@ -20,8 +20,6 @@ const portfolioCards = document.querySelectorAll("[data-portfolio-card]");
 const faqItems = document.querySelectorAll(".faq-item");
 const kasperHelper = document.querySelector("[data-kasper-helper]");
 const kasperHelperToggle = document.querySelector("[data-kasper-helper-toggle]");
-const cookieNotice = document.querySelector("[data-cookie-notice]");
-const cookieAccept = document.querySelector("[data-cookie-accept]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const siteMenuToggle = document.querySelector(".site-menu-toggle");
@@ -51,34 +49,6 @@ if (siteMenuToggle && siteNavigation) {
   });
 }
 
-if (cookieNotice && cookieAccept) {
-  let technicalNoticeAccepted = false;
-
-  try {
-    technicalNoticeAccepted = window.localStorage.getItem("hrneiroway-technical-notice") === "accepted";
-  } catch (error) {
-    technicalNoticeAccepted = false;
-  }
-
-  if (technicalNoticeAccepted) {
-    cookieNotice.hidden = true;
-    document.body.classList.add("cookies-accepted");
-  }
-
-  cookieAccept.addEventListener("click", () => {
-    try {
-      window.localStorage.setItem("hrneiroway-technical-notice", "accepted");
-    } catch (error) {
-      // Уведомление всё равно можно закрыть, если хранилище браузера недоступно
-    }
-
-    document.body.classList.add("cookies-accepted");
-    cookieNotice.classList.add("is-hiding");
-    window.setTimeout(() => {
-      cookieNotice.hidden = true;
-    }, reduceMotion ? 0 : 320);
-  });
-}
 
 faqItems.forEach((item) => {
   item.addEventListener("toggle", () => {

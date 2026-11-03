@@ -4,8 +4,6 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const menuButton = document.querySelector(".ic-menu-button");
   const mobileMenu = document.querySelector(".ic-mobile-menu");
-  const cookieNotice = document.querySelector("[data-cookie-notice]");
-  const cookieAccept = document.querySelector("[data-cookie-accept]");
 
   const closeMenu = () => {
     if (!menuButton || !mobileMenu) return;
@@ -30,27 +28,6 @@
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") closeMenu();
-    });
-  }
-
-  if (cookieNotice && cookieAccept) {
-    let cookieAccepted = false;
-
-    try {
-      cookieAccepted = window.localStorage.getItem("hrneiroway-cookie-notice") === "accepted";
-    } catch (error) {
-      cookieAccepted = false;
-    }
-
-    cookieNotice.hidden = cookieAccepted;
-
-    cookieAccept.addEventListener("click", () => {
-      cookieNotice.hidden = true;
-      try {
-        window.localStorage.setItem("hrneiroway-cookie-notice", "accepted");
-      } catch (error) {
-        // Страница продолжает работать, если сохранение настроек недоступно
-      }
     });
   }
 

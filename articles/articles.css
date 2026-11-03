@@ -3490,3 +3490,11 @@ h3 {
     height: calc(100% - 22px);
   }
 }
+
+/* Keep the introduction and the decorative object in separate columns. */
+.article-page--welcome .hero-card,.article-page--contents .hero-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.6fr);column-gap:48px;row-gap:18px;align-items:center;padding:clamp(30px,4vw,58px);min-height:420px}
+.article-page--welcome .hero-card>.label,.article-page--contents .hero-card>.label,.article-page--welcome .hero-card>h1,.article-page--contents .hero-card>h1,.article-page--welcome .hero-card>.lead,.article-page--contents .hero-card>.lead{grid-column:1;min-width:0;max-width:100%;margin:0}
+.article-page--welcome .hero-card>.welcome-object--notebook,.article-page--contents .hero-card>.contents-object--highlighter{position:relative;grid-column:2;grid-row:1/4;top:auto;right:auto;bottom:auto;left:auto;width:100%;max-width:300px;height:auto;justify-self:center;transform:rotate(3deg);animation:none}
+.article-page--contents .hero-card>.contents-object--highlighter{transform:rotate(-9deg)}
+.article-page--welcome .hero-card::after,.article-page--contents .hero-card::after{bottom:20px;right:30px}
+@media(max-width:760px){.article-page--welcome .hero-card,.article-page--contents .hero-card{grid-template-columns:minmax(0,1fr);gap:22px;min-height:0;padding:30px 24px 45px}.article-page--welcome .hero-card>.welcome-object--notebook,.article-page--contents .hero-card>.contents-object--highlighter{grid-column:1;grid-row:auto;max-width:210px}.article-page--welcome .hero-card::after,.article-page--contents .hero-card::after{right:20px;bottom:16px;transform:none}}

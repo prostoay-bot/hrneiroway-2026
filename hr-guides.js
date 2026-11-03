@@ -17,19 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
-  const cookieNotice = document.querySelector("[data-cookie-notice]");
-  const cookieClose = document.querySelector("[data-cookie-accept]");
-  const cookieKey = "hrneiroway-cookie-notice";
-
-  if (cookieNotice && localStorage.getItem(cookieKey) !== "accepted") {
-    cookieNotice.hidden = false;
-  }
-
-  cookieClose?.addEventListener("click", () => {
-    localStorage.setItem(cookieKey, "accepted");
-    if (cookieNotice) cookieNotice.hidden = true;
-  });
-
   const pdfModal = document.querySelector("[data-pdf-modal]");
   const pdfOpen = document.querySelector("[data-pdf-open]");
   const pdfClose = document.querySelector("[data-pdf-close]");
