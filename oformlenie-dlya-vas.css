@@ -69,3 +69,9 @@
 .of-footer-note{flex-basis:100%;font-size:10px}
 @media(max-width:959px){.of-contact.of-contact-links{grid-template-columns:1fr;padding:75px var(--gutter) 60px;gap:45px}.of-contact-channels{width:100%;max-width:650px}.of-contact-links h2{font-size:clamp(60px,10vw,92px)}.of-footer{gap:15px 20px}.of-footer-logo{font-size:clamp(40px,9vw,75px)}.of-footer-bottom{justify-content:flex-start;gap:18px 30px}}
 @media(max-width:540px){.of-contact.of-contact-links{padding-top:60px;padding-bottom:45px;gap:30px}.of-contact-links h2{font-size:clamp(54px,14vw,70px);margin:24px 0}.of-contact-copy>p:not(.of-eyebrow){font-size:13px}.of-channel{padding:24px 0;gap:10px 16px}.of-channel-value{font-size:36px}.of-channel-email{font-size:18px}.of-channel-arrow{font-size:28px}.of-footer-logo{font-size:clamp(33px,9vw,48px)}.of-footer-up{gap:12px}.of-footer-bottom{padding-top:22px}.of-footer nav{gap:14px}}
+
+/* Long hero headline: preserve the selected wording across screen sizes */
+.of-hero h1.of-hero-title-long{font-size:clamp(54px,6.6vw,102px);line-height:1.04;max-width:1100px;letter-spacing:-.035em}
+.of-hero-title-long>span{display:block}
+@media(max-width:959px){.of-hero h1.of-hero-title-long{font-size:clamp(43px,7.2vw,68px);max-width:100%}}
+@media(max-width:540px){.of-hero h1.of-hero-title-long{font-size:clamp(35px,9.5vw,49px);line-height:1.08;margin:50px 0 24px}.of-hero-title-long>span{display:inline}}
