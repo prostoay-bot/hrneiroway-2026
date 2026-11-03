@@ -1,3 +1,6 @@
+/* Keep intrinsic image proportions when a smaller preview is used. */
+img { height: auto; }
+
 :root {
   --ic-paper: #fffcef;
   --ic-paper-soft: #f5eddd;
@@ -418,7 +421,7 @@ summary {
   color: var(--ic-paper);
   background:
     linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.62)),
-    url("./assets/images/a_modern_industrial_chic_office_lobby_lounge_scene.png") center / cover no-repeat;
+    url("assets/images/optimized/a_modern_industrial_chic_office_lobby_lounge_scene-bea211a-1200.webp") center / cover no-repeat;
 }
 
 .ic-situations__overlay {
@@ -1455,7 +1458,7 @@ summary {
     aspect-ratio: 16 / 9;
     background:
       linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)),
-      url("./assets/images/a_modern_industrial_chic_office_lobby_lounge_scene.png") center / cover no-repeat;
+      url("assets/images/optimized/a_modern_industrial_chic_office_lobby_lounge_scene-bea211a-1200.webp") center / cover no-repeat;
   }
 
   .ic-situations__overlay {

@@ -1,3 +1,6 @@
+/* Keep intrinsic image proportions when a smaller preview is used. */
+img { height: auto; }
+
 :root {
   --paper: #fffcef;
   --paper-soft: #f6efdf;
@@ -1837,3 +1840,8 @@ body.mb-gallery-open {
 .mb-gallery__original[hidden] { display:none; }
 @media(max-width:900px) { .mb-hr-grid { gap:20px; }  .mb-hr-card__title { font-size:31px; } }
 @media(max-width:640px) { .mb-hr-showcase { padding:50px 0; } .mb-hr-grid { grid-template-columns:1fr; gap:35px; } .mb-hr-card__image { max-width:440px; align-self:center; } .mb-hr-card__title { font-size:36px; } }
+
+/* Client outcomes, kept separate from the portfolio and the deliverables. */
+.mb-results{padding:clamp(65px,8vw,110px) var(--gutter,4vw);background:#faf8f4;color:#0a3428;border-top:1px solid #0a342820}.mb-results .mb-section-head{max-width:1320px;margin:0 auto 45px}.mb-results__list{max-width:1320px;margin:auto;display:grid;gap:25px}.mb-result{display:grid;grid-template-columns:minmax(220px,.85fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3vw,45px);padding:clamp(25px,3vw,42px);background:#fffdf9;border:1px solid #0a342825}.mb-result__heading h3{font-family:'Forum',Georgia,serif;font-size:clamp(29px,2.8vw,39px);font-weight:400;line-height:1.12;margin:20px 0}.mb-result__format{display:block;color:#536d5f;font-size:11px;line-height:1.7}.mb-result dl{display:grid;gap:20px;margin:0;font-size:13px;line-height:1.8}.mb-result dt,.mb-result__label{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;margin:0 0 8px;color:#660810}.mb-result dd{margin:0}.mb-result__effect{padding-left:24px;border-left:2px solid #70866a66;font-size:14px;line-height:1.9}.mb-result__effect>p:last-child{margin:0}.mb-result__label{line-height:1.8}
+@media(max-width:1000px){.mb-result{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.mb-result__heading{grid-column:1/-1}.mb-result__heading h3{margin:14px 0}.mb-result__heading .mb-card-number{display:block}.mb-result__format{font-size:12px}}
+@media(max-width:600px){.mb-result{grid-template-columns:minmax(0,1fr);gap:25px}.mb-result__effect{padding:20px 0 0;border-left:0;border-top:2px solid #70866a66}.mb-result__heading h3{font-size:32px}.mb-results .mb-section-head{margin-bottom:30px}}

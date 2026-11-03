@@ -104,6 +104,15 @@ const setGallerySlide = (dialog, nextIndex) => {
 
   const index = (nextIndex + slides.length) % slides.length;
   dialog.dataset.galleryIndex = index;
+  if (dialog.open) {
+    dialog.querySelectorAll("img[data-gallery-src]").forEach((image) => {
+      const slide = image.closest("[data-gallery-slide]");
+      if (slide && slide !== slides[index]) return;
+      image.loading = "eager";
+      image.src = image.dataset.gallerySrc;
+      image.removeAttribute("data-gallery-src");
+    });
+  }
   slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === index));
   thumbs.forEach((thumb, thumbIndex) => {
     const isActive = thumbIndex === index;
@@ -146,8 +155,8 @@ dialogTriggers.forEach((trigger) => {
     const dialog = document.getElementById(trigger.dataset.dialogOpen);
     if (!dialog) return;
     lastDialogTrigger = trigger;
-    if (dialog.classList.contains("gallery-dialog")) setGallerySlide(dialog, 0);
     dialog.showModal();
+    if (dialog.classList.contains("gallery-dialog")) setGallerySlide(dialog, 0);
     lockPageScroll();
     dialog.querySelector(".dialog-close")?.focus();
   });

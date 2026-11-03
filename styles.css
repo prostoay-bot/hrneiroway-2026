@@ -1,3 +1,6 @@
+/* Keep intrinsic image proportions when a smaller preview is used. */
+img { height: auto; }
+
 :root {
   --bg: #fffcef;
   --card: #e9d4c3;
