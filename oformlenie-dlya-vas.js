@@ -116,4 +116,27 @@
   lightbox.addEventListener('click',event=>{if(event.target===lightbox){const r=lightbox.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closePreview();}});
   lightbox.addEventListener('close',()=>{document.body.style.overflow='';preview.removeAttribute('src');slides=[];touchStart=null;opener?.classList.remove('is-previewing');opener?.focus({preventScroll:true});});
 
+  const reviewTrack=document.querySelector('.of-review-track');
+  if(reviewTrack){
+    const controls=document.querySelector('.of-review-controls');
+    const prev=controls.querySelector('[data-review-prev]');
+    const next=controls.querySelector('[data-review-next]');
+    const cards=Array.from(reviewTrack.querySelectorAll('.of-review'));
+    const position=controls.querySelector('.of-review-position');
+    controls.hidden=false;
+    const updateReviews=()=>{
+      const step=cards[1].offsetLeft-cards[0].offsetLeft;
+      const current=Math.min(cards.length,Math.round(reviewTrack.scrollLeft/step)+1);
+      prev.disabled=reviewTrack.scrollLeft<2;
+      next.disabled=reviewTrack.scrollLeft+reviewTrack.clientWidth>=reviewTrack.scrollWidth-3;
+      position.textContent=current+' / '+cards.length;
+    };
+    const moveReviews=direction=>reviewTrack.scrollBy({left:direction*(cards[1].offsetLeft-cards[0].offsetLeft),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    prev.addEventListener('click',()=>moveReviews(-1));
+    next.addEventListener('click',()=>moveReviews(1));
+    reviewTrack.addEventListener('scroll',updateReviews,{passive:true});
+    reviewTrack.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();moveReviews(event.key==='ArrowRight'?1:-1);}});
+    window.addEventListener('resize',updateReviews,{passive:true});
+    updateReviews();
+  }
 })();
