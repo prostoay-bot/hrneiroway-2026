@@ -1,0 +1,12 @@
+/* Russian prose wraps between words; short prepositions use nonbreaking spaces. */
+h1, h2, h3, h4, h5, h6,
+p, li, dt, dd, blockquote, figcaption {
+  -webkit-hyphens: none !important;
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
