@@ -7999,3 +7999,56 @@ pointer-events: none !important;
     display: none !important;
   }
 }
+
+/* Service-led introduction on the home page */
+.hero-copy {
+  width: min(740px, 39vw);
+  max-width: none;
+}
+.hero-copy .hero-title-main {
+  font-size: clamp(42px, 4.05vw, 76px);
+  line-height: 1.02;
+}
+.hero-copy .hero-subtitle {
+  position: relative;
+  left: auto;
+  top: auto;
+  margin-top: 20px;
+}
+.portrait-caption {
+  top: 14%;
+  width: min(330px, 26vw);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.portrait-caption p { margin: 0; }
+.portrait-caption .portrait-caption__experience {
+  margin-top: 14px;
+  font-weight: 800;
+}
+@media (max-width: 1100px) {
+  .portrait-caption {
+    display: block;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(620px, 100%);
+    margin-top: 394px;
+    font-size: 15px;
+  }
+  .hero-copy {
+    width: min(620px, 100%);
+    margin-top: 28px;
+  }
+  .hero-copy .hero-title-main {
+    font-size: clamp(32px, 6.8vw, 62px);
+  }
+}
+@media (max-width: 520px) {
+  .portrait-caption { margin-top: 344px; }
+  .hero-copy .hero-title-main { font-size: clamp(28px, 7.7vw, 40px); }
+  .hero-copy .hero-subtitle { margin-top: 18px; }
+}
