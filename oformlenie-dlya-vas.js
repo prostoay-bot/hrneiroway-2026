@@ -83,7 +83,7 @@
     renderSlide();
   };
   const openProject=(button,project)=>{
-    opener=button;slides=project.slides;slideIndex=0;
+    opener=button;opener.classList.add('is-previewing');slides=project.slides;slideIndex=0;
     caption.textContent=project.title;description.textContent=project.description||'';
     renderSlide();lightbox.showModal();document.body.style.overflow='hidden';
   };
@@ -114,21 +114,6 @@
   const closePreview=()=>lightbox.close();
   document.querySelector('.of-lightbox-close').addEventListener('click',closePreview);
   lightbox.addEventListener('click',event=>{if(event.target===lightbox){const r=lightbox.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closePreview();}});
-  lightbox.addEventListener('close',()=>{document.body.style.overflow='';preview.removeAttribute('src');slides=[];touchStart=null;opener?.focus({preventScroll:true});});
+  lightbox.addEventListener('close',()=>{document.body.style.overflow='';preview.removeAttribute('src');slides=[];touchStart=null;opener?.classList.remove('is-previewing');opener?.focus({preventScroll:true});});
 
-  const form=document.querySelector('.of-form');
-  let draft='';
-  form.addEventListener('submit',event=>{
-    event.preventDefault();if(!form.reportValidity())return;
-    const data=new FormData(form);
-    draft=`Здравствуйте, Марина!\n\nМеня зовут ${String(data.get('name')).trim()}.\nСвязаться со мной: ${String(data.get('contact')).trim()}\n\nЗадача:\n${String(data.get('message')).trim()}`;
-    const mail='mailto:hrneiroway@yandex.ru?subject='+encodeURIComponent('Оформление для вас — новая задача')+'&body='+encodeURIComponent(draft);
-    document.querySelector('.of-draft-link').href=mail;
-    const result=document.querySelector('.of-form-result');result.hidden=false;result.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'});
-  });
-  form.addEventListener('input',()=>{document.querySelector('.of-form-result').hidden=true;document.querySelector('.of-copy').textContent='Скопировать текст';});
-  document.querySelector('.of-copy').addEventListener('click',async event=>{
-    try{await navigator.clipboard.writeText(draft);event.target.textContent='Текст скопирован';}
-    catch{event.target.textContent='Откройте письмо по ссылке выше';}
-  });
 })();
