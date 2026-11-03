@@ -107,3 +107,14 @@
 @media(prefers-reduced-motion:reduce){.of-works.has-work-reveal .of-work>*{opacity:1!important;transform:none!important;clip-path:none!important}.of-work:hover .of-work-picture img{transform:none}}
 .of-works.has-title-reveal .of-reveal-word{--word-color:var(--green);color:transparent;background:linear-gradient(90deg,var(--word-color) var(--word-fill,0%),#a4b2a8 var(--word-fill,0%));background-clip:text;-webkit-background-clip:text}.of-works.has-title-reveal em .of-reveal-word{--word-color:var(--wine)}
 @media(prefers-reduced-motion:reduce),(forced-colors:active){.of-works.has-title-reveal .of-reveal-word{background:none;color:var(--green)}.of-works.has-title-reveal em .of-reveal-word{color:var(--wine)}}
+
+/* На компьютере превью появляется при наведении на проект */
+@media(hover:hover) and (pointer:fine) and (min-width:960px){
+.of-work-grid .of-work{position:relative;grid-template-columns:28px minmax(200px,1fr) minmax(135px,180px) 100px;min-height:88px;padding:20px 8px;overflow:visible}
+.of-work-grid .of-work-title{transition:color .25s,transform .45s,opacity .45s}.of-work-grid .of-work:hover .of-work-title,.of-work-grid .of-work:focus-visible .of-work-title{color:var(--wine);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
+.of-work-grid .of-work-picture,.of-works.has-work-reveal .of-work.is-seen>.of-work-picture{position:absolute;left:57%;top:50%;width:240px;height:160px;padding:8px;background:var(--paper);border:1px solid var(--line);box-shadow:0 15px 35px #0a342818;pointer-events:none;opacity:0;clip-path:none;transform:translate(-20%,-46%) rotate(-3deg) scale(.96);z-index:3;transition:opacity .2s,transform .3s}
+.of-work-grid .of-work:hover,.of-work-grid .of-work:focus-visible{z-index:4}
+.of-work-grid .of-work:hover>.of-work-picture,.of-work-grid .of-work:focus-visible>.of-work-picture,.of-works.has-work-reveal .of-work.is-seen:hover>.of-work-picture,.of-works.has-work-reveal .of-work.is-seen:focus-visible>.of-work-picture{opacity:1;transform:translate(-20%,-50%) rotate(-3deg) scale(1)}
+.of-work-grid .of-work:hover .of-work-picture img{transform:none}
+}
+.of-work-hint-desktop{display:none}.of-work-hint-touch{display:inline}@media(hover:hover) and (pointer:fine) and (min-width:960px){.of-work-hint-desktop{display:inline}.of-work-hint-touch{display:none}}
