@@ -139,4 +139,36 @@
     window.addEventListener('resize',updateReviews,{passive:true});
     updateReviews();
   }
+  const workSection=document.querySelector('.of-works');
+  const workCards=Array.from(document.querySelectorAll('.of-work-grid .of-work'));
+  const workFilters=Array.from(document.querySelectorAll('[data-work-filter]'));
+  workFilters.forEach(button=>button.addEventListener('click',()=>{
+    workFilters.forEach(filter=>filter.setAttribute('aria-pressed',String(filter===button)));
+    let visible=0;
+    workCards.forEach(card=>{card.hidden=button.dataset.workFilter!=='all'&&card.dataset.workCategory!==button.dataset.workFilter;if(!card.hidden)visible++;});
+    document.querySelector('.of-work-total').textContent='Показано проектов: '+visible;
+  }));
+  if('IntersectionObserver' in window&&!reduce.matches){
+    const revealWorks=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('is-seen');revealWorks.unobserve(entry.target);}
+    }),{threshold:0,rootMargin:'0px 0px 60px 0px'});
+    workSection.classList.add('has-work-reveal');
+    workCards.forEach(card=>revealWorks.observe(card));
+  }
+  const portfolioTitle=document.querySelector('#examples-title');
+  const titleWords=Array.from(portfolioTitle.querySelectorAll('.of-reveal-word'));
+  let titleFrame=0;
+  const updatePortfolioTitle=()=>{
+    titleFrame=0;
+    workSection.classList.toggle('has-title-reveal',!reduce.matches);
+    if(reduce.matches)return;
+    const rect=portfolioTitle.getBoundingClientRect();
+    const progress=Math.max(0,Math.min(1,(innerHeight*.92-rect.top)/(innerHeight*.42)));
+    titleWords.forEach((word,index)=>word.style.setProperty('--word-fill',Math.max(0,Math.min(1,progress*titleWords.length-index))*100+'%'));
+  };
+  const requestTitleUpdate=()=>{if(!titleFrame)titleFrame=requestAnimationFrame(updatePortfolioTitle);};
+  addEventListener('scroll',requestTitleUpdate,{passive:true});
+  addEventListener('resize',requestTitleUpdate,{passive:true});
+  reduce.addEventListener('change',requestTitleUpdate);
+  updatePortfolioTitle();
 })();
