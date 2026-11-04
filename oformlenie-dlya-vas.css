@@ -118,3 +118,7 @@
 .of-work-grid .of-work:hover .of-work-picture img{transform:none}
 }
 .of-work-hint-desktop{display:none}.of-work-hint-touch{display:inline}@media(hover:hover) and (pointer:fine) and (min-width:960px){.of-work-hint-desktop{display:inline}.of-work-hint-touch{display:none}}
+
+/* Keep analytics settings in the existing dark footer. */
+.of-footer [data-analytics-settings-slot]{display:contents}
+.of-footer .hr-analytics-settings{display:inline-block;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;line-height:inherit;min-height:0;text-align:left;text-decoration:underline;text-underline-offset:4px}

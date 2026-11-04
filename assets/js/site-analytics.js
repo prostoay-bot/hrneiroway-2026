@@ -81,7 +81,9 @@
     settingsButton.setAttribute('aria-expanded', String(!choice));
     panel.id = 'hr-analytics-panel';
     const main = document.querySelector('main');
-    if (main) main.after(settingsButton); else document.body.append(settingsButton);
+    const settingsSlot = document.querySelector('[data-analytics-settings-slot]');
+    if (settingsSlot) settingsSlot.append(settingsButton);
+    else if (main) main.after(settingsButton); else document.body.append(settingsButton);
     document.body.append(panel);
     settingsButton.addEventListener('click', () => {
       returnFocus = settingsButton;
