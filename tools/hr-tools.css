@@ -24,3 +24,19 @@ button .ui-icon { width:18px; height:18px; margin-right:7px; }
 @media(max-width:1099px) { .repeat-top { flex-wrap:wrap; } .repeat-top>div { flex-wrap:wrap; } }
 @media(max-width:760px) { .intro-heading { gap:14px; align-items:flex-start; } .intro-symbol { width:54px; height:54px; border-radius:11px; } .intro-symbol .ui-icon { width:34px; height:34px; } .intro-heading h1 { font-size:38px; } .panel-heading h2, .preview-toolbar h2 { gap:8px; } .output-actions button .ui-icon { width:15px; height:15px; margin-right:5px; } }
 @media print { .doc-step .ui-icon { width:22px; height:22px; } .doc-section>h3>.ui-icon, .doc-contact h3>.ui-icon { width:20px; height:20px; } }
+
+/* Keep the editor and generated preview inside a narrow phone screen. */
+@media (max-width:760px) {
+  .workspace { grid-template-columns:minmax(0,1fr); }
+  .editor,.preview-area,.preview-toolbar,.panel-heading { min-width:0; }
+  .preview-toolbar,.form-section-heading { flex-wrap:wrap; }
+  .output-actions { max-width:100%; }
+  .two-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  input,textarea,select { font-size:16px; }
+}
+@media (max-width:360px) {
+  .two-fields { grid-template-columns:minmax(0,1fr); }
+  .template-controls { grid-template-columns:minmax(0,1fr); }
+  .preview-toolbar { flex-direction:column;align-items:flex-start; }
+  .output-actions { justify-content:flex-start; }
+}
