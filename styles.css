@@ -3379,7 +3379,7 @@ body.has-useful-modal {
   .process-route {
     min-height: 950px;
     margin-top: 76px;
-    padding-left: 92px;
+    padding-left: clamp(60px, 18vw, 68px);
   }
 
   .process-route__line {
@@ -3391,7 +3391,7 @@ body.has-useful-modal {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 28px;
+    left: 22px;
     width: 1px;
     background: rgba(102, 8, 16, 0.22);
   }
@@ -3407,7 +3407,7 @@ body.has-useful-modal {
   .process-route__guide {
     top: 0;
     left: -1px;
-    width: clamp(64px, 17vw, 76px);
+    width: clamp(48px, 14vw, 56px);
     transform: translate3d(0, var(--process-y, 0), 0);
   }
 
