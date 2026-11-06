@@ -8083,4 +8083,5 @@ pointer-events: none !important;
   .work-process__header { grid-template-columns:minmax(0,1fr); }
   .work-process__marker,.work-process__heading { min-width:0; }
   .work-process__heading h2 { white-space:normal; }
+  .work-process__aside { display:none; }
 }
