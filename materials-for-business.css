@@ -982,6 +982,7 @@ body.mb-gallery-open {
 }
 
 .mb-project {
+  scroll-margin-top: 110px;
   min-height: 510px;
   padding: 24px;
   display: grid;
