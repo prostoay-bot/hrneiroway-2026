@@ -493,7 +493,7 @@ h1 {
 .formats.section-shell { padding-block: clamp(54px, 6vw, 88px); }
 .formats .section-heading { margin-bottom: clamp(42px, 5vw, 70px); }
 .formats .section-marker,
-.formats .eyebrow { color: rgba(255, 252, 239, .72); }
+.formats .eyebrow { color: #fffcef; }
 .formats .section-heading h2 { color: var(--milk); }
 .format-switcher { border: 1px solid rgba(255, 252, 239, .48); }
 .format-tabs {
