@@ -607,7 +607,7 @@ h1 {
   content: "";
 }
 .formats .section-marker { color: var(--burgundy); }
-.formats .eyebrow { color: var(--sage); }
+.formats .eyebrow { color: #385d51; }
 .formats .section-heading h2 { max-width: 900px; color: var(--green); }
 .format-switcher {
   position: relative;
