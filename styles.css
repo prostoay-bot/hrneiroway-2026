@@ -6689,7 +6689,7 @@ body:not(.cookies-accepted) .kasper-helper {
   max-width: calc(100% - 20px);
   margin-top: 8px;
   overflow-wrap: anywhere;
-  color: rgba(10, 52, 40, 0.58);
+  color: #385d51;
   font: 650 10px/1.25 var(--sans);
   letter-spacing: 0.04em;
   text-transform: uppercase;
