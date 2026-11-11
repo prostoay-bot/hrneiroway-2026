@@ -917,7 +917,7 @@ summary {
 }
 
 .ic-projects__more {
-  width: min(100%, 900px);
+  width: min(100%, 1120px);
   margin: clamp(10px, 2vw, 30px) auto clamp(-36px, -2vw, -18px);
   text-align: center;
 }
@@ -1820,6 +1820,39 @@ summary {
 .brand-logo-img { display: block; width: auto; max-width: 180px; height: clamp(18px, 1.5vw, 24px); object-fit: contain; }
 .brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }
 
+/* Page type scale: main title, section titles, and card titles. */
+:root {
+  --ic-type-main: clamp(40px, 5.6vw, 70px);
+  --ic-type-section: clamp(34px, 5vw, 68px);
+  --ic-type-card: clamp(28px, 3.5vw, 46px);
+}
+
+.ic-hero h1 {
+  font-size: var(--ic-type-main);
+  line-height: 1.05;
+}
+
+.ic-statement h2,
+.ic-situations h2,
+.ic-solutions #ic-solutions-title,
+.ic-doubts h2,
+.ic-projects .ic-section-head h2,
+.ic-contact h2 {
+  font-family: "Forum", Georgia, serif;
+  font-size: var(--ic-type-section);
+  font-style: normal;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.ic-glass-card h3,
+.ic-solution-card h3,
+.ic-project .ic-project__copy h3,
+.ic-project--case .ic-project__copy h3 {
+  font-size: var(--ic-type-card);
+  line-height: 1.1;
+}
+
 .ic-projects__more,
 .ic-project__copy--meeting,
 .ic-project__copy--idea,
@@ -1827,28 +1860,28 @@ summary {
   container-type: inline-size;
 }
 
+/* Keep the requested line breaks, using the available column width. */
 .ic-projects__more h3 {
-  font-size: clamp(18px, 6.1cqi, 60px);
+  font-size: min(var(--ic-type-section), 6.4cqi);
+  line-height: 1.1;
   white-space: nowrap;
 }
 
-.ic-project__copy--meeting h3 {
+.ic-project .ic-project__copy--meeting h3,
+.ic-project--case .ic-project__copy--idea h3,
+.ic-project--case .ic-project__copy--changes h3 {
   max-width: none;
-  font-size: clamp(18px, 6.7cqi, 66px);
-  line-height: 1.05;
   white-space: nowrap;
+}
+
+.ic-project .ic-project__copy--meeting h3 {
+  font-size: min(var(--ic-type-card), 6.7cqi);
 }
 
 .ic-project--case .ic-project__copy--idea h3 {
-  max-width: none;
-  font-size: clamp(16px, 5.55cqi, 58px);
-  line-height: 1.12;
-  white-space: nowrap;
+  font-size: min(var(--ic-type-card), 5.65cqi);
 }
 
 .ic-project--case .ic-project__copy--changes h3 {
-  max-width: none;
-  font-size: clamp(24px, 7cqi, 58px);
-  line-height: 1.12;
-  white-space: nowrap;
+  font-size: min(var(--ic-type-card), 8cqi);
 }
