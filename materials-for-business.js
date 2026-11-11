@@ -40,19 +40,19 @@
         "slides": [
             {
                 "src": "./assets/images/hr-onepagers/access-rules.webp",
-                "alt": "Пропускной режим: памятка для сотрудников",
+                "alt": "Памятка «Пропускной режим»: как пользоваться пропуском и встречать посетителей",
                 "title": "Пропускной режим",
                 "description": "Наглядный порядок доступа в офис: пропуск, посетители и действия в типовых ситуациях."
             },
             {
                 "src": "./assets/images/hr-onepagers/company-rules.webp",
-                "alt": "Работаем по правилам: памятка для сотрудников",
+                "alt": "Памятка «Работаем по правилам»: рабочее время, отдых и обязанности сотрудников",
                 "title": "Работаем по правилам",
                 "description": "Основные темы внутренних правил: рабочее время, отдых, обязанности и порядок взаимодействия."
             },
             {
                 "src": "./assets/images/hr-onepagers/income-guide.webp",
-                "alt": "Из чего складывается доход: памятка для сотрудников",
+                "alt": "Памятка «Из чего складывается доход»: вознаграждение, социальный пакет и возможности роста",
                 "title": "Из чего складывается доход",
                 "description": "Структура вознаграждения, социальный пакет и возможности роста, собранные в одном макете."
             }
@@ -83,8 +83,8 @@
       const item = galleryData[activeGallery];
       if (!item) return;
       const slide = item.slides[activeIndex];
-      image.src = slide.src;
       image.alt = slide.alt;
+      image.src = slide.src;
       if (originalLink) { originalLink.hidden = !item.fullSize; originalLink.href = item.fullSize ? slide.src : ""; }
       eyebrow.textContent = item.eyebrow;
       title.textContent = slide.title || item.title;
@@ -117,7 +117,8 @@
       if (gallery.hidden) return;
       gallery.hidden = true;
       document.body.classList.remove("mb-gallery-open");
-      image.src = "";
+      image.removeAttribute("src");
+      image.alt = "";
       activeGallery = null;
       if (lastTrigger) lastTrigger.focus();
     };
