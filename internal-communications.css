@@ -1854,7 +1854,6 @@ summary {
 }
 
 .ic-projects__more,
-.ic-project__copy--meeting,
 .ic-project__copy--idea,
 .ic-project__copy--changes {
   container-type: inline-size;
@@ -1867,15 +1866,10 @@ summary {
   white-space: nowrap;
 }
 
-.ic-project .ic-project__copy--meeting h3,
 .ic-project--case .ic-project__copy--idea h3,
 .ic-project--case .ic-project__copy--changes h3 {
   max-width: none;
   white-space: nowrap;
-}
-
-.ic-project .ic-project__copy--meeting h3 {
-  font-size: min(var(--ic-type-card), 6.7cqi);
 }
 
 .ic-project--case .ic-project__copy--idea h3 {
@@ -1884,4 +1878,22 @@ summary {
 
 .ic-project--case .ic-project__copy--changes h3 {
   font-size: min(var(--ic-type-card), 8cqi);
+}
+
+/* Both examples use the same scale, sized for the longer title. */
+.ic-project--compact {
+  width: 100%;
+  container-type: inline-size;
+}
+
+.ic-project--compact .ic-project__copy h3 {
+  max-width: none;
+  font-size: min(var(--ic-type-card), 2.85cqi);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .ic-project--compact .ic-project__copy h3 {
+    font-size: min(var(--ic-type-card), 6.7cqi);
+  }
 }
