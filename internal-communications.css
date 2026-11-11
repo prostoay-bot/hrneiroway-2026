@@ -1821,7 +1821,9 @@ summary {
 .brand-logo-img--footer { width: min(180px, 100%); max-width: 180px; height: auto; }
 
 .ic-projects__more,
-.ic-project__copy--meeting {
+.ic-project__copy--meeting,
+.ic-project__copy--idea,
+.ic-project__copy--changes {
   container-type: inline-size;
 }
 
@@ -1834,5 +1836,19 @@ summary {
   max-width: none;
   font-size: clamp(18px, 6.7cqi, 66px);
   line-height: 1.05;
+  white-space: nowrap;
+}
+
+.ic-project--case .ic-project__copy--idea h3 {
+  max-width: none;
+  font-size: clamp(16px, 5.55cqi, 58px);
+  line-height: 1.12;
+  white-space: nowrap;
+}
+
+.ic-project--case .ic-project__copy--changes h3 {
+  max-width: none;
+  font-size: clamp(24px, 7cqi, 58px);
+  line-height: 1.12;
   white-space: nowrap;
 }
