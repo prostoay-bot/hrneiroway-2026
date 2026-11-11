@@ -477,9 +477,8 @@ summary {
   padding: 24px;
   color: var(--ic-green);
   border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(246, 237, 221, 0.88);
+  background: #FFFDF9;
   box-shadow: 0 18px 46px rgba(4, 22, 17, 0.19);
-  backdrop-filter: blur(16px);
 }
 
 .ic-glass-card:nth-child(2),
@@ -1476,8 +1475,6 @@ summary {
     opacity: 1 !important;
     transform: none !important;
     border-color: var(--ic-line);
-    background: var(--ic-paper-soft);
-    backdrop-filter: none;
   }
 
   .ic-glass-card:nth-child(2),
