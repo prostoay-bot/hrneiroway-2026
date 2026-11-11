@@ -917,7 +917,7 @@ summary {
 }
 
 .ic-projects__more {
-  max-width: 900px;
+  width: min(100%, 900px);
   margin: clamp(10px, 2vw, 30px) auto clamp(-36px, -2vw, -18px);
   text-align: center;
 }
