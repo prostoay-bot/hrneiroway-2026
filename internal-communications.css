@@ -28,7 +28,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
   color: var(--ic-green);
   background-color: var(--ic-paper);
   background-image:
@@ -534,45 +534,41 @@ summary {
   line-height: 0.96;
 }
 
-.ic-solutions__grid {
-  margin-top: clamp(70px, 8vw, 112px);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px 18px;
+.ic-solutions__stack {
+  --ic-card-top: 108px;
+  --ic-card-step: 24px;
+  margin-top: clamp(40px, 6vw, 84px);
+  padding-bottom: calc(2 * var(--ic-card-step));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .ic-solution-card {
   position: sticky;
-  top: 112px;
-  min-height: 250px;
-  padding: clamp(26px, 2.4vw, 34px);
+  top: var(--ic-card-top);
+  z-index: 1;
+  min-height: clamp(220px, 24vw, 300px);
+  padding: clamp(22px, 3.5vw, 48px);
   display: flex;
   flex-direction: column;
   border: 1px solid var(--ic-line);
-  background: #fffcef;
-  box-shadow: 0 12px 34px rgba(50, 38, 25, 0.07);
-  transition: transform 260ms var(--ic-ease), box-shadow 260ms ease;
+  background: var(--ic-paper);
+  box-shadow: 0 12px 34px rgba(50, 38, 25, 0.12);
 }
 
-.ic-solution-card:nth-child(1),
 .ic-solution-card:nth-child(2) {
-  z-index: 1;
-}
-
-.ic-solution-card:nth-child(3),
-.ic-solution-card:nth-child(4) {
-  top: 138px;
+  top: calc(var(--ic-card-top) + var(--ic-card-step));
   z-index: 2;
 }
 
-.ic-solution-card:nth-child(5),
-.ic-solution-card:nth-child(6) {
-  top: 164px;
+.ic-solution-card:nth-child(3) {
+  top: calc(var(--ic-card-top) + 2 * var(--ic-card-step));
   z-index: 3;
 }
 
 .ic-solution-card--sand {
-  background: #e3cdb2;
+  background: var(--ic-sand);
 }
 
 .ic-solution-card--green {
@@ -580,52 +576,44 @@ summary {
   background: var(--ic-green);
 }
 
-.ic-solution-card--green > span,
-.ic-solution-card--green p {
-  color: #ead1b5;
-}
-
-.ic-solution-card--olive {
-  color: var(--ic-green);
-  border-color: rgba(112, 134, 106, 0.5);
-  background:
-    linear-gradient(90deg, var(--ic-olive) 0 8px, transparent 8px),
-    var(--ic-paper);
-}
-
-.ic-solution-card--olive > span,
-.ic-solution-card.ic-solution-card--olive p {
-  color: var(--ic-muted);
-}
-
-.ic-solution-card--olive > span {
-  width: fit-content;
-  padding: 5px 9px;
-  color: var(--ic-paper);
-  background: var(--ic-olive);
-}
-
-.ic-solution-card:hover,
-.ic-solution-card:focus-within {
-  transform: translateY(-5px);
-  box-shadow: var(--ic-shadow);
-}
-
 .ic-solution-card h3 {
-  max-width: 650px;
+  max-width: 840px;
   margin: auto 0 0;
+  padding-top: 24px;
   font-family: "Forum", Georgia, serif;
-  font-size: clamp(31px, 2.7vw, 42px);
+  font-size: clamp(29px, 5vw, 46px);
   font-weight: 400;
   line-height: 1.04;
 }
 
 .ic-solution-card p {
-  max-width: 650px;
-  margin: 16px 0 0;
+  max-width: 680px;
+  margin: 12px 0 0;
   color: var(--ic-muted);
-  font-size: 14px;
+  font-size: clamp(14px, 1.6vw, 16px);
   line-height: 1.55;
+}
+
+.ic-solution-card--green > span,
+.ic-solution-card--green p {
+  color: #ead1b5;
+}
+
+@media (max-width: 900px) {
+  .ic-solutions__stack {
+    --ic-card-top: 82px;
+    --ic-card-step: 18px;
+  }
+}
+
+@media (max-height: 480px), (prefers-reduced-motion: reduce) {
+  .ic-solutions__stack {
+    padding-bottom: 0;
+  }
+
+  .ic-solutions__stack .ic-solution-card {
+    position: static;
+  }
 }
 
 .ic-doubts {
@@ -1329,10 +1317,6 @@ summary {
     margin-top: 46px;
   }
 
-  .ic-solution-card {
-    min-height: 240px;
-  }
-
   .ic-project__media {
     min-height: 560px;
   }
@@ -1503,18 +1487,6 @@ summary {
     margin-bottom: 0;
   }
 
-  .ic-solutions__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ic-solution-card,
-  .ic-solution-card:nth-child(n) {
-    position: static;
-    top: auto;
-    grid-column: auto;
-    min-height: 260px;
-  }
-
   .ic-doubts__intro,
   .ic-process__intro {
     position: static;
@@ -1671,14 +1643,8 @@ summary {
     font-size: clamp(44px, 12.5vw, 58px);
   }
 
-  .ic-situations__cards,
-  .ic-solutions__grid {
+  .ic-situations__cards {
     grid-template-columns: 1fr;
-  }
-
-  .ic-solution-card,
-  .ic-solution-card:nth-child(n) {
-    min-height: 230px;
   }
 
   .ic-glass-card {
@@ -1687,19 +1653,6 @@ summary {
 
   .ic-section-head {
     gap: 34px;
-  }
-
-  .ic-solutions__grid {
-    margin-top: 54px;
-  }
-
-  .ic-solution-card {
-    min-height: 330px;
-    padding: 26px;
-  }
-
-  .ic-solution-card h3 {
-    font-size: 38px;
   }
 
   .ic-doubt summary {
