@@ -8085,3 +8085,15 @@ pointer-events: none !important;
   .work-process__heading h2 { white-space:normal; }
   .work-process__aside { display:none; }
 }
+
+/* Mobile usability polish: restrained overrides, desktop unchanged. */
+@media (max-width: 760px) {
+  .site-header { max-width: calc(100% - 24px); }
+  .site-nav { min-width: 0; max-width: 100%; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+  .site-nav a { display: flex; align-items: center; min-height: 44px; white-space: normal; line-height: 1.35; }
+  .site-menu-toggle { min-height: 44px; }
+  .work-process__heading h2,
+  .portfolio-showcase__heading h2 { max-width: 100%; font-size: clamp(37px, 11vw, 54px); line-height: 1.04; text-wrap: balance; overflow-wrap: normal; }
+  .work-process__header, .work-process__heading, .portfolio-showcase__header { min-width: 0; }
+  .work-process__heading p, .portfolio-showcase__heading p { overflow-wrap: break-word; }
+}
