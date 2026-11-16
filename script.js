@@ -43,7 +43,7 @@ if (siteMenuToggle && siteNavigation) {
     if (event.key === "Escape") closeSiteMenu();
   });
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 760) closeSiteMenu();
+    if (window.innerWidth > 768) closeSiteMenu();
   });
 }
 

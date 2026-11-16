@@ -768,6 +768,10 @@ body.mb-gallery-open {
   overflow: hidden;
 }
 
+body.mb-gallery-open .site-back-to-top {
+  visibility: hidden;
+}
+
 .mb-entry {
   padding: clamp(84px, 7vw, 108px) max(24px, calc((100vw - 1340px) / 2));
   color: var(--paper);

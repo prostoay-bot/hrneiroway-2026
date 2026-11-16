@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="websites.css?v=20261116-mobile-1">
+  <link rel="stylesheet" href="websites.css?v=20261116-mobile-2">
   <link rel="stylesheet" href="/assets/css/site-analytics.css?v=20261103a">
   <script src="/assets/js/site-analytics.js?v=20261103a" defer></script>
   <link rel="stylesheet" href="/assets/css/site-typography.css?v=20261103a">
@@ -378,6 +378,11 @@
           <p class="projects-lead">В&nbsp;каждом проекте я&nbsp;начинаю с&nbsp;понимания вашего бизнеса, выстраиваю структуру и&nbsp;подбираю решение под&nbsp;конкретную задачу</p>
         </header>
 
+        <div class="projects-controls" aria-label="Перелистывание проектов">
+          <button type="button" data-case-prev aria-label="Предыдущий проект" aria-disabled="true">←</button>
+          <span data-case-count aria-live="polite">1 / 5</span>
+          <button type="button" data-case-next aria-label="Следующий проект">→</button>
+        </div>
         <div class="projects-viewport">
           <div class="projects-track">
           <article class="project project-case">
@@ -528,14 +533,16 @@
 
   <dialog class="telegram-notice" id="telegram-notice" aria-labelledby="telegram-notice-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">ПЕРЕД ПЕРЕХОДОМ</p>
-    <h2 id="telegram-notice-title">Telegram может потребовать VPN</h2>
-    <p>Если Telegram у&nbsp;вас открывается только с&nbsp;VPN, включите его перед переходом. Если мессенджер недоступен, выберите другой удобный способ связи</p>
-    <div class="telegram-notice__actions">
-      <a class="button button-primary" data-telegram-direct href="https://t.me/Marina_x6" target="_blank" rel="noopener">Открыть Telegram</a>
-      <a href="https://wa.me/qr/52DPQI5O4JVFA1" target="_blank" rel="noopener">WhatsApp ↗</a>
-      <a href="https://vk.ru/hrneiroway" target="_blank" rel="noopener">ВКонтакте ↗</a>
-      <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" target="_blank" rel="noopener">MAX ↗</a>
+    <div class="dialog-scroll">
+      <p class="section-marker">ПЕРЕД ПЕРЕХОДОМ</p>
+      <h2 id="telegram-notice-title">Telegram может потребовать VPN</h2>
+      <p>Если Telegram у&nbsp;вас открывается только с&nbsp;VPN, включите его перед переходом. Если мессенджер недоступен, выберите другой удобный способ связи</p>
+      <div class="telegram-notice__actions">
+        <a class="button button-primary" data-telegram-direct href="https://t.me/Marina_x6" target="_blank" rel="noopener">Открыть Telegram</a>
+        <a href="https://wa.me/qr/52DPQI5O4JVFA1" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="https://vk.ru/hrneiroway" target="_blank" rel="noopener">ВКонтакте ↗</a>
+        <a href="https://max.ru/u/f9LHodD0cOLIr_lYl5w15E3qcAONoGJO6smF7oKU7mBUeeGDVIyLzMbrK94" target="_blank" rel="noopener">MAX ↗</a>
+      </div>
     </div>
   </dialog>
 
@@ -551,48 +558,54 @@
 
   <dialog id="dialog-basic" class="tariff-dialog" aria-labelledby="dialog-basic-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">БАЗОВОЕ РЕШЕНИЕ</p>
-    <h2 id="dialog-basic-title">Сайт на стандартных шаблонах Tilda</h2>
-    <p class="dialog-lead">Быстрый, функциональный и доступный по стоимости вариант</p>
-    <ul>
-      <li>подходит для быстрого запуска</li>
-      <li>удобно обновлять самостоятельно</li>
-      <li>оптимально для проверки новой идеи или услуги</li>
-    </ul>
-    <p>В Tilda есть стандартные блоки. Для сайта с базовым дизайном используются именно такие типовые блоки без каких-либо существенных изменений. Их структура и функциональность сохраняются, но можно настроить содержание, цвет, шрифт и отступы</p>
-    <p>Примеры реализации базового дизайна можно посмотреть в официальной коллекции шаблонов Tilda</p>
-    <a class="dialog-link" href="https://tilda.cc/ru/tpls/" target="_blank" rel="noopener noreferrer">Посмотреть базовые шаблоны Tilda <span aria-hidden="true">↗</span></a>
-    <p class="dialog-note"><strong>Важно</strong> Визуальная уникальность ограничена возможностями стандартных блоков</p>
+    <div class="dialog-scroll">
+      <p class="section-marker">БАЗОВОЕ РЕШЕНИЕ</p>
+      <h2 id="dialog-basic-title">Сайт на стандартных шаблонах Tilda</h2>
+      <p class="dialog-lead">Быстрый, функциональный и доступный по стоимости вариант</p>
+      <ul>
+        <li>подходит для быстрого запуска</li>
+        <li>удобно обновлять самостоятельно</li>
+        <li>оптимально для проверки новой идеи или услуги</li>
+      </ul>
+      <p>В Tilda есть стандартные блоки. Для сайта с базовым дизайном используются именно такие типовые блоки без каких-либо существенных изменений. Их структура и функциональность сохраняются, но можно настроить содержание, цвет, шрифт и отступы</p>
+      <p>Примеры реализации базового дизайна можно посмотреть в официальной коллекции шаблонов Tilda</p>
+      <a class="dialog-link" href="https://tilda.cc/ru/tpls/" target="_blank" rel="noopener noreferrer">Посмотреть базовые шаблоны Tilda <span aria-hidden="true">↗</span></a>
+      <p class="dialog-note"><strong>Важно</strong> Визуальная уникальность ограничена возможностями стандартных блоков</p>
+    </div>
   </dialog>
 
   <dialog id="dialog-custom" class="tariff-dialog" aria-labelledby="dialog-custom-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">ИНДИВИДУАЛЬНЫЙ ДИЗАЙН</p>
-    <h2 id="dialog-custom-title">Сайт на основе блоков Tilda, адаптированных под фирменный стиль</h2>
-    <p class="dialog-lead">Стандартные блоки Tilda с индивидуальным дизайном и удобным самостоятельным обновлением</p>
-    <ul>
-      <li>фирменные цвета, шрифты и изображения</li>
-      <li>продуманная композиция</li>
-      <li>удобное самостоятельное обновление</li>
-    </ul>
-    <p>Все блоки и весь визуал — изображения, иконки, типографика и цвета — учитывают фирменный стиль заказчика или выбранную концепцию. При этом функциональность и логика работы стандартных блоков Tilda сохраняются</p>
-    <p>У блоков Tilda много внутренних настроек: можно редактировать отступы, количество отображаемых элементов, их ширину и высоту, объём информации и порядок подачи. Это позволяет точнее настроить композицию и визуальный ритм страницы под конкретный проект</p>
-    <p>Однако функциональность каждого блока заранее стандартизирована. В этом формате я адаптирую блоки под фирменный стиль и задачу сайта, но почти не меняю их стандартную механику. В результате сайт получает индивидуальную подачу и при этом остаётся удобным для самостоятельного обновления и дальнейшей поддержки</p>
+    <div class="dialog-scroll">
+      <p class="section-marker">ИНДИВИДУАЛЬНЫЙ ДИЗАЙН</p>
+      <h2 id="dialog-custom-title">Сайт на основе блоков Tilda, адаптированных под фирменный стиль</h2>
+      <p class="dialog-lead">Стандартные блоки Tilda с индивидуальным дизайном и удобным самостоятельным обновлением</p>
+      <ul>
+        <li>фирменные цвета, шрифты и изображения</li>
+        <li>продуманная композиция</li>
+        <li>удобное самостоятельное обновление</li>
+      </ul>
+      <p>Все блоки и весь визуал — изображения, иконки, типографика и цвета — учитывают фирменный стиль заказчика или выбранную концепцию. При этом функциональность и логика работы стандартных блоков Tilda сохраняются</p>
+      <p>У блоков Tilda много внутренних настроек: можно редактировать отступы, количество отображаемых элементов, их ширину и высоту, объём информации и порядок подачи. Это позволяет точнее настроить композицию и визуальный ритм страницы под конкретный проект</p>
+      <p>Однако функциональность каждого блока заранее стандартизирована. В этом формате я адаптирую блоки под фирменный стиль и задачу сайта, но почти не меняю их стандартную механику. В результате сайт получает индивидуальную подачу и при этом остаётся удобным для самостоятельного обновления и дальнейшей поддержки</p>
+    </div>
   </dialog>
 
   <dialog id="dialog-zero" class="tariff-dialog" aria-labelledby="dialog-zero-title">
     <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
-    <p class="section-marker">УНИКАЛЬНЫЙ ДИЗАЙН + ZERO BLOCK</p>
-    <h2 id="dialog-zero-title">Индивидуальный дизайн и нестандартные блоки</h2>
-    <p class="dialog-lead">Для проектов, которым важно выделиться и создать более выразительный пользовательский сценарий</p>
-    <ul>
-      <li>полностью индивидуальные блоки</li>
-      <li>сложная пошаговая анимация</li>
-      <li>нестандартные визуальные решения</li>
-    </ul>
-    <p>Zero Block — встроенный редактор Tilda, в котором можно создать блок с нуля и свободно управлять расположением каждого элемента. С его помощью реализуются индивидуальная типографика, сложная композиция и сценарная анимация</p>
-    <p>Работа в Zero Block требует профессиональной вёрстки и отдельной адаптации композиции под разные устройства</p>
-    <p class="dialog-note"><strong>Важно</strong> Такой сайт требует больше времени на разработку, стоит дороже и может быть сложнее в самостоятельном редактировании</p>
+    <div class="dialog-scroll">
+      <p class="section-marker">УНИКАЛЬНЫЙ ДИЗАЙН + ZERO BLOCK</p>
+      <h2 id="dialog-zero-title">Индивидуальный дизайн и нестандартные блоки</h2>
+      <p class="dialog-lead">Для проектов, которым важно выделиться и создать более выразительный пользовательский сценарий</p>
+      <ul>
+        <li>полностью индивидуальные блоки</li>
+        <li>сложная пошаговая анимация</li>
+        <li>нестандартные визуальные решения</li>
+      </ul>
+      <p>Zero Block — встроенный редактор Tilda, в котором можно создать блок с нуля и свободно управлять расположением каждого элемента. С его помощью реализуются индивидуальная типографика, сложная композиция и сценарная анимация</p>
+      <p>Работа в Zero Block требует профессиональной вёрстки и отдельной адаптации композиции под разные устройства</p>
+      <p class="dialog-note"><strong>Важно</strong> Такой сайт требует больше времени на разработку, стоит дороже и может быть сложнее в самостоятельном редактировании</p>
+    </div>
   </dialog>
 
   <dialog id="price-dialog-basic" class="tariff-dialog price-dialog" aria-labelledby="price-dialog-basic-title">
@@ -728,7 +741,7 @@
     </div>
   </dialog>
 
-  <script src="websites.js?v=20261103-images"></script>
+  <script src="websites.js?v=20261116-mobile-2"></script>
   <script src="/assets/js/site-back-to-top.js?v=20261109" defer></script>
 </body>
 </html>

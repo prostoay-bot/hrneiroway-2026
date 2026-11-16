@@ -81,7 +81,7 @@ if (document.readyState === "loading") {
 }
 
 const dialogTriggers = document.querySelectorAll("[data-dialog-open]");
-let lastDialogTrigger = null;
+const dialogReturnFocus = new WeakMap();
 let lockedScrollY = 0;
 
 const lockPageScroll = () => {
@@ -94,8 +94,56 @@ const lockPageScroll = () => {
 const unlockPageScroll = () => {
   document.body.classList.remove("dialog-open");
   document.body.style.top = "";
-  window.scrollTo(0, lockedScrollY);
+  window.scrollTo({ top: lockedScrollY, behavior: "instant" });
 };
+
+const openSiteDialog = (dialog, trigger) => {
+  dialogReturnFocus.set(dialog, trigger);
+  lockPageScroll();
+  dialog.showModal();
+  dialog.querySelector(".dialog-close")?.focus({ preventScroll: true });
+};
+
+const restoreDialogPosition = (event) => {
+  const dialog = event.currentTarget;
+  if (!document.querySelector("dialog[open]")) unlockPageScroll();
+  dialogReturnFocus.get(dialog)?.focus({ preventScroll: true });
+};
+
+const casesViewport = document.querySelector(".projects-viewport");
+const casesControls = document.querySelector(".projects-controls");
+if (casesViewport && casesControls) {
+  const cards = [...casesViewport.querySelectorAll(".projects-track > article")];
+  const previous = casesControls.querySelector("[data-case-prev]");
+  const next = casesControls.querySelector("[data-case-next]");
+  const count = casesControls.querySelector("[data-case-count]");
+  const cardOffset = (card) => {
+    const viewport = casesViewport.getBoundingClientRect();
+    const item = card.getBoundingClientRect();
+    return item.left + item.width / 2 - viewport.left - viewport.width / 2;
+  };
+
+  let current = 0;
+  const updateCases = () => {
+    current = cards.reduce((nearest, card, index) =>
+      Math.abs(cardOffset(card)) < Math.abs(cardOffset(cards[nearest])) ? index : nearest, 0);
+    const label = `${current + 1} / ${cards.length}`;
+    if (count.textContent !== label) count.textContent = label;
+    previous.setAttribute("aria-disabled", String(current === 0));
+    next.setAttribute("aria-disabled", String(current === cards.length - 1));
+  };
+
+  const moveCase = (direction) => {
+    const card = cards[current + direction];
+    if (card) casesViewport.scrollBy({ left: cardOffset(card), behavior: reducedMotion ? "instant" : "smooth" });
+  };
+
+  previous.addEventListener("click", () => moveCase(-1));
+  next.addEventListener("click", () => moveCase(1));
+  casesViewport.addEventListener("scroll", updateCases, { passive: true });
+  window.addEventListener("resize", updateCases, { passive: true });
+  updateCases();
+}
 
 const setGallerySlide = (dialog, nextIndex) => {
   const slides = [...dialog.querySelectorAll("[data-gallery-slide]")];
@@ -154,11 +202,8 @@ dialogTriggers.forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const dialog = document.getElementById(trigger.dataset.dialogOpen);
     if (!dialog) return;
-    lastDialogTrigger = trigger;
-    dialog.showModal();
+    openSiteDialog(dialog, trigger);
     if (dialog.classList.contains("gallery-dialog")) setGallerySlide(dialog, 0);
-    lockPageScroll();
-    dialog.querySelector(".dialog-close")?.focus();
   });
 });
 
@@ -175,10 +220,7 @@ document.querySelectorAll(".tariff-dialog, .gallery-dialog").forEach((dialog) =>
       event.clientY > bounds.bottom;
     if (isBackdrop) closeDialog();
   });
-  dialog.addEventListener("close", () => {
-    unlockPageScroll();
-    lastDialogTrigger?.focus();
-  });
+  dialog.addEventListener("close", restoreDialogPosition);
 });
 
 const telegramNotice = document.getElementById("telegram-notice");
@@ -187,10 +229,7 @@ if (telegramNotice) {
   document.querySelectorAll('a[href^="https://t.me/"]:not([data-telegram-direct])').forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
-      lastDialogTrigger = link;
-      telegramNotice.showModal();
-      lockPageScroll();
-      telegramNotice.querySelector(".dialog-close")?.focus();
+      openSiteDialog(telegramNotice, link);
     });
   });
 
@@ -205,10 +244,7 @@ if (telegramNotice) {
       event.clientY > bounds.bottom;
     if (isBackdrop) closeTelegramNotice();
   });
-  telegramNotice.addEventListener("close", () => {
-    unlockPageScroll();
-    lastDialogTrigger?.focus();
-  });
+  telegramNotice.addEventListener("close", restoreDialogPosition);
 }
 
 const revealItems = document.querySelectorAll(

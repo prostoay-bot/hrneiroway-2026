@@ -130,9 +130,9 @@ footer[id] {
   scroll-margin-top: 96px;
 }
 
-@media (max-width: 760px) {
-  html { scroll-padding-top: 84px; }
-  main section[id], footer[id] { scroll-margin-top: 84px; }
+@media (max-width: 768px) {
+  html { scroll-padding-top: 96px; }
+  main section[id], footer[id] { scroll-margin-top: 0; }
 
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -162,7 +162,9 @@ footer[id] {
     left: 0;
     display: grid;
     gap: 0;
-    max-height: calc(100svh - 96px);
+    max-height: calc(100svh - 116px);
+    max-height: calc(100dvh - 116px - env(safe-area-inset-bottom, 0px));
+    overscroll-behavior-y: contain;
     padding: 8px;
     overflow-y: auto;
     background: rgba(255, 252, 239, .98);
@@ -184,7 +186,9 @@ footer[id] {
   }
 
   .site-nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     width: 100%;
     padding: 13px 14px;
     border-bottom: 1px solid rgba(10, 52, 40, .1);
@@ -3064,8 +3068,17 @@ body.has-useful-modal {
     margin: 12px 0 0;
   }
 
-  .work-process__heading > p {
+  .familiar h2,
+  .work-process__heading h2,
+  .work-process__heading > p,
+  .process-step h3,
+  .process-step p {
     white-space: normal;
+  }
+
+  .process-route__finish {
+    left: auto;
+    right: 0;
   }
 
   .about-story__sticky {
@@ -7747,22 +7760,22 @@ pointer-events: none !important;
   }
 
   #useful .useful-tab--prompts {
-    width: 260px !important;
-    height: 374px !important;
+    width: min(260px, 25.5vw) !important;
+    height: min(374px, 36.68vw) !important;
     z-index: 3 !important;
     transform: rotate(-3.5deg) translateY(20px) !important;
   }
 
   #useful .useful-tab--canva {
-    width: 278px !important;
-    height: 362px !important;
+    width: min(278px, 27.26vw) !important;
+    height: min(362px, 35.49vw) !important;
     z-index: 4 !important;
     transform: rotate(1.2deg) translateY(-10px) !important;
   }
 
   #useful .useful-tab--stickers {
-    width: 252px !important;
-    height: 366px !important;
+    width: min(252px, 24.72vw) !important;
+    height: min(366px, 35.9vw) !important;
     z-index: 3 !important;
     transform: rotate(3.5deg) translateY(24px) !important;
   }
@@ -7829,7 +7842,7 @@ pointer-events: none !important;
   }
 
   #useful .useful-tab--canva p {
-    top: 62% !important;
+    top: var(--useful-canva-description-top, 62%) !important;
     left: 24% !important;
     max-width: 51% !important;
   }
@@ -8096,4 +8109,22 @@ pointer-events: none !important;
   .portfolio-showcase__heading h2 { max-width: 100%; font-size: clamp(37px, 11vw, 54px); line-height: 1.04; text-wrap: balance; overflow-wrap: normal; }
   .work-process__header, .work-process__heading, .portfolio-showcase__header { min-width: 0; }
   .work-process__heading p, .portfolio-showcase__heading p { overflow-wrap: break-word; }
+}
+
+
+@media (max-width: 600px) {
+  body:has(.site-menu-toggle[aria-expanded="true"]) .site-back-to-top { visibility: hidden; }
+}
+
+@media (max-width: 600px) and (max-height: 480px) {
+  body .site-back-to-top { bottom: max(12px, env(safe-area-inset-bottom, 0px)); }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  #useful .useful-tab--canva { --useful-canva-description-top: 70%; }
+
+  .service-card {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 12px;
+  }
 }

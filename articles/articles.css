@@ -2039,6 +2039,10 @@ h3 {
     rgba(251, 250, 244, .84);
 }
 
+@media (max-width: 900px) {
+  .article-page--contents .contents-object--paperclips { right: -20px; }
+}
+
 @media (max-width: 760px) {
   .article-page--contents .hero-card {
     min-height: 500px;
@@ -2073,7 +2077,6 @@ h3 {
   }
 
   .article-page--contents .contents-object--paperclips {
-    right: -70px;
     bottom: -52px;
     width: 150px;
     opacity: .12;
