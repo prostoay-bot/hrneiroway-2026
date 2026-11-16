@@ -2862,3 +2862,56 @@ footer > div { display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-
   .format-panel,
   .format-cat { animation: none; }
 }
+
+/* Mobile usability polish: keep the desktop art direction intact. */
+@media (max-width: 720px) {
+  .site-header nav { -webkit-overflow-scrolling: touch; }
+  .site-header nav a, .site-menu-toggle { min-height: 44px; }
+  .workflow-intro h2 { max-width: 100%; font-size: clamp(48px, 14vw, 62px); line-height: 1; text-wrap: balance; }
+  .pricing-heading h2 { font-size: clamp(48px, 14vw, 64px); line-height: 1; text-wrap: balance; }
+  .price-includes-heading h2, .prototype-heading h2 { font-size: clamp(43px, 12vw, 58px); line-height: 1.04; text-wrap: balance; }
+  .format-intro h3, .pricing-card h3, .projects-heading h2 { text-wrap: balance; }
+  .pricing-actions button, .pricing-actions a { min-height: 44px; font-size: 12px; line-height: 1.35; }
+  .project-work li, .project-more .project-more-action p { font-size: 13px; line-height: 1.5; }
+  .tariff-dialog.price-dialog { max-height: calc(100dvh - 24px); }
+  .price-dialog-circle { max-height: calc(100dvh - 24px); }
+  .price-dialog-content { padding: 20px 16px 22px; }
+  .price-dialog .price-dialog-content li,
+  #price-dialog-shop .price-dialog-content li { font-size: 14px; line-height: 1.48; }
+  .price-dialog .price-dialog-content > p:not(.section-marker, .dialog-lead, .dialog-note),
+  .price-dialog .dialog-note,
+  #price-dialog-shop .dialog-note { font-size: 13px; line-height: 1.5; }
+  .price-dialog .price-dialog-content .dialog-lead { font-size: 14px; line-height: 1.45; }
+  .price-dialog .dialog-link { min-height: 44px; font-size: 12px; line-height: 1.35; }
+  .price-dialog .dialog-close { width: 44px; height: 44px; }
+  /* Only the case gallery scrolls horizontally; the document does not. */
+  .projects-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sage) transparent;
+  }
+  .projects-track {
+    display: flex;
+    width: max-content;
+    max-width: none;
+    gap: 14px;
+    padding-inline: 16px;
+    margin: 0;
+    transform: none !important;
+  }
+  .project, .project-more {
+    flex: 0 0 min(84vw, 420px);
+    width: min(84vw, 420px);
+    max-width: calc(100vw - 48px);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  .project-cover { min-height: 0; }
+  .project-content { min-height: 0; }
+  .project-more { min-height: 0; }
+}
