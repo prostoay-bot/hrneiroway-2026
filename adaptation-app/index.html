@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17261f">
+  <meta name="description" content="Интерактивный адаптационный маршрут нового сотрудника">
+  <title>Маршрут адаптации сотрудника — HRNEIROWAY</title>
+  <link rel="canonical" href="https://hrneiroway.ru/adaptation-app/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="На главную">
+        <span class="brand-mark">С</span>
+        <span>
+          <strong>Старт</strong>
+          <small>адаптация сотрудника</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav-link active" href="#dashboard" data-section="dashboard">
+          <span>01</span> Обзор
+        </a>
+        <a class="nav-link" href="#route" data-section="route">
+          <span>02</span> Маршрут
+        </a>
+        <a class="nav-link" href="#people" data-section="people">
+          <span>03</span> Команда
+        </a>
+        <a class="nav-link" href="#tools" data-section="tools">
+          <span>04</span> Инструменты
+        </a>
+        <a class="nav-link" href="#culture" data-section="culture">
+          <span>05</span> Культура
+        </a>
+        <a class="nav-link" href="#checklist" data-section="checklist">
+          <span>06</span> Чек-лист
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="site-return-link" href="/hr-guides.html#examples">← Материалы для адаптации</a>
+        <div class="mini-progress">
+          <div>
+            <span>Ваш прогресс</span>
+            <strong id="sidebarPercent">0%</strong>
+          </div>
+          <div class="progress-track"><i id="sidebarBar"></i></div>
+        </div>
+        <button class="text-button" id="resetButton" type="button">Начать заново</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <p class="demo-notice">Демонстрационный маршрут · Введённые данные сохраняются только в этом браузере. Удалить их можно кнопкой «Начать заново». <a href="/privacy.html">Конфиденциальность</a></p>
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" type="button" aria-label="Открыть меню">
+          <span></span><span></span>
+        </button>
+        <div class="topbar-date">
+          <span id="todayLabel"></span>
+          <strong>Первая неделя</strong>
+        </div>
+        <div class="employee-chip">
+          <span class="avatar" id="employeeAvatar">НС</span>
+          <span>
+            <strong id="employeeChipName">Новый сотрудник</strong>
+            <small id="employeeChipRole">Укажите должность</small>
+          </span>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboard">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Добро пожаловать в команду</span>
+            <h1>Спокойный старт<br><em>Понятный маршрут</em></h1>
+            <p>Здесь собрано всё, что поможет войти в ритм, познакомиться с командой и уверенно пройти первую рабочую неделю.</p>
+            <div class="hero-actions">
+              <button class="primary-button" type="button" data-go="route">Продолжить маршрут <span>→</span></button>
+              <button class="secondary-button" type="button" id="editProfileButton">Заполнить профиль</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <span class="hero-card-label">Общий прогресс</span>
+            <div class="progress-ring" id="progressRing">
+              <div><strong id="heroPercent">0%</strong><span>выполнено</span></div>
+            </div>
+            <p id="progressMessage">Самое время сделать первый шаг.</p>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel profile-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Карточка сотрудника</span>
+                <h2 id="profileName">Новый сотрудник</h2>
+              </div>
+              <button class="icon-button" id="profilePencil" type="button" aria-label="Редактировать профиль">✎</button>
+            </div>
+            <dl class="profile-data">
+              <div><dt>Компания</dt><dd id="profileCompany">Не указана</dd></div>
+              <div><dt>Должность</dt><dd id="profileRole">Не указана</dd></div>
+              <div><dt>Дата начала</dt><dd id="profileDate">Не указана</dd></div>
+            </dl>
+          </article>
+
+          <article class="panel next-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="eyebrow">Следующий шаг</span>
+                <h2 id="nextTaskTitle">Встреча с руководителем</h2>
+              </div>
+              <span class="day-badge" id="nextTaskDay">День 1</span>
+            </div>
+            <p id="nextTaskDescription">Начните с первой задачи маршрута.</p>
+            <button class="inline-link" type="button" data-go="route">Открыть план <span>↗</span></button>
+          </article>
+
+          <article class="panel stats-panel">
+            <span class="eyebrow">На этой неделе</span>
+            <div class="stats">
+              <div><strong id="completedCount">0</strong><span>задач готово</span></div>
+              <div><strong id="remainingCount">0</strong><span>осталось</span></div>
+              <div><strong>7</strong><span>дней маршрута</span></div>
+            </div>
+          </article>
+
+          <article class="panel note-panel">
+            <span class="eyebrow">Важно помнить</span>
+            <blockquote>Лучше задать короткий вопрос, чем потратить часы на догадки.</blockquote>
+            <button class="inline-link" type="button" data-go="culture">Посмотреть культурный код <span>↗</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="route">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Первый месяц начинается здесь</span>
+            <h1>Маршрут первой недели</h1>
+            <p>Не нужно охватить всё сразу. Двигайтесь по дням и отмечайте выполненное.</p>
+          </div>
+          <div class="route-summary"><strong id="routeCount">0 / 0</strong><span>шагов пройдено</span></div>
+        </div>
+        <div class="day-tabs" id="dayTabs" aria-label="Фильтр по дням"></div>
+        <div class="route-list" id="routeList"></div>
+      </section>
+
+      <section class="view" id="people">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Кто за что отвечает</span>
+            <h1>Команда рядом</h1>
+            <p>Заполните контакты до первого рабочего дня или сразу после выхода.</p>
+          </div>
+        </div>
+        <div class="people-grid" id="peopleGrid"></div>
+      </section>
+
+      <section class="view" id="tools">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Рабочая среда</span>
+            <h1>Инструменты и правила</h1>
+            <p>Доступы выдаются в первый день. Сохраните ссылки на ваши рабочие сервисы.</p>
+          </div>
+        </div>
+        <div class="tools-layout">
+          <div class="tools-grid" id="toolsGrid"></div>
+          <aside class="rules-card">
+            <span class="eyebrow light">Четыре правила</span>
+            <h2>Как мы работаем</h2>
+            <ol>
+              <li><span>01</span>Задачи фиксируются только в таск-менеджере.</li>
+              <li><span>02</span>Рабочие файлы хранятся в облаке.</li>
+              <li><span>03</span>Срочное — в мессенджер, остальное — в задачи.</li>
+              <li><span>04</span>Пароли не передаются без согласования с IT.</li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="culture">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Не официальный устав</span>
+            <h1>Культурный код</h1>
+            <p>То, что действительно помогает команде работать спокойно и честно.</p>
+          </div>
+        </div>
+        <div class="culture-table" id="cultureTable"></div>
+      </section>
+
+      <section class="view" id="checklist">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Итог первой недели</span>
+            <h1>Финальный чек-лист</h1>
+            <p>Всё незакрытое станет темой для check-in с руководителем.</p>
+          </div>
+          <button class="secondary-button" id="exportButton" type="button">Скачать итог</button>
+        </div>
+        <div class="checklist-layout">
+          <div class="checklist-card">
+            <div class="checklist-progress">
+              <div>
+                <strong id="checklistPercent">0%</strong>
+                <span>готовность к завершению недели</span>
+              </div>
+              <div class="progress-track large"><i id="checklistBar"></i></div>
+            </div>
+            <div id="checklistItems"></div>
+          </div>
+          <aside class="questions-card">
+            <span class="eyebrow">К следующей встрече</span>
+            <h2>Открытые вопросы</h2>
+            <p>Записывайте всё, что пока непонятно. Заметки сохраняются автоматически.</p>
+            <textarea id="questionsInput" placeholder="Например: как согласовывать расходы?"></textarea>
+            <small id="saveStatus">Сохранено локально</small>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="modal" id="profileModal">
+    <form method="dialog" id="profileForm">
+      <div class="modal-heading">
+        <div>
+          <span class="eyebrow">Личные данные</span>
+          <h2>Карточка сотрудника</h2>
+        </div>
+        <button class="close-button" value="cancel" aria-label="Закрыть">×</button>
+      </div>
+      <label>Имя и фамилия<input name="name" autocomplete="name" placeholder="Анна Смирнова"></label>
+      <label>Компания<input name="company" autocomplete="organization" placeholder="Название компании"></label>
+      <label>Должность<input name="role" autocomplete="organization-title" placeholder="Менеджер проектов"></label>
+      <label>Дата начала<input name="startDate" type="date"></label>
+      <div class="modal-actions">
+        <button class="secondary-button" value="cancel">Отмена</button>
+        <button class="primary-button" value="default" id="saveProfileButton">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="contactModal">
+    <form method="dialog" id="contactForm">
+      <div class="modal-heading">
+        <div>
+          <span class="eyebrow">Контакт</span>
+          <h2 id="contactModalTitle">Добавить данные</h2>
+        </div>
+        <button class="close-button" value="cancel" aria-label="Закрыть">×</button>
+      </div>
+      <input name="contactId" type="hidden">
+      <label>Имя или название<input name="name" placeholder="Иван Петров"></label>
+      <label>Телефон / @username<input name="contact" placeholder="+7 900 000-00-00"></label>
+      <div class="modal-actions">
+        <button class="secondary-button" value="cancel">Отмена</button>
+        <button class="primary-button" value="default" id="saveContactButton">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
