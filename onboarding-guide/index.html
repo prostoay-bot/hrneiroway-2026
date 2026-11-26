@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Интерактивный гайд по адаптации сотрудников — HRNEIROWAY</title>
+    <meta name="description" content="Пример интерактивного гайда новичка: документы, первый рабочий день, чаты, команда и чек-лист подготовки.">
+    <link rel="canonical" href="https://hrneiroway.ru/onboarding-guide/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="site-return"><a href="/hr-guides.html#examples">← Материалы для адаптации</a><span>Демонстрационный гайд · HRNEIROWAY</span></div>
+    <header class="topbar">
+      <a class="brand" href="#welcome" aria-label="К началу документа">
+        <span class="brand__mark">WB</span>
+        <span>
+          <strong>Welcome Book</strong>
+          <small>Гайд нового сотрудника</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Разделы welcome book">
+        <a href="#welcome">Старт</a>
+        <a href="#documents">Документы</a>
+        <a href="#first-day">Первый день</a>
+        <a href="#chats">Чаты</a>
+        <a href="#rules">Правила</a>
+        <a href="#team">Команда</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#tips">Советы</a>
+        <a href="#finish">Финал</a>
+      </nav>
+
+      <button class="icon-button" type="button" data-print aria-label="Распечатать или сохранить в PDF">
+        <span aria-hidden="true">PDF</span>
+        <span>Распечатать</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero section" id="welcome">
+        <div class="hero__content">
+          <p class="eyebrow">1. Добро пожаловать в команду</p>
+          <h1>Ваш быстрый старт в компании</h1>
+          <p class="hero__text">
+            Добро пожаловать в команду. Этот welcome book поможет быстро адаптироваться
+            и уверенно начать работу: подготовить документы, пройти первый день,
+            подключиться к чатам и познакомиться с основными правилами.
+          </p>
+          <div class="hero__actions">
+            <a class="button" href="#documents">Начать с документов</a>
+            <a class="button button--secondary" href="#first-day">Посмотреть первый день</a>
+          </div>
+        </div>
+
+        <aside class="progress-card" aria-label="Прогресс адаптации">
+          <span class="progress-card__label">Прогресс подготовки</span>
+          <strong><span data-progress-value>0</span>%</strong>
+          <div class="progress" aria-hidden="true">
+            <span data-progress-bar></span>
+          </div>
+          <p data-progress-copy>Отметьте первые пункты, чтобы увидеть прогресс.</p>
+        </aside>
+      </section>
+
+      <section class="section intro-grid" aria-label="Что внутри welcome book">
+        <article class="info-card">
+          <span class="info-card__icon">01</span>
+          <h2>Подготовка</h2>
+          <p>Сканы или копии документов, оформление и первые организационные шаги.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-card__icon">02</span>
+          <h2>Коммуникации</h2>
+          <p>Основные чаты, правила сообщений и понятный формат рабочих вопросов.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-card__icon">03</span>
+          <h2>Люди</h2>
+          <p>Ключевые коллеги, график, встречи по понедельникам и контакты для помощи.</p>
+        </article>
+      </section>
+
+      <section class="section checklist-section" id="documents">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">2. Необходимые документы</p>
+            <h2>Проверьте, что все готово</h2>
+            <p class="section-copy">
+              Для оформления трудоустройства подготовьте сканы или копии документов.
+              Их можно прислать заранее или принести в первый рабочий день.
+            </p>
+          </div>
+          <button class="button button--secondary" type="button" data-reset>Сбросить прогресс</button>
+        </div>
+
+        <div class="checklist" data-checklist>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>Паспорт: скан или копия</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>СНИЛС: скан или копия</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>ИНН: скан или копия</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>Документ об образовании: скан или копия</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox">
+            <span>Трудовая книжка или электронная трудовая книжка: скан или копия</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="section split" id="first-day">
+        <div>
+          <p class="eyebrow">3. Первый рабочий день</p>
+          <h2>Маршрут без суеты</h2>
+          <p>
+            Рабочий день начинается в 10:00. Мы ждем вас по адресу: [адрес офиса],
+            [Номер кабинета/переговорной]. Вас встретит [Имя контактного лица].
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article>
+            <span>10:00</span>
+            <h3>Приветствие и знакомство</h3>
+            <p>Встретимся в офисе, познакомим вас с командой и поможем с первыми организационными вопросами.</p>
+          </article>
+          <article>
+            <span>10:30</span>
+            <h3>Офис и рабочее место</h3>
+            <p>Покажем офис, рабочее место, зоны отдыха и места, которые пригодятся в течение дня.</p>
+          </article>
+          <article>
+            <span>11:30</span>
+            <h3>Задачи и обязанности</h3>
+            <p>Коротко обсудим вашу роль, ближайшие задачи и ожидания на период адаптации.</p>
+          </article>
+          <article>
+            <span>После обеда</span>
+            <h3>Корпоративные системы</h3>
+            <p>Подключим почту, чаты, рабочие сервисы и ресурсы, которые нужны для ежедневной работы.</p>
+          </article>
+          <article>
+            <span>Финал дня</span>
+            <h3>Вводный тренинг</h3>
+            <p>Разберем основные корпоративные правила, процедуры и вопросы, которые появятся в течение дня.</p>
+          </article>
+          <article>
+            <span>Дресс-код</span>
+            <h3>Форма одежды</h3>
+            <p>[Указать дресс-код, если есть]. Если в первый день не получится соблюсти его полностью, ничего страшного: важнее настрой и готовность к работе.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="chats">
+        <p class="eyebrow">4. Корпоративные чаты и коммуникации</p>
+        <h2>Где что обсуждать</h2>
+        <p class="section-copy">
+          В первый рабочий день мы добавим вас в основные корпоративные чаты.
+          Профильные группы зависят от вашей должности и задач.
+        </p>
+
+        <div class="card-grid card-grid--four">
+          <article class="info-card">
+            <span class="tag">Инфо-чат</span>
+            <h3>Важные объявления</h3>
+            <p>Новости компании, важные сообщения, поздравления с днем рождения и другие общие уведомления.</p>
+          </article>
+          <article class="info-card">
+            <span class="tag">Офис&Хоз. дела</span>
+            <h3>Офисные вопросы</h3>
+            <p>Вода, салфетки, маркеры, скрепки, стулья, лампочки, чистота и порядок в офисе.</p>
+          </article>
+          <article class="info-card">
+            <span class="tag">IT-поддержка</span>
+            <h3>Техника и софт</h3>
+            <p>Сбои оборудования, офисная техника, программное обеспечение, учетные записи и расходные материалы.</p>
+          </article>
+          <article class="info-card">
+            <span class="tag">Профильные группы</span>
+            <h3>По вашей вакансии</h3>
+            <p>Дополнительные чаты для проектов, отделов и задач, которые относятся к вашей роли.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="rules">
+        <p class="eyebrow">5. Правила общения в чатах</p>
+        <h2>Коротко, понятно, уважительно</h2>
+
+        <div class="accordion">
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="true">
+              <span>Начинайте с приветствия</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel">
+              <p>Если пишете первым, начните с приветствия. Это простое правило помогает сохранять доброжелательный тон даже в быстрых рабочих переписках.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Пишите по теме чата</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Выбирайте канал по смыслу вопроса. Так сообщения не теряются, а коллегам проще найти нужную информацию позже.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Обращайтесь адресно</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Если вопрос к конкретному человеку, упоминайте его через @имя. Используйте функцию «Ответить», чтобы сохранить контекст переписки.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Отвечайте без долгого молчания</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Если не можете ответить сразу, напишите, когда вернетесь к вопросу. Даже короткое подтверждение помогает коллегам планировать работу.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Уважайте рабочее и личное время</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Старайтесь не писать по рабочим вопросам в выходные и праздники. Если вопрос срочный, сразу обозначьте срок и причину срочности.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Сначала проверьте, что можно решить самостоятельно</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Перед тем как писать в чат, посмотрите доступные инструкции или прошлые обсуждения. Если вопрос остается, добавьте свои варианты решения.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Пишите коротко и понятно</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Одна мысль — одно сообщение. Разные задачи лучше разделять, чтобы их было проще обсуждать и закрывать.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Используйте реакции</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Реакции помогают быстро подтвердить, что сообщение увидели, согласовать простое решение или показать, что идея полезна.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Голосовые — только там, где они уместны</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>В рабочих чатах лучше писать текстом: так сообщение можно найти, процитировать и быстро передать дальше. Голосовые используйте только в согласованных каналах, например в «Заявках».</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Добавляйте ключевые слова</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Называйте сервис, задачу, кабинет, устройство или проект прямо в сообщении. Потом такую переписку будет легче найти через поиск.</p>
+            </div>
+          </article>
+
+          <article class="accordion__item">
+            <button class="accordion__trigger" type="button" aria-expanded="false">
+              <span>Сохраняйте доброжелательность</span>
+              <span aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Грубость, оскорбления и резкий тон недопустимы. Комфортная коммуникация — общая ответственность команды.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="team">
+        <div>
+          <p class="eyebrow">6. Знакомство с командой</p>
+          <h2>С кем вы будете работать</h2>
+          <p>
+            Ваш успех — это общий результат команды. В первые дни познакомьтесь с ключевыми
+            коллегами и не стесняйтесь задавать вопросы.
+          </p>
+        </div>
+
+        <div class="people-list">
+          <article class="person-card">
+            <span>Руководитель отдела продаж</span>
+            <h3>Сыщенко Кирилл</h3>
+            <p>Поможет разобраться с коммерческими процессами, задачами отдела и рабочими приоритетами.</p>
+          </article>
+          <article class="person-card">
+            <span>Технический директор</span>
+            <h3>Щелканов Роман</h3>
+            <p>Отвечает за техническое направление, инфраструктуру и связанные с ними рабочие вопросы.</p>
+          </article>
+          <article class="person-card">
+            <span>Командная встреча</span>
+            <h3>Каждый понедельник</h3>
+            <p>На коротких встречах обсуждаем текущие вопросы, планы на будущее и общее состояние команды.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contacts">
+        <p class="eyebrow">7. Основные контакты и график</p>
+        <h2>Важное под рукой</h2>
+
+        <div class="contact-layout">
+          <article class="contact-card contact-card--primary">
+            <span class="tag">Контактное лицо</span>
+            <h3>[Имя контактного лица]</h3>
+            <p><strong>Email:</strong> [email]</p>
+            <p><strong>Телефон:</strong> [телефон]</p>
+            <p><strong>Офис:</strong> [адрес офиса]</p>
+          </article>
+
+          <article class="contact-card">
+            <span class="tag">График</span>
+            <h3>Рабочее время</h3>
+            <p>Рабочий день начинается в 10:00 и заканчивается в 18:30 по московскому времени.</p>
+          </article>
+
+          <article class="contact-card">
+            <span class="tag">Обед</span>
+            <h3>30 минут</h3>
+            <p>Обеденный перерыв можно взять с 12:00 до 15:00. Важно не оставлять рабочие места одновременно, если вы зависите друг от друга по задачам.</p>
+          </article>
+
+          <article class="contact-card">
+            <span class="tag">Кофе-брейки</span>
+            <h3>11:40–12:00 и 16:40–17:00</h3>
+            <p>Это личное время для отдыха: можно выпить чай или кофе, прогуляться, перекусить или просто восстановить силы.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="tips">
+        <p class="eyebrow">8. Советы для успешной адаптации</p>
+        <h2>Что поможет быстрее освоиться</h2>
+
+        <div class="card-grid">
+          <article class="tip-card">
+            <h3>Участвуйте в жизни компании</h3>
+            <p>Приходите на встречи, участвуйте в обсуждениях и предлагайте идеи, когда видите возможность улучшить процесс.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Задавайте вопросы</h3>
+            <p>Если что-то непонятно, лучше уточнить сразу. Команда готова помогать на каждом этапе адаптации.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Изучайте культуру</h3>
+            <p>Обращайте внимание на ценности, традиции и стиль общения. Это помогает быстрее почувствовать себя частью команды.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Разберитесь в правилах</h3>
+            <p>Внутренние процедуры помогают работать спокойнее: вы быстрее поймете, как принимать решения и куда обращаться.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Знакомьтесь с коллегами</h3>
+            <p>Рабочие контакты и дружелюбное общение делают адаптацию проще и помогают быстрее находить ответы.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Будьте открыты к новому</h3>
+            <p>Новые задачи и обучение — нормальная часть старта. Мы верим в ваш потенциал и готовы поддерживать вас.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section finish" id="finish">
+        <p class="eyebrow">9. Заключение и контактное лицо</p>
+        <h2>Вы не одни в этом процессе</h2>
+        <p>
+          Желаем успешного старта и плодотворной работы. Ваш вклад важен для команды,
+          а вопросы в период адаптации — это нормально. Если понадобится помощь,
+          обращайтесь к контактному лицу.
+        </p>
+        <p>
+          Успех приходит к тем, кто верит в себя, учится новому и не боится сложных задач.
+          Добро пожаловать в команду.
+        </p>
+
+        <div class="finish-card">
+          <h3>[Имя контактного лица]</h3>
+          <p><strong>Email:</strong> [email]</p>
+          <p><strong>Телефон:</strong> [телефон]</p>
+          <p><strong>Адрес офиса:</strong> [адрес офиса]</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Демонстрационный гайд нового сотрудника. Отметки чек-листа сохраняются только в этом браузере. Кнопка «Сбросить прогресс» удаляет отметки. <a href="/privacy.html">Политика конфиденциальности</a></p>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -2,7 +2,7 @@
 .wb-product__preview{display:block;max-width:230px;padding:12px;background:#ead6c1;transform:rotate(-4deg);box-shadow:0 10px 25px #24332d18}
 .wb-product__preview img{display:block;width:100%;height:auto}
 .wb-product__label{margin:0 0 18px;color:#7b0813;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
-.wb-product h3{margin:0 0 20px;color:#0a4538;font-family:Forum,Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:400;line-height:1.1;letter-spacing:-.025em}
+.wb-product h2,.wb-product h3{margin:0 0 20px;color:#0a4538;font-family:Forum,Georgia,serif;font-size:clamp(30px,4vw,48px);font-weight:400;line-height:1.1;letter-spacing:-.025em}
 .wb-product__copy>p:not(.wb-product__label){max-width:620px;margin:0;color:#46594f;font-size:17px;line-height:1.6}
 .wb-product__bottom{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:28px}
 .wb-product__bottom strong{color:#0a4538;font-size:28px;white-space:nowrap}
@@ -11,3 +11,5 @@
 .wb-product__bottom a:hover{background:#5d060e}
 .wb-product + .useful-reading{margin-top:0}
 @media(max-width:600px){.wb-product{grid-template-columns:1fr;gap:32px;width:calc(100% - 32px);padding:26px;margin:35px auto 50px}.wb-product__preview{width:160px;justify-self:center}.wb-product__bottom{gap:18px}.wb-product__bottom a{justify-content:center}}
+
+.wb-product + .hg-examples{padding-top:20px}
